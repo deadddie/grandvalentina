@@ -1,0 +1,55 @@
+/.idea
+/.vscode
+/.vagrant
+*.log
+log.txt
+pathLog.txt
+.DS_Store
+Thumbs.db
+
+# игнорируем папку битрикс
+/bitrix/*
+
+# исключаем оттуда папки templates, modules, components, php_interface
+!/bitrix/templates/
+!/bitrix/modules/
+!/bitrix/components/
+!/bitrix/php_interface/
+
+# в php_interface игнорим файлы, связанные с БД
+/bitrix/php_interface/dbconn.php
+/bitrix/php_interface/after_connect_d7.php
+/bitrix/php_interface/after_connect.php
+/bitrix/php_interface/cron_events.php
+
+# папки в templates
+/bitrix/templates/desktop_app
+/bitrix/templates/landing24
+/bitrix/templates/learning
+
+# игнорируем загруженные файлы и логи
+/upload/*
+/logs/*
+/.logs/*
+/desktop_app/*
+
+# игнорируем другие файлы
+google*.html
+yandex*.html
+cmsmagazine*.*
+/.htaccess_back
+/.htaccess.restore
+
+# игнорируем файлы импорта данных
+/import*.csv
+/export*.csv
+/test*.php
+*.php.back*
+/testUpdater.txt
+
+# игнорирование папок
+/export/
+/import/
+/local/vendor/
+/local/node_modules/
+/_markup/
