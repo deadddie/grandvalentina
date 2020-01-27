@@ -1,0 +1,25 @@
+// sprites
+
+.icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+}
+
+.icon-safari-pinned-tab {
+	font-size:(160/10)*1rem;
+	width:(160/160)*1em;
+}
+
+#SVG_container{
+  position: absolute;
+  height: 0;
+  width: 0;
+}
+
+#SVG_container svg{
+  position: absolute;
+  height: 0;
+  width: 0;
+}

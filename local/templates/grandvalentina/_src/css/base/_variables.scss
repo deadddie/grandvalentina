@@ -1,0 +1,58 @@
+// Colors
+
+$app-color--white: #fff;
+$app-color--black: #1e1e1e;
+
+$app-color--primary: #cabcaa;
+$app-color--secondary: #f4efe4;
+$app-color--border: #e9e6e2;
+$app-color--border-dark: #333;
+
+$app-color--active: #c12032;
+$app-color--active-hover: #ae1829;
+
+$app-color--error: #ff7070;
+$app-color--success: #3afad6;
+$app-color--warning: #d9cb9e;
+
+// Font Sizes
+
+$app-fontsize--big: 36px;
+
+$app-fontsize--h1: 30px;
+$app-fontsize--h2: 25px;
+$app-fontsize--h3: 20px;
+
+$app-fontsize--large: 18px;
+$app-fontsize--medium: 16px;
+$app-fontsize--base: 15px;
+$app-fontsize--small: 14px;
+$app-fontsize--smaller: 12px;
+
+// Paddings
+
+$app-padding--small: 10px;
+$app-padding--base: 15px;
+$app-padding--medium: 20px;
+$app-padding--large: 30px;
+$app-padding--largest: 50px;
+
+// Other
+
+$app-border-radius: 0;
+
+$app-button-height: 40px;
+$app-button-height-sm: 30px;
+$app-button-height-wide: 50px;
+$app-search-height: 40px;
+
+$app-navigation-height: 50px;
+
+// Tooltips
+$tooltip-bg: #c4c4c4;
+$tooltip-color: $app-color--primary;
+
+$screen-xl: 1266px;
+$screen-lg: 1024px;
+$screen-md: 768px;
+$screen-sm: 576px;

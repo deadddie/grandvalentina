@@ -1,0 +1,60 @@
+// fixes
+
+body a:focus,
+body a:active,
+body a:hover,
+body img:focus,
+body img:active,
+body img:hover,
+:focus {
+  outline: none;
+}
+::selection {
+  color: $app-color--black;
+  background-color: $app-color--success;
+}
+img,
+a {
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  user-select: none;
+}
+
+// outline fixes
+
+a:hover,
+a:active,
+a:focus,
+a:link,
+a:visited {
+  outline: 0 !important;
+  outline-style: none;
+}
+button, object, embed {
+  outline: 0;
+}
+input::-moz-focus-inner {
+  outline: 0;
+}
+input[type="submit"]::-moz-focus-inner,
+input[type="button"]::-moz-focus-inner {
+  outline: 0;
+}
+
+::-webkit-input-placeholder { color: $app-color--black; }
+::-moz-placeholder          { color: $app-color--black; } // Firefox 19+
+:-moz-placeholder           { color: $app-color--black; } // Firefox 18-
+:-ms-input-placeholder      { color: $app-color--black; }
+
+.search::-webkit-input-placeholder { color: $app-color--black; }
+.search::-moz-placeholder          { color: $app-color--black; } // Firefox 19+
+.search:-moz-placeholder           { color: $app-color--black; } // Firefox 18-
+.search:-ms-input-placeholder      { color: $app-color--black; }
+
+// fix for number fields
+
+input[type=number]::-webkit-inner-spin-button,
+input[type=number]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}

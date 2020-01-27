@@ -1,0 +1,60 @@
+// Typography
+
+// Headers
+
+h1,h2,h3,h4,h5 {
+  color: $app-color--primary;
+}
+
+h1 {
+  @include head_font;
+  color: $app-color--primary;
+  font-weight: normal;
+}
+
+h2 {
+  color: $app-color--primary;
+  @include head_font;
+  font-size: $app-fontsize--h2;
+}
+
+h3 {
+  color: $app-color--primary;
+  font-size: $app-fontsize--h3;
+  font-weight: normal;
+}
+
+h4 {
+  font-size: $app-fontsize--medium;
+  font-weight: normal;
+}
+
+.big { font-size: $app-fontsize--big; }
+.h1 { font-size: $app-fontsize--h1; }
+.h2 { font-size: $app-fontsize--h2; }
+.h3 { font-size: $app-fontsize--h3; }
+
+// Links
+
+a,
+a:link,
+a:visited {
+  color: $app-color--active;
+  text-decoration: underline;
+}
+
+a {
+  &:hover {
+    text-decoration: none;
+    color: $app-color--active-hover;
+  }
+  &:active {
+    //color: $app-color--active-dark;
+  }
+}
+
+a img,
+a:link img,
+a:visited img {
+  border: none;
+}

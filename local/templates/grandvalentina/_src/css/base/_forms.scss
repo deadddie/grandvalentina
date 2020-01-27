@@ -1,0 +1,118 @@
+// forms
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  min-width: 0;
+}
+
+legend {
+}
+
+label {
+  display: inline-block;
+  max-width: 100%;
+  margin-bottom: 5px;
+}
+
+// inputs
+
+textarea,
+select,
+input {
+  height: $app-navigation-height;
+  @include border-radius;
+  border: 1px solid $app-color--border;
+  padding-left: 25px;
+  padding-right: 25px;
+  &:focus {
+    border-color: $app-color--primary;
+  }
+  &:invalid {
+    //border-color: $app-color--active-dark;
+    outline: none;
+    box-shadow: none;
+  }
+
+  &[type="search"] {
+  }
+
+  &[type="radio"],
+  &[type="checkbox"] {
+  }
+
+  &[type="file"] {
+  }
+
+  &[type="range"] {
+  }
+
+  &[type="search"] {
+    -webkit-appearance: none;
+  }
+
+}
+
+textarea {
+  height: initial;
+  padding-top: 15px;
+  padding-bottom: 15px;
+}
+
+select[multiple],
+select[size] {
+  height: auto;
+}
+
+input[type="file"]:focus,
+input[type="radio"]:focus,
+input[type="checkbox"]:focus {
+  outline: thin dotted;
+  outline: 5px auto -webkit-focus-ring-color;
+  outline-offset: -2px;
+}
+
+output {
+  display: block;
+  padding-top: 7px;
+  line-height: 1.42857143;
+  color: $app-color--secondary;
+}
+
+.form-error {
+  flex-basis: 100%;
+  width: 100%;
+  display: inline-flex;
+  color: $app-color--white;
+  font-size: $app-fontsize--smaller;
+  margin: 15px 0 0;
+  padding: 3px 5px;
+  //background-color: $app-color--active-dark;
+  @include border-radius;
+  justify-content: center;
+}
+.form-field {
+  margin-bottom: 15px;
+  position: relative;
+  &-error {
+    display: inline-flex;
+    color: $app-color--white;
+    font-size: $app-fontsize--smaller - 1;
+    margin: 0;
+    padding: 0 5px;
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    //background-color: $app-color--active-dark;
+    @include border-radius;
+    ~ input,
+    ~ select,
+    ~ textarea {
+      //border-color: $app-color--active-dark;
+    }
+  }
+  label {
+    display: none;
+  }
+}

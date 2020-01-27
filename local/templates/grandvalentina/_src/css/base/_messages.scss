@@ -1,0 +1,23 @@
+// Error & OK messages
+
+.errortext,
+.starrequired {
+  color: $app-color--error;
+}
+
+.errortext,
+.notetext {
+  display: block;
+  margin: 0;
+  padding: 0.4em 1.117em;
+  border: 1px solid $app-color--error;
+  //background-color: $app-color--background;
+  ul {
+    padding: 0.3em 0 0.3em 2em;
+    margin: 0;
+    li {
+      margin: 0;
+      padding: 0;
+    }
+  }
+}

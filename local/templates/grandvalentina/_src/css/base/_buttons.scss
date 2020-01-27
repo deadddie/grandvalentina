@@ -1,0 +1,77 @@
+// Button
+
+.btn,
+button {
+  height: $app-button-height;
+  padding-left: 25px;
+  padding-right: 25px;
+  user-select: none;
+  border: none;
+  display: inline-flex;
+  text-decoration: none;
+  background-color: $app-color--active;
+  color: $app-color--white;
+  align-items: center;
+  justify-content: center;
+  @include head_font;
+  @include border-radius;
+  font-size: $app-fontsize--medium;
+  transition: background-color 0.2s ease-in-out;
+  &:hover,
+  &:focus {
+    background-color: $app-color--active-hover;
+  }
+  &[disabled],
+  &.disabled {
+    pointer-events: none;
+  }
+}
+
+a.btn {
+  color: $app-color--white;
+  text-decoration: none;
+}
+
+.btn {
+
+  // Button Sizes
+  &-noradius {
+    border-radius: 0 !important;
+  }
+  &-wide {
+    height: $app-button-height-wide;
+    width: 100%;
+  }
+  &-block {
+    min-width: 300px;
+  }
+  &-sm {
+    height: $app-button-height-sm;
+    font-size: $app-fontsize--base;
+  }
+
+  // Button Colors
+
+
+  // Link Button
+  &-link {
+    color: $app-color--active;
+    background: transparent;
+    padding: 0;
+    margin: 0;
+    display: inline-flex;
+    height: initial;
+    line-height: initial;
+    text-decoration: underline;
+    &:hover {
+    }
+    &-inverse {
+      text-decoration: none;
+      &:hover {
+        text-decoration: none;
+      }
+    }
+  }
+
+}
+

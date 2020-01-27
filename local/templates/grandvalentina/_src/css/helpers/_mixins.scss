@@ -1,0 +1,56 @@
+// mixins
+
+@mixin iconnear {
+  min-width: 18px;
+  max-width: 18px;
+  max-height: 20px;
+  margin-right: 12px;
+}
+
+@mixin nowrap {
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+
+@mixin shadow {
+  box-shadow: 0 4px 20px rgba(#000, 0.1);
+}
+
+@mixin shadow-sm {
+  box-shadow: 0 1px 4px rgba(#000, 0.1);
+}
+
+@mixin isInvisible {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.2s ease-in-out;
+  position: absolute;
+}
+
+@mixin isVisible {
+  visibility: visible;
+  opacity: 1;
+}
+
+@mixin head_font {
+  font-family: "Montserrat", serif;
+  font-weight: 600;
+  font-style: normal;
+}
+
+@mixin text_font {
+  font-family: "Didact Gothic", sans-serif;
+  font-weight: 400;
+}
+
+@mixin text_font_bold {
+  font-family: "Didact Gothic", sans-serif;
+  font-weight: 700;
+}
+
+@mixin ruble {
+  font-family: "Rouble", serif;
+  font-weight: normal;
+  font-style: normal;
+}

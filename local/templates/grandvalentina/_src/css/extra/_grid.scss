@@ -1,0 +1,9 @@
+// extra grid
+
+$grid-breakpoints--xxl: 1630px;
+$container-max-widths--xxl: 1594px;
+
+.container-wide {
+  @extend .container;
+  max-width: $grid-breakpoints--xxl !important;
+}

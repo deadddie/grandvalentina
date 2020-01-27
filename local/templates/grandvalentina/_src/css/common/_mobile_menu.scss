@@ -1,0 +1,131 @@
+// Mobile Menu
+
+.mobile-menu {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: -420px;
+  min-width: 320px;
+  max-width: 420px;
+  height: 100vh;
+  min-height: 100%;
+  background-color: $app-color--white;
+  @include shadow;
+  z-index: 1000;
+  display: flex;
+  flex-wrap: wrap;
+  transition: right 0.3s ease-out;
+  &.active {
+    right: 0;
+  }
+  @media (min-width: map_get($grid-breakpoints, md)) {
+    display: none;
+  }
+  .close {
+    position: absolute;
+    right: 0;
+    top: 0;
+    height: $app-navigation-height;
+    width: $app-navigation-height;
+    background-color: $app-color--white;
+    padding: 0;
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    align-content: center;
+  }
+  .about {
+    display: inline-flex;
+    align-items: center;
+    margin: 0;
+    font-size: $app-fontsize--small;
+    position: absolute;
+    height: $app-navigation-height;
+    line-height: 1.05;
+    top: 0;
+    left: $app-navigation-height + 5px;
+    right: $app-navigation-height + 10px;
+  }
+  &--wrapper {
+    border-top: 1px solid $app-color--border;
+    flex-basis: 100%;
+    width: 100%;
+    position: absolute;
+    top: $app-navigation-height;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 0;
+    max-height: calc(100% - 60px);
+    overflow-y: scroll;
+    ul.nav {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      display: flex;
+      flex-wrap: wrap;
+      width: 100%;
+      li {
+        margin: 0;
+        padding: 0;
+        flex-basis: 100%;
+        a {
+          padding: 0 $app-padding--base;
+          display: flex;
+          align-items: center;
+          height: $app-navigation-height;
+          @include nowrap;
+          border-bottom: 1px solid $app-color--border;
+          text-decoration: none;
+          color: $app-color--primary;
+          &:hover,
+          &:focus,
+          &.active {
+            color: $app-color--white;
+            background-color: $app-color--active-hover;
+          }
+          + ul {
+            padding: 0;
+            margin: 0;
+            list-style: none;
+            li {
+              margin: 0;
+              padding: 0;
+              a {
+                padding-left: $app-padding--medium;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+
+  &--buttons {
+    a {
+      color: $app-color--white;
+      text-decoration: none;
+      width: 100%;
+      flex-basis: 100%;
+      i {
+        margin-right: 8px;
+      }
+    }
+  }
+}
+
+// Externals
+
+body {
+  &.mobile-menu-open {
+    overflow: hidden;
+  }
+}
+
+#top {
+  transition: opacity 0.3s ease-out;
+  &.mobile-menu-open {
+    opacity: 0.2;
+    pointer-events: none;
+  }
+}

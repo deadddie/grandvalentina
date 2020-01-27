@@ -1,0 +1,40 @@
+// Main
+
+.main {
+  &-index {
+    padding-top: $app-padding--large;
+    padding-bottom: $app-padding--large - $app-padding--base;
+    @media (max-width: map_get($grid-breakpoints, lg)) {
+      padding-top: $app-padding--medium;
+      padding-bottom: $app-padding--medium;
+    }
+  }
+  &--title {
+    font-size: $app-fontsize--h1;
+    margin-bottom: $app-padding--medium;
+  }
+  &--content {
+    h2 {
+      margin-top: $app-padding--medium;
+      margin-bottom: $app-padding--base;
+    }
+  }
+}
+
+#main-content {
+}
+
+body.index {
+  main {
+    padding-top: $app-padding--large;
+    padding-bottom: $app-padding--large;
+    @media (max-width: map_get($grid-breakpoints, lg)) {
+      padding-top: $app-padding--medium;
+      padding-bottom: $app-padding--medium;
+    }
+    @media (max-width: map_get($grid-breakpoints, sm)) {
+      padding-top: $app-padding--base;
+      padding-bottom: $app-padding--base;
+    }
+  }
+}
