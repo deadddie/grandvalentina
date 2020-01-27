@@ -15,6 +15,7 @@ Thumbs.db
 !/bitrix/modules/
 !/bitrix/components/
 !/bitrix/php_interface/
+!/bitrix/example.settings.php
 
 # в php_interface игнорим файлы, связанные с БД
 /bitrix/php_interface/dbconn.php
