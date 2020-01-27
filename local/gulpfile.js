@@ -218,9 +218,6 @@ function moveSpriteCss () {
 
 // sprites (PNG)
 function spriteBuild() {
-    //gulp.src(path.src.sprite).
-    //    pipe(gulp.dest(path.src.sprite));
-
     var spriteData =
         gulp.src(path.src.sprite).
             pipe(spritesmith({
