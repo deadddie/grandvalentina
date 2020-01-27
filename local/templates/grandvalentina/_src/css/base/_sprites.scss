@@ -1,0 +1,169 @@
+// sprites
+
+.icon {
+	display: inline-block;
+	width: 1em;
+	height: 1em;
+	fill: currentColor;
+}
+
+.icon-add {
+	font-size:(16/10)*1rem;
+	width:(16/16)*1em;
+}
+.icon-arrow {
+	font-size:(8/10)*1rem;
+	width:(11/8)*1em;
+}
+.icon-arrow-circle {
+	font-size:(30/10)*1rem;
+	width:(30/30)*1em;
+}
+.icon-calendar {
+	font-size:(16/10)*1rem;
+	width:(14/16)*1em;
+}
+.icon-caret-down {
+	font-size:(5/10)*1rem;
+	width:(10/5)*1em;
+}
+.icon-check-checked {
+	font-size:(18/10)*1rem;
+	width:(18/18)*1em;
+}
+.icon-close {
+	font-size:(16/10)*1rem;
+	width:(16/16)*1em;
+}
+.icon-cross {
+	font-size:(11/10)*1rem;
+	width:(11/11)*1em;
+}
+.icon-delimiter {
+	font-size:(9/10)*1rem;
+	width:(74/9)*1em;
+}
+.icon-facebook {
+	font-size:(35/10)*1rem;
+	width:(33/35)*1em;
+}
+.icon-facebook-simple {
+	font-size:(18/10)*1rem;
+	width:(10/18)*1em;
+}
+.icon-flag-en {
+	font-size:(17/10)*1rem;
+	width:(25/17)*1em;
+}
+.icon-flag-ru {
+	font-size:(17/10)*1rem;
+	width:(25/17)*1em;
+}
+.icon-hamburger {
+	font-size:(13/10)*1rem;
+	width:(19/13)*1em;
+}
+.icon-info {
+	font-size:(16/10)*1rem;
+	width:(16/16)*1em;
+}
+.icon-instagram {
+	font-size:(33/10)*1rem;
+	width:(33/33)*1em;
+}
+.icon-instagram-simple {
+	font-size:(16/10)*1rem;
+	width:(16/16)*1em;
+}
+.icon-layout-circle {
+	font-size:(39/10)*1rem;
+	width:(39/39)*1em;
+}
+.icon-layout-class {
+	font-size:(33/10)*1rem;
+	width:(34/33)*1em;
+}
+.icon-layout-theater {
+	font-size:(33/10)*1rem;
+	width:(36/33)*1em;
+}
+.icon-layout-u {
+	font-size:(35/10)*1rem;
+	width:(37/35)*1em;
+}
+.icon-location {
+	font-size:(27/10)*1rem;
+	width:(19/27)*1em;
+}
+.icon-logo {
+	font-size:(33/10)*1rem;
+	width:(42/33)*1em;
+}
+.icon-logo-colorful {
+	font-size:(24/10)*1rem;
+	width:(30/24)*1em;
+}
+.icon-mouse {
+	font-size:(72/10)*1rem;
+	width:(13/72)*1em;
+}
+.icon-ok {
+	font-size:(33/10)*1rem;
+	width:(33/33)*1em;
+}
+.icon-ok-simple {
+	font-size:(19/10)*1rem;
+	width:(12/19)*1em;
+}
+.icon-phone {
+	font-size:(13/10)*1rem;
+	width:(13/13)*1em;
+}
+.icon-plus {
+	font-size:(11/10)*1rem;
+	width:(11/11)*1em;
+}
+.icon-preloader {
+	font-size:(21/10)*1rem;
+	width:(21/21)*1em;
+}
+.icon-romb {
+	font-size:(9/10)*1rem;
+	width:(9/9)*1em;
+}
+.icon-romb-black {
+	font-size:(9/10)*1rem;
+	width:(9/9)*1em;
+}
+.icon-shevron {
+	font-size:(13/10)*1rem;
+	width:(12/13)*1em;
+}
+.icon-success {
+	font-size:(45/10)*1rem;
+	width:(45/45)*1em;
+}
+.icon-user {
+	font-size:(16/10)*1rem;
+	width:(12/16)*1em;
+}
+.icon-vk {
+	font-size:(33/10)*1rem;
+	width:(33/33)*1em;
+}
+.icon-vk-simple {
+	font-size:(11/10)*1rem;
+	width:(19/11)*1em;
+}
+
+#SVG_container{
+  position: absolute;
+  height: 0;
+  width: 0;
+}
+
+#SVG_container svg{
+  position: absolute;
+  height: 0;
+  width: 0;
+}
