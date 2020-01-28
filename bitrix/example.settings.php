@@ -76,8 +76,14 @@ return array (
           'email' => '',
           // address
           'address' => '',
-          'metro' => '',
+          'address_full' => '',
+          'gps' => array(
+              'lat' => 0,
+              'lon' => 0
+          ),
           // emails
+          'email_restaurant' => '',
+          'email_manager' => '',
           'send_to' => array(
               '',
           ),
@@ -85,7 +91,9 @@ return array (
           'developer' => '',
           'developer_url' => '',
           // socials
-          'social_vk' => 'https://vk.com/',
+          'socials' => array(
+              'vk' => 'https://vk.com/',
+          ),
       ),
       'readonly' => true,
   ),
