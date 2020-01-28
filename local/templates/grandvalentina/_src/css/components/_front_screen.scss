@@ -1,0 +1,46 @@
+// Front Screen
+
+.front-screen {
+  background-image: url("images/front-screen.jpg");
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  color: $app-color--white;
+  background-color: $app-color--black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  align-content: flex-end;
+  flex-wrap: wrap;
+  padding: $app-padding--medium;
+  text-align: center;
+  height: calc(100vh - 100px);
+  &--title {
+    font-size: 40px;
+    @include head_font;
+    flex-basis: 100%;
+    color: $app-color--white;
+    line-height: 1.1;
+  }
+  &--delimiter {
+    flex-basis: 100%;
+    .icon {
+      color: $app-color--white;
+    }
+  }
+  &--slogan {
+    @include head_font;
+    font-size: $app-fontsize--small;
+    flex-basis: 100%;
+    color: $app-color--white;
+    max-width: 135px;
+  }
+  &--scroller {
+    margin-top: $app-padding--largest;
+    align-self: flex-end;
+    flex-basis: 100%;
+    .icon {
+      color: $app-color--white;
+    }
+  }
+}
