@@ -55,6 +55,8 @@ $asset = Asset::getInstance();
 
     <div id="svg-container" hidden></div>
 
+    <? $APPLICATION->IncludeFile(SITE_TEMPLATE_PATH . '/include_areas/loading.php') ?>
+
     <div class="wrapper" id="top">
 
         <!--header-->
