@@ -260,8 +260,7 @@ gulp.task('watch', watch);
 
 // build task
 gulp.task('build', gulp.parallel(
-    gulp.series('sprite:build', 'images:build'),
-    'spriteSvg:build',
+    gulp.series('sprite:build', 'images:build', 'spriteSvg:build'),
     'css:build',
     'js:build',
     //'html:build',
