@@ -70,6 +70,7 @@ return array (
           'name' => '',
           'name_short' => '',
           'description' => '',
+          'slogan' => '',
           'since' => 2020,
           // contacts
           'phone' => '',
