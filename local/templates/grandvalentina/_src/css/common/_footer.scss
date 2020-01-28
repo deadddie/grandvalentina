@@ -1,5 +1,118 @@
 // Footer
 
 .footer {
+  background-color: $app-color--black;
+  color: $app-color--white;
+  text-align: center;
+  a {
+    color: $app-color--primary;
+    text-decoration: none;
+    &:hover {
+      text-decoration: underline;
+      color: $app-color--secondary;
+    }
+  }
+
+  &--wrapper {}
+
+  &--logo {
+    padding-top: $app-padding--medium;
+    padding-bottom: $app-padding--medium;
+    .logo-vertical {
+      .icon {
+        width: 50px;
+      }
+      span {
+        font-size: $app-fontsize--base;
+      }
+    }
+  }
+
+  &--menu,
+  &--rooms {
+    padding-top: $app-padding--medium;
+    padding-bottom: $app-padding--medium;
+    &--title {
+      opacity: 0.5;
+      text-transform: uppercase;
+      font-size: $app-fontsize--smaller;
+    }
+    &--items {
+      ul {
+        li {
+          a {
+            @include head_font;
+          }
+          + ul {
+            li {
+              a {
+                @include text_font;
+                font-size: $app-fontsize--smaller;
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  &--menu {
+    border-top: 1px solid $app-color--border-dark;
+  }
+
+  &--contacts {
+    padding-top: $app-padding--medium;
+    padding-bottom: $app-padding--small;
+    color: $app-color--primary;
+    border-top: 1px solid $app-color--border-dark;
+    &-phone {
+      margin-bottom: 10px;
+      font-size: $app-fontsize--medium;
+      @include text_font_b;
+      a {
+        text-decoration: none;
+        border-bottom: 1px solid $app-color--primary;
+        display: inline-flex;
+        align-items: center;
+        line-height: 1.6;
+        &:hover {
+          text-decoration: none;
+          border-bottom-color: transparent;
+        }
+        &:before {
+          content: "";
+          display: block;
+          width: 13px;
+          height: 13px;
+          background-image: url("images/phone.svg");
+          background-size: 13px;
+          background-repeat: no-repeat;
+          background-position: center;
+          margin-right: 7px;
+        }
+      }
+    }
+    &-email {
+      margin-bottom: 10px;
+    }
+    &-address {}
+  }
+
+  &--socials {
+    padding-bottom: $app-padding--medium;
+    a {
+      display: inline-block;
+      margin: 0 5px;
+    }
+    .icon {
+      width: 32px;
+    }
+  }
+
+  &--copyrights {
+    border-top: 1px solid $app-color--border-dark;
+    padding: $app-padding--base;
+    font-size: $app-fontsize--smaller;
+    color: $app-color--primary;
+  }
 
 }

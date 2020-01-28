@@ -129,3 +129,19 @@
 
 .error-404 {
 }
+
+.logo-vertical {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  .icon,
+  img {
+    margin-bottom: 5px;
+  }
+  span {
+    text-align: center;
+    flex-basis: 100%;
+    @include head_font;
+    font-size: $app-fontsize--smaller;
+  }
+}

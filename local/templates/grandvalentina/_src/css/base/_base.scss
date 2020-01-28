@@ -11,7 +11,7 @@ body {
   @include text_font;
   color: $app-color--black;
   background: $app-color--white;
-  font-size: 16px;
+  font-size: 15px;
   line-height: normal;
   min-height: 100%;
   display: block;
@@ -106,6 +106,6 @@ body span.bx-context-toolbar a {
 
 @include sprites($spritesheet-sprites);
 
-i.ghvicon {
+i.icon {
   display: inline-flex;
 }

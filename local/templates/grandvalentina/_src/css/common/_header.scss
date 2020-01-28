@@ -1,4 +1,35 @@
 // Header
 
 .header {
+  height: $app-navigation-height;
+  background-color: $app-color--white;
+  border-bottom: 1px solid $app-color--border;
+
+  &--wrapper {
+    height: $app-navigation-height;
+    display: flex;
+    justify-content: space-between;
+  }
+
+  &--hamburger {
+    width: $app-navigation-height;
+    .icon {
+      width: 20px;
+    }
+  }
+
+  &--logo {
+    a {
+      text-decoration: none;
+    }
+  }
+
+  &--lang {
+    width: $app-navigation-height;
+    &-current {
+      @include head_font;
+      font-size: $app-fontsize--medium;
+    }
+  }
+
 }

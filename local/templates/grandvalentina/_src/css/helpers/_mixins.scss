@@ -34,19 +34,25 @@
 }
 
 @mixin head_font {
-  font-family: "Montserrat", serif;
-  font-weight: 600;
+  font-family: "Minion Pro", serif;
+  font-weight: 400;
   font-style: normal;
 }
 
+@mixin head_font_i {
+  font-family: "Minion Pro", serif;
+  font-weight: 400;
+  font-style: italic;
+}
+
 @mixin text_font {
-  font-family: "Didact Gothic", sans-serif;
+  font-family: "Roboto", sans-serif;
   font-weight: 400;
 }
 
-@mixin text_font_bold {
-  font-family: "Didact Gothic", sans-serif;
-  font-weight: 700;
+@mixin text_font_b {
+  font-family: "Roboto", sans-serif;
+  font-weight: 500;
 }
 
 @mixin ruble {
