@@ -124,7 +124,30 @@
 // Pages
 
 .page {}
-.error-404 {}
+
+.error-404 {
+  background-image: url("images/404.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  color: $app-color--white;
+  background-color: $app-color--black;
+  &--wrapper {
+    text-align: center;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    h1 {
+      font-size: 100px;
+      color: $app-color--white;
+      line-height: 1;
+    }
+    p {
+      color: $app-color--white;
+      @include head_font_i;
+      font-size: $app-fontsize--large;
+    }
+  }
+}
 
 // Лого вертикальное
 .logo-vertical {
