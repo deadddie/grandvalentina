@@ -34,10 +34,6 @@
 @import "common/_common.scss";
 @import "common/_pagination.scss";
 
-// common sections
-
-//@import "common/_.scss";
-
 // components
 
 @import "components/_custom_form.scss";
@@ -45,7 +41,8 @@
 
 // pages
 
-//@import "pages/_.scss";
+@import "pages/_privacy.scss";
+@import "pages/_contacts.scss";
 
 // vendor
 
