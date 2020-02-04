@@ -54,7 +54,7 @@ Loc::loadLanguageFile(__FILE__);
                         </div>
 
                         <div class="footer--socials">
-                            <?php $APPLICATION->IncludeFile(SITE_TEMPLATE_PATH . '/include_areas/social_links.php', array('socials' => SITE_CONFIG['socials'])) ?>
+                            <?php $APPLICATION->IncludeFile(SITE_TEMPLATE_PATH . '/include_areas/social_links.php', array('socials' => SITE_CONFIG['socials'], 'simple' => false)) ?>
                         </div>
 
                         <div class="footer--copyrights">
