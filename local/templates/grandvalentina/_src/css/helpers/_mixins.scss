@@ -40,9 +40,9 @@
 }
 
 @mixin head_font_i {
-  font-family: "Minion Pro", serif;
+  font-family: "Minion Pro Italic", serif;
   font-weight: 400;
-  font-style: italic;
+  font-style: normal;
 }
 
 @mixin text_font {

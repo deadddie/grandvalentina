@@ -6,7 +6,8 @@
   bottom: 0;
   right: -420px;
   min-width: 320px;
-  max-width: 420px;
+  width: 100%;
+  max-width: 100%;
   height: 100vh;
   min-height: 100%;
   background-color: $app-color--white;
@@ -14,6 +15,7 @@
   z-index: 1000;
   display: flex;
   flex-wrap: wrap;
+  align-content: flex-start;
   transition: right 0.3s ease-out;
   &.active {
     right: 0;
@@ -21,97 +23,81 @@
   @media (min-width: map_get($grid-breakpoints, md)) {
     display: none;
   }
-  .close {
-    position: absolute;
-    right: 0;
-    top: 0;
-    height: $app-navigation-height;
-    width: $app-navigation-height;
-    background-color: $app-color--white;
-    padding: 0;
-    display: inline-flex;
-    justify-content: center;
-    align-items: center;
-    align-content: center;
-  }
-  .about {
-    display: inline-flex;
-    align-items: center;
-    margin: 0;
-    font-size: $app-fontsize--small;
-    position: absolute;
-    height: $app-navigation-height;
-    line-height: 1.05;
-    top: 0;
-    left: $app-navigation-height + 5px;
-    right: $app-navigation-height + 10px;
-  }
-  &--wrapper {
-    border-top: 1px solid $app-color--border;
-    flex-basis: 100%;
+
+  &--callback {
+    padding-top: $app-padding--large;
+    padding-bottom: $app-padding--large;
+    display: flex;
     width: 100%;
-    position: absolute;
-    top: $app-navigation-height;
-    right: 0;
-    left: 0;
-    bottom: 0;
-    padding: 0;
-    max-height: calc(100% - 60px);
-    overflow-y: scroll;
-    ul.nav {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      display: flex;
-      flex-wrap: wrap;
-      width: 100%;
-      li {
-        margin: 0;
-        padding: 0;
-        flex-basis: 100%;
+    justify-content: center;
+    button {
+      padding-left: $app-padding--large;
+      padding-right: $app-padding--large;
+    }
+  }
+
+  &--menu {}
+
+  &--footer {
+    padding-top: $app-padding--medium;
+    padding-bottom: $app-padding--medium;
+    background-color: $app-color--white;
+    color: $app-color--black;
+    .icon {
+      color: $app-color--black;
+    }
+    a {
+      color: $app-color--black;
+      &:hover {
+        color: $app-color--active;
+      }
+    }
+    &--contacts {
+      color: $app-color--black;
+      border-top: 0;
+      &-phone {
         a {
-          padding: 0 $app-padding--base;
-          display: flex;
-          align-items: center;
-          height: $app-navigation-height;
-          @include nowrap;
-          border-bottom: 1px solid $app-color--border;
-          text-decoration: none;
-          color: $app-color--primary;
-          &:hover,
-          &:focus,
-          &.active {
-            color: $app-color--white;
-            background-color: $app-color--active-hover;
+          border-bottom-color: $app-color--black;
+          &:before {
+            filter: brightness(0) grayscale(1);
           }
-          + ul {
-            padding: 0;
-            margin: 0;
-            list-style: none;
-            li {
-              margin: 0;
-              padding: 0;
-              a {
-                padding-left: $app-padding--medium;
-              }
-            }
+          &:hover {
+            border-bottom-color: $app-color--active;
           }
         }
+      }
+      &-email,
+      &-address {
+        @include text_font_b;
+      }
+    }
+    &--socials {
+      margin-top: $app-padding--base ;
+      margin-bottom: $app-padding--base;
+      padding-bottom: 0;
+      a {
+        display: inline-flex;
+        justify-content: center;
+        align-items: center;
+        width: 32px;
+        height: 32px;
+        background-color: transparent;
+        border-radius: 50%;
+        &:hover {
+          background-color: $app-color--primary;
+          .icon {
+            color: $app-color--white;
+          }
+        }
+      }
+      .icon {
+        color: $app-color--black;
+        width: 20px;
+        max-height: 20px;
       }
     }
   }
 
-  &--buttons {
-    a {
-      color: $app-color--white;
-      text-decoration: none;
-      width: 100%;
-      flex-basis: 100%;
-      i {
-        margin-right: 8px;
-      }
-    }
-  }
 }
 
 // Externals

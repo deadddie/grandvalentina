@@ -3,36 +3,38 @@
 // Headers
 
 h1,h2,h3,h4,h5 {
-  color: $app-color--primary;
+  color: $app-color--black;
+  @include head_font;
+  line-height: 1;
 }
 
 h1 {
-  @include head_font;
-  color: $app-color--primary;
-  font-weight: normal;
+  font-size: $app-fontsize--h1;
 }
 
 h2 {
-  color: $app-color--primary;
-  @include head_font;
   font-size: $app-fontsize--h2;
 }
 
 h3 {
-  color: $app-color--primary;
   font-size: $app-fontsize--h3;
-  font-weight: normal;
 }
 
-h4 {
-  font-size: $app-fontsize--medium;
-  font-weight: normal;
-}
+h4 {}
 
 .big { font-size: $app-fontsize--big; }
 .h1 { font-size: $app-fontsize--h1; }
 .h2 { font-size: $app-fontsize--h2; }
 .h3 { font-size: $app-fontsize--h3; }
+.h4 { font-size: $app-fontsize--h4; }
+
+.page-title {
+  margin-bottom: $app-padding--medium;
+}
+
+strong, b {
+  font-weight: 500;
+}
 
 // Links
 
@@ -45,11 +47,11 @@ a:visited {
 
 a {
   &:hover {
-    text-decoration: none;
-    color: $app-color--active-hover;
+    text-decoration: underline;
+    color: $app-color--black;
   }
   &:active {
-    //color: $app-color--active-dark;
+    text-decoration: none;
   }
 }
 
@@ -57,4 +59,27 @@ a img,
 a:link img,
 a:visited img {
   border: none;
+}
+
+// Lists
+
+ul {
+  list-style: none;
+  padding-left: 10px;
+  li {
+    margin-bottom: 10px;
+    display: flex;
+    &:before {
+      display: inline-block;
+      content: "";
+      background-image: url("images/romb.svg");
+      background-position: center;
+      background-size: 10px;
+      width: 10px;
+      min-width: 10px;
+      height: 10px;
+      margin-right: 10px;
+      margin-top: 4px;
+    }
+  }
 }

@@ -10,8 +10,8 @@ body img:hover,
   outline: none;
 }
 ::selection {
-  color: $app-color--black;
-  background-color: $app-color--success;
+  color: $app-color--white;
+  background-color: $app-color--active;
 }
 img,
 a {

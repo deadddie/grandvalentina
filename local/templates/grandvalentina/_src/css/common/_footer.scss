@@ -1,9 +1,11 @@
 // Footer
 
+.mobile-menu--footer,
 .footer {
   background-color: $app-color--black;
   color: $app-color--white;
   text-align: center;
+  width: 100%;
   a {
     color: $app-color--primary;
     text-decoration: none;

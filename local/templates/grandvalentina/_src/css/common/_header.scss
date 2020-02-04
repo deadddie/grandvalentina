@@ -1,9 +1,11 @@
 // Header
 
+.mobile-menu--header,
 .header {
   height: $app-navigation-height;
   background-color: $app-color--white;
   border-bottom: 1px solid $app-color--border;
+  width: 100%;
 
   &--wrapper {
     height: $app-navigation-height;
@@ -11,21 +13,36 @@
     justify-content: space-between;
   }
 
+  &--close,
   &--hamburger {
     width: $app-navigation-height;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
     .icon {
       width: 20px;
     }
   }
 
   &--logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .logo-vertical {
+      img {
+        margin-bottom: 2px;
+      }
+    }
     a {
+      color: $app-color--active;
       text-decoration: none;
     }
   }
 
   &--lang {
     width: $app-navigation-height;
+    display: flex;
+    align-items: center;
     &-current {
       @include head_font;
       font-size: $app-fontsize--medium;

@@ -1,0 +1,44 @@
+// Contacts
+
+.page-contacts {
+
+  &--section {
+    background-color: $app-color--secondary;
+    padding: $app-padding--large $app-padding--base;
+    margin-bottom: $app-padding--small;
+    display: flex;
+    flex-wrap: wrap;
+    > div, h2, h3, p, ul {
+      flex-basis: 100%;
+    }
+    > h2, h3 {
+      text-align: center;
+      @include head_font;
+    }
+    > p {
+      text-align: center;
+      font-size: $app-fontsize--medium;
+      &.h4 {
+        @include head_font;
+        font-size: $app-fontsize--large;
+      }
+      &:last-child {
+        margin-bottom: 0;
+      }
+    }
+    a {
+      @include text_font_b;
+      color: $app-color--black;
+    }
+    .delimiter {
+      margin-top: $app-padding--small;
+      margin-bottom: $app-padding--base;
+      display: flex;
+      justify-content: center;
+      .icon {
+        color: $app-color--primary;
+      }
+    }
+  }
+
+}
