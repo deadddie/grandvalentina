@@ -27,7 +27,7 @@ for ($index = 0; $index < $itemSize; $index++) {
 				<meta itemprop="position" content="'.($index + 1).'">
 			</li>';
 	} else {
-		$strReturn .= '<li class="breadcrumb-item"><span>'.$title.'</span></li>';
+		$strReturn .= '<li class="breadcrumb-item">'.$title.'</li>';
 	}
 }
 
