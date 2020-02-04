@@ -1,14 +1,4 @@
-// forms
-
-fieldset {
-  padding: 0;
-  margin: 0;
-  border: 0;
-  min-width: 0;
-}
-
-legend {
-}
+// form elements
 
 label {
   display: inline-block;
@@ -16,16 +6,15 @@ label {
   margin-bottom: 5px;
 }
 
-// inputs
-
 textarea,
 select,
 input {
   height: $app-navigation-height;
-  @include border-radius;
+  //@include border-radius;
   border: 1px solid $app-color--border;
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: $app-padding--base;
+  padding-right: $app-padding--base;
+  font-size: $app-fontsize--small;
   &:focus {
     border-color: $app-color--primary;
   }
@@ -80,39 +69,153 @@ output {
   color: $app-color--secondary;
 }
 
-.form-error {
-  flex-basis: 100%;
-  width: 100%;
-  display: inline-flex;
-  color: $app-color--white;
-  font-size: $app-fontsize--smaller;
-  margin: 15px 0 0;
-  padding: 3px 5px;
-  //background-color: $app-color--active-dark;
-  @include border-radius;
-  justify-content: center;
+legend {}
+
+fieldset {
+  padding: 0;
+  margin: 0;
+  border: 0;
+  min-width: 0;
 }
-.form-field {
-  margin-bottom: 15px;
-  position: relative;
-  &-error {
-    display: inline-flex;
-    color: $app-color--white;
-    font-size: $app-fontsize--smaller - 1;
-    margin: 0;
-    padding: 0 5px;
-    position: absolute;
-    top: 2px;
-    right: 2px;
-    //background-color: $app-color--active-dark;
-    @include border-radius;
-    ~ input,
-    ~ select,
-    ~ textarea {
-      //border-color: $app-color--active-dark;
+
+// Default form
+
+.form {
+  border-top: 1px solid $app-color--border;
+  padding-top: $app-padding--large;
+  padding-bottom: $app-padding--large;
+  background-color: transparent;
+  @media (max-width: map_get($grid-breakpoints, md)) {
+    padding-top: $app-padding--medium;
+    padding-bottom: $app-padding--medium;
+  }
+
+  &--title {
+    font-size: $app-fontsize--h1;
+    margin-bottom: $app-padding--large;
+  }
+
+  &--description {
+    font-size: $app-fontsize--base;
+    margin-bottom: $app-padding--large;
+    padding-left: $app-padding--small;
+    padding-right: $app-padding--small;
+  }
+
+  &--fields {
+    display: flex;
+    flex-wrap: wrap;
+    .form-field {
+      flex-basis: calc(33% - 28px);
+      margin: 0 15px 30px;
+      @media (max-width: map_get($grid-breakpoints, md)) {
+        flex-basis: 100%;
+      }
+      input {
+        width: 100%;
+      }
+      &-textarea {
+        flex-basis: 100%;
+        margin: 0 15px 30px;
+        textarea {
+          width: 100%;
+          max-height: 250px;
+          min-height: $app-navigation-height;
+          resize: vertical;
+        }
+      }
     }
   }
-  label {
-    display: none;
+
+  &--actions {
+    display: flex;
+    justify-content: center;
+    button {
+      padding-left: 30px;
+      padding-right: 30px;
+    }
   }
+
+  &-privacy {
+    text-align: left;
+    label {
+      display: inline-flex !important;
+      font-size: $app-fontsize--small;
+      position: relative;
+      overflow: hidden;
+      &:before {
+        content: "";
+        min-width: 18px;
+        width: 18px;
+        height: 18px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        margin-right: 10px;
+        background-color: $app-color--primary;
+        color: $app-color--white;
+      }
+      .icon-check {
+        position: absolute;
+        top: -100%;
+        left: 4px;
+        width: 10px;
+        height: 8px;
+        color: $app-color--white;
+        transition: top 0.2s ease-in-out;
+      }
+      a {
+        color: $app-color--black;
+      }
+    }
+    input {
+      display: none;
+      &:checked + label {
+        &:before {}
+        .icon-check {
+          top: 5px;
+        }
+
+      }
+    }
+  }
+
+  &-field {
+    margin-bottom: $app-padding--small;
+    position: relative;
+    &-error {
+      display: inline-flex;
+      color: $app-color--white;
+      font-size: $app-fontsize--smaller - 1;
+      margin: 0;
+      padding: 0 5px;
+      position: absolute;
+      top: 2px;
+      right: 2px;
+      //background-color: $app-color--active-dark;
+      @include border-radius;
+      ~ input,
+      ~ select,
+      ~ textarea {
+        //border-color: $app-color--active-dark;
+      }
+    }
+    label {
+      display: none;
+    }
+  }
+
+  &-error {
+    flex-basis: 100%;
+    width: 100%;
+    display: inline-flex;
+    color: $app-color--white;
+    font-size: $app-fontsize--smaller;
+    margin: 15px 0 0;
+    padding: 3px 5px;
+    //background-color: $app-color--active-dark;
+    @include border-radius;
+    justify-content: center;
+  }
+
 }

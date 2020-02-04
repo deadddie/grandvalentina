@@ -27,17 +27,17 @@ let Common = {
         // Открытие/закрытие мобильного меню
         $(document)
             .on('click', '.js-mobile-menu', () => {
-                $('.mobile-menu').addClass('active');
+                $('.mobile-menu, .header--close-menu').addClass('active');
                 $('body, #top').addClass('mobile-menu-open');
             })
             .on('click', '.js-mobile-menu--close', () => {
-                $('.mobile-menu').removeClass('active');
+                $('.mobile-menu, .header--close-menu').removeClass('active');
                 $('body, #top').removeClass('mobile-menu-open');
             })
             .on('mouseup', (e) => {
                 let div = $('.mobile-menu');
                 if (!div.is(e.target) && div.has(e.target).length === 0) {
-                    div.removeClass('active');
+                    $(div + ', .header--close-menu').removeClass('active');
                     $('body, #top').removeClass('mobile-menu-open');
                 }
             });

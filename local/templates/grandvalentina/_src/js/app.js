@@ -6,7 +6,7 @@ require('jquery');
 global.jQuery = global.$ = require('jquery');
 //require('jquery-migrate');
 
-//require('bootstrap');
+require('bootstrap');
 
 //require('owl.carousel');
 //require('@fancyapps/fancybox');

@@ -1,11 +1,12 @@
 import { Common } from './common';
+import { Form } from './form';
 
 /**
- * Ajax Handlers.
+ * Modal Ajax Handlers.
  *
- * @type {{appendModal(*=, *): void, init(): void, ajaxUrl: string, clearModalsContainer(): void, clearErrors(): void, prepareAjaxOptions(): {type: string, url: string}, modalsContainer: string, setErrors(*, *): void}}
+ * @type {{appendModal(*=, *): void, init(): void, ajaxUrl: string, clearModalsContainer(): void, prepareAjaxOptions(): {type: string, url: string}, modalsContainer: string}}
  */
-let Ajax = {
+let Modals = {
 
     modalsContainer: '#ajax-modals-container',
     ajaxUrl: '/ajax/', // '/local/php_interface/ajax.php';
@@ -14,25 +15,23 @@ let Ajax = {
      * Init.
      */
     init() {
+        let self = this;
+
         // Открытие модалки
         $(document).on('click', '.js-open-modal', (e) => {
             e.preventDefault();
-            let metrikaTarget = $(e.currentTarget).data('metrika-target');
+            //let metrikaTarget = $(e.currentTarget).data('metrika-target');
             let modalId = $(e.currentTarget).data('modal');
-            let options = this.prepareAjaxOptions();
+            let options = self.prepareAjaxOptions();
             options.data = {
                 action: $(e.currentTarget).data('action'),
                 modalId: modalId,
             };
-            let tarif = $(e.currentTarget).data('tarif');
-            if (tarif !== undefined) options.data.tarif = tarif;
-            let site_type = $(e.currentTarget).data('site-type');
-            if (site_type !== undefined) options.data.siteType = site_type;
             $.ajax(options)
                 .done((response) => {
                     if (!Common.isJsonString(response)) {
-                        Ajax.appendModal(response, modalId);
-                        ymReachGoal(metrikaTarget); // цель Яндекс.Метрики
+                        self.appendModal(response, modalId);
+                        //ymReachGoal(metrikaTarget); // цель Яндекс.Метрики
                     } else {
                         console.error(response);
                     }
@@ -43,7 +42,7 @@ let Ajax = {
         // Отправка формы
         $(document).on('click', '.js-send-form', (e) => {
             e.preventDefault();
-            this.clearErrors();
+            Form.clearErrors();
             let form = $($(e.currentTarget)[0].form);
             // Модалка
             let options = this.prepareAjaxOptions();
@@ -54,12 +53,12 @@ let Ajax = {
                     if (typeof result.errors === 'undefined') {
 
                         // Форма без ошибок
-                        Ajax.clearErrors();
-                        Ajax.clearModalsContainer();
+                        Form.clearErrors();
+                        self.clearModalsContainer();
                         form[0].reset();
 
                         // Модалка "Спасибо"
-                        let options = Ajax.prepareAjaxOptions();
+                        let options = self.prepareAjaxOptions();
                         options.data = {
                             action: 'openModal',
                             modalId: 'thanks',
@@ -67,8 +66,8 @@ let Ajax = {
                         $.ajax(options)
                             .done((response) => {
                                 if (!Common.isJsonString(response)) {
-                                    Ajax.appendModal(response, 'thanks');
-                                    ymReachGoal(form.find('.js-send-form').data('metrika-target')); // цель Яндекс.Метрики
+                                    self.appendModal(response, 'thanks');
+                                    //ymReachGoal(form.find('.js-send-form').data('metrika-target')); // цель Яндекс.Метрики
                                 } else {
                                     console.error(response);
                                 }
@@ -78,7 +77,7 @@ let Ajax = {
                     } else {
 
                         // Форма с ошибками
-                        Ajax.setErrors(form, result.errors);
+                        Form.setErrors(form, result.errors);
 
                     }
                 })
@@ -119,31 +118,6 @@ let Ajax = {
         };
     },
 
-    /**
-     * Set form errors.
-     *
-     * @param form
-     * @param errors
-     */
-    setErrors(form, errors) {
-        for (let field in errors) {
-            if (field === 'sessid') {
-                form.prepend('<div class="form-error">' + errors[field] + '</div>');
-                continue;
-            }
-            errors[field].forEach(function (value) {
-                form.find('[name="'+ field +'"]').closest('.form-field').prepend('<div class="form-field-error">' + value + '</div>');
-            });
-        }
-    },
-
-    /**
-     * Remove errors divs.
-     */
-    clearErrors() {
-        $('.form-field-error, .form-error').remove();
-    }
-
 };
 
-export { Ajax };
+export { Modals };

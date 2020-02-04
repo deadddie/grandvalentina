@@ -1,5 +1,5 @@
 import { Common } from './components/common';
-import { Ajax } from './components/ajax';
+import { Modals } from './components/modals';
 //import { FrontSlider } from './components/front_slider';
 
 /**
@@ -8,7 +8,7 @@ import { Ajax } from './components/ajax';
 function Init () {
 
     Common.init();
-    Ajax.init();
+    Modals.init();
     //FrontSlider.init();
 
 }

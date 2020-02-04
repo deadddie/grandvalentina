@@ -3,33 +3,32 @@
 .btn,
 button {
   height: $app-button-height;
-  padding-left: 25px;
-  padding-right: 25px;
+  padding-left: 10px;
+  padding-right: 10px;
   user-select: none;
-  border: none;
+  border: 1px solid $app-color--active;
   display: inline-flex;
-  text-decoration: none;
+  text-decoration: none !important;
   background-color: $app-color--active;
   color: $app-color--white;
   align-items: center;
   justify-content: center;
   @include head_font;
-  @include border-radius;
-  font-size: $app-fontsize--medium;
-  transition: background-color 0.2s ease-in-out;
+  font-size: $app-fontsize--base;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  //transition: background-color 0.2s ease-in-out;
+  //@include border-radius;
   &:hover,
   &:focus {
+    color: $app-color--white;
     background-color: $app-color--active-hover;
+    border-color: $app-color--active-hover;
   }
   &[disabled],
   &.disabled {
     pointer-events: none;
   }
-}
-
-a.btn {
-  color: $app-color--white;
-  text-decoration: none;
 }
 
 .btn {
@@ -52,6 +51,16 @@ a.btn {
 
   // Button Colors
 
+  &-white {
+    background-color: $app-color--white;
+    color: $app-color--black !important;
+    border-color: $app-color--black;
+    &:hover {
+      background-color: $app-color--active;
+      color: $app-color--white !important;
+      border-color: $app-color--active;
+    }
+  }
 
   // Link Button
   &-link {

@@ -1,17 +1,88 @@
+// Scroll to top
+
+#scroll-to-top {
+  background-color: $app-color--primary;
+  color: $app-color--black;
+  width: 32px;
+  height: 32px;
+  display: block;
+  position: fixed;
+  bottom: 20px;
+  right: calc(50% - 16px);
+  z-index: 999;
+  opacity: 0;
+  visibility: hidden;
+  transition: all 0.3s ease-in-out;
+  border-radius: 50%;
+  &.active {
+    opacity: 0.6;
+    visibility: visible;
+  }
+  &:hover {
+    background-color: $app-color--active-hover;
+    opacity: 1;
+    a {
+      color: $app-color--white;
+    }
+  }
+  a {
+    color: $app-color--black;
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    font-size: 1.1em;
+    margin-top: -2px;
+  }
+}
+
 // Breadcrumb
 
 .breadcrumb {
-  //background: transparent;
-  //margin-bottom: 0;
-  //font-size: $app-fontsize--small;
-  //display: inline-block;
-  //&-item {
-  //  display: inline;
-  //}
-  //&--wrapper {
-  //  background-color: $app-color--background;
-  //  width: 100%;
-  //}
+  background: transparent;
+  margin-bottom: 0;
+  font-size: $app-fontsize--smaller;
+  display: flex;
+  flex-wrap: nowrap;
+  overflow: hidden;
+  position: relative;
+  @include nowrap;
+  &:after {
+    content: "";
+    position: absolute;
+    display: block;
+    right: 0;
+    top: 0;
+    height: 100%;
+    width: 40px;
+    background: linear-gradient(to left, $app-color--white 50%,  transparent 100%);
+  }
+  &-item {
+    display: flex;
+    white-space: nowrap;
+    color: $app-color--primary;
+    &:before {
+      color: $app-color--primary !important;
+      background-image: none;
+      width: initial;
+      min-width: initial;
+      height: initial;
+      margin: 0;
+    }
+    a {
+      color: $app-color--primary;
+      text-decoration: none;
+      &:hover {
+        color: $app-color--black;
+      }
+    }
+  }
+  &--wrapper {
+    width: 100%;
+  }
 }
 
 // Tables
@@ -27,20 +98,23 @@
 // Modals
 
 .modal {
-  /*
   display: flex;
   justify-content: center;
   align-items: center;
   &.show {
     .modal-dialog {
-      margin-top: $app-navigation-height +2;
+      margin: $app-navigation-height 0 0;
       opacity: 1;
+      width: 100%;
+      @media (min-width: map-get($grid-breakpoints, sm)) {
+        width: auto;
+      }
     }
   }
   &-backdrop {
-    background-color: $app-color--primary;
+    background-color: transparent;
     &.show {
-      opacity: 0.6;
+      //opacity: 0.6;
     }
   }
   &-dialog {
@@ -52,32 +126,20 @@
   button.close {
     outline: none;
     position: absolute;
-    top: 0;
-    right: 0;
-    width: 40px;
-    height: 40px;
-    border-radius: 0;
+    top: 20px;
+    right: 20px;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
     border: 0;
     justify-content: center;
     align-items: center;
     display: flex;
     z-index: 1;
     padding: 0;
-    font-weight: 300;
-    font-size: 2em;
     cursor: pointer;
     color: $app-color--primary;
     background-color: transparent;
-    opacity: 0.3;
-    filter: grayscale(1);
-    @media (max-width: map_get($grid-breakpoints, md)) {
-      opacity: 1;
-      filter: grayscale(0);
-    }
-    &:hover {
-      opacity: 1;
-      filter: grayscale(0);
-    }
   }
 
   &-content {
@@ -86,25 +148,34 @@
     border: 0;
     @include shadow;
     background-color: $app-color--white;
-    padding: $app-padding--base;
-
-    .custom-form {
+    padding: $app-padding--large $app-padding--medium;
+    .form {
       &--form {}
 
       &--title {
-        margin-top: $app-padding--small;
+        margin-top: $app-padding--base;
         margin-bottom: $app-padding--base;
       }
+      &--description {}
 
       &--fields {
         display: flex;
         flex-wrap: wrap;
         .form-field {
           flex-basis: 100%;
-          margin: 0 0 $app-padding--small+5;
+          margin: 0 0 $app-padding--small;
+          input,
+          textarea {
+            border-color: $app-color--secondary;
+            background-color: $app-color--secondary;
+          }
         }
       }
-      &--privacy {}
+      &--privacy {
+        a {
+          color: $app-color--black;
+        }
+      }
       &--actions {
         display: flex;
         .form-action {
@@ -118,7 +189,6 @@
     }
 
   }
-  */
 }
 
 // Pages
