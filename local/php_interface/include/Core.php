@@ -340,7 +340,7 @@ class Core
      */
     public static function getPrivacyLink(string $link = '/privacy-policy/', string $text = 'Политика в отношении обработки персональных данных')
     {
-        return '<!--noindex--><a class="privacy-policy" href="' . $link . '" rel="nofollow">' . $text . '</a><!--/noindex-->';
+        return '<!--noindex--><a class="privacy-policy" href="' . $link . '" rel="nofollow" target="_blank">' . $text . '</a><!--/noindex-->';
     }
 
     /**
