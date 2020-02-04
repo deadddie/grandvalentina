@@ -1,7 +1,7 @@
-<?
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetPageProperty("title", "Пользовательское соглашение");
-$APPLICATION->SetTitle("Пользовательское соглашение");
+<?php
+require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/header.php');
+$APPLICATION->SetPageProperty('title', 'Пользовательское соглашение');
+$APPLICATION->SetTitle('Пользовательское соглашение');
 ?>
 <div class="page-privacy">
     <div class="container">
@@ -13,4 +13,4 @@ $APPLICATION->SetTitle("Пользовательское соглашение");
         </div>
     </div>
 </div>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/footer.php');?>

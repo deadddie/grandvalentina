@@ -1,7 +1,7 @@
-<?
-require($_SERVER["DOCUMENT_ROOT"]."/bitrix/header.php");
-$APPLICATION->SetPageProperty("title", "Политика компании в отношении обработки персональных данных");
-$APPLICATION->SetTitle("Политика компании в отношении обработки персональных данных");
+<?php
+require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/header.php');
+$APPLICATION->SetPageProperty('title', 'Политика компании в отношении обработки персональных данных');
+$APPLICATION->SetTitle('Политика компании в отношении обработки персональных данных');
 ?>
 <div class="page-privacy">
     <div class="container">
@@ -13,4 +13,4 @@ $APPLICATION->SetTitle("Политика компании в отношении 
         </div>
     </div>
 </div>
-<?require($_SERVER["DOCUMENT_ROOT"]."/bitrix/footer.php");?>
+<?php require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/footer.php');?>
