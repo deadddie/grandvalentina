@@ -58,7 +58,7 @@ Loc::loadLanguageFile(__FILE__);
                         </div>
 
                         <div class="footer--copyrights">
-                            &copy; <?= Core::autoCopyright(2019) ?> Официальный сайт <?= SITE_CONFIG['name_short'] ?>
+                            &copy; <?= Core::autoCopyright(SITE_CONFIG['since']) ?> Официальный сайт <?= SITE_CONFIG['name_short'] ?>
                         </div>
 
                     </div>
