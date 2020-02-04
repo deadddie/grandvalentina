@@ -1,16 +1,66 @@
 <?php
-
-if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
-    die();
-}
-
-$aMenuLinks = Array(
+$aMenuLinks = array(
 	array(
-        'Новости',
-        'news/',
-        Array(),
-        Array(),
-        ''
+		"Об отеле",
+		"about/",
+		Array(),
+		Array(),
+		""
 	),
+	array(
+		"Номера",
+		"rooms/",
+		Array(),
+		Array(),
+		""
+	),
+	array(
+		"Рестораны",
+		"restaurants/",
+		Array(),
+		Array(),
+		""
+	),
+    array(
+        "Мероприятия",
+        "restaurants/",
+        Array(),
+        Array(),
+        ""
+    ),
+    array(
+        "Спецпредложения",
+        "offers/",
+        Array(),
+        Array(),
+        ""
+    ),
+    array(
+        "Услуги",
+        "services/",
+        Array(),
+        Array(),
+        ""
+    ),
+    array(
+        "Развлечения",
+        "entertainments/",
+        Array(),
+        Array(),
+        ""
+    ),
+    array(
+        "Блог",
+        "blog/",
+        Array(),
+        Array(),
+        ""
+    ),
+    array(
+        "Контакты",
+        "contacts/",
+        Array(),
+        Array(),
+        ""
+    ),
 );
-?>

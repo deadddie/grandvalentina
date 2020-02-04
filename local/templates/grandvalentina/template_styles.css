@@ -35,10 +35,10 @@
     width: 2em;
 }
 
-.icon-check-checked {
-    font-size: 28.8px;
-    font-size: 1.8rem;
-    width: 1em;
+.icon-check {
+    font-size: 12.8px;
+    font-size: 0.8rem;
+    width: 1.25em;
 }
 
 .icon-close {
@@ -170,7 +170,7 @@
 .icon-mouse {
     font-size: 115.2px;
     font-size: 7.2rem;
-    width: 0.18056em;
+    width: 0.16667em;
 }
 
 .icon-ok {
@@ -230,7 +230,7 @@
 .icon-user {
     font-size: 25.6px;
     font-size: 1.6rem;
-    width: 0.75em;
+    width: 1.25em;
 }
 
 .icon-vk {
@@ -3191,7 +3191,7 @@ ul li:before {
     width: 10px;
     min-width: 10px;
     height: 10px;
-    margin-right: 10px;
+    margin-right: 8px;
     margin-top: 4px;
 }
 
@@ -3835,6 +3835,20 @@ body.index main {
     right: 0;
 }
 
+.mobile-menu-wrapper {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 0;
+    max-height: 100%;
+    overflow-y: scroll;
+}
+
 .mobile-menu--callback {
     padding-top: 30px;
     padding-bottom: 30px;
@@ -3847,14 +3861,120 @@ body.index main {
     justify-content: center;
 }
 
+.mobile-menu--callback--wrapper {
+    text-align: center;
+}
+
 .mobile-menu--callback button {
     padding-left: 30px;
     padding-right: 30px;
 }
 
-.mobile-menu--footer {
+.mobile-menu--menu--wrapper .menu-top ul {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.mobile-menu--menu--wrapper .menu-top ul > li {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    margin: 0;
+    padding: 0;
+}
+
+.mobile-menu--menu--wrapper .menu-top ul > li.active:before {
+    opacity: 1;
+}
+
+.mobile-menu--menu--wrapper .menu-top ul > li:before {
+    opacity: 0;
+    margin-top: 14px;
+}
+
+.mobile-menu--menu--wrapper .menu-top ul > li a {
+    font-family: "Minion Pro", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 20px;
+    color: #1e1e1e;
+    text-decoration: none;
+    display: block;
+    width: 100%;
+    padding: 3px 0;
+}
+
+.mobile-menu--menu--wrapper .menu-top ul > li a:hover {
+    color: #cabcaa;
+    text-decoration: underline;
+}
+
+.mobile-menu--menu--wrapper .menu-top ul > li a.active {
+    color: #cabcaa;
+}
+
+.mobile-menu--menu--wrapper .menu-top ul > li ul > li a {
+    font-size: 18px;
+}
+
+.mobile-menu--menu--wrapper .menu-top ul > li ul > li a:hover {
+    color: #ae1829;
+}
+
+.mobile-menu--phone {
     padding-top: 20px;
-    padding-bottom: 20px;
+    width: 100%;
+}
+
+.mobile-menu--phone--wrapper {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    width: 100%;
+}
+
+.mobile-menu--phone--button {
+    width: 48px;
+    height: 48px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    background-color: #c12032;
+    border-radius: 50%;
+}
+
+.mobile-menu--phone--button:hover {
+    background-color: #ae1829;
+}
+
+.mobile-menu--phone--button .icon {
+    color: #fff;
+}
+
+.mobile-menu--choose-room button {
+    font-size: 16px;
+}
+
+.mobile-menu--footer {
+    padding-top: 10px;
+    padding-bottom: 0;
     background-color: #fff;
     color: #1e1e1e;
 }
@@ -4085,6 +4205,7 @@ body.mobile-menu-open {
     opacity: 0;
     -webkit-transition: opacity 0.3s ease-in-out;
     transition: opacity 0.3s ease-in-out;
+    min-height: calc(100vh - 50px);
 }
 
 .modal button.close {
@@ -4120,6 +4241,7 @@ body.mobile-menu-open {
     box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
     background-color: #fff;
     padding: 30px 20px;
+    min-height: 100%;
 }
 
 .modal-content .form--title {

@@ -24,23 +24,129 @@
     display: none;
   }
 
+  &-wrapper {
+    flex-basis: 100%;
+    width: 100%;
+    position: absolute;
+    top: 50px;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    padding: 0;
+    max-height: 100%;
+    overflow-y: scroll;
+  }
+
   &--callback {
     padding-top: $app-padding--large;
     padding-bottom: $app-padding--large;
     display: flex;
     width: 100%;
     justify-content: center;
+    &--wrapper {
+      text-align: center;
+    }
     button {
       padding-left: $app-padding--large;
       padding-right: $app-padding--large;
     }
   }
 
-  &--menu {}
+  &--menu {
+    &--wrapper {
+
+      .menu-top {
+
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          margin: 0;
+          padding: 0;
+          list-style: none;
+          > li {
+            flex-basis: 100%;
+            margin: 0;
+            padding: 0;
+            &.active {
+              &:before {
+                opacity: 1;
+              }
+            }
+            &:before {
+              opacity: 0;
+              margin-top: 14px;
+            }
+            a {
+              @include head_font;
+              font-size: $app-fontsize--h3;
+              color: $app-color--black;
+              text-decoration: none;
+              display: block;
+              width: 100%;
+              padding: 3px 0;
+              &:hover {
+                color: $app-color--primary;
+                text-decoration: underline;
+              }
+              &.active {
+                color: $app-color--primary;
+              }
+            }
+
+            ul {
+              > li {
+                a {
+                  font-size: $app-fontsize--large;
+                  &:hover {
+                    color: $app-color--active-hover;
+                  }
+                }
+              }
+            }
+
+          }
+        }
+
+      }
+
+    }
+  }
+
+  &--phone {
+    padding-top: $app-padding--medium;
+    width: 100%;
+    &--wrapper {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      width: 100%;
+    }
+    &--button {
+      width: 48px;
+      height: 48px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background-color: $app-color--active;
+      border-radius: 50%;
+      &:hover {
+        background-color: $app-color--active-hover;
+      }
+      .icon {
+        color: $app-color--white;
+      }
+    }
+  }
+
+  &--choose-room {
+    button {
+      font-size: $app-fontsize--medium;
+    }
+  }
 
   &--footer {
-    padding-top: $app-padding--medium;
-    padding-bottom: $app-padding--medium;
+    padding-top: $app-padding--small;
+    padding-bottom: 0;
     background-color: $app-color--white;
     color: $app-color--black;
     .icon {
