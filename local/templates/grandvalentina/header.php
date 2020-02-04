@@ -26,7 +26,7 @@ $asset = Asset::getInstance();
     <meta name="viewport" content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <!--styles-->
-    <link href="https://fonts.googleapis.com/css?family=Roboto&amp;display=swap&amp;subset=cyrillic-ext" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Roboto:400,500  &amp;display=swap&amp;subset=cyrillic-ext" rel="stylesheet">
     <!--favicons-->
     <link rel="apple-touch-icon" sizes="76x76" href="<?= SITE_TEMPLATE_PATH ?>/images/favicons/apple-touch-icon.png">
     <link rel="icon" type="image/png" sizes="32x32" href="<?= SITE_TEMPLATE_PATH ?>/images/favicons/favicon-32x32.png">
@@ -55,7 +55,8 @@ $asset = Asset::getInstance();
 
     <div id="svg-container" hidden></div>
 
-    <? $APPLICATION->IncludeFile(SITE_TEMPLATE_PATH . '/include_areas/loading.php') ?>
+    <?php $APPLICATION->IncludeFile(SITE_TEMPLATE_PATH . '/include_areas/loading.php') ?>
+    <?php $APPLICATION->IncludeFile(SITE_TEMPLATE_PATH . '/include_areas/menu_mobile.php', array(), array('SHOW_BORDER' => true)) ?>
 
     <div class="wrapper" id="top">
 
@@ -65,8 +66,8 @@ $asset = Asset::getInstance();
                 <div class="row">
                     <div class="header--wrapper col-12">
 
-                        <div class="header--hamburger js-mobile-menu">
-                            <?= Core::renderIcon('hamburger') ?>
+                        <div class="header--lang">
+                            <div class="header--lang-current js-language-switch">RU <?= Core::renderIcon('romb') ?></div>
                         </div>
 
                         <div class="header--logo">
@@ -78,8 +79,8 @@ $asset = Asset::getInstance();
                             </a>
                         </div>
 
-                        <div class="header--lang">
-                            <div class="header--lang-current js-language-switch">RU <?= Core::renderIcon('romb') ?></div>
+                        <div class="header--hamburger active js-mobile-menu">
+                            <?= Core::renderIcon('hamburger') ?>
                         </div>
 
                     </div>
