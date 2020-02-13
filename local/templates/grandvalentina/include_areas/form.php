@@ -31,10 +31,7 @@ $form_id = $id . '-form-' . Random::getString(32);
                     'id' => $id,
                     'required' => in_array($field, $required, true),
                 ];
-                $APPLICATION->IncludeFile(
-                    VIEWS_DIR . 'fields/' . $field . '.php',
-                    $field_params
-                );
+                print view('fields.' . $field, $field_params, false);
             } ?>
         </div>
         <div class="form--actions">

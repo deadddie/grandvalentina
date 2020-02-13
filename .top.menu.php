@@ -3,64 +3,64 @@ $aMenuLinks = array(
 	array(
 		"Об отеле",
 		"about/",
-		Array(),
-		Array(),
+		array(),
+		array(),
 		""
 	),
 	array(
 		"Номера",
 		"rooms/",
-		Array(),
-		Array(),
+		array(),
+		array(),
 		""
 	),
 	array(
 		"Рестораны",
 		"restaurants/",
-		Array(),
-		Array(),
+		array(),
+		array(),
 		""
 	),
-    array(
-        "Мероприятия",
-        "restaurants/",
-        Array(),
-        Array(),
-        ""
-    ),
-    array(
-        "Спецпредложения",
-        "offers/",
-        Array(),
-        Array(),
-        ""
-    ),
-    array(
-        "Услуги",
-        "services/",
-        Array(),
-        Array(),
-        ""
-    ),
-    array(
-        "Развлечения",
-        "entertainments/",
-        Array(),
-        Array(),
-        ""
-    ),
-    array(
-        "Блог",
-        "blog/",
-        Array(),
-        Array(),
-        ""
-    ),
-    array(
-        "Контакты",
-        "contacts/",
-        Array(),
-        Array(),
-        ""
-    ),
+	array(
+		"Мероприятия",
+		"restaurants/",
+		array(),
+		array(),
+		""
+	),
+	array(
+		"Спецпредложения",
+		"offers/",
+		array(),
+		array(),
+		""
+	),
+	array(
+		"Услуги",
+		"services/",
+		array(),
+		array(),
+		""
+	),
+	array(
+		"Развлечения",
+		"entertainments/",
+		array(),
+		array(),
+		""
+	),
+	array(
+		"Блог",
+		"blog/",
+		array(),
+		array(),
+		""
+	),
+	array(
+		"Контакты",
+		"contacts/",
+		array(),
+		array(),
+		""
+	),
 );

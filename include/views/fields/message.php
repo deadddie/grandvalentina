@@ -1,8 +1,8 @@
 <?php
 /**
  * @var $id
- * @var $required
- * @var $hidden
+ * @var bool $required
+ * @var bool $hidden
  */
 ?>
 <div class="form-field form-field-textarea" <?= $hidden ? 'hidden' : '' ?>>

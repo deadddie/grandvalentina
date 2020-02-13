@@ -2,7 +2,7 @@
 
 use Bitrix\Main\EventManager;
 use Bitrix\Main\Config\Configuration;
-use LapkinLab\Core;
+use LapkinLab\{Core, View};
 
 
 define('ROOT', $_SERVER['DOCUMENT_ROOT']);
@@ -11,6 +11,10 @@ define('INCLUDE_DIR', '/include/');
 define('VIEWS_DIR', '/include/views/');
 
 define('SITE_CONFIG', Configuration::getInstance()->get('site'));
+
+define('ROOMS_IBLOCK_ID', 1);
+define('SERVICES_IBLOCK_ID', 2);
+define('ROOM_SERVICES_IBLOCK_ID', 3);
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/local/vendor/autoload.php';
 
@@ -32,6 +36,10 @@ function renderIcon(string $name, string $class = '') {
 
 function renderSprite(string $name, string $class = '') {
     return Core::renderSprite($name, $class);
+}
+
+function view($name, $params = array(), $print = true) {
+    return (new View(VIEWS_DIR))->render($name, $params, $print);
 }
 
 ### EVENT HANDLERS ###

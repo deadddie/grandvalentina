@@ -18,7 +18,7 @@ let Form = {
                 continue;
             }
             errors[field].forEach((value) => {
-                form.find('[name="'+ field +'"]').closest('.form-field').append('<div class="form-field-error">' + value + '</div>');
+                form.find('[name="'+ field +'"]').addClass('has-error').closest('.form-field').append('<div class="form-field-error">' + value + '</div>');
             });
         }
     },
@@ -28,6 +28,7 @@ let Form = {
      */
     clearErrors() {
         $('.form-field-error, .form-error').remove();
+        $('.has-error').removeClass('has-error');
     },
 
 };

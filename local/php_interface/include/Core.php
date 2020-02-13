@@ -17,6 +17,7 @@ class Core
     private function __construct() {}
     private function __clone() {}
 
+
     /**
      * Beautify Var Dumper.
      *
@@ -72,42 +73,6 @@ class Core
         }
         $tmp = mb_substr($str, 0, $length, $encoding);
         return mb_substr($tmp, 0, mb_strripos($tmp, ' ', 0, $encoding), $encoding) . $postfix;
-    }
-
-
-    /**
-     * Словоформы для различных языков.
-     *
-     * @param $n
-     * @param bool $returnFalseForUnknown
-     *
-     * @return bool|int
-     */
-    public static function getPluralForm(int $n, $returnFalseForUnknown = false) {
-        $n = abs((int) $n);
-        if (!defined('LANGUAGE_ID')) {
-            return (FALSE);
-        }
-        // info at http://docs.translatehouse.org/projects/localization-guide/en/latest/l10n/pluralforms.html?id=l10n/pluralforms
-        switch (LANGUAGE_ID) {
-            case 'de':
-            case 'en':
-                $plural = (int) ($n !== 1);
-                break;
-            case 'ru':
-            case 'ua':
-                $plural = ((($n % 10 === 1) && ($n % 100 !== 11)) ? 0 : ((($n % 10 >= 2) && ($n % 10 <= 4) && (($n % 100 < 10) || ($n % 100 >= 20))) ? 1 : 2));
-                break;
-            default:
-                if ($returnFalseForUnknown) {
-                    $plural = FALSE;
-                }
-                else {
-                    $plural = (int) ($n !== 1);
-                }
-                break;
-        }
-        return ($plural);
     }
 
 

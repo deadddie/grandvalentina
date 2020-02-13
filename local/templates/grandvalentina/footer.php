@@ -1,7 +1,7 @@
 <?php
 
 use Bitrix\Main\Localization\Loc;
-use LapkinLab\Core;
+use LapkinLab\{Core, Content};
 
 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
@@ -29,12 +29,31 @@ Loc::loadLanguageFile(__FILE__);
 
                         <div class="footer--rooms">
                             <div class="footer--rooms--title">Номера</div>
-                            <div class="footer--rooms--items"></div>
+                            <div class="footer--rooms--items">
+                                <?= Content::getRoomList('list') ?>
+                            </div>
                         </div>
 
                         <div class="footer--menu">
                             <div class="footer--menu--title">Меню</div>
-                            <div class="footer--menu--items"></div>
+                            <div class="footer--menu--items">
+                                <?php $APPLICATION->IncludeComponent(
+                                    'bitrix:menu',
+                                    'top',
+                                    array(
+                                        'ALLOW_MULTI_SELECT'    => 'N',
+                                        'CHILD_MENU_TYPE'       => 'top',
+                                        'DELAY'                 => 'N',
+                                        'MAX_LEVEL'             => 2,
+                                        'MENU_CACHE_GET_VARS'   => array(''),
+                                        'MENU_CACHE_TIME'       => 3600,
+                                        'MENU_CACHE_TYPE'       => 'N',
+                                        'MENU_CACHE_USE_GROUPS' => 'Y',
+                                        'ROOT_MENU_TYPE'        => 'top',
+                                        'USE_EXT'               => 'N',
+                                    )
+                                ); ?>
+                            </div>
                         </div>
 
                         <div class="footer--contacts">

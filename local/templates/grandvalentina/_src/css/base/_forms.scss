@@ -124,6 +124,9 @@ fieldset {
           resize: vertical;
         }
       }
+      .has-error {
+        border-color: $app-color--active !important;
+      }
     }
   }
 
@@ -185,13 +188,13 @@ fieldset {
     position: relative;
     &-error {
       display: inline-flex;
-      color: $app-color--white;
-      font-size: $app-fontsize--smaller - 1;
+      color: $app-color--active;
+      font-size: $app-fontsize--smaller;
       margin: 0;
-      padding: 0 5px;
-      position: absolute;
-      top: 2px;
-      right: 2px;
+      padding: 0;
+      position: relative;
+      top: 3px;
+      left: 0;
       //background-color: $app-color--active-dark;
       @include border-radius;
       ~ input,

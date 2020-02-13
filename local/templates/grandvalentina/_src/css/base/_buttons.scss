@@ -33,6 +33,17 @@ button {
 
 .btn {
 
+  &-default {
+    border: 1px solid $app-color--active;
+    background-color: $app-color--active;
+    color: $app-color--white !important;
+    &:hover,
+    &:focus {
+      background-color: $app-color--active-hover;
+      border-color: $app-color--active-hover;
+    }
+  }
+
   // Button Sizes
   &-noradius {
     border-radius: 0 !important;
@@ -64,15 +75,21 @@ button {
 
   // Link Button
   &-link {
-    color: $app-color--active;
+    color: $app-color--black !important;
     background: transparent;
-    padding: 0;
     margin: 0;
     display: inline-flex;
     height: initial;
     line-height: initial;
     text-decoration: underline;
+    border-color: transparent;
+    text-transform: none;
+    letter-spacing: initial;
     &:hover {
+      color: $app-color--active-hover;
+      text-decoration: underline !important;
+      border-color: transparent;
+      background-color: transparent;
     }
     &-inverse {
       text-decoration: none;

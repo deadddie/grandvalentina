@@ -1,0 +1,261 @@
+// Rooms
+
+.room {
+  &-items {
+
+  }
+
+  &-item {
+    background-color: $app-color--background;
+    padding-bottom: $app-padding--medium;
+    position: relative;
+
+    &--image {}
+
+    &--content {
+      padding: $app-padding--medium $app-padding--medium $app-padding--large;
+      background-color: $app-color--white;
+    }
+    &--name {
+      h2 {
+        margin-bottom: $app-padding--base;
+        a {
+          text-decoration: none;
+          color: $app-color--black;
+          &:hover {
+            text-decoration: underline;
+          }
+        }
+      }
+    }
+    &--description {
+      font-size: $app-fontsize--smaller;
+      line-height: 1.5;
+    }
+    &--info {
+      display: flex;
+      justify-content: space-between;
+      margin-top: $app-padding--medium;
+      &--customers {
+        .icon {
+          color: $app-color--primary;
+          width: 12px;
+          margin-right: 5px;
+        }
+      }
+      &--room {
+        @include head_font_i;
+        font-size: $app-fontsize--small;
+        color: $app-color--primary;
+        .icon {
+          color: $app-color--primary;
+          width: 16px;
+          margin-right: 5px;
+        }
+      }
+    }
+    &--actions {
+      display: flex;
+      justify-content: space-between;
+      margin-top: $app-padding--medium;
+      a.btn-white {
+        font-size: $app-fontsize--smaller;
+      }
+      a.btn-link {
+        padding-left: $app-padding--large;
+        padding-right: $app-padding--large;
+      }
+    }
+    &--stickers {
+      position: absolute;
+      top: 0;
+      left: 35px;
+      &--hit {
+        background-image: url("images/sticker.svg");
+        background-position: bottom center;
+        background-size: 30px 70px;
+        background-repeat: no-repeat;
+        width: 30px;
+        height: 70px;
+        span {
+          color: $app-color--white;
+          @include text_font_b;
+          display: block;
+          top: $app-padding--medium;
+          position: relative;
+          transform: rotate(-90deg);
+        }
+      }
+    }
+
+  }
+}
+
+// Room detail
+
+.room-detail {
+  @extend .room-item;
+
+  &--content {
+    @extend .room-item--content;
+  }
+
+  &--promo {
+    padding: $app-padding--medium;
+    @include head_font;
+  }
+
+  &--images {
+    ul {
+      margin: 0;
+      padding: 0;
+      list-style: none;
+      li {
+        margin: 0;
+        padding: 0;
+        &:before {
+          display: none;
+        }
+        img {}
+      }
+    }
+
+    &--nav {
+      padding-top: $app-padding--medium;
+      padding-bottom: 0;
+      background-color: $app-color--white;
+      position: relative;
+      .room-slider--navigation {
+        padding-left: 50px;
+        padding-right: 50px;
+        width: 100%;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        .owl-prev,
+        .owl-next {
+          background-image: url("images/arrow.svg");
+          background-repeat: no-repeat;
+          background-size: 10px;
+          background-position: center;
+          background-color: $app-color--secondary;
+          width: 48px;
+          height: 48px;
+          border-radius: 50%;
+          cursor: pointer;
+          span {
+            display: none;
+          }
+          &.disabled {
+            background-color: transparent;
+          }
+        }
+        .owl-prev {}
+        .owl-next {
+          transform: rotate(180deg);
+        }
+      }
+      .room-slider--counter {
+        @include head_font;
+        font-size: $app-fontsize--large;
+        color: $app-color--primary;
+        span.current,
+        span.total {
+          margin-right: 10px;
+          margin-left: 10px;
+        }
+        span.current {
+          color: $app-color--active;
+        }
+        span.total {}
+      }
+    }
+
+  }
+
+  &--price {
+    margin-bottom: $app-padding--small;
+    color: $app-color--black;
+    font-size: $app-fontsize--h2;
+    @include head_font_bi;
+    .icon.icon-rouble {
+      font-size: $app-fontsize--medium;
+      margin-top: -3px;
+    }
+  }
+
+  &--info {
+    @extend .room-item--info;
+    margin-top: 0;
+    &--customers {
+      @extend .room-item--info--customers;
+    }
+    &--room {
+      @extend .room-item--info--room;
+    }
+  }
+
+  &--actions {
+    @extend .room-item--actions;
+    &--bottom {
+      margin-top: 0;
+    }
+  }
+
+  &--description,
+  &--room-services,
+  &--accomodations {
+    padding-top: $app-padding--medium;
+    &--title {
+      background-color: $app-color--primary;
+      padding: $app-padding--base $app-padding--medium;
+      color: $app-color--white;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      font-size: $app-fontsize--h3;
+      @include head_font;
+      .icon.icon-shevron {
+        width: 12px;
+      }
+    }
+    &--content {
+      margin-top: $app-padding--medium;
+    }
+  }
+
+  &--3d {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    button {
+      flex-basis: 100%;
+      font-size: $app-fontsize--h2;
+    }
+    .delimiter {
+      text-align: center;
+      .icon {
+        color: $app-color--primary;
+      }
+    }
+  }
+
+  &--backlink {
+    margin-top: $app-padding--medium;
+    text-align: center;
+    a {
+      @include head_font_i;
+      font-size: $app-fontsize--large;
+      color: $app-color--primary;
+      text-decoration: underline;
+      &:hover {
+        color: $app-color--black;
+      }
+    }
+  }
+
+  &--stickers {
+    @extend .room-item--stickers;
+  }
+
+}

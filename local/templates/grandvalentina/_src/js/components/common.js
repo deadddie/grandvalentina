@@ -11,21 +11,22 @@ let Common = {
      * Init.
      */
     init() {
+        let self = this;
 
         // Прокрутка страницы по хешу
-        $(document).on('click', 'a[href^="#top"]', (e) => {
-            let id = $(e.target).attr('href');
-            let $id = $(id);
-            if ($id.length === 0) {
-                return;
-            }
-            e.preventDefault();
-            let pos = $id.offset().top;
-            $('body, html').animate({scrollTop: pos});
-        });
-
-        // Открытие/закрытие мобильного меню
         $(document)
+            .on('click', 'a[href^="#top"]', (e) => {
+                let id = $(e.target).attr('href');
+                let $id = $(id);
+                if ($id.length === 0) {
+                    return;
+                }
+                e.preventDefault();
+                let pos = $id.offset().top;
+                $('body, html').animate({scrollTop: pos});
+            })
+
+            // Открытие/закрытие мобильного меню
             .on('click', '.js-mobile-menu', () => {
                 $('.mobile-menu, .header--close-menu').addClass('active');
                 $('body, #top').addClass('mobile-menu-open');
@@ -40,24 +41,24 @@ let Common = {
                     $(div + ', .header--close-menu').removeClass('active');
                     $('body, #top').removeClass('mobile-menu-open');
                 }
+            })
+
+            // Обработчик после загрузки страницы
+            .ready(() => {
+                //self.setEmailMask();
+                self.setPhoneMask();
+            })
+
+            // Обработчик при прокрутке страницы
+            .scroll(() => {
+                self.scrollToTop();
+            })
+
+            // Обработчик после завершения ajax
+            .ajaxComplete(() => {
+                //self.setEmailMask();
+                self.setPhoneMask();
             });
-
-        // Обработчик после загрузки страницы
-        $(document).ready(() => {
-            //Common.setEmailMask();
-            Common.setPhoneMask();
-        });
-
-        // Обработчик при прокрутке страницы
-        $(document).scroll(() => {
-            Common.scrollToTop();
-        });
-
-        // Обработчик после завершения ajax
-        $(document).ajaxComplete(() => {
-            //Common.setEmailMask();
-            Common.setPhoneMask();
-        });
 
     },
 
@@ -65,14 +66,16 @@ let Common = {
      * Scroll to top.
      */
     scrollToTop() {
+        let self = this;
         let scrollingAtTop = $(document).scrollTop();
-        if (scrollingAtTop > 480 && !Common.min) {
-            $('#scroll-to-top').addClass('active');
-            Common.min = true;
+        let scrollToTop = $('#scroll-to-top');
+        if (scrollingAtTop > 480 && !self.min) {
+            scrollToTop.addClass('active');
+            self.min = true;
         }
-        if (scrollingAtTop <= 480 && Common.min) {
-            $('#scroll-to-top').removeClass('active');
-            Common.min = false;
+        if (scrollingAtTop <= 480 && self.min) {
+            scrollToTop.removeClass('active');
+            self.min = false;
         }
     },
 

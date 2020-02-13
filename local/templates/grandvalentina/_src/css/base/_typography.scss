@@ -29,7 +29,7 @@ h4 {}
 .h4 { font-size: $app-fontsize--h4; }
 
 .page-title {
-  margin-bottom: $app-padding--medium;
+  margin-bottom: $app-padding--large;
 }
 
 strong, b {
@@ -82,4 +82,10 @@ ul {
       margin-top: 4px;
     }
   }
+}
+
+.page-title {
+  text-align: center;
+  padding-left: $app-padding--medium;
+  padding-right: $app-padding--medium;
 }

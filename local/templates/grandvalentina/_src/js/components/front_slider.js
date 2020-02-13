@@ -1,9 +1,13 @@
+/**
+ * Front Slider.
+ *
+ * @type {{init(): void, instance: {}}}
+ */
 let FrontSlider = {
 
     instance: {},
 
     init() {
-
 
         require('jquery');
         require('owl.carousel');
