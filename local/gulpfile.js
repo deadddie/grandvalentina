@@ -60,7 +60,7 @@ var path = {
         sprite: sourcesPath + 'images',
         html: appPath,
         images: appPath + 'images'
-},
+    },
 
     // sources
     src: {
@@ -82,7 +82,10 @@ var path = {
 
     // watch files
     watch: {
-        js: sourcesPath + 'js/**/[^vendor]*.js',
+        js: [
+            sourcesPath + 'js/**/[^vendor]*.js',
+            sourcesPath + 'js/**/components/*.js',
+        ],
         css: [
             sourcesPath + 'css/base/*.scss',
             sourcesPath + 'css/common/*.scss',
