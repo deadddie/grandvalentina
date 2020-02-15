@@ -84,16 +84,11 @@ class Core
      * @return string
      */
     public static function setBodyClass(\CMain $APPLICATION): string {
-        if (
-            $APPLICATION->GetCurPage(false) === '/'
-            || $APPLICATION->GetCurPage(false) === '/'
-        ) return 'index';
-        elseif (
-            $APPLICATION->GetCurPage(false) === '/catalog/'
-            || $APPLICATION->GetCurPage(false) === '/' . LANGUAGE_ID . '/catalog/'
-        ) return 'catalog_index';
-        elseif (\CSite::InDir('/search/')) return 'search';
-        return 'inner';
+        $path = explode('/', $APPLICATION->GetCurPage());
+        $path = array_filter($path, static function ($v) {
+            return $v !== '';
+        });
+        return !empty($path) ? array_shift($path) : 'index';
     }
 
 

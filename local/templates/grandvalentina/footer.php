@@ -1,7 +1,7 @@
 <?php
 
 use Bitrix\Main\Localization\Loc;
-use LapkinLab\{Core, Content};
+use LapkinLab\{Core, Content\Rooms};
 
 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
@@ -30,7 +30,7 @@ Loc::loadLanguageFile(__FILE__);
                         <div class="footer--rooms">
                             <div class="footer--rooms--title">Номера</div>
                             <div class="footer--rooms--items">
-                                <?= Content::getRoomList('list') ?>
+                                <?= Rooms::getList('list') ?>
                             </div>
                         </div>
 

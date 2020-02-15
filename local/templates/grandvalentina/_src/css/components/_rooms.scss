@@ -1,12 +1,9 @@
 // Rooms
 
 .room {
-  &-items {
-
-  }
+  &-items {}
 
   &-item {
-    background-color: $app-color--background;
     padding-bottom: $app-padding--medium;
     position: relative;
 
@@ -15,7 +12,9 @@
     &--content {
       padding: $app-padding--medium $app-padding--medium $app-padding--large;
       background-color: $app-color--white;
+      @include shadow;
     }
+
     &--name {
       h2 {
         margin-bottom: $app-padding--base;
@@ -28,10 +27,12 @@
         }
       }
     }
+
     &--description {
       font-size: $app-fontsize--smaller;
       line-height: 1.5;
     }
+
     &--info {
       display: flex;
       justify-content: space-between;
@@ -54,6 +55,7 @@
         }
       }
     }
+
     &--actions {
       display: flex;
       justify-content: space-between;
@@ -66,6 +68,7 @@
         padding-right: $app-padding--large;
       }
     }
+
     &--stickers {
       position: absolute;
       top: 0;
@@ -119,7 +122,6 @@
         img {}
       }
     }
-
     &--nav {
       padding-top: $app-padding--medium;
       padding-bottom: 0;

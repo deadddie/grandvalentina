@@ -5,7 +5,7 @@
  * @var object $rooms \CIBlockElement
  */
 
-use LapkinLab\{Core, Helper};
+use LapkinLab\{Core, Helper, Content\Rooms};
 
 ?>
 
@@ -24,11 +24,9 @@ use LapkinLab\{Core, Helper};
             <?php $arProperties = $room->GetProperties(); ?>
             <div id="room-item-<?= $arFields['ID'] ?>" class="room-item" data-id="<?= $arFields['ID'] ?>">
                 <div class="room-item--image">
-                    <?php
-                    $preview_image = \CFile::GetByID($arFields['PREVIEW_PICTURE'])->GetNext();
-                    $resized_preview = Core::resizeImage($preview_image, false, 720, 480);
-                    ?>
-                    <img src="<?= $resized_preview['src'] ?>" alt="<?= $arFields['NAME'] ?>" class="img-fluid">
+                    <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>">
+                        <?= Rooms::getImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
+                    </a>
                 </div>
                 <div class="room-item--content">
                     <div class="room-item--name">

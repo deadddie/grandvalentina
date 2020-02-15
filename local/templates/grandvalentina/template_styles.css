@@ -3534,6 +3534,18 @@ button.disabled {
     border-color: #c12032;
 }
 
+.btn-gold {
+    background-color: #cabcaa;
+    color: #fff !important;
+    border-color: #cabcaa;
+}
+
+.btn-gold:hover {
+    background-color: #1e1e1e;
+    color: #fff !important;
+    border-color: #1e1e1e;
+}
+
 .btn-link {
     color: #1e1e1e !important;
     background: transparent;
@@ -3605,11 +3617,6 @@ button.disabled {
 .main--content h2 {
     margin-top: 20px;
     margin-bottom: 15px;
-}
-
-body.index main {
-    padding-top: 30px;
-    padding-bottom: 30px;
 }
 
 .mobile-menu--header,
@@ -4162,7 +4169,7 @@ body.mobile-menu-open {
     height: 32px;
     display: block;
     position: fixed;
-    bottom: 20px;
+    bottom: 30px;
     right: calc(50% - 16px);
     z-index: 999;
     opacity: 0;
@@ -4644,28 +4651,35 @@ body.mobile-menu-open {
 }
 
 .room-item,
-.room-detail {
-    background-color: #f8f8f8;
+.room-detail,
+.service-item {
     padding-bottom: 20px;
     position: relative;
 }
 
 .room-item--content,
-.room-detail--content {
+.room-detail--content,
+.service-detail--content,
+.service-item--content {
     padding: 20px 20px 30px;
     background-color: #fff;
+    -webkit-box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
 }
 
-.room-item--name h2 {
+.room-item--name h2,
+.service-item--name h2 {
     margin-bottom: 15px;
 }
 
-.room-item--name h2 a {
+.room-item--name h2 a,
+.service-item--name h2 a {
     text-decoration: none;
     color: #1e1e1e;
 }
 
-.room-item--name h2 a:hover {
+.room-item--name h2 a:hover,
+.service-item--name h2 a:hover {
     text-decoration: underline;
 }
 
@@ -4949,6 +4963,39 @@ body.mobile-menu-open {
 
 .room-detail--backlink a:hover {
     color: #1e1e1e;
+}
+
+.service-item--name h2 {
+    margin-bottom: 20px;
+}
+
+.service-item--actions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+.service-item--actions a {
+    font-size: 14px;
+}
+
+.service-detail--content {
+    background-color: #fff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.service-detail--description--content p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.service-detail--actions {
+    margin-top: 20px;
+    margin-bottom: 20px;
 }
 
 .page-privacy {
@@ -11138,11 +11185,6 @@ body.compensate-for-scrollbar {
         padding-top: 20px;
         padding-bottom: 20px;
     }
-
-    body.index main {
-        padding-top: 20px;
-        padding-bottom: 20px;
-    }
 }
 
 @media (max-width: 768px) {
@@ -11164,13 +11206,6 @@ body.compensate-for-scrollbar {
     .fancybox-caption::before {
         display: none !important;
         pointer-events: all;
-    }
-}
-
-@media (max-width: 576px) {
-    body.index main {
-        padding-top: 15px;
-        padding-bottom: 15px;
     }
 }
 

@@ -4,7 +4,7 @@
  * @var object $room \CIBlockElement
  */
 
-use LapkinLab\{Core, Content, Helper};
+use LapkinLab\{Core, Helper, Content\Rooms};
 
 require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/include/prolog_before.php');
 
@@ -15,7 +15,6 @@ if ($room):
     $APPLICATION->SetTitle($arFields['NAME']);
     $APPLICATION->AddChainItem('Номера', '/rooms/');
 
-    //dump($arProperties['MORE_PHOTO']);
     ?>
     <h1 class="page-title"><?= $arFields['NAME'] ?></h1>
 
@@ -29,7 +28,7 @@ if ($room):
 
         <?php if (!empty($arProperties['MORE_PHOTO']['VALUE'])): ?>
         <div class="room-detail--images">
-            <?= Content::getRoomMoreImages($arProperties['MORE_PHOTO']['VALUE'], $arFields['NAME']) ?>
+            <?= Rooms::getMoreImages($arProperties['MORE_PHOTO']['VALUE'], $arFields['NAME']) ?>
             <div class="room-detail--images--nav">
                 <div class="room-slider--navigation">
                     <div class="room-slider--counter"><span class="current"></span>/<span class="total"></span></div>
@@ -38,7 +37,7 @@ if ($room):
         </div>
         <?php endif; ?>
 
-        <div class="room-item--content">
+        <div class="room-detail--content">
 
             <div class="room-detail--price">
                 от <?= Helper::priceFormat($arProperties['PRICE']['VALUE']) ?> <?= Core::renderIcon('rouble') ?>
@@ -69,7 +68,7 @@ if ($room):
                 <div class="room-detail--description">
                     <div class="room-detail--description--title">Описание <?= Core::renderIcon('shevron') ?></div>
                     <div class="room-detail--description--content">
-                        <?= Content::getRoomServices($arFields['DESCRIPTION']) ?>
+                        <?= Rooms::getRoomServices($arFields['DESCRIPTION']) ?>
                     </div>
                 </div>
             <?php endif; ?>
@@ -78,7 +77,7 @@ if ($room):
                 <div class="room-detail--room-services">
                     <div class="room-detail--room-services--title">Услуги <?= Core::renderIcon('shevron') ?></div>
                     <div class="room-detail--room-services--content">
-                        <?= Content::getRoomServices($arProperties['ROOM_SERVICES']['VALUE']) ?>
+                        <?= Rooms::getRoomServices($arProperties['ROOM_SERVICES']['VALUE']) ?>
                     </div>
                 </div>
             <?php endif; ?>
@@ -97,7 +96,7 @@ if ($room):
                 <div class="delimiter"><?= Core::renderIcon('delimiter') ?></div>
             </div>
 
-            <div class="room-item--stickers">
+            <div class="room-detail--stickers">
                 <?php if (!empty($arProperties['HIT']) && $arProperties['HIT']['VALUE'] === 'Y'): ?>
                     <div class="room-item--stickers--hit"><span><?= $arProperties['HIT']['NAME'] ?></span></div>
                 <?php endif; ?>
@@ -106,15 +105,10 @@ if ($room):
         </div>
 
         <div class="room-detail--image-main">
-            <?= Content::getRoomImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
-            <?php
-            $preview_image = \CFile::GetByID($arFields['PREVIEW_PICTURE'])->GetNext();
-            $resized_preview = Core::resizeImage($preview_image, false, 720, 480);
-            ?>
-            <img src="<?= $resized_preview['src'] ?>" alt="<?= $arFields['NAME'] ?>" class="img-fluid">
+            <?= Rooms::getImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
         </div>
 
-        <div class="room-item--content">
+        <div class="room-detail--content">
 
             <div class="room-detail--actions room-detail--actions--bottom">
                 <a href="<?= $arProperties['BOOKING_LINK']['VALUE'] ?>" class="btn btn-wide btn-default">Забронировать номер</a>
