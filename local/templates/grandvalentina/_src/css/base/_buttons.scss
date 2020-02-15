@@ -73,6 +73,17 @@ button {
     }
   }
 
+  &-gold {
+    background-color: $app-color--primary;
+    color: $app-color--white !important;
+    border-color: $app-color--primary;
+    &:hover {
+      background-color: $app-color--black;
+      color: $app-color--white !important;
+      border-color: $app-color--black;
+    }
+  }
+
   // Link Button
   &-link {
     color: $app-color--black !important;
