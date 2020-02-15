@@ -50,7 +50,7 @@ $asset = Asset::getInstance();
     ?>
     <?php $asset->addString('<link rel="canonical" href="https://' . $_SERVER['HTTP_HOST'] . $APPLICATION->GetCurPage(false) . '">'); ?>
 </head>
-<body class="">
+<body class="<?= Core::setBodyClass($APPLICATION) ?>">
     <?php $APPLICATION->ShowPanel(); ?>
 
     <div id="svg-container" hidden></div>
