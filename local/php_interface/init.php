@@ -15,6 +15,7 @@ define('SITE_CONFIG', Configuration::getInstance()->get('site'));
 define('ROOMS_IBLOCK_ID', 1);
 define('SERVICES_IBLOCK_ID', 2);
 define('ROOM_SERVICES_IBLOCK_ID', 3);
+define('EVENTS_IBLOCK_ID', 4);
 define('BLOG_IBLOCK_ID', 5);
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/local/vendor/autoload.php';

@@ -23,7 +23,7 @@ $aMenuLinks = array(
 	),
 	array(
 		"Мероприятия",
-		"restaurants/",
+		"events/",
 		array(),
 		array(),
 		""

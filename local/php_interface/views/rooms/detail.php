@@ -30,9 +30,7 @@ if ($room):
         <div class="room-detail--images">
             <?= Rooms::getMoreImages($arProperties['MORE_PHOTO']['VALUE'], $arFields['NAME']) ?>
             <div class="room-detail--images--nav">
-                <div class="room-slider--navigation">
-                    <div class="room-slider--counter"><span class="current"></span>/<span class="total"></span></div>
-                </div>
+                <?= view('common.slider_navigation', ['type' => 'room'], false) ?>
             </div>
         </div>
         <?php endif; ?>
