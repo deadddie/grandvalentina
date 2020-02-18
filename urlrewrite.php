@@ -1,46 +1,22 @@
 <?php
 $arUrlRewrite=array (
   1 =>
-  array (
-    'CONDITION' => '#^/news/#',
-    'RULE' => '',
-    'ID' => 'bitrix:news',
-    'PATH' => '/news/index.php',
-    'SORT' => 100,
-  ),
-  20 =>
       array (
-          'CONDITION' => '#^/rooms/\\??(.*)/#',
-          'RULE' => 'ELEMENT_CODE=$1',
+          'CONDITION' => '#^/(rooms|services|blog)/\\??(.*)/#',
+          'RULE' => 'ELEMENT_CODE=$2',
           'ID' => '',
-          'PATH' => '/rooms/detail.php',
+          'PATH' => '/$1/detail.php',
           'SORT' => 100,
       ),
-  21 =>
+  2 =>
       array (
-          'CONDITION' => '#^/rooms/#',
+          'CONDITION' => '#^/(rooms|services|blog)/#',
           'RULE' => '',
           'ID' => '',
-          'PATH' => '/rooms/index.php',
+          'PATH' => '/$1/index.php',
           'SORT' => 100,
       ),
-  30 =>
-      array (
-          'CONDITION' => '#^/services/\\??(.*)/#',
-          'RULE' => 'ELEMENT_CODE=$1',
-          'ID' => '',
-          'PATH' => '/services/detail.php',
-          'SORT' => 100,
-      ),
-  31 =>
-      array (
-          'CONDITION' => '#^/services/#',
-          'RULE' => '',
-          'ID' => '',
-          'PATH' => '/services/index.php',
-          'SORT' => 100,
-      ),
-  1000 =>
+  99 =>
   array (
     'CONDITION' => '#^/ajax/#',
     'RULE' => '/local/php_interface/ajax.php',
