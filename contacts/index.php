@@ -46,7 +46,7 @@ $points = array(
                 </div>
 
                 <div class="page-contacts--section">
-                    <? $APPLICATION->IncludeFile(INCLUDE_DIR . 'map.php', array('points' => $points)) ?>
+                    <? $APPLICATION->IncludeFile(SITE_TEMPLATE_PATH . '/include_areas/map.php', array('points' => $points)) ?>
                 </div>
 
                 <div class="page-contacts--section">
