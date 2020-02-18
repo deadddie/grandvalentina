@@ -19,7 +19,6 @@ class Form
     private const IBLOCK = 2;
 
     protected $request;
-    protected $views_dir;
 
     protected $form_id;
     protected $name;
@@ -27,6 +26,7 @@ class Form
     protected $phone;
     protected $email;
     protected $message;
+    protected $privacy;
 
     protected $required; // данные о required полях
 
@@ -56,7 +56,6 @@ class Form
         $context = $application->getContext();
 
         $this->request = $context->getRequest();
-        $this->views_dir = VIEWS_DIR;
 
         $this->required = explode(',', base64_decode($this->request->get('required')));
 
@@ -66,6 +65,7 @@ class Form
         $this->phone = $this->request->get('phone');
         $this->email = $this->request->get('email');
         $this->message = $this->request->get('message');
+        $this->privacy = $this->request->get('privacy');
 
         $client  = @$_SERVER['HTTP_CLIENT_IP'];
         $forward = @$_SERVER['HTTP_X_FORWARDED_FOR'];
