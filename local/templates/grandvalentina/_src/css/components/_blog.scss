@@ -1,0 +1,51 @@
+// Blog
+
+.blog {
+  &-items {}
+
+  &-item {
+    @extend .room-item;
+
+    &--image {}
+
+    &--content {
+      @extend .room-item--content;
+    }
+
+    &--name {
+      @extend .room-item--name;
+      h2 {
+        margin-bottom: $app-padding--medium;
+      }
+    }
+
+    &--actions {
+      display: flex;
+      justify-content: flex-end;
+      a {
+        @include head_font_i;
+        color: $app-color--primary;
+        &:hover {
+          color: $app-color--black;
+        }
+      }
+    }
+
+  }
+}
+
+.blog-detail {
+  &--content {
+    @extend .room-detail--content;
+    background-color: $app-color--white;
+    box-shadow: none;
+  }
+  &--description {
+    &--content {
+      p {
+        font-size: $app-fontsize--small;
+        line-height: 1.6;
+      }
+    }
+  }
+}

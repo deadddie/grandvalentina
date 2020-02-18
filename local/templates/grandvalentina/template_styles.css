@@ -4652,7 +4652,8 @@ body.mobile-menu-open {
 
 .room-item,
 .room-detail,
-.service-item {
+.service-item,
+.blog-item {
     padding-bottom: 20px;
     position: relative;
 }
@@ -4660,7 +4661,9 @@ body.mobile-menu-open {
 .room-item--content,
 .room-detail--content,
 .service-detail--content,
-.service-item--content {
+.blog-detail--content,
+.service-item--content,
+.blog-item--content {
     padding: 20px 20px 30px;
     background-color: #fff;
     -webkit-box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
@@ -4668,18 +4671,21 @@ body.mobile-menu-open {
 }
 
 .room-item--name h2,
-.service-item--name h2 {
+.service-item--name h2,
+.blog-item--name h2 {
     margin-bottom: 15px;
 }
 
 .room-item--name h2 a,
-.service-item--name h2 a {
+.service-item--name h2 a,
+.blog-item--name h2 a {
     text-decoration: none;
     color: #1e1e1e;
 }
 
 .room-item--name h2 a:hover,
-.service-item--name h2 a:hover {
+.service-item--name h2 a:hover,
+.blog-item--name h2 a:hover {
     text-decoration: underline;
 }
 
@@ -4996,6 +5002,41 @@ body.mobile-menu-open {
 .service-detail--actions {
     margin-top: 20px;
     margin-bottom: 20px;
+}
+
+.blog-item--name h2 {
+    margin-bottom: 20px;
+}
+
+.blog-item--actions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+.blog-item--actions a {
+    font-family: "Minion Pro Italic", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #cabcaa;
+}
+
+.blog-item--actions a:hover {
+    color: #1e1e1e;
+}
+
+.blog-detail--content {
+    background-color: #fff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.blog-detail--description--content p {
+    font-size: 14px;
+    line-height: 1.6;
 }
 
 .page-privacy {
