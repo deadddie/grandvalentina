@@ -18,7 +18,7 @@ use LapkinLab\{Core, Helper, Content\Rooms};
     </ul>
 
 <?php elseif ($mode === 'card'): ?>
-    <div class="rooms-items">
+    <div class="room-items">
         <?php while ($room = $rooms->GetNextElement()): ?>
             <?php $arFields = $room->GetFields(); ?>
             <?php $arProperties = $room->GetProperties(); ?>

@@ -18,7 +18,7 @@ use LapkinLab\{Core, Helper, Content\Services};
     </ul>
 
 <?php elseif ($mode === 'card'): ?>
-    <div class="services-items">
+    <div class="service-items">
         <?php while ($service = $services->GetNextElement()): ?>
             <?php $arFields = $service->GetFields(); ?>
             <?php $arProperties = $service->GetProperties(); ?>

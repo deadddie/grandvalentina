@@ -7,8 +7,8 @@ use LapkinLab\{Core, View};
 
 define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 define('ERROR_500', '500 Internal Server Error');
-define('INCLUDE_DIR', '/include/');
-define('VIEWS_DIR', '/include/views/');
+define('INCLUDE_DIR', SITE_TEMPLATE_PATH . '/include_areas/');
+define('VIEWS_DIR', '/local/php_interface/views/');
 
 define('SITE_CONFIG', Configuration::getInstance()->get('site'));
 
