@@ -51,6 +51,7 @@
           flex-basis: 100%;
           text-align: center;
           display: flex;
+          flex-wrap: wrap;
           justify-content: center;
           &:before {
             display: none;
@@ -61,14 +62,17 @@
               color: $app-color--secondary;
               text-decoration: underline;
             }
-          }
-          + ul {
-            li {
-              a {
-                @include text_font;
-                font-size: $app-fontsize--smaller;
+
+            + ul {
+              flex-basis: 100%;
+              li {
+                a {
+                  @include text_font;
+                  font-size: $app-fontsize--smaller;
+                }
               }
             }
+
           }
         }
       }
