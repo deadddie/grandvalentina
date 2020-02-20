@@ -39,6 +39,15 @@
         color: $app-color--primary;
       }
     }
+    &--order {
+      margin-top: $app-padding--large;
+      margin-bottom: $app-padding--base;
+    }
+    &--map {
+      padding: 0;
+      margin-top: $app-padding--large;
+      margin-bottom: $app-padding--large;
+    }
   }
 
 }

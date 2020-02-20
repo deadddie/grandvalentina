@@ -46,10 +46,6 @@ $points = array(
                 </div>
 
                 <div class="page-contacts--section">
-                    <? $APPLICATION->IncludeFile(SITE_TEMPLATE_PATH . '/include_areas/map.php', array('points' => $points)) ?>
-                </div>
-
-                <div class="page-contacts--section">
                     <h2>Удаленность</h2>
                     <div class="delimiter"><?= Core::renderIcon('delimiter') ?></div>
                     <p class="h4">Расположенный в самом центре Grand Hotel Valentina гарантирует своим гостям удобный доступ к развитой транспортной инфраструктуре:</p>
@@ -74,6 +70,20 @@ $points = array(
                 </div>
 
             </div>
+
+            <div class="page-contacts--section--order">
+                <?= view('forms.event_order', [
+                    'APPLICATION' => $APPLICATION,
+                    'id' => 'contacts-order'
+                ], false) ?>
+            </div>
+
+            <div class="col-12">
+                <div class="page-contacts--section page-contacts--section--map">
+                    <?php $APPLICATION->IncludeFile(SITE_TEMPLATE_PATH . '/include_areas/map.php', array('points' => $points)) ?>
+                </div>
+            </div>
+
         </div>
     </div>
 </div>
