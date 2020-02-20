@@ -1,6 +1,9 @@
 // Rooms
 
 .room {
+
+  // Items page
+
   &-items {}
 
   &-item {
@@ -92,128 +95,131 @@
     }
 
   }
-}
 
-// Room detail
+  // Detail page
 
-.room-detail {
-  @extend .room-item;
+  &-detail {
+    @extend .room-item;
 
-  &--content {
-    @extend .room-item--content;
-  }
+    &--content {
+      @extend .room-item--content;
+    }
 
-  &--promo {
-    padding: $app-padding--medium;
-    @include head_font;
-  }
+    &--promo {
+      padding: $app-padding--medium;
+      @include head_font;
+    }
 
-  &--images {
-    ul {
-      margin: 0;
-      padding: 0;
-      list-style: none;
-      li {
+    &--images {
+      ul {
         margin: 0;
         padding: 0;
-        &:before {
-          display: none;
+        list-style: none;
+        li {
+          margin: 0;
+          padding: 0;
+          &:before {
+            display: none;
+          }
+          img {}
         }
-        img {}
       }
-    }
-    &--nav {
-      padding-top: $app-padding--medium;
-      padding-bottom: 0;
-      background-color: $app-color--white;
-      position: relative;
-    }
-
-  }
-
-  &--price {
-    margin-bottom: $app-padding--small;
-    color: $app-color--black;
-    font-size: $app-fontsize--h2;
-    @include head_font_bi;
-    .icon.icon-rouble {
-      font-size: $app-fontsize--medium;
-      margin-top: -3px;
-    }
-  }
-
-  &--info {
-    @extend .room-item--info;
-    margin-top: 0;
-    &--customers {
-      @extend .room-item--info--customers;
-    }
-    &--room {
-      @extend .room-item--info--room;
-    }
-  }
-
-  &--actions {
-    @extend .room-item--actions;
-    &--bottom {
-      margin-top: 0;
-    }
-  }
-
-  &--description,
-  &--room-services,
-  &--accomodations {
-    padding-top: $app-padding--medium;
-    &--title {
-      background-color: $app-color--primary;
-      padding: $app-padding--base $app-padding--medium;
-      color: $app-color--white;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      font-size: $app-fontsize--h3;
-      @include head_font;
-      .icon.icon-shevron {
-        width: 12px;
+      &--nav {
+        padding-top: $app-padding--medium;
+        padding-bottom: 0;
+        background-color: $app-color--white;
+        position: relative;
       }
-    }
-    &--content {
-      margin-top: $app-padding--medium;
-    }
-  }
 
-  &--3d {
-    display: flex;
-    justify-content: center;
-    flex-wrap: wrap;
-    button {
-      flex-basis: 100%;
+    }
+
+    &--price {
+      margin-bottom: $app-padding--small;
+      color: $app-color--black;
       font-size: $app-fontsize--h2;
+      @include head_font_bi;
+      .icon.icon-rouble {
+        font-size: $app-fontsize--medium;
+        margin-top: -3px;
+      }
     }
-    .delimiter {
+
+    &--info {
+      @extend .room-item--info;
+      margin-top: 0;
+      &--customers {
+        @extend .room-item--info--customers;
+      }
+      &--room {
+        @extend .room-item--info--room;
+      }
+    }
+
+    &--actions {
+      @extend .room-item--actions;
+      &--bottom {
+        margin-top: 0;
+      }
+    }
+
+    &--description,
+    &--room-services,
+    &--accomodations {
+      padding-top: $app-padding--medium;
+      &--title {
+        background-color: $app-color--primary;
+        padding: $app-padding--base $app-padding--medium;
+        color: $app-color--white;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: $app-fontsize--h3;
+        @include head_font;
+        .icon.icon-shevron {
+          width: 12px;
+        }
+      }
+      &--content {
+        margin-top: $app-padding--medium;
+      }
+    }
+
+    &--3d {
+      display: flex;
+      justify-content: center;
+      flex-wrap: wrap;
+      button {
+        flex-basis: 100%;
+        font-size: $app-fontsize--h2;
+      }
+      .delimiter {
+        text-align: center;
+        .icon {
+          color: $app-color--primary;
+        }
+      }
+    }
+
+    &--backlink {
+      margin-top: $app-padding--medium;
       text-align: center;
-      .icon {
+      a {
+        @include head_font_i;
+        font-size: $app-fontsize--large;
         color: $app-color--primary;
+        text-decoration: underline;
+        &:hover {
+          color: $app-color--black;
+        }
       }
     }
-  }
 
-  &--backlink {
-    margin-top: $app-padding--medium;
-    text-align: center;
-    a {
-      @include head_font_i;
-      font-size: $app-fontsize--large;
-      color: $app-color--primary;
-      text-decoration: underline;
-      &:hover {
-        color: $app-color--black;
-      }
+    &--stickers {
+      @extend .room-item--stickers;
     }
+
   }
 
-  &--stickers {
-    @extend .room-item--stickers;
-  }
+
 
 }

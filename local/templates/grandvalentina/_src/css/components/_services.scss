@@ -1,6 +1,9 @@
 // Services
 
 .service {
+
+  // Items page
+
   &-items {}
 
   &-item {
@@ -28,24 +31,27 @@
     }
 
   }
-}
 
-.service-detail {
-  &--content {
-    @extend .room-detail--content;
-    background-color: $app-color--white;
-    box-shadow: none;
-  }
-  &--description {
+  // Detail page
+
+  &-detail {
     &--content {
-      p {
-        font-size: $app-fontsize--small;
-        line-height: 1.6;
+      @extend .room-detail--content;
+      background-color: $app-color--white;
+      box-shadow: none;
+    }
+    &--description {
+      &--content {
+        p {
+          font-size: $app-fontsize--small;
+          line-height: 1.6;
+        }
       }
     }
+    &--actions {
+      margin-top: $app-padding--medium;
+      margin-bottom: $app-padding--medium;
+    }
   }
-  &--actions {
-    margin-top: $app-padding--medium;
-    margin-bottom: $app-padding--medium;
-  }
+
 }

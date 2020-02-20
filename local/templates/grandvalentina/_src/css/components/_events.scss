@@ -1,6 +1,9 @@
 // Events
 
 .event {
+
+  // Items page
+
   &-items {}
 
   &-item {
@@ -38,65 +41,70 @@
     }
 
   }
-}
 
-.event-detail {
-  &--content {
-    @extend .room-detail--content;
-    background-color: $app-color--white;
-    box-shadow: none;
-  }
-  &--description {
+  // Detail page
+
+  &-detail {
     &--content {
-      p {
-        font-size: $app-fontsize--small;
-        line-height: 1.6;
-      }
-    }
-  }
-  &--order {
-    padding-top: $app-padding--base;
-    padding-bottom: $app-padding--large;
-  }
-
-  &--seats {
-    background-color: $app-color--secondary;
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    @include head_font;
-    margin: 20px;
-    padding: 20px 20px 30px;
-    text-align: center;
-    &--value {
-      flex-basis: 100%;
-      font-size: $app-fontsize--h2;
-      padding-left: 80px;
-      padding-right: 80px;
-      line-height: 0.9;
-      span {
-        font-size: 60px;
-        color: $app-color--primary;
-      }
-    }
-    .delimiter {
-      flex-basis: 100%;
-      .icon {
-        color: $app-color--primary;
-      }
+      @extend .room-detail--content;
+      background-color: $app-color--white;
+      box-shadow: none;
     }
     &--description {
-      flex-basis: 100%;
-      padding-right: 30px;
-      padding-left: 30px;
+      &--content {
+        p {
+          font-size: $app-fontsize--small;
+          line-height: 1.6;
+        }
+      }
     }
-  }
+    &--order {
+      padding-top: $app-padding--base;
+      padding-bottom: $app-padding--large;
+    }
 
-  &--images {
-    @extend .room-detail--images;
-    &--nav {
-      @extend .room-detail--images--nav;
+    &--seats {
+      background-color: $app-color--secondary;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      @include head_font;
+      margin: 20px;
+      padding: 20px 20px 30px;
+      text-align: center;
+      &--value {
+        flex-basis: 100%;
+        font-size: $app-fontsize--h2;
+        padding-left: 80px;
+        padding-right: 80px;
+        line-height: 0.9;
+        span {
+          font-size: 60px;
+          color: $app-color--primary;
+        }
+      }
+      .delimiter {
+        flex-basis: 100%;
+        .icon {
+          color: $app-color--primary;
+        }
+      }
+      &--description {
+        flex-basis: 100%;
+        padding-right: 30px;
+        padding-left: 30px;
+      }
     }
+
+    &--images {
+      @extend .room-detail--images;
+      &--nav {
+        @extend .room-detail--images--nav;
+      }
+    }
+
   }
 
 }
+
+

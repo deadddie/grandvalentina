@@ -1,6 +1,9 @@
 // Blog
 
 .blog {
+
+  // Items page
+
   &-items {}
 
   &-item {
@@ -32,20 +35,23 @@
     }
 
   }
-}
 
-.blog-detail {
-  &--content {
-    @extend .room-detail--content;
-    background-color: $app-color--white;
-    box-shadow: none;
-  }
-  &--description {
+  // Detail page
+
+  &-detail {
     &--content {
-      p {
-        font-size: $app-fontsize--small;
-        line-height: 1.6;
+      @extend .room-detail--content;
+      background-color: $app-color--white;
+      box-shadow: none;
+    }
+    &--description {
+      &--content {
+        p {
+          font-size: $app-fontsize--small;
+          line-height: 1.6;
+        }
       }
     }
   }
+
 }
