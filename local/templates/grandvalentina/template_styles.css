@@ -3793,6 +3793,8 @@ button.disabled {
     display: -webkit-box;
     display: -ms-flexbox;
     display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
     -webkit-box-pack: center;
     -ms-flex-pack: center;
     justify-content: center;
@@ -3822,10 +3824,18 @@ button.disabled {
     text-decoration: underline;
 }
 
-.mobile-menu--footer--menu--items ul li + ul li a,
-.mobile-menu--footer--rooms--items ul li + ul li a,
-.footer--menu--items ul li + ul li a,
-.footer--rooms--items ul li + ul li a {
+.mobile-menu--footer--menu--items ul li a + ul,
+.mobile-menu--footer--rooms--items ul li a + ul,
+.footer--menu--items ul li a + ul,
+.footer--rooms--items ul li a + ul {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+}
+
+.mobile-menu--footer--menu--items ul li a + ul li a,
+.mobile-menu--footer--rooms--items ul li a + ul li a,
+.footer--menu--items ul li a + ul li a,
+.footer--rooms--items ul li a + ul li a {
     font-family: "Roboto", sans-serif;
     font-weight: 400;
     font-size: 12px;
@@ -4726,7 +4736,8 @@ body.mobile-menu-open {
 .room-detail,
 .service-item,
 .blog-item,
-.event-item {
+.event-item,
+.restaurant-item {
     padding-bottom: 20px;
     position: relative;
 }
@@ -4736,9 +4747,11 @@ body.mobile-menu-open {
 .service-detail--content,
 .blog-detail--content,
 .event-detail--content,
+.restaurant-detail--content,
 .service-item--content,
 .blog-item--content,
-.event-item--content {
+.event-item--content,
+.restaurant-item--content {
     padding: 20px 20px 30px;
     background-color: #fff;
     -webkit-box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
@@ -4748,14 +4761,16 @@ body.mobile-menu-open {
 .room-item--name h2,
 .service-item--name h2,
 .blog-item--name h2,
-.event-item--name h2 {
+.event-item--name h2,
+.restaurant-item--name h2 {
     margin-bottom: 15px;
 }
 
 .room-item--name h2 a,
 .service-item--name h2 a,
 .blog-item--name h2 a,
-.event-item--name h2 a {
+.event-item--name h2 a,
+.restaurant-item--name h2 a {
     text-decoration: none;
     color: #1e1e1e;
 }
@@ -4763,11 +4778,13 @@ body.mobile-menu-open {
 .room-item--name h2 a:hover,
 .service-item--name h2 a:hover,
 .blog-item--name h2 a:hover,
-.event-item--name h2 a:hover {
+.event-item--name h2 a:hover,
+.restaurant-item--name h2 a:hover {
     text-decoration: underline;
 }
 
-.room-item--description {
+.room-item--description,
+.restaurant-item--description {
     font-size: 12px;
     line-height: 1.5;
 }
@@ -4863,25 +4880,29 @@ body.mobile-menu-open {
 }
 
 .room-detail--images ul,
-.event-detail--images ul {
+.event-detail--images ul,
+.restaurant-detail--images ul {
     margin: 0;
     padding: 0;
     list-style: none;
 }
 
 .room-detail--images ul li,
-.event-detail--images ul li {
+.event-detail--images ul li,
+.restaurant-detail--images ul li {
     margin: 0;
     padding: 0;
 }
 
 .room-detail--images ul li:before,
-.event-detail--images ul li:before {
+.event-detail--images ul li:before,
+.restaurant-detail--images ul li:before {
     display: none;
 }
 
 .room-detail--images--nav,
-.event-detail--images--nav {
+.event-detail--images--nav,
+.restaurant-detail--images--nav {
     padding-top: 20px;
     padding-bottom: 0;
     background-color: #fff;
@@ -5152,6 +5173,109 @@ body.mobile-menu-open {
     flex-basis: 100%;
     padding-right: 30px;
     padding-left: 30px;
+}
+
+.restaurant-item--name h2 {
+    margin-bottom: 20px;
+}
+
+.restaurant-item--actions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+.restaurant-item--actions a {
+    text-decoration: underline;
+    font-family: "Minion Pro Italic", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #cabcaa;
+}
+
+.restaurant-item--actions a:hover {
+    color: #1e1e1e;
+}
+
+.restaurant-detail--content {
+    background-color: #fff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.restaurant-detail--description--content p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.restaurant-detail--description--content p:last-child {
+    margin-bottom: 0;
+}
+
+.restaurant-detail--order {
+    padding-top: 15px;
+    padding-bottom: 30px;
+}
+
+.restaurant-detail--menu {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    -webkit-box-pack: center;
+    -ms-flex-pack: center;
+    justify-content: center;
+}
+
+.restaurant-detail--menu--title {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    text-align: center;
+    font-size: 25px;
+}
+
+.restaurant-detail--menu--delimiter {
+    text-align: center;
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+    color: #cabcaa;
+}
+
+.restaurant-detail--menu--about {
+    font-size: 14px;
+    line-height: 1.6;
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.restaurant-detail--menu--download {
+    -ms-flex-preferred-size: 100%;
+    flex-basis: 100%;
+}
+
+.restaurant-detail--detail-text {
+    margin-top: 30px;
+    background-color: #f4efe4;
+    padding: 15px;
+    font-size: 18px;
+    line-height: 1.4;
+    text-align: center;
+    font-family: "Minion Pro", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.restaurant-detail--detail-text .delimiter {
+    text-align: center;
+    color: #cabcaa;
+}
+
+.restaurant-detail--detail-text--content {
+    margin-bottom: 15px;
 }
 
 .page-privacy {

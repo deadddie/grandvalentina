@@ -12,6 +12,7 @@ function Init () {
     Modals.init();
     Slider.init('room');
     Slider.init('event');
+    Slider.init('restaurant');
     //FrontSlider.init();
 
 }

@@ -17,6 +17,7 @@ define('SERVICES_IBLOCK_ID', 2);
 define('ROOM_SERVICES_IBLOCK_ID', 3);
 define('EVENTS_IBLOCK_ID', 4);
 define('BLOG_IBLOCK_ID', 5);
+define('RESTAURANTS_IBLOCK_ID', 6);
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/local/vendor/autoload.php';
 
