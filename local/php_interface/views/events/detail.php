@@ -20,9 +20,9 @@ if ($event):
 
     <div class="event-detail">
 
-        <?php if (!empty($arProperties['PHOTOS']['VALUE'])): ?>
+        <?php if (!empty($arProperties['MORE_PHOTOS']['VALUE'])): ?>
             <div class="event-detail--images">
-                <?= Events::getMoreImages($arProperties['PHOTOS']['VALUE'], $arFields['NAME']) ?>
+                <?= Events::getMoreImages($arProperties['MORE_PHOTOS']['VALUE'], $arFields['NAME']) ?>
                 <div class="event-detail--images--nav">
                     <?= view('common.slider_navigation', ['type' => 'event'], false) ?>
                 </div>
