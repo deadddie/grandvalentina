@@ -67,6 +67,8 @@
             flex-basis: 100%;
             margin: 0;
             padding: 0;
+            display: flex;
+            flex-wrap: wrap;
             &.active {
               &:before {
                 opacity: 1;
@@ -77,6 +79,7 @@
               margin-top: 14px;
             }
             a {
+              flex-basis: calc(100% - 20px);
               @include head_font;
               font-size: $app-fontsize--h3;
               color: $app-color--black;
@@ -95,6 +98,7 @@
 
             ul {
               > li {
+                padding-left: 30px;
                 a {
                   font-size: $app-fontsize--large;
                   &:hover {
