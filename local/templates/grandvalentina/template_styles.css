@@ -5052,7 +5052,8 @@ body.mobile-menu-open {
 .blog-item,
 .event-item,
 .restaurant-item,
-.entertainment-item {
+.entertainment-item,
+.offer-item {
     padding-bottom: 20px;
     position: relative;
 }
@@ -5064,11 +5065,13 @@ body.mobile-menu-open {
 .event-detail--content,
 .restaurant-detail--content,
 .entertainment-detail--content,
+.offer-detail--content,
 .service-item--content,
 .blog-item--content,
 .event-item--content,
 .restaurant-item--content,
-.entertainment-item--content {
+.entertainment-item--content,
+.offer-item--content {
     padding: 20px 20px 30px;
     background-color: #fff;
     -webkit-box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
@@ -5080,7 +5083,8 @@ body.mobile-menu-open {
 .blog-item--name h2,
 .event-item--name h2,
 .restaurant-item--name h2,
-.entertainment-item--name h2 {
+.entertainment-item--name h2,
+.offer-item--name h2 {
     margin-bottom: 15px;
 }
 
@@ -5089,7 +5093,8 @@ body.mobile-menu-open {
 .blog-item--name h2 a,
 .event-item--name h2 a,
 .restaurant-item--name h2 a,
-.entertainment-item--name h2 a {
+.entertainment-item--name h2 a,
+.offer-item--name h2 a {
     text-decoration: none;
     color: #1e1e1e;
 }
@@ -5099,7 +5104,8 @@ body.mobile-menu-open {
 .blog-item--name h2 a:hover,
 .event-item--name h2 a:hover,
 .restaurant-item--name h2 a:hover,
-.entertainment-item--name h2 a:hover {
+.entertainment-item--name h2 a:hover,
+.offer-item--name h2 a:hover {
     text-decoration: underline;
 }
 
@@ -5202,7 +5208,8 @@ body.mobile-menu-open {
 .room-detail--images ul,
 .event-detail--images ul,
 .restaurant-detail--images ul,
-.entertainment-detail--images ul {
+.entertainment-detail--images ul,
+.offer-detail--images ul {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -5211,7 +5218,8 @@ body.mobile-menu-open {
 .room-detail--images ul li,
 .event-detail--images ul li,
 .restaurant-detail--images ul li,
-.entertainment-detail--images ul li {
+.entertainment-detail--images ul li,
+.offer-detail--images ul li {
     margin: 0;
     padding: 0;
 }
@@ -5219,14 +5227,16 @@ body.mobile-menu-open {
 .room-detail--images ul li:before,
 .event-detail--images ul li:before,
 .restaurant-detail--images ul li:before,
-.entertainment-detail--images ul li:before {
+.entertainment-detail--images ul li:before,
+.offer-detail--images ul li:before {
     display: none;
 }
 
 .room-detail--images--nav,
 .event-detail--images--nav,
 .restaurant-detail--images--nav,
-.entertainment-detail--images--nav {
+.entertainment-detail--images--nav,
+.offer-detail--images--nav {
     padding-top: 20px;
     padding-bottom: 0;
     background-color: #fff;
@@ -5319,12 +5329,16 @@ body.mobile-menu-open {
     color: #cabcaa;
 }
 
-.room-detail--backlink {
+.room-detail--backlink,
+.offer-detail--backlink,
+.offer-detail--phone {
     margin-top: 20px;
     text-align: center;
 }
 
-.room-detail--backlink a {
+.room-detail--backlink a,
+.offer-detail--backlink a,
+.offer-detail--phone a {
     font-family: "Minion Pro Italic", serif;
     font-weight: 400;
     font-style: normal;
@@ -5333,7 +5347,9 @@ body.mobile-menu-open {
     text-decoration: underline;
 }
 
-.room-detail--backlink a:hover {
+.room-detail--backlink a:hover,
+.offer-detail--backlink a:hover,
+.offer-detail--phone a:hover {
     color: #1e1e1e;
 }
 
@@ -5645,6 +5661,59 @@ body.mobile-menu-open {
 
 .entertainment-detail--promo--content {
     margin-bottom: 15px;
+}
+
+.offer-item--name h2 {
+    margin-bottom: 20px;
+}
+
+.offer-item--actions {
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
+.offer-item--actions a {
+    font-size: 14px;
+}
+
+.offer-detail--content {
+    background-color: #fff;
+    -webkit-box-shadow: none;
+    box-shadow: none;
+}
+
+.offer-detail--description--content p {
+    font-size: 14px;
+    line-height: 1.6;
+}
+
+.offer-detail--order {
+    padding-top: 15px;
+    padding-bottom: 30px;
+}
+
+.offer-detail--phone {
+    font-family: "Minion Pro", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 18px;
+    color: #c12032;
+    margin-bottom: 30px;
+}
+
+.offer-detail--phone a {
+    font-family: "Minion Pro", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #c12032;
+}
+
+.offer-detail--phone a:hover {
+    color: #ae1829;
 }
 
 .page-privacy {

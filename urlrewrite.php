@@ -2,7 +2,7 @@
 $arUrlRewrite=array (
   1 =>
       array (
-          'CONDITION' => '#^/(rooms|services|blog|events|restaurants|entertainment)/\\??(.*)/#',
+          'CONDITION' => '#^/(rooms|services|blog|events|restaurants|entertainment|offers)/\\??(.*)/#',
           'RULE' => 'ELEMENT_CODE=$2',
           'ID' => '',
           'PATH' => '/$1/detail.php',
@@ -10,7 +10,7 @@ $arUrlRewrite=array (
       ),
   2 =>
       array (
-          'CONDITION' => '#^/(rooms|services|blog|events|restaurants|entertainment)/#',
+          'CONDITION' => '#^/(rooms|services|blog|events|restaurants|entertainment|offers)/#',
           'RULE' => '',
           'ID' => '',
           'PATH' => '/$1/index.php',

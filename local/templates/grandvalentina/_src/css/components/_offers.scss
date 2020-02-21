@@ -1,0 +1,88 @@
+// Offers
+
+.offer {
+
+  // Items page
+
+  &-items {}
+
+  &-item {
+    @extend .room-item;
+
+    &--image {}
+
+    &--content {
+      @extend .room-item--content;
+    }
+
+    &--name {
+      @extend .room-item--name;
+      h2 {
+        margin-bottom: $app-padding--medium;
+      }
+    }
+
+    &--actions {
+      display: flex;
+      justify-content: flex-end;
+      a {
+        font-size: $app-fontsize--small;
+      }
+    }
+
+  }
+
+  // Detail page
+
+  &-detail {
+
+    &--content {
+      @extend .room-detail--content;
+      background-color: $app-color--white;
+      box-shadow: none;
+    }
+
+    &--description {
+      &--content {
+        p {
+          font-size: $app-fontsize--small;
+          line-height: 1.6;
+        }
+      }
+    }
+
+    &--order {
+      padding-top: $app-padding--base;
+      padding-bottom: $app-padding--large;
+    }
+
+    &--images {
+      @extend .room-detail--images;
+      &--nav {
+        @extend .room-detail--images--nav;
+      }
+    }
+
+    &--backlink {
+      @extend .room-detail--backlink;
+    }
+    &--phone {
+      @extend .room-detail--backlink;
+      @include head_font;
+      font-size: $app-fontsize--large;
+      color: $app-color--active;
+      margin-bottom: $app-padding--large;
+      a {
+        @include head_font;
+        color: $app-color--active;
+        &:hover {
+          color: $app-color--active-hover;
+        }
+      }
+    }
+
+  }
+
+}
+
+
