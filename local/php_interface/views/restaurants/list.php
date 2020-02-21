@@ -22,7 +22,7 @@ use LapkinLab\{Core, Helper, Content\Restaurants};
         <?php while ($restaurant = $restaurants->GetNextElement()): ?>
             <?php $arFields = $restaurant->GetFields(); ?>
             <?php $arProperties = $restaurant->GetProperties(); ?>
-            <div id="restaurant-item-<?= $arFields['ID'] ?>" class="event-item" data-id="<?= $arFields['ID'] ?>">
+            <div id="restaurant-item-<?= $arFields['ID'] ?>" class="restaurant-item" data-id="<?= $arFields['ID'] ?>">
                 <div class="restaurant-item--image">
                     <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>">
                         <?= Restaurants::getImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
