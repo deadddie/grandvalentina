@@ -15,22 +15,7 @@ class View
 {
     use ResponseTrait;
 
-    protected $request;
-    protected $dir;
-
-    /**
-     * View constructor.
-     *
-     * @param $dir
-     *
-     * @throws \Bitrix\Main\SystemException
-     */
-    public function __construct($dir) {
-        $application = Application::getInstance();
-        $context = $application->getContext();
-        $this->request = $context->getRequest();
-        $this->dir = $dir;
-    }
+    protected const DIR = VIEWS_DIR;
 
     /**
      * Рендер представления (view).
@@ -41,11 +26,11 @@ class View
      *
      * @return false|string|null
      */
-    public function render($name, $params = array(), $print = true)
+    public static function make($name, $params = array(), $print = true)
     {
         // Проброс экземпляра приложения во view
         $name = str_replace('.', '/', $name);
-        $filePath = ROOT . $this->dir . $name . '.php';
+        $filePath = ROOT . self::DIR . $name . '.php';
         $output = null;
         if (file_exists($filePath)) {
             extract($params, EXTR_OVERWRITE); // Извлекаем переменные в локальный неймспейс

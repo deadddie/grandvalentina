@@ -44,7 +44,7 @@ function renderSprite(string $name, string $class = '') {
 }
 
 function view($name, $params = array(), $print = true) {
-    return (new View(VIEWS_DIR))->render($name, $params, $print);
+    return View::make($name, $params, $print);
 }
 
 ### EVENT HANDLERS ###
