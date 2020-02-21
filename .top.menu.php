@@ -44,7 +44,7 @@ $aMenuLinks = array(
 	),
 	array(
 		"Развлечения",
-		"entertainments/",
+		"entertainment/",
 		array(),
 		array(),
 		""

@@ -26,6 +26,7 @@
       display: flex;
       justify-content: space-between;
       a {
+        line-height: 0.9;
         text-decoration: underline;
         @include head_font_i;
         color: $app-color--primary;
@@ -45,11 +46,13 @@
   // Detail page
 
   &-detail {
+
     &--content {
       @extend .room-detail--content;
       background-color: $app-color--white;
       box-shadow: none;
     }
+
     &--description {
       &--content {
         p {
@@ -58,6 +61,7 @@
         }
       }
     }
+
     &--order {
       padding-top: $app-padding--base;
       padding-bottom: $app-padding--large;

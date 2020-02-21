@@ -13,6 +13,7 @@ function Init () {
     Slider.init('room');
     Slider.init('event');
     Slider.init('restaurant');
+    Slider.init('entertainment');
     //FrontSlider.init();
 
 }
