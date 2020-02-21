@@ -41,9 +41,11 @@ if ($restaurant):
         <?php if (!empty($arProperties['MORE_PHOTOS']['VALUE'])): ?>
             <div class="restaurant-detail--images">
                 <?= Restaurants::getMoreImages($arProperties['MORE_PHOTOS']['VALUE'], $arFields['NAME']) ?>
-                <div class="restaurant-detail--images--nav">
-                    <?= view('common.slider_navigation', ['type' => 'restaurant'], false) ?>
-                </div>
+                <?php if (count($arProperties['MORE_PHOTOS']['VALUE']) > 1): ?>
+                    <div class="restaurant-detail--images--nav">
+                        <?= view('common.slider_navigation', ['type' => 'restaurant'], false) ?>
+                    </div>
+                <?php endif; ?>
             </div>
         <?php endif; ?>
 

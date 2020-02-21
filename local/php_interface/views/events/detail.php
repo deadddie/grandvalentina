@@ -23,9 +23,11 @@ if ($event):
         <?php if (!empty($arProperties['MORE_PHOTOS']['VALUE'])): ?>
             <div class="event-detail--images">
                 <?= Events::getMoreImages($arProperties['MORE_PHOTOS']['VALUE'], $arFields['NAME']) ?>
-                <div class="event-detail--images--nav">
-                    <?= view('common.slider_navigation', ['type' => 'event'], false) ?>
-                </div>
+                <?php if (count($arProperties['MORE_PHOTOS']['VALUE']) > 1): ?>
+                    <div class="event-detail--images--nav">
+                        <?= view('common.slider_navigation', ['type' => 'event'], false) ?>
+                    </div>
+                <?php endif; ?>
             </div>
         <?php elseif (!empty($arFields['PREVIEW_PICTURE'])): ?>
             <div class="event-detail--image-main">
