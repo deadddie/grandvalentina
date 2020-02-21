@@ -89,6 +89,9 @@
 
 .table {
   thead {
+    th {
+      @include text_font_b;
+    }
     tr {
       td {}
     }
