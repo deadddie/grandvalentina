@@ -72,7 +72,7 @@ $points = array(
             </div>
 
             <div class="page-contacts--section--order">
-                <?= view('forms.event_order', [
+                <?= view('forms.order', [
                     'APPLICATION' => $APPLICATION,
                     'id' => 'contacts-order'
                 ], false) ?>

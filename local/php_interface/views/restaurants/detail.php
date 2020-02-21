@@ -75,7 +75,7 @@ if ($restaurant):
         </div>
 
         <div class="restaurant-detail--order">
-            <?= view('forms.restaurant_order', [
+            <?= view('forms.order', [
                 'APPLICATION' => $APPLICATION,
                 'id' => 'restaurant-order'
             ], false) ?>

@@ -56,7 +56,7 @@ if ($event):
         </div>
 
         <div class="event-detail--order">
-            <?= view('forms.event_order', [
+            <?= view('forms.order', [
                 'APPLICATION' => $APPLICATION,
                 'id' => 'event-order'
             ], false) ?>
