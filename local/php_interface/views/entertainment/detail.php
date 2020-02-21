@@ -43,7 +43,7 @@ if ($entertainment):
                 <?= Entertainment::getMoreImages($arProperties['MORE_PHOTOS']['VALUE'], $arFields['NAME']) ?>
                 <?php if (count($arProperties['MORE_PHOTOS']['VALUE']) > 1): ?>
                     <div class="entertainment-detail--images--nav">
-                        <?= view('common.slider_navigation', ['type' => 'event'], false) ?>
+                        <?= view('common.slider_navigation', ['type' => 'entertainment'], false) ?>
                     </div>
                 <?php endif; ?>
             </div>
