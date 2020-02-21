@@ -17,7 +17,7 @@ use LapkinLab\{Core, Helper, Content\Blog};
         <?php endwhile; ?>
     </ul>
 
-<?php elseif ($mode === 'card'): ?>
+<?php elseif ($mode === 'card' || $mode === 'block'): ?>
     <div class="blog-items">
         <?php while ($blog = $blogs->GetNextElement()): ?>
             <?php $arFields = $blog->GetFields(); ?>

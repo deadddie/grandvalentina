@@ -17,7 +17,7 @@ use LapkinLab\{Core, Helper, Content\Events};
         <?php endwhile; ?>
     </ul>
 
-<?php elseif ($mode === 'card'): ?>
+<?php elseif ($mode === 'card' || $mode === 'block'): ?>
     <div class="event-items">
         <?php while ($event = $events->GetNextElement()): ?>
             <?php $arFields = $event->GetFields(); ?>

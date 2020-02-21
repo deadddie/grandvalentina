@@ -17,7 +17,7 @@ use LapkinLab\{Core, Helper, Content\Services};
         <?php endwhile; ?>
     </ul>
 
-<?php elseif ($mode === 'card'): ?>
+<?php elseif ($mode === 'card' || $mode === 'block'): ?>
     <div class="service-items">
         <?php while ($service = $services->GetNextElement()): ?>
             <?php $arFields = $service->GetFields(); ?>

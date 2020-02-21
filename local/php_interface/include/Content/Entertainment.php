@@ -63,11 +63,11 @@ class Entertainment
     /**
      * Список развлечений.
      *
-     * @param $mode
+     * @param string $mode
      *
      * @return false|string|null
      */
-    public static function getList($mode = 'list')
+    public static function getList(string $mode = 'list')
     {
         $params = [];
         if (\CModule::IncludeModule('iblock')) {
@@ -79,7 +79,7 @@ class Entertainment
                 'ACTIVE' => 'Y',
             );
             $arGroupBy = false;
-            $arNavStartParams = false;
+            $arNavStartParams = ($mode === 'block') ? ['nTopCount' => 3] : false;
             $arSelect = array(
                 'ID',
                 'NAME',

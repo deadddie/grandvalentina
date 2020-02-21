@@ -67,7 +67,7 @@ class Blog
      *
      * @return false|string|null
      */
-    public static function getList($mode = 'list')
+    public static function getList(string $mode = 'list')
     {
         $params = [];
         if (\CModule::IncludeModule('iblock')) {
@@ -79,7 +79,7 @@ class Blog
                 'ACTIVE' => 'Y',
             );
             $arGroupBy = false;
-            $arNavStartParams = false;
+            $arNavStartParams = ($mode === 'block') ? ['nTopCount' => 3] : false;
             $arSelect = array(
                 'ID',
                 'NAME',

@@ -17,7 +17,7 @@ use LapkinLab\{Core, Helper, Content\Restaurants};
         <?php endwhile; ?>
     </ul>
 
-<?php elseif ($mode === 'card'): ?>
+<?php elseif ($mode === 'card' || $mode === 'block'): ?>
     <div class="restaurant-items">
         <?php while ($restaurant = $restaurants->GetNextElement()): ?>
             <?php $arFields = $restaurant->GetFields(); ?>

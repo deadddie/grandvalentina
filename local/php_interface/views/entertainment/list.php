@@ -17,7 +17,7 @@ use LapkinLab\{Core, Helper, Content\Entertainment};
         <?php endwhile; ?>
     </ul>
 
-<?php elseif ($mode === 'card'): ?>
+<?php elseif ($mode === 'card' || $mode === 'block'): ?>
     <div class="entertainment-items">
         <?php while ($entertainment = $entertainments->GetNextElement()): ?>
             <?php $arFields = $entertainment->GetFields(); ?>

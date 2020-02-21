@@ -17,7 +17,7 @@ use LapkinLab\{Core, Helper, Content\Offers};
         <?php endwhile; ?>
     </ul>
 
-<?php elseif ($mode === 'card'): ?>
+<?php elseif ($mode === 'card' || $mode === 'block'): ?>
     <div class="offer-items">
         <?php while ($offer = $offers->GetNextElement()): ?>
             <?php $arFields = $offer->GetFields(); ?>
