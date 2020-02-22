@@ -17,6 +17,16 @@ class Core
     private function __construct() {}
     private function __clone() {}
 
+    /**
+     * Custom onBeforeProlog event handler.
+     * @api https://dev.1c-bitrix.ru/api_help/main/events/onbeforeprolog.php
+     */
+    public static function onBeforePrologHandler()
+    {
+        // defines of work directories constants
+        define('INCLUDE_DIR', 'local/templates/' . SITE_TEMPLATE_ID . '/include_areas/');
+        define('VIEWS_DIR', 'local/templates/' . SITE_TEMPLATE_ID . '/views/');
+    }
 
     /**
      * Beautify Var Dumper.
