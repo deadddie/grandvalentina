@@ -30,6 +30,7 @@ var gulp = require('gulp'), // основной плагин gulp
     webpack = require("webpack"), // webpack
     webpackStream = require("webpack-stream"), // webpack stream
     merge = require('merge-stream'); // объединение потоков
+var browserSync = require('browser-sync').create();
 
 var svgSprite = require('gulp-svg-sprite'),
     svgmin = require('gulp-svgmin'),
@@ -49,6 +50,8 @@ var appNameShort = 'ghv';
 var templateName = 'grandvalentina';
 var appPath = 'templates/' + templateName + '/';
 var sourcesPath = 'templates/' + templateName + '/_src/';
+var appUrl = 'grandvalentina.ru';
+var appDevUrl = 'dev.' + appUrl;
 
 var path = {
 
@@ -148,7 +151,8 @@ function cssBuild() {
         })).
         //pipe(gulpif(min, minify())).
         pipe(gulpif(sourcemap, sourcemaps.write('.'))).
-        pipe(gulp.dest(path.build.css));
+        pipe(gulp.dest(path.build.css)).
+        pipe(browserSync.stream());
 }
 
 // custom js
@@ -166,7 +170,8 @@ function jsBuild() {
         pipe(rename({
             suffix: '.min'
         })).
-        pipe(gulp.dest(path.build.js));
+        pipe(gulp.dest(path.build.js)).
+        pipe(browserSync.stream());
 }
 
 // sprites (SVG)
@@ -241,6 +246,20 @@ function spriteBuild() {
     return merge(imgStream, cssStream);
 }
 
+// browsersync server
+function serve () {
+    browserSync.init({
+        proxy: appDevUrl,
+        open: false,
+        notify: false,
+    });
+}
+
+function reload(done) {
+    browserSync.reload();
+    done();
+}
+
 // tasks
 gulp.task('sprite:build', spriteBuild);
 gulp.task('spriteSvg:build', spriteSvgBuild);
@@ -248,13 +267,15 @@ gulp.task('css:build', cssBuild);
 gulp.task('js:build', jsBuild);
 gulp.task('html:build', htmlBuild);
 gulp.task('images:build', imagesBuild);
+gulp.task('reload', reload);
 
 // watch
 function watch() {
+    serve();
     gulp.watch(path.watch.sprite, gulp.series('sprite:build'));
     gulp.watch(path.watch.spriteSvg, gulp.series('spriteSvg:build'));
-    gulp.watch(path.watch.css, gulp.series('css:build'));
-    gulp.watch(path.watch.js, gulp.series('js:build'));
+    gulp.watch(path.watch.css, gulp.series('css:build', 'reload'));
+    gulp.watch(path.watch.js, gulp.series('js:build', 'reload'));
     //gulp.watch(path.watch.html, gulp.series('html:build'));
     gulp.watch(path.watch.images, gulp.series('images:build'));
 }
