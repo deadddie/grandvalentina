@@ -36,15 +36,17 @@
     flex-direction: column;
     align-items: stretch;
 
-    @media (min-width: map_get($grid-breakpoints, md)) {
-      width: calc(50% - 20px);
-      margin: 0 10px 20px;
-      padding: 0;
-    }
+    &:not(.room-detail) {
+      @media (min-width: map_get($grid-breakpoints, md)) {
+        width: calc(50% - 20px);
+        margin: 0 10px 20px;
+        padding: 0;
+      }
 
-    @media (min-width: map_get($grid-breakpoints, lg)) {
-      width: calc(100% / 3 - 10px);
-      margin: 0 5px 20px;
+      @media (min-width: map_get($grid-breakpoints, lg)) {
+        width: calc(100% / 3 - 10px);
+        margin: 0 5px 20px;
+      }
     }
 
     &--image {
@@ -144,9 +146,42 @@
 
   &-detail {
     @extend .room-item;
+    padding-bottom: 0;
+
+    &--container {
+      @media (max-width: map_get($grid-breakpoints, lg)) {
+        padding: 0;
+        max-width: 100%;
+      }
+    }
 
     &--content {
       @extend .room-item--content;
+      box-shadow: none;
+      max-width: 980px;
+      margin-left: auto;
+      margin-right: auto;
+      width: 100%;
+
+      &:not(.room-detail--content-bottom) {
+        @media (min-width: map_get($grid-breakpoints, sm)) {
+          padding: 40px 55px 0;
+        }
+      }
+
+      &-bottom {
+        padding-top: 0;
+        padding-bottom: 30px;
+
+        @media (min-width: map_get($grid-breakpoints, sm)) {
+          padding-top: 20px;
+          padding-bottom: 0;
+        }
+
+        @media (min-width: map_get($grid-breakpoints, lg)) {
+          padding-top: 30px;
+        }
+      }
     }
 
     &--promo {
@@ -162,10 +197,13 @@
         li {
           margin: 0;
           padding: 0;
+          max-height: 520px;
           &:before {
             display: none;
           }
           img {
+            max-width: 100%;
+            object-fit: cover;
           }
         }
       }
@@ -177,6 +215,18 @@
       }
     }
 
+    &--image-main {
+      margin-left: -20px;
+      margin-right: -20px;
+
+      @media (min-width: map_get($grid-breakpoints, sm)) {
+        margin: 0;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+    }
+
     &--price {
       margin-bottom: $app-padding--small;
       color: $app-color--black;
@@ -185,6 +235,42 @@
       .icon.icon-rouble {
         font-size: $app-fontsize--medium;
         margin-top: -3px;
+      }
+
+      @media (min-width: map_get($grid-breakpoints, sm)) {
+        margin-bottom: 0;
+        font-size: 30px;
+
+        .icon.icon-rouble {
+          font-size: 20px;
+          margin-top: -4px;
+        }
+      }
+
+      &-wrapper {
+        @media (min-width: map_get($grid-breakpoints, sm)) {
+          display: flex;
+          align-items: center;
+          justify-content: space-between;
+        }
+
+        @media (min-width: map_get($grid-breakpoints, lg)) {
+          margin-bottom: 40px;
+        }
+      }
+
+      &-book {
+        display: none;
+      }
+
+      @media (min-width: map_get($grid-breakpoints, lg)) {
+        &-book {
+          display: flex;
+          padding-left: 60px;
+          padding-right: 60px;
+          height: 40px;
+          width: auto;
+        }
       }
     }
 
@@ -201,6 +287,26 @@
 
     &--actions {
       @extend .room-item--actions;
+
+      @media (min-width: map_get($grid-breakpoints, sm)) {
+        &:not(.room-detail--actions--bottom) {
+          margin: 30px 0;
+        }
+
+        .btn {
+          width: auto;
+          margin: 0 auto;
+          padding-left: 70px;
+          padding-right: 70px;
+        }
+      }
+
+      @media (min-width: map_get($grid-breakpoints, lg)) {
+        &:not(.room-detail--actions--bottom) {
+          display: none;
+        }
+      }
+
       &--bottom {
         margin-top: 0;
       }
@@ -232,6 +338,19 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
+
+      @media (min-width: map_get($grid-breakpoints, sm)) {
+        padding: 30px 0 10px;
+
+        .btn {
+          font-size: 30px;
+        }
+      }
+
+      @media (min-width: map_get($grid-breakpoints, xl)) {
+        padding-top: 80px;
+      }
+
       button {
         flex-basis: 100%;
         font-size: $app-fontsize--h2;
@@ -245,8 +364,17 @@
     }
 
     &--backlink {
-      margin-top: $app-padding--medium;
+      margin: $app-padding--medium 0;
       text-align: center;
+
+      @media (min-width: map_get($grid-breakpoints, md)) {
+        margin: 60px auto;
+      }
+
+      @media (min-width: map_get($grid-breakpoints, xl)) {
+        margin: 100px auto;
+      }
+
       a {
         @include head_font_i;
         font-size: $app-fontsize--large;
