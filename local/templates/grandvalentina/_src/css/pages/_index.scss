@@ -1,0 +1,91 @@
+// Index page
+
+body.index {
+
+  .index-content {
+
+    .index {
+      &-title {
+        margin-top: $app-padding--large;
+        margin-bottom: $app-padding--large;
+        font-size: $app-fontsize--big;
+      }
+
+      &-image {
+        width: 100%;
+      }
+
+      &-about {
+        background-color: $app-color--secondary;
+        display: flex;
+        flex-wrap: wrap;
+        &--title {
+          flex-basis: 100%;
+          font-size: $app-fontsize--h2;
+          text-align: center;
+          margin: 0;
+          padding: $app-padding--large 0 0;
+        }
+        .delimiter {
+          flex-basis: 100%;
+          color: $app-color--primary;
+          text-align: center;
+        }
+        p {
+          padding: 0 0 $app-padding--large;
+          flex-basis: 100%;
+          @include head_font;
+          text-align: center;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      &-about--image {
+        width: 100%;
+      }
+      &-about--add {
+        padding-top: $app-padding--medium;
+        padding-bottom: $app-padding--medium;
+        h3,
+        .delimiter {
+          text-align: center;
+          color: $app-color--primary
+        }
+        p {
+          font-size: $app-fontsize--smaller;
+          line-height: 1.6;
+          &:last-child {
+            margin-bottom: 0;
+          }
+        }
+      }
+
+      &-about--resume {
+        margin-bottom: $app-padding--medium;
+        &--wrapper {
+          background-color: $app-color--primary;
+          text-align: center;
+          padding: $app-padding--base;
+        }
+        &--wrap {
+          padding: $app-padding--base;
+          border: 1px solid $app-color--white;
+        }
+        .delimiter {
+          color: $app-color--white;
+        }
+        p {
+          color: $app-color--white;
+          @include head_font;
+          font-size: $app-fontsize--large;
+        }
+      }
+
+    }
+
+  }
+
+
+}

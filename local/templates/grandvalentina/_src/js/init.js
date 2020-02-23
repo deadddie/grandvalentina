@@ -1,7 +1,7 @@
 import { Common } from './components/common';
 import { Modals } from './components/modals';
 import { Slider } from './components/slider';
-//import { FrontSlider } from './components/front_slider';
+import { SliderBlock } from './components/slider_block';
 
 /**
  * Init application.
@@ -12,9 +12,12 @@ function Init () {
     Modals.init();
     Slider.init('room');
     Slider.init('event');
+    Slider.init('event_block');
     Slider.init('restaurant');
     Slider.init('entertainment');
-    //FrontSlider.init();
+
+    SliderBlock.init('offer');
+    SliderBlock.init('room');
 
 }
 

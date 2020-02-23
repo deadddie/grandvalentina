@@ -2,6 +2,21 @@
 
 .offer {
 
+  // Block
+
+  &-block {
+    background-color: $app-color--white;
+  }
+  &-title {
+    @extend .room-title;
+  }
+  &-all {
+    @extend .room-all;
+  }
+  &-nav {
+    @extend .room-nav;
+  }
+
   // Items page
 
   &-items {}

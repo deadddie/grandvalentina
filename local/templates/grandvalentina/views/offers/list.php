@@ -18,6 +18,13 @@ use LapkinLab\{Core, Helper, Content\Offers};
     </ul>
 
 <?php elseif ($mode === 'card' || $mode === 'block'): ?>
+    <?php if ($mode === 'block'): ?>
+        <section class="offer-block">
+            <div class="offer-title">
+                <h2>Спецпредложения</h2>
+                <div class="delimiter"><?= Core::renderIcon('delimiter') ?></div>
+            </div>
+    <?php endif; ?>
     <div class="offer-items">
         <?php while ($offer = $offers->GetNextElement()): ?>
             <?php $arFields = $offer->GetFields(); ?>
@@ -41,5 +48,14 @@ use LapkinLab\{Core, Helper, Content\Offers};
             </div>
         <?php endwhile; ?>
     </div>
+    <?php if ($mode === 'block'): ?>
+            <div class="offer-nav">
+                <?= view('common.slider_navigation_block', ['type' => 'offer'], false) ?>
+            </div>
+            <div class="offer-all">
+                <a href="/offers/">Cмотреть все акции</a>
+            </div>
+        </section>
+    <?php endif; ?>
 
 <?php endif; ?>

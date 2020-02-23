@@ -1,6 +1,64 @@
 // Rooms
 
 .room {
+
+  // Block
+
+  &-block {
+    background-color: $app-color--secondary;
+  }
+  &-title {
+    width: 100%;
+    text-align: center;
+    padding-top: $app-padding--largest;
+    padding-bottom: $app-padding--medium;
+    h2 {
+      font-size: $app-fontsize--h1;
+    }
+    .delimiter {
+      color: $app-color--primary;
+    }
+  }
+  &-all {
+    width: 100%;
+    padding-top: $app-padding--large;
+    padding-bottom: $app-padding--largest;
+    text-align: center;
+    a {
+      color: $app-color--black;
+      text-transform: uppercase;
+      @include head_font;
+      letter-spacing: 2px;
+      &:hover {
+        color: $app-color--active-hover;
+      }
+    }
+  }
+  &-nav {
+    position: relative;
+    display: flex;
+    justify-content: center;
+
+    .slider--navigation {
+      .owl-prev,
+      .owl-next {
+        background-color: $app-color--white;
+        &.disabled {
+          background-color: transparent;
+        }
+      }
+    }
+    .slider--dots {
+      .owl-dot {
+        background-color: $app-color--white;
+        &.active {
+          background-color: $app-color--primary;
+        }
+      }
+    }
+
+  }
+
   // Items page
 
   &-items {
@@ -80,7 +138,6 @@
     &--description {
       font-size: $app-fontsize--smaller;
       line-height: 1.5;
-      flex: 1;
     }
 
     &--info {
