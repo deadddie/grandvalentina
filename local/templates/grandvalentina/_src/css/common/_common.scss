@@ -345,6 +345,9 @@
     &.disabled {
       background-color: transparent;
     }
+    &:hover {
+      background-color: $app-color--primary;
+    }
   }
   .owl-prev {
   }
@@ -366,5 +369,33 @@
     color: $app-color--active;
   }
   span.total {
+  }
+}
+
+.slider--dots {
+  width: calc(100% - 200px);
+  position: absolute;
+  text-align: center;
+  height: 48px;
+  top: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  .owl-dot {
+    display: inline-flex;
+    width: 5px;
+    height: 5px;
+    background-color: $app-color--secondary;
+    border-radius: 50%;
+    margin-right: 3px;
+    margin-left: 3px;
+    padding: 0;
+    border: 0;
+    &.active {
+      background-color: $app-color--primary;
+    }
+    &:hover {
+      background-color: $app-color--active;
+    }
   }
 }
