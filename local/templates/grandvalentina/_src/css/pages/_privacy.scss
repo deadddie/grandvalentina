@@ -2,4 +2,9 @@
 
 .page-privacy {
   margin-bottom: $app-padding--large;
+
+  &--content {
+    max-width: 700px;
+    margin: 0 auto;
+  }
 }

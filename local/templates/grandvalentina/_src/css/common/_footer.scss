@@ -6,6 +6,7 @@
   color: $app-color--white;
   text-align: center;
   width: 100%;
+
   a {
     color: $app-color--primary;
     text-decoration: none;
@@ -15,11 +16,25 @@
     }
   }
 
-  &--wrapper {}
+  &--wrapper {
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      display: flex;
+      justify-content: space-between;
+      padding-top: 80px;
+      padding-bottom: 50px;
+      padding-right: 180px;
+    }
+  }
 
   &--logo {
     padding-top: $app-padding--medium;
     padding-bottom: $app-padding--medium;
+
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      flex-basis: 207px;
+      padding: 0;
+    }
+
     .logo-vertical {
       .icon {
         width: 50px;
@@ -34,10 +49,34 @@
   &--rooms {
     padding-top: $app-padding--medium;
     padding-bottom: $app-padding--medium;
+
+    @media (min-width: map_get($grid-breakpoints, sm)) {
+      max-width: 440px;
+      margin-left: auto;
+      margin-right: auto;
+      padding-bottom: $app-padding--large;
+    }
+
+    @media (min-width: map_get($grid-breakpoints, lg)) {
+      max-width: 550px;
+    }
+
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      padding: 0;
+    }
+
     &--title {
       opacity: 0.5;
       text-transform: uppercase;
       font-size: $app-fontsize--smaller;
+
+      @media (min-width: map_get($grid-breakpoints, sm)) {
+        font-size: $app-fontsize--medium;
+      }
+
+      @media (min-width: map_get($grid-breakpoints, xl)) {
+        text-align: left;
+      }
     }
     &--items {
       ul {
@@ -47,17 +86,47 @@
         text-align: center;
         display: flex;
         flex-wrap: wrap;
+
+        @media (min-width: map_get($grid-breakpoints, sm)) {
+          display: flex;
+          flex-wrap: wrap;
+        }
+
+        @media (min-width: map_get($grid-breakpoints, xl)) {
+          flex-direction: column;
+        }
+
         li {
           flex-basis: 100%;
           text-align: center;
           display: flex;
           flex-wrap: wrap;
           justify-content: center;
+
+          @media (min-width: map_get($grid-breakpoints, sm)) {
+            flex-basis: 50%;
+            text-align: left;
+            justify-content: flex-start;
+          }
+
+          @media (min-width: map_get($grid-breakpoints, lg)) {
+            flex-basis: 33%;
+          }
+
+          @media (min-width: map_get($grid-breakpoints, xl)) {
+            flex-basis: 100%;
+          }
+
           &:before {
             display: none;
           }
           a {
             @include head_font;
+
+            @media (min-width: map_get($grid-breakpoints, sm)) {
+              font-size: $app-fontsize--large;
+            }
+
             &.active {
               color: $app-color--secondary;
               text-decoration: underline;
@@ -65,6 +134,11 @@
 
             + ul {
               flex-basis: 100%;
+
+              @media (min-width: map_get($grid-breakpoints, sm)) {
+                display: none;
+              }
+
               li {
                 a {
                   @include text_font;
@@ -72,21 +146,56 @@
                 }
               }
             }
-
           }
         }
       }
     }
   }
+
+  &--rooms {
+    @media (min-width: map_get($grid-breakpoints, lg)) {
+      max-width: 730px;
+    }
+  }
+
   &--menu {
     border-top: 1px solid $app-color--border-dark;
+
+    @media (min-width: map_get($grid-breakpoints, sm)) {
+      border-top: none;
+    }
   }
 
   &--contacts {
     padding-top: $app-padding--medium;
-    padding-bottom: $app-padding--small;
     color: $app-color--primary;
     border-top: 1px solid $app-color--border-dark;
+
+    @media (min-width: map_get($grid-breakpoints, md)) {
+      padding: $app-padding--medium 0;
+    }
+
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      padding: 0;
+      border-top: none;
+    }
+
+    &-wrapper {
+      @media (min-width: map_get($grid-breakpoints, md)) {
+        max-width: 750px;
+        margin-left: auto;
+        margin-right: auto;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      @media (min-width: map_get($grid-breakpoints, xl)) {
+        flex-direction: column;
+        max-width: 160px;
+      }
+    }
+
     &-phone {
       margin-bottom: 10px;
       font-size: $app-fontsize--medium;
@@ -116,15 +225,43 @@
     }
     &-email {
       margin-bottom: 10px;
+      @media (min-width: map_get($grid-breakpoints, md)) {
+        margin-bottom: 0;
+      }
     }
-    &-address {}
+    &-address {
+      @media (min-width: map_get($grid-breakpoints, xl)) {
+        margin: 40px 0 30px;
+      }
+    }
   }
 
   &--socials {
-    padding-bottom: $app-padding--medium;
+    padding-top: $app-padding--small;
+    padding-bottom: $app-padding--small;
+
+    @media (min-width: map_get($grid-breakpoints, md)) {
+      padding: 0;
+    }
+
+    @media (min-width: map_get($grid-breakpoints, md)) {
+      display: flex;
+      align-items: center;
+    }
+
     a {
       display: inline-block;
       margin: 0 5px;
+
+      @media (min-width: map_get($grid-breakpoints, md)) {
+        &:first-child {
+          margin-left: 0;
+        }
+
+        &:last-child {
+          margin-left: 0;
+        }
+      }
     }
     .icon {
       width: 32px;
@@ -136,6 +273,10 @@
     padding: $app-padding--base;
     font-size: $app-fontsize--smaller;
     color: $app-color--primary;
-  }
 
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      text-align: left;
+      padding-left: 0;
+    }
+  }
 }
