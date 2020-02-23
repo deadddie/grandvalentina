@@ -88,14 +88,14 @@
     width: 100%;
   }
 
-  @media (min-width: 480px) {
+  @media (min-width: map_get($grid-breakpoints, sm)) {
     padding-top: 20px;
     padding-bottom: 20px;
   }
 
-  @media (min-width: 1100px) {
-    padding-top: 30px;
-    padding-bottom: 25px;
+  @media (min-width: map_get($grid-breakpoints, lg)) {
+    padding-top: 40px;
+    padding-bottom: 30px;
   }
 }
 
@@ -228,15 +228,38 @@
     text-align: center;
     padding-top: 100px;
     padding-bottom: 100px;
+
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      padding-top: 200px;
+      padding-bottom: 200px;
+    }
+
     h1 {
       font-size: 100px;
       color: $app-color--white;
       line-height: 1;
+      margin-bottom: 0;
+
+      @media (min-width: map_get($grid-breakpoints, sm)) {
+        font-size: 130px;
+      }
     }
     p {
       color: $app-color--white;
       @include head_font_i;
       font-size: $app-fontsize--large;
+
+      @media (min-width: map_get($grid-breakpoints, sm)) {
+        font-size: 30px;
+        line-height: 36px;
+      }
+
+      @media (min-width: map_get($grid-breakpoints, lg)) {
+        margin-bottom: 45px;
+        br {
+          display: none;
+        }
+      }
     }
   }
 }
