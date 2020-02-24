@@ -34,6 +34,7 @@ let Common = {
             .on('click', '.js-mobile-menu--close', () => {
                 $('.mobile-menu, .header--close-menu').removeClass('active');
                 $('body, #top').removeClass('mobile-menu-open');
+                $('.languages-switcher').removeClass('active');
             })
             .on('mouseup', (e) => {
                 let div = $('.mobile-menu');
@@ -41,6 +42,11 @@ let Common = {
                     $(div + ', .header--close-menu').removeClass('active');
                     $('body, #top').removeClass('mobile-menu-open');
                 }
+            })
+
+            // Показ переключателя языков
+            .on('click', '.js-languages-switch', function () {
+                $(this).next('.languages-switcher').toggleClass('active');
             })
 
             // Обработчик после загрузки страницы

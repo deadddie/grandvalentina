@@ -3992,6 +3992,7 @@ button.disabled {
     -webkit-box-align: center;
     -ms-flex-align: center;
     align-items: center;
+    position: relative;
 }
 
 .mobile-menu--header--lang-current,
@@ -4242,6 +4243,10 @@ body.index .index-content .index-contacts--email {
 
 .mobile-menu.active {
     right: 0;
+}
+
+.mobile-menu--header {
+    z-index: 1;
 }
 
 .mobile-menu-wrapper {
@@ -4939,6 +4944,78 @@ body.mobile-menu-open {
 .js-wrap.active .js-wrap-title .icon {
     -webkit-transform: rotate(0);
     transform: rotate(0);
+}
+
+.js-languages-switch {
+    cursor: pointer;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-transform: uppercase;
+}
+
+.languages-switcher {
+    opacity: 0;
+    visibility: visible;
+    z-index: -1;
+    position: absolute;
+    top: 100%;
+    width: 130px;
+    padding: 15px 20px;
+    background-color: #fff;
+    -webkit-box-shadow: 0 1px 24px rgba(0, 0, 0, .2);
+    box-shadow: 0 1px 24px rgba(0, 0, 0, .2);
+}
+
+.languages-switcher.active {
+    opacity: 1;
+    visibility: visible;
+    z-index: 0;
+}
+
+.languages-switcher:after {
+    content: "";
+    display: block;
+    position: absolute;
+    width: 6px;
+    top: -12px;
+    left: 15px;
+    border: 6px solid transparent;
+    border-bottom: 6px solid #fff;
+}
+
+.languages-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+}
+
+.languages-item {
+    margin: 0;
+    padding: 0 0 0 35px;
+    background-size: 25px 17px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    line-height: 30px;
+    cursor: pointer;
+}
+
+.languages-item-ru {
+    background-image: url("images/flag-ru.svg");
+}
+
+.languages-item-en {
+    background-image: url("images/flag-en.svg");
+}
+
+.languages-item.active {
+    font-family: "Roboto", sans-serif;
+    font-weight: 500;
+}
+
+.languages-item:before {
+    display: none;
 }
 
 .pagination {

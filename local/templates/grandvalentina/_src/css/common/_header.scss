@@ -43,6 +43,7 @@
     width: $app-navigation-height;
     display: flex;
     align-items: center;
+    position: relative;
     &-current {
       @include head_font;
       font-size: $app-fontsize--medium;

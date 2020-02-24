@@ -417,3 +417,66 @@
     }
   }
 }
+
+// Languages
+
+.js-languages-switch {
+  cursor: pointer;
+  user-select: none;
+  text-transform: uppercase;
+}
+
+.languages {
+  &-switcher {
+    opacity: 0;
+    visibility: visible;
+    z-index: -1;
+    position: absolute;
+    top: 100%;
+    width: 130px;
+    padding: $app-padding--base $app-padding--medium;
+    background-color: $app-color--white;
+    @include shadow-lg;
+    &.active {
+      opacity: 1;
+      visibility: visible;
+      z-index: 0;
+    }
+    &:after {
+      content: "";
+      display: block;
+      position: absolute;
+      width: 6px;
+      top: -12px;
+      left: 15px;
+      border: 6px solid transparent;
+      border-bottom: 6px solid $app-color--white;
+    }
+  }
+  &-list {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+  }
+  &-item {
+    margin: 0;
+    padding: 0 0 0 35px;
+    background-size: 25px 17px;
+    background-repeat: no-repeat;
+    background-position: left center;
+    line-height: 30px;
+    cursor: pointer;
+    &-ru {
+      background-image: url("images/flag-ru.svg");
+    }
+    &-en {
+      background-image: url("images/flag-en.svg");
+    }
+    &.active {
+      @include text_font_b;
+    }
+    &:before {
+      display: none;
+    }
+  }
+}

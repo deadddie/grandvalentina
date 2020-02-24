@@ -24,6 +24,10 @@
     display: none;
   }
 
+  &--header {
+    z-index: 1;
+  }
+
   &-wrapper {
     flex-basis: 100%;
     width: 100%;

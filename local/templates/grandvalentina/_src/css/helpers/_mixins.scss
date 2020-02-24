@@ -13,6 +13,10 @@
   text-overflow: ellipsis;
 }
 
+@mixin shadow-lg {
+  box-shadow: 0 1px 24px rgba(#000, 0.2);
+}
+
 @mixin shadow {
   box-shadow: 0 4px 20px rgba(#000, 0.1);
 }

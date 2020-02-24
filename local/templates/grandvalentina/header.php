@@ -67,7 +67,8 @@ $asset = Asset::getInstance();
                     <div class="header--wrapper col-12">
 
                         <div class="header--lang">
-                            <div class="header--lang-current js-language-switch">RU <?= Core::renderIcon('romb') ?></div>
+                            <div class="header--lang-current js-languages-switch">RU <?= Core::renderIcon('romb') ?></div>
+                            <?= view('common.languages', [], false) ?>
                         </div>
 
                         <div class="header--logo">

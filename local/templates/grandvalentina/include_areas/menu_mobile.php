@@ -11,7 +11,8 @@ use LapkinLab\Core;
         <div class="mobile-menu--header--wrapper col-12">
 
             <div class="mobile-menu--header--lang">
-                <div class="mobile-menu--header--lang-current js-language-switch">RU <?= Core::renderIcon('romb') ?></div>
+                <div class="mobile-menu--header--lang-current js-languages-switch">RU <?= Core::renderIcon('romb') ?></div>
+                <?= view('common.languages', [], false) ?>
             </div>
 
             <div class="mobile-menu--header--logo">
