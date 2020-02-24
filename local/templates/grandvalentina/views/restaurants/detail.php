@@ -53,7 +53,7 @@ if ($restaurant):
             <?php if (!empty($arProperties['MENU'])): ?>
                 <div class="restaurant-detail--menu">
                     <h3 class="restaurant-detail--menu--title">Меню ресторана</h3>
-                    <div class="restaurant-detail--menu--delimiter delimiter"><?= Core::renderIcon('delimiter') ?></div>
+                    <div class="restaurant-detail--menu--delimiter delimiter"><?= renderIcon('delimiter') ?></div>
                     <div class="restaurant-detail--menu--about">
                         <?= $arProperties['MENU_ABOUT']['VALUE'] ?>
                     </div>
@@ -65,7 +65,7 @@ if ($restaurant):
 
             <?php if (!empty($arProperties['ABOUT']['VALUE'])): ?>
                 <div class="restaurant-detail--detail-text">
-                    <div class="delimiter"><?= Core::renderIcon('delimiter') ?></div>
+                    <div class="delimiter"><?= renderIcon('delimiter') ?></div>
                     <div class="restaurant-detail--detail-text--content">
                         <?= html_entity_decode($arProperties['ABOUT']['VALUE']['TEXT']) ?>
                     </div>

@@ -11,7 +11,7 @@ use LapkinLab\Core;
         <div class="mobile-menu--header--wrapper col-12">
 
             <div class="mobile-menu--header--lang">
-                <div class="mobile-menu--header--lang-current js-languages-switch">RU <?= Core::renderIcon('romb') ?></div>
+                <div class="mobile-menu--header--lang-current js-languages-switch">RU <?= renderIcon('romb') ?></div>
                 <?= view('common.languages', [], false) ?>
             </div>
 
@@ -25,7 +25,7 @@ use LapkinLab\Core;
             </div>
 
             <div class="mobile-menu--header--close js-mobile-menu--close">
-                <?= Core::renderIcon('cross') ?>
+                <?= renderIcon('cross') ?>
             </div>
 
         </div>
@@ -64,7 +64,7 @@ use LapkinLab\Core;
 
         <div class="mobile-menu--phone">
             <div class="mobile-menu--phone--wrapper col-12">
-                <div class="mobile-menu--phone--button"><?= Core::renderIcon('phone') ?></div>
+                <div class="mobile-menu--phone--button"><?= renderIcon('phone') ?></div>
             </div>
         </div>
 

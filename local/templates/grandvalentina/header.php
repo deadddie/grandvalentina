@@ -67,7 +67,7 @@ $asset = Asset::getInstance();
                     <div class="header--wrapper col-12">
 
                         <div class="header--lang">
-                            <div class="header--lang-current js-languages-switch">RU <?= Core::renderIcon('romb') ?></div>
+                            <div class="header--lang-current js-languages-switch">RU <?= renderIcon('romb') ?></div>
                             <?= view('common.languages', [], false) ?>
                         </div>
 
@@ -81,7 +81,7 @@ $asset = Asset::getInstance();
                         </div>
 
                         <div class="header--hamburger active js-mobile-menu">
-                            <?= Core::renderIcon('hamburger') ?>
+                            <?= renderIcon('hamburger') ?>
                         </div>
 
                     </div>

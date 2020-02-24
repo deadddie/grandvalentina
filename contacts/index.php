@@ -22,32 +22,32 @@ $points = array(
                 <div class="page-contacts--sections">
                     <div class="page-contacts--section">
                         <h2>Адрес</h2>
-                        <div class="delimiter"><?= Core::renderIcon('delimiter') ?></div>
+                        <div class="delimiter"><?= renderIcon('delimiter') ?></div>
                         <p><?= SITE_CONFIG['address_full'] ?></p>
                     </div>
 
                     <div class="page-contacts--section">
                         <h2>Ресепшен</h2>
-                        <div class="delimiter"><?= Core::renderIcon('delimiter') ?></div>
+                        <div class="delimiter"><?= renderIcon('delimiter') ?></div>
                         <p><?= Core::parsePhone(SITE_CONFIG['phone'], 'link') ?></p>
                         <p><?= Core::renderEmail(SITE_CONFIG['email']) ?></p>
                     </div>
 
                     <div class="page-contacts--section">
                         <h2>Отдел бронирования</h2>
-                        <div class="delimiter"><?= Core::renderIcon('delimiter') ?></div>
+                        <div class="delimiter"><?= renderIcon('delimiter') ?></div>
                         <p><?= Core::parsePhone(SITE_CONFIG['phones']['booking'], 'link') ?></p>
                     </div>
 
                     <div class="page-contacts--section">
                         <h2>Ресторан</h2>
-                        <div class="delimiter"><?= Core::renderIcon('delimiter') ?></div>
+                        <div class="delimiter"><?= renderIcon('delimiter') ?></div>
                         <p><?= Core::parsePhone(SITE_CONFIG['phones']['restaurant'], 'link') ?></p>
                     </div>
 
                     <div class="page-contacts--section page-contacts--section--full">
                         <h2>Удаленность</h2>
-                        <div class="delimiter"><?= Core::renderIcon('delimiter') ?></div>
+                        <div class="delimiter"><?= renderIcon('delimiter') ?></div>
                         <p class="h4">Расположенный в самом центре Grand Hotel Valentina гарантирует своим
                             гостям удобный доступ к развитой транспортной инфраструктуре:</p>
                         <ul>
@@ -60,7 +60,7 @@ $points = array(
 
                     <div class="page-contacts--section page-contacts--section--full">
                         <h2>В шаговой доступности</h2>
-                        <div class="delimiter"><?= Core::renderIcon('delimiter') ?></div>
+                        <div class="delimiter"><?= renderIcon('delimiter') ?></div>
                         <p class="h4">Отель находится в шаговой доступности от следующих объектов инфраструктуры
                             Анапы:</p>
                         <ul>

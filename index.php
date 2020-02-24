@@ -22,10 +22,10 @@ $points = array(
 <!--услуги-->
 <div class="index-services">
     <h2 class="index-services--title">Услуги</h2>
-    <div class="index-services--delimiter delimiter"><?= Core::renderIcon('delimiter') ?></div>
+    <div class="index-services--delimiter delimiter"><?= renderIcon('delimiter') ?></div>
 
     <div class="index-services--item js-wrap active">
-        <div class="index-services--item--title js-wrap-title">Ресторан <?= Core::renderIcon('shevron') ?></div>
+        <div class="index-services--item--title js-wrap-title">Ресторан <?= renderIcon('shevron') ?></div>
         <div class="index-services--item--content js-wrap-content">
             <div class="index-services--item--image">
                 <img src="<?= SITE_TEMPLATE_PATH ?>/images/index/service-restaurants.jpg" alt="Ресторан" class="img-fluid">
@@ -40,7 +40,7 @@ $points = array(
     </div>
 
     <div class="index-services--item js-wrap">
-        <div class="index-services--item--title js-wrap-title">Развлечения <?= Core::renderIcon('shevron') ?></div>
+        <div class="index-services--item--title js-wrap-title">Развлечения <?= renderIcon('shevron') ?></div>
         <div class="index-services--item--content js-wrap-content">
             <div class="index-services--item--image">
                 <img src="<?= SITE_TEMPLATE_PATH ?>/images/index/service-entertainments.jpg" alt="Развлечения" class="img-fluid">
@@ -55,7 +55,7 @@ $points = array(
     </div>
 
     <div class="index-services--item js-wrap">
-        <div class="index-services--item--title js-wrap-title">Мероприятия <?= Core::renderIcon('shevron') ?></div>
+        <div class="index-services--item--title js-wrap-title">Мероприятия <?= renderIcon('shevron') ?></div>
         <div class="index-services--item--content js-wrap-content">
             <div class="index-services--item--image">
                 <img src="<?= SITE_TEMPLATE_PATH ?>/images/index/service-events.jpg" alt="Мероприятия" class="img-fluid">
@@ -84,14 +84,14 @@ $points = array(
             <!--об отеле-->
             <div class="index-about col-12">
                 <h2 class="index-about--title">Об отеле</h2>
-                <div class="delimiter"><?= Core::renderIcon('delimiter') ?></div>
+                <div class="delimiter"><?= renderIcon('delimiter') ?></div>
                 <p>Гранд Отель "Валентина" является визитной карточкой города-курорта Анапа, ежегодно подтверждая статус пятизвездочного отеля.</p>
             </div>
 
             <!--об отеле (дополнительно)-->
             <div class="index-about--add col-12">
                 <h3>Здесь есть всё для комфортного отдыха и даже больше:</h3>
-                <div class="delimiter"><?= Core::renderIcon('delimiter') ?></div>
+                <div class="delimiter"><?= renderIcon('delimiter') ?></div>
                 <p>Выгодное местоположение - мы находимся в самом центре города;<br>Высоко квалифицированный персонал - наша команда решит любые вопросы и задачи для того, чтобы Вы могли забыть о хлопотах и лишь наслаждаться отдыхом;</p>
             </div>
             <div class="index-about--image col-12 no-gutters">
@@ -127,7 +127,7 @@ $points = array(
             <div class="index-about--resume col-12">
                 <div class="index-about--resume--wrapper">
                     <div class="index-about--resume--wrap">
-                        <div class="delimiter"><?= Core::renderIcon('delimiter') ?></div>
+                        <div class="delimiter"><?= renderIcon('delimiter') ?></div>
                         <p>Всё это, и ещё многое другое делает нас одним из лучших отелей Черноморского побережья.</p>
                     </div>
                 </div>
@@ -136,7 +136,7 @@ $points = array(
             <!--контакты-->
             <div class="index-contacts col-12">
                 <h2 class="index-contacts--title">Контакты</h2>
-                <div class="index-contacts--delimiter delimiter"><?= Core::renderIcon('delimiter') ?></div>
+                <div class="index-contacts--delimiter delimiter"><?= renderIcon('delimiter') ?></div>
                 <div class="index-contacts--items">
                     <?php if (!empty(SITE_CONFIG['phone'])): ?>
                         <div class="index-contacts--phone">

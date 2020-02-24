@@ -38,7 +38,7 @@ if ($event):
         <?php if (!empty($arProperties['NUMBER_SEATS'])): ?>
             <div class="event-detail--seats">
                 <div class="event-detail--seats--value">до <span><?= $arProperties['NUMBER_SEATS']['VALUE'] ?></span> человек</div>
-                <div class="delimiter"><?= Core::renderIcon('delimiter') ?></div>
+                <div class="delimiter"><?= renderIcon('delimiter') ?></div>
                 <div class="event-detail--seats--description">Количество мест в<br><?= mb_strtolower($arFields['NAME']) ?>е</div>
             </div>
         <?php endif; ?>

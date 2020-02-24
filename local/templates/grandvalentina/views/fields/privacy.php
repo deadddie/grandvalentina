@@ -15,6 +15,6 @@ use LapkinLab\Core;
     >
     <label for="<?= $id ?>-form-privacy">
         <span>Согласен на <?= Core::getPrivacyLink('/privacy/policy/', 'хранение и обработку моих персональных данных') ?></span>
-        <?= Core::renderIcon('check') ?>
+        <?= renderIcon('check') ?>
     </label>
 </div>

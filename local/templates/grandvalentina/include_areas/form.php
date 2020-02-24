@@ -14,7 +14,6 @@
  */
 
 use Bitrix\Main\Security\Random;
-use LapkinLab\Core;
 
 $form_id = $id . '-form-' . Random::getString(32);
 ?>
@@ -27,7 +26,7 @@ $form_id = $id . '-form-' . Random::getString(32);
     <?php if ($wrapper): ?><div class="form--wrapper"><?php endif; ?>
         <h2 class="form--title text-center"><?= $title ?></h2>
         <?php if ($title_delimiter): ?>
-            <div class="form--title--delimiter delimiter"><?= Core::renderIcon('delimiter') ?></div>
+            <div class="form--title--delimiter delimiter"><?= renderIcon('delimiter') ?></div>
         <?php endif; ?>
         <div class="form--description text-center"><?= $description ?></div>
         <div class="form--fields">

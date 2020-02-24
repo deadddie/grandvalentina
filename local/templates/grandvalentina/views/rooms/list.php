@@ -5,7 +5,7 @@
  * @var object $rooms \CIBlockElement
  */
 
-use LapkinLab\{Core, Helper, Content\Rooms};
+use LapkinLab\{Helper, Content\Rooms};
 
 ?>
 
@@ -23,7 +23,7 @@ use LapkinLab\{Core, Helper, Content\Rooms};
         <section class="room-block">
             <div class="room-title">
                 <h2>Номера</h2>
-                <div class="delimiter"><?= Core::renderIcon('delimiter') ?></div>
+                <div class="delimiter"><?= renderIcon('delimiter') ?></div>
             </div>
     <?php endif; ?>
     <div class="room-items">
@@ -47,7 +47,7 @@ use LapkinLab\{Core, Helper, Content\Rooms};
                         <div class="room-item--info--customers">
                             <?php if ($arProperties['CAPACITY']['VALUE'] > 0): ?>
                                 <?php for ($i = (int) $arProperties['CAPACITY']['VALUE']; $i > 0; $i--): ?>
-                                    <?= Core::renderIcon('user') ?>
+                                    <?= renderIcon('user') ?>
                                 <?php endfor; ?>
                             <?php endif; ?>
                         </div>

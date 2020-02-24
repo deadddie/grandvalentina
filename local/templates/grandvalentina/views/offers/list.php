@@ -22,7 +22,7 @@ use LapkinLab\{Core, Helper, Content\Offers};
         <section class="offer-block">
             <div class="offer-title">
                 <h2>Спецпредложения</h2>
-                <div class="delimiter"><?= Core::renderIcon('delimiter') ?></div>
+                <div class="delimiter"><?= renderIcon('delimiter') ?></div>
             </div>
     <?php endif; ?>
     <div class="offer-items">

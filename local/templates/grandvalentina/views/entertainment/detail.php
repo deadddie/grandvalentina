@@ -61,7 +61,7 @@ if ($entertainment):
 
             <?php if (!empty($arProperties['PROMO']['VALUE'])): ?>
                 <div class="entertainment-detail--promo">
-                    <div class="delimiter"><?= Core::renderIcon('delimiter') ?></div>
+                    <div class="delimiter"><?= renderIcon('delimiter') ?></div>
                     <div class="entertainment-detail--promo--content">
                         <?= html_entity_decode($arProperties['PROMO']['VALUE']['TEXT']) ?>
                     </div>

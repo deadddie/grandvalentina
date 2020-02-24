@@ -21,7 +21,7 @@ Loc::loadLanguageFile(__FILE__);
             <div class="footer--wrapper col-12">
                 <div class="footer--logo">
                     <div class="logo-vertical">
-                        <?= Core::renderIcon('logo') ?>
+                        <?= renderIcon('logo') ?>
                         <span><?= SITE_CONFIG['name_short'] ?></span>
                     </div>
                 </div>

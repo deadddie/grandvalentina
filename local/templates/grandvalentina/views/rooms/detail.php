@@ -24,11 +24,10 @@ if ($room):
                 <div class="room-detail">
 
                     <? /*
-        <div class="room-item--content">
-            <div class="room-detail--promo"></div>
-        </div>
-        */
-                    ?>
+                    <div class="room-item--content">
+                        <div class="room-detail--promo"></div>
+                    </div>
+                    */ ?>
 
                     <?php if (!empty($arProperties['MORE_PHOTO']['VALUE'])): ?>
                         <div class="room-detail--images">
@@ -43,20 +42,20 @@ if ($room):
 
                         <div class="room-detail--price-wrapper">
                             <div class="room-detail--price">
-                                от <?= Helper::priceFormat($arProperties['PRICE']['VALUE']) ?> <?= Core::renderIcon('rouble') ?>
+                                от <?= Helper::priceFormat($arProperties['PRICE']['VALUE']) ?> <?= renderIcon('rouble') ?>
                             </div>
 
                             <div class="room-detail--info">
                                 <div class="room-detail--info--customers">
                                     <?php if ($arProperties['CAPACITY']['VALUE'] > 0): ?>
                                         <?php for ($i = (int)$arProperties['CAPACITY']['VALUE']; $i > 0; $i--): ?>
-                                            <?= Core::renderIcon('user') ?>
+                                            <?= renderIcon('user') ?>
                                         <?php endfor; ?>
                                     <?php endif; ?>
                                 </div>
 
                                 <div class="room-detail--info--room">
-                                    <?= Core::renderIcon('info', 'js-room-detail-info') ?>
+                                    <?= renderIcon('info', 'js-room-detail-info') ?>
                                     <?php $number = ($arProperties['NUMBER']['VALUE'] > 0) ? $arProperties['NUMBER']['VALUE'] : 1; ?>
                                     <?= $number . '&nbsp;' . Helper::getWordForms('number', $number) ?>,
                                     <?= $arProperties['SQUARE']['VALUE'] ?> кв.м.
@@ -73,7 +72,7 @@ if ($room):
 
                         <?php if (!empty($arFields['DESCRIPTION'])): ?>
                             <div class="room-detail--description">
-                                <div class="room-detail--description--title">Описание <?= Core::renderIcon('shevron') ?></div>
+                                <div class="room-detail--description--title">Описание <?= renderIcon('shevron') ?></div>
                                 <div class="room-detail--description--content">
                                     <?= Rooms::getRoomServices($arFields['DESCRIPTION']) ?>
                                 </div>
@@ -82,7 +81,7 @@ if ($room):
 
                         <?php if (!empty($arProperties['ROOM_SERVICES']['VALUE'])): ?>
                             <div class="room-detail--room-services js-wrap active">
-                                <div class="room-detail--room-services--title js-wrap-title">Услуги <?= Core::renderIcon('shevron') ?></div>
+                                <div class="room-detail--room-services--title js-wrap-title">Услуги <?= renderIcon('shevron') ?></div>
                                 <div class="room-detail--room-services--content js-wrap-content">
                                     <?= Rooms::getRoomServices($arProperties['ROOM_SERVICES']['VALUE']) ?>
                                 </div>
@@ -91,7 +90,7 @@ if ($room):
 
                         <?php if (!empty($arProperties['ACCOMODATIONS']['VALUE'])): ?>
                             <div class="room-detail--accomodations js-wrap">
-                                <div class="room-detail--accomodations--title js-wrap-title">Условия проживания <?= Core::renderIcon('shevron') ?></div>
+                                <div class="room-detail--accomodations--title js-wrap-title">Условия проживания <?= renderIcon('shevron') ?></div>
                                 <div class="room-detail--accomodations--content js-wrap-content">
                                     <?= htmlspecialcharsBack($arProperties['ACCOMODATIONS']['VALUE']['TEXT']) ?>
                                 </div>
@@ -100,7 +99,7 @@ if ($room):
 
                         <div class="room-detail--3d">
                             <button class="btn btn-link">3D-тур</button>
-                            <div class="delimiter"><?= Core::renderIcon('delimiter') ?></div>
+                            <div class="delimiter"><?= renderIcon('delimiter') ?></div>
                         </div>
 
                         <div class="room-detail--stickers">
