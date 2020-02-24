@@ -64,19 +64,16 @@ if ($room):
                             </div>
 
                             <a href="<?= $arProperties['BOOKING_LINK']['VALUE'] ?>"
-                               class="room-detail--price-book btn btn-wide btn-default">Забронировать
-                                номер</a>
+                               class="room-detail--price-book btn btn-wide btn-default">Забронировать номер</a>
                         </div>
 
                         <div class="room-detail--actions">
-                            <a href="<?= $arProperties['BOOKING_LINK']['VALUE'] ?>" class="btn btn-wide btn-default">Забронировать
-                                номер</a>
+                            <a href="<?= $arProperties['BOOKING_LINK']['VALUE'] ?>" class="btn btn-wide btn-default">Забронировать номер</a>
                         </div>
 
                         <?php if (!empty($arFields['DESCRIPTION'])): ?>
                             <div class="room-detail--description">
-                                <div class="room-detail--description--title">
-                                    Описание <?= Core::renderIcon('shevron') ?></div>
+                                <div class="room-detail--description--title">Описание <?= Core::renderIcon('shevron') ?></div>
                                 <div class="room-detail--description--content">
                                     <?= Rooms::getRoomServices($arFields['DESCRIPTION']) ?>
                                 </div>
@@ -84,20 +81,18 @@ if ($room):
                         <?php endif; ?>
 
                         <?php if (!empty($arProperties['ROOM_SERVICES']['VALUE'])): ?>
-                            <div class="room-detail--room-services">
-                                <div class="room-detail--room-services--title">
-                                    Услуги <?= Core::renderIcon('shevron') ?></div>
-                                <div class="room-detail--room-services--content">
+                            <div class="room-detail--room-services js-wrap active">
+                                <div class="room-detail--room-services--title js-wrap-title">Услуги <?= Core::renderIcon('shevron') ?></div>
+                                <div class="room-detail--room-services--content js-wrap-content">
                                     <?= Rooms::getRoomServices($arProperties['ROOM_SERVICES']['VALUE']) ?>
                                 </div>
                             </div>
                         <?php endif; ?>
 
                         <?php if (!empty($arProperties['ACCOMODATIONS']['VALUE'])): ?>
-                            <div class="room-detail--accomodations">
-                                <div class="room-detail--accomodations--title">Условия
-                                    проживания <?= Core::renderIcon('shevron') ?></div>
-                                <div class="room-detail--accomodations--content">
+                            <div class="room-detail--accomodations js-wrap">
+                                <div class="room-detail--accomodations--title js-wrap-title">Условия проживания <?= Core::renderIcon('shevron') ?></div>
+                                <div class="room-detail--accomodations--content js-wrap-content">
                                     <?= htmlspecialcharsBack($arProperties['ACCOMODATIONS']['VALUE']['TEXT']) ?>
                                 </div>
                             </div>
@@ -123,8 +118,7 @@ if ($room):
                     <div class="room-detail--content room-detail--content-bottom">
 
                         <div class="room-detail--actions room-detail--actions--bottom">
-                            <a href="<?= $arProperties['BOOKING_LINK']['VALUE'] ?>" class="btn btn-wide btn-default">Забронировать
-                                номер</a>
+                            <a href="<?= $arProperties['BOOKING_LINK']['VALUE'] ?>" class="btn btn-wide btn-default">Забронировать номер</a>
                         </div>
 
                         <div class="room-detail--backlink">

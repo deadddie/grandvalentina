@@ -39,7 +39,7 @@
     display: flex;
     justify-content: center;
 
-    .slider--navigation {
+    .slider--navigation.room-slider--navigation {
       .owl-prev,
       .owl-next {
         background-color: $app-color--white;
@@ -48,7 +48,7 @@
         }
       }
     }
-    .slider--dots {
+    .slider--dots.room-slider--dots {
       .owl-dot {
         background-color: $app-color--white;
         &.active {
@@ -74,7 +74,7 @@
     }
 
     &--container {
-      margin-bottom: 50px;
+      margin-bottom: $app-padding--largest;
 
       @media (max-width: map_get($grid-breakpoints, md)) {
         padding: 0;
@@ -90,9 +90,6 @@
   &-item {
     padding-bottom: $app-padding--medium;
     position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: stretch;
 
     &:not(.room-detail) {
       @media (min-width: map_get($grid-breakpoints, md)) {
@@ -117,9 +114,6 @@
       padding: $app-padding--medium $app-padding--medium $app-padding--large;
       background-color: $app-color--white;
       @include shadow;
-      flex: 1;
-      display: flex;
-      flex-direction: column;
     }
 
     &--name {
@@ -395,6 +389,8 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
+      margin-top: $app-padding--base;
+      margin-bottom: $app-padding--base;
 
       @media (min-width: map_get($grid-breakpoints, sm)) {
         padding: 30px 0 10px;
