@@ -4923,16 +4923,22 @@ body.mobile-menu-open {
     background-color: #c12032;
 }
 
+.js-wrap-title {
+    cursor: pointer;
+}
+
 .js-wrap-title .icon {
-    -webkit-transition: -webkit-transform 0.3s ease-in-out;
-    transition: -webkit-transform 0.3s ease-in-out;
-    transition: transform 0.3s ease-in-out;
-    transition: transform 0.3s ease-in-out, -webkit-transform 0.3s ease-in-out;
+    -webkit-transform: rotate(180deg);
+    transform: rotate(180deg);
+    -webkit-transition: -webkit-transform 0.4s ease-in-out;
+    transition: -webkit-transform 0.4s ease-in-out;
+    transition: transform 0.4s ease-in-out;
+    transition: transform 0.4s ease-in-out, -webkit-transform 0.4s ease-in-out;
 }
 
 .js-wrap.active .js-wrap-title .icon {
-    -webkit-transform: rotate(180deg);
-    transform: rotate(180deg);
+    -webkit-transform: rotate(0);
+    transform: rotate(0);
 }
 
 .pagination {
@@ -5905,6 +5911,68 @@ body.mobile-menu-open {
     color: #ae1829;
 }
 
+body.index .index-services {
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+body.index .index-services--title {
+    text-align: center;
+    font-size: 30px;
+    margin-bottom: 15px;
+}
+
+body.index .index-services--delimiter {
+    text-align: center;
+    color: #cabcaa;
+}
+
+body.index .index-services--item {
+    margin-bottom: 15px;
+}
+
+body.index .index-services--item--title {
+    padding: 20px 50px;
+    color: #fff;
+    background-color: #cabcaa;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: center;
+    -ms-flex-align: center;
+    align-items: center;
+    font-size: 20px;
+    font-family: "Minion Pro", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+body.index .index-services--item--title .icon {
+    width: 12px;
+}
+
+body.index .index-services--item--image {
+    margin-top: 10px;
+}
+
+body.index .index-services--item--description {
+    padding: 15px;
+    font-size: 12px;
+}
+
+body.index .index-services--item--link {
+    padding: 0 15px 15px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: end;
+    -ms-flex-pack: end;
+    justify-content: flex-end;
+}
+
 body.index .index-content .index-title {
     margin-top: 30px;
     margin-bottom: 30px;
@@ -6006,7 +6074,21 @@ body.index .index-content .index-about--resume p {
 }
 
 body.index .index-content .index-contacts {
+    margin-top: 20px;
     margin-bottom: 20px;
+}
+
+body.index .index-content .index-contacts--title {
+    font-size: 30px;
+    text-align: center;
+}
+
+body.index .index-content .index-contacts--delimiter {
+    text-align: center;
+}
+
+body.index .index-content .index-contacts--delimiter .icon {
+    color: #cabcaa;
 }
 
 body.index .index-content .index-contacts--items {

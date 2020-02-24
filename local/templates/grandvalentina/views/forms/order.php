@@ -7,6 +7,7 @@
 $params = array(
     'id' => $id,
     'title' => 'Оставьте заявку',
+    'title_delimiter' => false,
     'description' => 'Наш менеджер свяжется с вами в ближайшее время и ответит на все интересующие вас вопросы',
     'fields' => array(
         'name',

@@ -2,6 +2,49 @@
 
 body.index {
 
+  .index-services {
+    margin-top: $app-padding--large;
+    margin-bottom: $app-padding--large;
+    &--title {
+      text-align: center;
+      font-size: $app-fontsize--h1;
+      margin-bottom: $app-padding--base;
+    }
+    &--delimiter {
+      text-align: center;
+      color: $app-color--primary;
+    }
+    &--item {
+      margin-bottom: $app-padding--base;
+      &--title {
+        padding: $app-padding--medium $app-padding--largest;
+        color: $app-color--white;
+        background-color: $app-color--primary;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-size: $app-fontsize--h3;
+        @include head_font;
+        .icon {
+          width: 12px;
+        }
+      }
+      &--content {}
+      &--image {
+        margin-top: $app-padding--small;
+      }
+      &--description {
+        padding: $app-padding--base;
+        font-size: $app-fontsize--smaller;
+      }
+      &--link {
+        padding: 0 $app-padding--base $app-padding--base;
+        display: flex;
+        justify-content: flex-end;
+      }
+    }
+  }
+
   .index-content {
 
     .index {
@@ -14,6 +57,8 @@ body.index {
       &-image {
         width: 100%;
       }
+
+      // About
 
       &-about {
         background-color: $app-color--secondary;
@@ -42,6 +87,8 @@ body.index {
         }
       }
 
+      // About image
+
       &-about--image {
         width: 100%;
       }
@@ -62,6 +109,8 @@ body.index {
         }
       }
 
+      // About resume
+
       &-about--resume {
         margin-bottom: $app-padding--medium;
         &--wrapper {
@@ -71,7 +120,7 @@ body.index {
         }
         &--wrap {
           padding: $app-padding--base;
-          border: 1px solid $app-color--white;
+          border: 1px solid $app-color--secondary;
         }
         .delimiter {
           color: $app-color--white;
@@ -80,6 +129,86 @@ body.index {
           color: $app-color--white;
           @include head_font;
           font-size: $app-fontsize--large;
+        }
+      }
+
+      // Contacts
+
+      &-contacts {
+        margin-top: $app-padding--medium;
+        margin-bottom: $app-padding--medium;
+        &--title {
+          font-size: $app-fontsize--h1;
+          text-align: center;
+        }
+        &--delimiter {
+          text-align: center;
+          .icon {
+            color: $app-color--primary;
+          }
+        }
+        &--items {
+          text-align: center;
+          background-color: $app-color--secondary;
+          padding: $app-padding--large $app-padding--medium;
+        }
+        &--phone {
+          @extend .footer--contacts-phone;
+          margin-bottom: 10px;
+          a {
+            @include text_font_b;
+            color: $app-color--black;
+          }
+        }
+        &--email {
+          @extend .footer--contacts-email;
+          margin-bottom: 10px;
+          a {
+            @include text_font_b;
+            color: $app-color--black;
+          }
+        }
+        &--address {
+          @extend .footer--contacts-address;
+        }
+      }
+
+      // Subscribe
+
+      &-subscribe {
+        background-color: $app-color--primary;
+        padding: $app-padding--medium;
+        &--wrapper {
+          border: 1px solid $app-color--secondary;
+          padding: $app-padding--large $app-padding--medium;
+          color: $app-color--white;
+          .form--title {
+            color: $app-color--white;
+            margin-bottom: 0;
+          }
+          .form--description {
+            font-size: $app-fontsize--medium;
+          }
+          .form-field {
+            input,
+            textarea {
+              background-color: $app-color--white;
+            }
+          }
+          .form-privacy {
+            label {
+              color: $app-color--white;
+              a {
+                color: $app-color--white;
+              }
+              &:before {
+                background-color: $app-color--white;
+              }
+              .icon {
+                color: $app-color--black;
+              }
+            }
+          }
         }
       }
 
