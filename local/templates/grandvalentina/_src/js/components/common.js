@@ -53,6 +53,7 @@ let Common = {
             .ready(() => {
                 //self.setEmailMask();
                 self.setPhoneMask();
+                self.cookieApply();
             })
 
             // Обработчик при прокрутке страницы
@@ -114,6 +115,22 @@ let Common = {
     setEmailMask() {
         require('inputmask/dist/jquery.inputmask.bundle');
         new Inputmask('email').mask($('input[name="email"]'));
+    },
+
+    /**
+     * Use of cookies.
+     */
+    cookieApply() {
+        require('jquery.cookie');
+        const COOKIE_APPLY = 'GHV_COOKIE_APPLY';
+        const cookie_div = $('.cookie-apply');
+        if ($.cookie(COOKIE_APPLY) === undefined || $.cookie(COOKIE_APPLY) === false) {
+            cookie_div.addClass('active');
+        }
+        $(document).on('click', '.cookie-apply--close, .cookie-apply--apply', function () {
+            cookie_div.removeClass('active');
+            $.cookie(COOKIE_APPLY, true);
+        })
     }
 
 };

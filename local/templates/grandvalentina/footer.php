@@ -77,8 +77,7 @@ Loc::loadLanguageFile(__FILE__);
             </div>
             <div class="col-12">
                 <div class="footer--copyrights">
-                    &copy; <?= Core::autoCopyright(SITE_CONFIG['since']) ?> Официальный
-                    сайт <?= SITE_CONFIG['name_short'] ?>
+                    &copy; <?= Core::autoCopyright(SITE_CONFIG['since']) ?> Официальный сайт <?= SITE_CONFIG['name_short'] ?>
                 </div>
             </div>
         </div>
@@ -86,8 +85,8 @@ Loc::loadLanguageFile(__FILE__);
 
 </footer><!--/footer-->
 
-<!--scroll to top-->
-<div class="hidden-xs" id="scroll-to-top"><a href="#top" title="наверх" rel="nofollow">↑</a></div>
+<?= view('common.scrolltotop') ?>
+<?= view('common.cookie') ?>
 
 </div><!--/#top-->
 

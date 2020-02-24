@@ -5058,6 +5058,75 @@ body.mobile-menu-open {
   */
 }
 
+.cookie-apply {
+    position: fixed;
+    left: 0;
+    right: 0;
+    width: 100%;
+    padding: 15px;
+    background-color: #f4efe4;
+    color: #1e1e1e;
+    -webkit-box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
+    display: block;
+    z-index: -9999;
+    opacity: 0;
+    visibility: visible;
+    -webkit-transition: bottom 1.8s ease-in-out;
+    transition: bottom 1.8s ease-in-out;
+    bottom: -100%;
+}
+
+.cookie-apply.active {
+    z-index: 9999;
+    opacity: 1;
+    visibility: visible;
+    bottom: 0;
+}
+
+.cookie-apply--title {
+    font-size: 20px;
+    text-transform: uppercase;
+    padding-right: 50px;
+}
+
+.cookie-apply--content {
+    font-size: 12px;
+    display: -webkit-box;
+    display: -ms-flexbox;
+    display: flex;
+    -webkit-box-pack: justify;
+    -ms-flex-pack: justify;
+    justify-content: space-between;
+    -webkit-box-align: end;
+    -ms-flex-align: end;
+    align-items: flex-end;
+}
+
+.cookie-apply--content p {
+    margin-bottom: 0;
+}
+
+.cookie-apply--close {
+    position: absolute;
+    right: 15px;
+    top: 15px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    cursor: pointer;
+}
+
+.cookie-apply--close .icon {
+    width: 12px;
+}
+
+.cookie-apply--apply {
+    margin-left: 50px;
+    font-size: 12px;
+}
+
 .custom-form {
   /*
   border-top: 1px solid $app-color--border;
