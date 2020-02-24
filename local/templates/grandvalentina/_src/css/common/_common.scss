@@ -399,3 +399,19 @@
     }
   }
 }
+
+// Wrap/unwrap
+
+.js-wrap {
+  &-title {
+    .icon {
+      transition: transform 0.3s ease-in-out;
+    }
+  }
+  &-content {}
+  &.active {
+    .js-wrap-title .icon {
+      transform: rotate(180deg);
+    }
+  }
+}
