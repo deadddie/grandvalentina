@@ -85,8 +85,8 @@ Loc::loadLanguageFile(__FILE__);
 
 </footer><!--/footer-->
 
-<?= view('common.scrolltotop') ?>
-<?= view('common.cookie') ?>
+<?php $APPLICATION->IncludeFile(SITE_TEMPLATE_PATH . '/include_areas/cookie.php') ?>
+<?php $APPLICATION->IncludeFile(SITE_TEMPLATE_PATH . '/include_areas/scrolltotop.php') ?>
 
 </div><!--/#top-->
 
