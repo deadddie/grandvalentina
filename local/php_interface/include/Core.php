@@ -168,9 +168,10 @@ class Core
      *
      * @param string $name Icon name
      * @param string $class
+     *
      * @return string
      */
-    public static function renderIcon(string $name, string $class = '') {
+    public static function renderIcon(string $name, string $class = '') : string {
         return "<svg class=\"icon icon-{$name} {$class}\"><use xlink:href=\"#{$name}\"></use></svg>";
     }
 
@@ -182,7 +183,7 @@ class Core
      *
      * @return string
      */
-    public static function renderSprite(string $name, string $class = '') {
+    public static function renderSprite(string $name, string $class = '') : string {
         return "<i class=\"icon icon-{$name} {$class}\"></i>";
     }
 
@@ -194,7 +195,7 @@ class Core
      *
      * @return string
      */
-    public static function renderEmail(string $email = SITE_CONFIG['email_other'], string $class = '') {
+    public static function renderEmail(string $email = SITE_CONFIG['email_other'], string $class = '') : string {
         return "<a href=\"mailto:{$email}\" {$class}>$email</a>";
     }
 
