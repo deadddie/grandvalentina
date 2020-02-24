@@ -404,14 +404,16 @@
 
 .js-wrap {
   &-title {
+    cursor: pointer;
     .icon {
-      transition: transform 0.3s ease-in-out;
+      transform: rotate(180deg);
+      transition: transform 0.4s ease-in-out;
     }
   }
   &-content {}
   &.active {
     .js-wrap-title .icon {
-      transform: rotate(180deg);
+      transform: rotate(0);
     }
   }
 }
