@@ -29,19 +29,9 @@
   &--logo {
     padding-top: $app-padding--medium;
     padding-bottom: $app-padding--medium;
-
     @media (min-width: map_get($grid-breakpoints, xl)) {
       flex-basis: 207px;
       padding: 0;
-    }
-
-    .logo-vertical {
-      .icon {
-        width: 50px;
-      }
-      span {
-        font-size: $app-fontsize--base;
-      }
     }
   }
 

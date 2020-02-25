@@ -4,7 +4,9 @@
 
   // Items page
 
-  &-items {}
+  &-items {
+    @extend .room-items;
+  }
 
   &-item {
     @extend .room-item;
@@ -61,8 +63,11 @@
       }
     }
     &--order {
-      padding-top: $app-padding--base;
-      padding-bottom: $app-padding--large;
+      @extend .event-detail--order;
+    }
+
+    &--image-main {
+      @extend .event-detail--image-main;
     }
 
     &--images {

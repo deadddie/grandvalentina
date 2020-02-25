@@ -3,9 +3,6 @@
 
 namespace LapkinLab;
 
-
-use Bitrix\Main\Application;
-
 /**
  * Class View
  *
@@ -29,8 +26,8 @@ class View
     public static function make($name, $params = array(), $print = true)
     {
         // Проброс экземпляра приложения во view
-        $name = str_replace('.', '/', $name);
-        $filePath = ROOT . self::DIR . $name . '.php';
+        $name = str_replace('.', DIRECTORY_SEPARATOR, $name);
+        $filePath = ROOT . DIRECTORY_SEPARATOR . self::DIR . $name . '.php';
         $output = null;
         if (file_exists($filePath)) {
             extract($params, EXTR_OVERWRITE); // Извлекаем переменные в локальный неймспейс

@@ -120,12 +120,16 @@
   justify-content: center;
   align-items: center;
   &.show {
+    background-color: rgba($app-color--border-dark, 0.5);
     .modal-dialog {
-      margin: $app-navigation-height 0 0;
+      margin: $app-navigation-height auto 0;
       opacity: 1;
       width: 100%;
       @media (min-width: map-get($grid-breakpoints, sm)) {
         width: auto;
+      }
+      @media (min-width: map_get($grid-breakpoints, xl)) {
+        margin-top: 150px;
       }
     }
   }
@@ -169,6 +173,9 @@
     background-color: $app-color--white;
     padding: $app-padding--large $app-padding--medium;
     min-height: calc(100vh - 50px);
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      min-height: initial;
+    }
     .form {
       &--form {
       }
@@ -264,25 +271,34 @@
   }
 }
 
-// Лого вертикальное
+// Logo vertical
 
 .logo-vertical {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
+  @media (min-width: map_get($grid-breakpoints, xl)) {
+    margin-top: 10px;
+  }
   .icon,
   img {
     margin-bottom: 5px;
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      width: 50px;
+    }
   }
   span {
     text-align: center;
     flex-basis: 100%;
     @include head_font;
     font-size: $app-fontsize--smaller;
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      font-size: $app-fontsize--medium;
+    }
   }
 }
 
-// Заглушка для загрузки страницы
+// Loading
 
 .loading {
   display: flex;
@@ -330,6 +346,10 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
+  @media (min-width: map_get($grid-breakpoints, sm)) {
+    padding-left: $app-padding--base;
+    padding-right: $app-padding--base;
+  }
   .owl-prev,
   .owl-next {
     background-image: url("images/arrow.svg");
@@ -349,6 +369,8 @@
     }
     &:hover {
       background-color: $app-color--primary;
+      color: $app-color--white;
+      background-image: url("images/arrow-white.svg");
     }
   }
   .owl-prev {
@@ -431,7 +453,7 @@
 .languages {
   &-switcher {
     opacity: 0;
-    visibility: visible;
+    visibility: hidden;
     z-index: -1;
     position: absolute;
     top: 100%;
@@ -439,6 +461,9 @@
     padding: $app-padding--base $app-padding--medium;
     background-color: $app-color--white;
     @include shadow-lg;
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      top: 80%;
+    }
     &.active {
       opacity: 1;
       visibility: visible;

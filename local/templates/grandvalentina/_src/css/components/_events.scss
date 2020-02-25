@@ -4,7 +4,9 @@
 
   // Items page
 
-  &-items {}
+  &-items {
+    @extend .room-items;
+  }
 
   &-item {
     @extend .room-item;
@@ -65,6 +67,18 @@
     &--order {
       padding-top: $app-padding--base;
       padding-bottom: $app-padding--large;
+      @include container-md;
+      @media (min-width: map_get($grid-breakpoints, lg)) {
+        padding-top: $app-padding--large;
+        padding-bottom: $app-padding--largest;
+      }
+      .form--fields {
+        .form-field {
+          @media (min-width: map_get($grid-breakpoints, lg)) {
+            flex-basis: calc(50% - 30px);
+          }
+        }
+      }
     }
 
     &--seats {
@@ -104,6 +118,18 @@
       @extend .room-detail--images;
       &--nav {
         @extend .room-detail--images--nav;
+      }
+    }
+
+    &--image-main {
+      @media (min-width: map_get($grid-breakpoints, xl)) {
+        max-height: 400px;
+        display: flex;
+      }
+      img {
+        width: 100%;
+        object-fit: cover;
+        object-position: center;
       }
     }
 

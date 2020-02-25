@@ -4,7 +4,7 @@
   position: fixed;
   top: 0;
   bottom: 0;
-  right: -420px;
+  right: -100%;
   min-width: 320px;
   width: 100%;
   max-width: 100%;
@@ -20,7 +20,7 @@
   &.active {
     right: 0;
   }
-  @media (min-width: map_get($grid-breakpoints, md)) {
+  @media (min-width: map_get($grid-breakpoints, lg)) {
     display: none;
   }
 
@@ -47,6 +47,9 @@
     display: flex;
     width: 100%;
     justify-content: center;
+    @media (min-width: map_get($grid-breakpoints, md)) {
+      display: none;
+    }
     &--wrapper {
       text-align: center;
     }
@@ -57,6 +60,11 @@
   }
 
   &--menu {
+    @media (min-width: map_get($grid-breakpoints, md)) {
+      margin-top: $app-padding--extra;
+      padding-left: $app-padding--largest;
+      padding-right: $app-padding--largest;
+    }
     &--wrapper {
 
       .menu-top {
@@ -73,6 +81,9 @@
             padding: 0;
             display: flex;
             flex-wrap: wrap;
+            @media (min-width: map_get($grid-breakpoints, md)) {
+              flex-basis: 50%;
+            }
             &.active {
               &:before {
                 opacity: 1;
@@ -91,6 +102,9 @@
               display: block;
               width: 100%;
               padding: 3px 0;
+              @media (min-width: map_get($grid-breakpoints, md)) {
+                padding: 8px 0;
+              }
               &:hover {
                 color: $app-color--primary;
                 text-decoration: underline;
@@ -101,6 +115,9 @@
             }
 
             ul {
+              @media (min-width: map_get($grid-breakpoints, md)) {
+                display: none;
+              }
               > li {
                 padding-left: 30px;
                 a {
@@ -123,6 +140,9 @@
   &--phone {
     padding-top: $app-padding--medium;
     width: 100%;
+    @media (min-width: map_get($grid-breakpoints, md)) {
+      display: none;
+    }
     &--wrapper {
       display: flex;
       justify-content: center;
@@ -147,8 +167,23 @@
   }
 
   &--choose-room {
+    @media (min-width: map_get($grid-breakpoints, md)) {
+      padding-left: $app-padding--extra + 10px;
+      padding-right: $app-padding--extra + 10px;
+    }
     button {
       font-size: $app-fontsize--medium;
+      @media (min-width: map_get($grid-breakpoints, md)) {
+        max-width: 320px;
+      }
+      &.js-open-modal {
+        display: none;
+        @media (min-width: map_get($grid-breakpoints, md)) {
+          margin-left: 20px;
+          display: inline-block;
+          max-width: 220px;
+        }
+      }
     }
   }
 
@@ -156,6 +191,11 @@
     padding-top: $app-padding--small;
     padding-bottom: 0;
     background-color: $app-color--white;
+    @media (min-width: map_get($grid-breakpoints, md)) {
+      padding-left: $app-padding--extra;
+      padding-right: $app-padding--extra;
+      margin-bottom: $app-padding--largest;
+    }
     color: $app-color--black;
     .icon {
       color: $app-color--black;
@@ -169,7 +209,13 @@
     &--contacts {
       color: $app-color--black;
       border-top: 0;
+      @media (min-width: map_get($grid-breakpoints, md)) {
+        text-align: left;
+      }
       &-phone {
+        @media (min-width: map_get($grid-breakpoints, md)) {
+          margin-bottom: $app-padding--base;
+        }
         a {
           border-bottom-color: $app-color--black;
           &:before {
@@ -183,6 +229,9 @@
       &-email,
       &-address {
         @include text_font_b;
+        @media (min-width: map_get($grid-breakpoints, md)) {
+          margin-bottom: $app-padding--base;
+        }
       }
     }
     &--socials {

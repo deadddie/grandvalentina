@@ -6,6 +6,16 @@
 
   &-block {
     background-color: $app-color--secondary;
+    &--wrapper {
+      @include container-sm;
+      @include container-lg;
+      @include container-xl;
+    }
+    .room-item {
+      @media (min-width: map_get($grid-breakpoints, sm)) {
+        width: calc(100% - 20px) !important;
+      }
+    }
   }
   &-title {
     width: 100%;
@@ -62,34 +72,19 @@
   // Items page
 
   &-items {
-    @media (min-width: map_get($grid-breakpoints, md)) {
-      margin: 0 -10px;
-      display: flex;
-      align-items: stretch;
-      flex-wrap: wrap;
-    }
-
-    @media (min-width: map_get($grid-breakpoints, lg)) {
-      margin: 0 -5px;
-    }
-
-    &--container {
-      margin-bottom: $app-padding--largest;
-
-      @media (max-width: map_get($grid-breakpoints, md)) {
-        padding: 0;
-        max-width: 100%;
-      }
-
-      @media (min-width: map_get($grid-breakpoints, lg)) {
-        margin-bottom: 80px;
-      }
+    @include container-md;
+    @include container-lg;
+    @include container-xl;
+    @media (min-width: map_get($grid-breakpoints, sm)) {
+      @include justify;
+      margin-bottom: $app-padding--large;
     }
   }
 
   &-item {
     padding-bottom: $app-padding--medium;
     position: relative;
+    @include shadow;
 
     &:not(.room-detail) {
       @media (min-width: map_get($grid-breakpoints, md)) {
@@ -97,10 +92,8 @@
         margin: 0 10px 20px;
         padding: 0;
       }
-
       @media (min-width: map_get($grid-breakpoints, lg)) {
-        width: calc(100% / 3 - 10px);
-        margin: 0 5px 20px;
+        width: calc(100% / 3 - 20px);
       }
     }
 
@@ -113,10 +106,12 @@
     &--content {
       padding: $app-padding--medium $app-padding--medium $app-padding--large;
       background-color: $app-color--white;
-      @include shadow;
     }
 
     &--name {
+      @media (min-width: map_get($grid-breakpoints, md)) {
+        min-height: 60px;
+      }
       h2 {
         margin-bottom: $app-padding--base;
         a {
@@ -197,40 +192,25 @@
 
   &-detail {
     @extend .room-item;
-    padding-bottom: 0;
+    box-shadow: none;
 
-    &--container {
-      @media (max-width: map_get($grid-breakpoints, lg)) {
-        padding: 0;
-        max-width: 100%;
-      }
-    }
+    &--title {}
 
     &--content {
       @extend .room-item--content;
-      box-shadow: none;
-      max-width: 980px;
-      margin-left: auto;
-      margin-right: auto;
-      width: 100%;
-
-      &:not(.room-detail--content-bottom) {
-        @media (min-width: map_get($grid-breakpoints, sm)) {
-          padding: 40px 55px 0;
-        }
+      @media (min-width: map_get($grid-breakpoints, lg)) {
+        padding-top: $app-padding--largest;
+        padding-bottom: $app-padding--largest;
       }
+      box-shadow: none;
+      @include container-lg;
 
       &-bottom {
+        @extend .room-item--content;
         padding-top: 0;
-        padding-bottom: 30px;
-
-        @media (min-width: map_get($grid-breakpoints, sm)) {
-          padding-top: 20px;
-          padding-bottom: 0;
-        }
-
-        @media (min-width: map_get($grid-breakpoints, lg)) {
-          padding-top: 30px;
+        box-shadow: none;
+        @media (min-width: map_get($grid-breakpoints, md)) {
+          padding-top: initial;
         }
       }
     }
@@ -241,6 +221,7 @@
     }
 
     &--images {
+      @include container-xl;
       ul {
         margin: 0;
         padding: 0;
@@ -263,18 +244,23 @@
         padding-bottom: 0;
         background-color: $app-color--white;
         position: relative;
+        @include container-sm;
+        @include container-xl;
+        @media (min-width: map_get($grid-breakpoints, md)) {
+          margin-left: auto;
+          margin-right: auto;
+        }
       }
     }
 
     &--image-main {
-      margin-left: -20px;
-      margin-right: -20px;
-
-      @media (min-width: map_get($grid-breakpoints, sm)) {
-        margin: 0;
-        max-width: 700px;
-        margin-left: auto;
-        margin-right: auto;
+      width: 100%;
+      display: flex;
+      max-height: 360px;
+      @include container-md;
+      img {
+        object-fit: cover;
+        object-position: center;
       }
     }
 
@@ -303,10 +289,8 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
-        }
-
-        @media (min-width: map_get($grid-breakpoints, lg)) {
-          margin-bottom: 40px;
+          margin-top: $app-padding--base;
+          margin-bottom: $app-padding--medium;
         }
       }
 
@@ -314,7 +298,7 @@
         display: none;
       }
 
-      @media (min-width: map_get($grid-breakpoints, lg)) {
+      @media (min-width: map_get($grid-breakpoints, md)) {
         &-book {
           display: flex;
           padding-left: 60px;
@@ -330,6 +314,9 @@
       margin-top: 0;
       &--customers {
         @extend .room-item--info--customers;
+        @media (min-width: map_get($grid-breakpoints, md)) {
+          margin-right: 30px;
+        }
       }
       &--room {
         @extend .room-item--info--room;
@@ -343,7 +330,6 @@
         &:not(.room-detail--actions--bottom) {
           margin: 30px 0;
         }
-
         .btn {
           width: auto;
           margin: 0 auto;

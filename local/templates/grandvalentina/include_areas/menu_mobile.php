@@ -96,6 +96,7 @@ use LapkinLab\Core;
         <!--mobile menu footer-->
         <div class="mobile-menu--choose-room">
             <button type="button" class="btn btn-wide">Подобрать номер</button>
+            <button type="button" class="btn btn-wide btn-white js-open-modal" data-action="openModal" data-modal="callback">Обратный звонок</button>
         </div>
 
     </div>

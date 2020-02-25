@@ -6,11 +6,113 @@
   background-color: $app-color--white;
   border-bottom: 1px solid $app-color--border;
   width: 100%;
+  @media (min-width: map_get($grid-breakpoints, xl)) {
+    height: 150px;
+  }
 
   &--wrapper {
     height: $app-navigation-height;
     display: flex;
+    flex-wrap: wrap;
     justify-content: space-between;
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      height: 150px;
+    }
+  }
+
+  // Phone link for XL screens
+
+  &--phone {
+    display: none;
+    align-items: center;
+    position: absolute;
+    top: 35px;
+    left: 100px;
+    a {
+      color: $app-color--black;
+      @include text_font_b;
+    }
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      display: flex;
+    }
+  }
+
+  // Callback button for XL screens
+
+  &--callback {
+    display: none;
+    align-items: center;
+    button {
+      font-size: $app-fontsize--small;
+    }
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      display: flex;
+    }
+  }
+
+  // Menu for XL screens
+
+  &--menu {
+    display: none;
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      display: flex;
+      width: 100%;
+      flex-basis: 100%;
+      height: $app-navigation-height;
+    }
+    .menu-top {
+      display: flex;
+      width: 100%;
+      flex-basis: 100%;
+      ul {
+        margin: 0;
+        width: 100%;
+        height: 100%;
+        padding: 0;
+        display: flex;
+        flex-basis: 100%;
+        align-items: center;
+        justify-content: space-between;
+        li {
+          margin: 0 $app-padding--base;
+          display: flex;
+          align-items: center;
+          &:first-child {
+            margin-left: 0;
+          }
+          &:last-child {
+            margin-right: 0;
+          }
+          &:before {
+            display: none;
+          }
+          &.active {
+            &:before {
+              display: inline-block;
+            }
+          }
+          a {
+            color: $app-color--black;
+            @include head_font;
+            font-size: $app-fontsize--large;
+            &.active {
+              color: $app-color--primary;
+            }
+            + ul {
+              display: none;
+            }
+          }
+        }
+      }
+    }
+  }
+
+  // Mobile menu
+
+  &--hamburger {
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      display: none;
+    }
   }
 
   &--close,
@@ -23,6 +125,8 @@
       width: 20px;
     }
   }
+
+  // Logo
 
   &--logo {
     display: flex;
@@ -38,6 +142,8 @@
       text-decoration: none;
     }
   }
+
+  // Language switcher
 
   &--lang {
     width: $app-navigation-height;

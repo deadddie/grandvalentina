@@ -4,7 +4,10 @@
 
   // Items page
 
-  &-items {}
+  &-items {
+    @extend .room-items;
+  }
+
   &-item {
     @extend .room-item;
 
@@ -44,6 +47,10 @@
       &--nav {
         @extend .room-detail--images--nav;
       }
+    }
+
+    &--image-main {
+      @extend .event-detail--image-main;
     }
 
     &--promo {

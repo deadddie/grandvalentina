@@ -4,7 +4,9 @@
 
   // Items page
 
-  &-items {}
+  &-items {
+    @extend .room-items;
+  }
 
   &-item {
     @extend .room-item;
@@ -35,11 +37,17 @@
   // Detail page
 
   &-detail {
+
+    &--image-main {
+      @extend .event-detail--image-main;
+    }
+
     &--content {
       @extend .room-detail--content;
       background-color: $app-color--white;
       box-shadow: none;
     }
+
     &--description {
       &--content {
         p {
@@ -48,10 +56,12 @@
         }
       }
     }
+
     &--actions {
       margin-top: $app-padding--medium;
       margin-bottom: $app-padding--medium;
     }
+
   }
 
 }

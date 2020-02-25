@@ -21,6 +21,7 @@ use LapkinLab\{Helper, Content\Rooms};
 <?php elseif ($mode === 'card' || $mode === 'block'): ?>
     <?php if ($mode === 'block'): ?>
         <section class="room-block">
+        <div class="room-block--wrapper">
             <div class="room-title">
                 <h2>Номера</h2>
                 <div class="delimiter"><?= renderIcon('delimiter') ?></div>
@@ -77,6 +78,7 @@ use LapkinLab\{Helper, Content\Rooms};
             <div class="room-all">
                 <a href="/rooms/">Cмотреть все номера</a>
             </div>
+        </div>
         </section>
     <?php endif; ?>
 <?php endif; ?>

@@ -1,5 +1,6 @@
 <?php
 
+
 namespace LapkinLab;
 
 use Bitrix\Main\Web\Uri;

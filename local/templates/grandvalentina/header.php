@@ -71,6 +71,12 @@ $asset = Asset::getInstance();
                             <?= view('common.languages', [], false) ?>
                         </div>
 
+                        <?php if (!empty(SITE_CONFIG['phone'])): ?>
+                            <div class="header--phone">
+                                <?= Core::parsePhone(SITE_CONFIG['phone'], 'link') ?>
+                            </div>
+                        <?php endif; ?>
+
                         <div class="header--logo">
                             <a href="/">
                                 <div class="logo-vertical">
@@ -82,6 +88,29 @@ $asset = Asset::getInstance();
 
                         <div class="header--hamburger active js-mobile-menu">
                             <?= renderIcon('hamburger') ?>
+                        </div>
+
+                        <div class="header--callback">
+                            <button type="button" class="btn btn-white js-open-modal" data-action="openModal" data-modal="callback">Обратный звонок</button>
+                        </div>
+
+                        <div class="header--menu">
+                            <?php $APPLICATION->IncludeComponent(
+                                'bitrix:menu',
+                                'top',
+                                array(
+                                    'ALLOW_MULTI_SELECT'    => 'N',
+                                    'CHILD_MENU_TYPE'       => 'top',
+                                    'DELAY'                 => 'N',
+                                    'MAX_LEVEL'             => 2,
+                                    'MENU_CACHE_GET_VARS'   => array(''),
+                                    'MENU_CACHE_TIME'       => 3600,
+                                    'MENU_CACHE_TYPE'       => 'N',
+                                    'MENU_CACHE_USE_GROUPS' => 'Y',
+                                    'ROOT_MENU_TYPE'        => 'top',
+                                    'USE_EXT'               => 'N',
+                                )
+                            ); ?>
                         </div>
 
                     </div>

@@ -6,6 +6,16 @@
 
   &-block {
     background-color: $app-color--white;
+    &--wrapper {
+      @include container-md;
+      @include container-lg;
+      @include container-xl;
+    }
+    .offer-item {
+      @media (min-width: map_get($grid-breakpoints, sm)) {
+        width: calc(100% - 20px) !important;
+      }
+    }
   }
   &-title {
     @extend .room-title;
@@ -19,7 +29,9 @@
 
   // Items page
 
-  &-items {}
+  &-items {
+    @extend .room-items;
+  }
 
   &-item {
     @extend .room-item;

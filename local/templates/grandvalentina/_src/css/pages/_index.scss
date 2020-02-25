@@ -2,20 +2,40 @@
 
 body.index {
 
+  // Services
+
   .index-services {
     margin-top: $app-padding--large;
     margin-bottom: $app-padding--large;
+    &--wrapper {
+      @include container-md;
+      @include container-lg;
+      @media (min-width: map_get($grid-breakpoints, sm)) {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+      }
+    }
+
     &--title {
       text-align: center;
       font-size: $app-fontsize--h1;
       margin-bottom: $app-padding--base;
+      flex-basis: 100%;
     }
     &--delimiter {
       text-align: center;
       color: $app-color--primary;
+      flex-basis: 100%;
+      @media (min-width: map_get($grid-breakpoints, sm)) {
+        margin-bottom: $app-padding--medium;
+      }
     }
     &--item {
       margin-bottom: $app-padding--base;
+      @media (min-width: map_get($grid-breakpoints, sm)) {
+        flex-basis: calc(50% - 10px);
+      }
       &--title {
         padding: $app-padding--medium $app-padding--largest;
         color: $app-color--white;
@@ -64,23 +84,40 @@ body.index {
         background-color: $app-color--secondary;
         display: flex;
         flex-wrap: wrap;
+        @media (min-width: map_get($grid-breakpoints, lg)) {
+          padding-top: $app-padding--large;
+          padding-bottom: $app-padding--large;
+        }
+        @media (min-width: map_get($grid-breakpoints, xl)) {
+          padding-top: $app-padding--largest;
+          padding-bottom: $app-padding--largest;
+        }
         &--title {
           flex-basis: 100%;
           font-size: $app-fontsize--h2;
           text-align: center;
           margin: 0;
           padding: $app-padding--large 0 0;
+          @include container-sm;
+          @include container-md;
+          @include container-lg;
         }
         .delimiter {
           flex-basis: 100%;
           color: $app-color--primary;
           text-align: center;
+          @include container-sm;
+          @include container-md;
+          @include container-lg;
         }
         p {
           padding: 0 0 $app-padding--large;
           flex-basis: 100%;
           @include head_font;
           text-align: center;
+          @include container-sm;
+          @include container-md;
+          @include container-lg;
           &:last-child {
             margin-bottom: 0;
           }
@@ -91,10 +128,49 @@ body.index {
 
       &-about--image {
         width: 100%;
+        max-height: 220px;
+        display: flex;
+        @media (min-width: map_get($grid-breakpoints, sm)) {
+          max-height: 180px;
+        }
+        img {
+          object-fit: cover;
+          object-position: center;
+        }
       }
       &-about--add {
         padding-top: $app-padding--medium;
         padding-bottom: $app-padding--medium;
+        @include container-sm;
+        @include container-md;
+        @include container-lg;
+        @media (min-width: map_get($grid-breakpoints, sm)) {
+          margin-left: 0;
+          margin-right: 0;
+        }
+        &--top {
+          @include container-md;
+          text-align: center;
+          @media (min-width: map_get($grid-breakpoints, xl)) {
+            margin-top: $app-padding--largest;
+          }
+          p {
+            font-size: $app-fontsize--small !important;
+          }
+        }
+        &--wrapper {
+          @include justify;
+          @include container-md;
+          @include container-lg;
+        }
+        &--item {
+          @media (min-width: map_get($grid-breakpoints, sm)) {
+            flex-basis: calc(50% - 20px);
+            margin-bottom: $app-padding--medium;
+            margin-left: 10px;
+            margin-right: 10px;
+          }
+        }
         h3,
         .delimiter {
           text-align: center;
@@ -113,6 +189,8 @@ body.index {
 
       &-about--resume {
         margin-bottom: $app-padding--medium;
+        @include container-sm;
+        @include container-md;
         &--wrapper {
           background-color: $app-color--primary;
           text-align: center;
@@ -137,6 +215,18 @@ body.index {
       &-contacts {
         margin-top: $app-padding--medium;
         margin-bottom: $app-padding--medium;
+        @include container-sm;
+        @include container-md;
+        @include container-lg;
+        @media (min-width: map_get($grid-breakpoints, lg)) {
+          margin-top: $app-padding--large;
+          margin-bottom: $app-padding--large;
+        }
+        @media (min-width: map_get($grid-breakpoints, xl)) {
+          @include container-wide;
+          margin-top: $app-padding--largest;
+          margin-bottom: $app-padding--largest;
+        }
         &--title {
           font-size: $app-fontsize--h1;
           text-align: center;
@@ -178,6 +268,15 @@ body.index {
       &-subscribe {
         background-color: $app-color--primary;
         padding: $app-padding--medium;
+        @include container-md;
+        @include container-lg;
+        @media (min-width: map_get($grid-breakpoints, sm)) {
+          margin-bottom: $app-padding--medium;
+        }
+        @media (min-width: map_get($grid-breakpoints, xl)) {
+          margin-top: $app-padding--large;
+          margin-bottom: $app-padding--large;
+        }
         &--wrapper {
           border: 1px solid $app-color--secondary;
           padding: $app-padding--large $app-padding--medium;

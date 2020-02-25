@@ -1,6 +1,10 @@
 // Contacts
 
 .page-contacts {
+  &--wrapper {
+    @include container-sm;
+    @include container-md;
+  }
   &--sections {
     @media (min-width: map_get($grid-breakpoints, sm)) {
       display: flex;
@@ -116,10 +120,10 @@
     max-width: 440px;
   }
 
-  .container--contact-map {
-    .page-contacts--section {
-      width: 100%;
-      margin: $app-padding--large 0;
-    }
+  .page-contacts--map {
+    width: 100%;
+    margin-top: $app-padding--largest;
+    margin-bottom: $app-padding--large;
+    @include container-md;
   }
 }

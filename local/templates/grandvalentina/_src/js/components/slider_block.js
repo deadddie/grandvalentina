@@ -18,6 +18,7 @@ let SliderBlock = {
             if (slider.length !== 0) {
                 slider.addClass('owl-carousel').owlCarousel({
                     items: 1,
+                    slideBy: 1,
                     loop: false,
                     nav: true,
                     navContainer: '.' + type + '-slider--navigation',
@@ -27,6 +28,17 @@ let SliderBlock = {
                     dotsEach: true,
                     autoplay: false,
                     lazyLoad: true,
+                    responsive: {
+                        0: {
+                            items: 1
+                        },
+                        768: {
+                            items: 2
+                        },
+                        1260: {
+                            items: 3
+                        }
+                    }
                 }).
                     on('mouseover', function () {
                         slider.trigger('stop.owl.autoplay');

@@ -3,7 +3,11 @@
 
 namespace LapkinLab;
 
-
+/**
+ * Trait ResponseTrait
+ *
+ * @package LapkinLab
+ */
 trait ResponseTrait
 {
 

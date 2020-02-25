@@ -15,80 +15,76 @@ $points = array(
 );
 ?>
 <div class="page-contacts">
-    <div class="container">
-        <div class="row">
-            <h1 class="page-title col-12 text-center"><?= $APPLICATION->GetTitle() ?></h1>
-            <div class="col-12">
-                <div class="page-contacts--sections">
-                    <div class="page-contacts--section">
-                        <h2>Адрес</h2>
-                        <div class="delimiter"><?= renderIcon('delimiter') ?></div>
-                        <p><?= SITE_CONFIG['address_full'] ?></p>
-                    </div>
+    <div class="page-contacts--wrapper">
 
-                    <div class="page-contacts--section">
-                        <h2>Ресепшен</h2>
-                        <div class="delimiter"><?= renderIcon('delimiter') ?></div>
-                        <p><?= Core::parsePhone(SITE_CONFIG['phone'], 'link') ?></p>
-                        <p><?= Core::renderEmail(SITE_CONFIG['email']) ?></p>
-                    </div>
-
-                    <div class="page-contacts--section">
-                        <h2>Отдел бронирования</h2>
-                        <div class="delimiter"><?= renderIcon('delimiter') ?></div>
-                        <p><?= Core::parsePhone(SITE_CONFIG['phones']['booking'], 'link') ?></p>
-                    </div>
-
-                    <div class="page-contacts--section">
-                        <h2>Ресторан</h2>
-                        <div class="delimiter"><?= renderIcon('delimiter') ?></div>
-                        <p><?= Core::parsePhone(SITE_CONFIG['phones']['restaurant'], 'link') ?></p>
-                    </div>
-
-                    <div class="page-contacts--section page-contacts--section--full">
-                        <h2>Удаленность</h2>
-                        <div class="delimiter"><?= renderIcon('delimiter') ?></div>
-                        <p class="h4">Расположенный в самом центре Grand Hotel Valentina гарантирует своим
-                            гостям удобный доступ к развитой транспортной инфраструктуре:</p>
-                        <ul>
-                            <li><b>Аэропорт Витязево – 16 км.</b></li>
-                            <li><b>Железнодорожный Вокзал – 12 км</b></li>
-                            <li><b>Автовокзал – 1,5 км</b></li>
-                            <li><b>Морской Вокзал – 2 км</b></li>
-                        </ul>
-                    </div>
-
-                    <div class="page-contacts--section page-contacts--section--full">
-                        <h2>В шаговой доступности</h2>
-                        <div class="delimiter"><?= renderIcon('delimiter') ?></div>
-                        <p class="h4">Отель находится в шаговой доступности от следующих объектов инфраструктуры
-                            Анапы:</p>
-                        <ul>
-                            <li>Городской песчаный пляж</li>
-                            <li>Центральная набережная</li>
-                            <li>Администрация города</li>
-                            <li>Парк аттракционов</li>
-                            <li>Памятник османской военной Архитектуры XVIII века – «Русские ворота»</li>
-                        </ul>
-                    </div>
+        <h1 class="page-title col-12 text-center"><?= $APPLICATION->GetTitle() ?></h1>
+        <div class="col-12">
+            <div class="page-contacts--sections">
+                <div class="page-contacts--section">
+                    <h2>Адрес</h2>
+                    <div class="delimiter"><?= renderIcon('delimiter') ?></div>
+                    <p><?= SITE_CONFIG['address_full'] ?></p>
                 </div>
-            </div>
-            <div class="page-contacts--section--order">
-                <?= view('forms.order', [
-                    'APPLICATION' => $APPLICATION,
-                    'id' => 'contacts-order'
-                ], false) ?>
-            </div>
-        </div>
-    </div>
-    <div class="container container--contact-map">
-        <div class="row">
-            <div class="col-12">
-                <div class="page-contacts--section page-contacts--section--map">
-                    <?php $APPLICATION->IncludeFile(SITE_TEMPLATE_PATH . '/include_areas/map.php', array('points' => $points)) ?>
+
+                <div class="page-contacts--section">
+                    <h2>Ресепшен</h2>
+                    <div class="delimiter"><?= renderIcon('delimiter') ?></div>
+                    <p><?= Core::parsePhone(SITE_CONFIG['phone'], 'link') ?></p>
+                    <p><?= Core::renderEmail(SITE_CONFIG['email']) ?></p>
+                </div>
+
+                <div class="page-contacts--section">
+                    <h2>Отдел бронирования</h2>
+                    <div class="delimiter"><?= renderIcon('delimiter') ?></div>
+                    <p><?= Core::parsePhone(SITE_CONFIG['phones']['booking'], 'link') ?></p>
+                </div>
+
+                <div class="page-contacts--section">
+                    <h2>Ресторан</h2>
+                    <div class="delimiter"><?= renderIcon('delimiter') ?></div>
+                    <p><?= Core::parsePhone(SITE_CONFIG['phones']['restaurant'], 'link') ?></p>
+                </div>
+
+                <div class="page-contacts--section page-contacts--section--full">
+                    <h2>Удаленность</h2>
+                    <div class="delimiter"><?= renderIcon('delimiter') ?></div>
+                    <p class="h4">Расположенный в самом центре Grand Hotel Valentina гарантирует своим
+                        гостям удобный доступ к развитой транспортной инфраструктуре:</p>
+                    <ul>
+                        <li><b>Аэропорт Витязево – 16 км.</b></li>
+                        <li><b>Железнодорожный Вокзал – 12 км</b></li>
+                        <li><b>Автовокзал – 1,5 км</b></li>
+                        <li><b>Морской Вокзал – 2 км</b></li>
+                    </ul>
+                </div>
+
+                <div class="page-contacts--section page-contacts--section--full">
+                    <h2>В шаговой доступности</h2>
+                    <div class="delimiter"><?= renderIcon('delimiter') ?></div>
+                    <p class="h4">Отель находится в шаговой доступности от следующих объектов инфраструктуры
+                        Анапы:</p>
+                    <ul>
+                        <li>Городской песчаный пляж</li>
+                        <li>Центральная набережная</li>
+                        <li>Администрация города</li>
+                        <li>Парк аттракционов</li>
+                        <li>Памятник османской военной Архитектуры XVIII века – «Русские ворота»</li>
+                    </ul>
                 </div>
             </div>
         </div>
+        <div class="page-contacts--section--order">
+            <?= view('forms.order', [
+                'APPLICATION' => $APPLICATION,
+                'id' => 'contacts-order'
+            ], false) ?>
+        </div>
+
     </div>
+
+    <div class="page-contacts--map">
+        <?php $APPLICATION->IncludeFile(SITE_TEMPLATE_PATH . '/include_areas/map.php', array('points' => $points)) ?>
+    </div>
+
 </div>
 <?php require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/footer.php'); ?>

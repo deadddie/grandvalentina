@@ -20,6 +20,7 @@ use LapkinLab\{Core, Helper, Content\Offers};
 <?php elseif ($mode === 'card' || $mode === 'block'): ?>
     <?php if ($mode === 'block'): ?>
         <section class="offer-block">
+        <div class="offer-block--wrapper">
             <div class="offer-title">
                 <h2>Спецпредложения</h2>
                 <div class="delimiter"><?= renderIcon('delimiter') ?></div>
@@ -55,6 +56,7 @@ use LapkinLab\{Core, Helper, Content\Offers};
             <div class="offer-all">
                 <a href="/offers/">Cмотреть все акции</a>
             </div>
+        </div>
         </section>
     <?php endif; ?>
 

@@ -70,3 +70,64 @@
   font-weight: normal;
   font-style: normal;
 }
+
+// Flexes
+
+@mixin justify {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  @media (min-width: map_get($grid-breakpoints, lg)) {
+    justify-content: flex-start;
+  }
+}
+
+// Media queries
+
+@mixin container-sm {
+  @media (min-width: map_get($grid-breakpoints, xs)) {
+    margin-left: $app-padding--base;
+    margin-right: $app-padding--base;
+    max-width: map_get($container-max-widths, sm);
+  }
+}
+
+@mixin container-md {
+  @media (min-width: map_get($grid-breakpoints, sm)) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: map_get($container-max-widths, md);
+  }
+}
+
+@mixin container-lg {
+  @media (min-width: map_get($grid-breakpoints, md)) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: map_get($container-max-widths, lg);
+  }
+}
+
+@mixin container-xl {
+  @media (min-width: map_get($grid-breakpoints, lg)) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: map_get($container-max-widths, xl);
+  }
+}
+
+@mixin container-xxl {
+  @media (min-width: map_get($grid-breakpoints, xl)) {
+    margin-left: auto;
+    margin-right: auto;
+    max-width: $container-max-widths--xxl;
+  }
+}
+
+@mixin container-wide {
+  margin-left: 0;
+  margin-right: 0;
+  max-width: 100%;
+  width: 100%;
+  flex-basis: 100%;
+}

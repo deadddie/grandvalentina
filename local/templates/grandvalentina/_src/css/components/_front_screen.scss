@@ -15,12 +15,19 @@
   padding: $app-padding--medium;
   text-align: center;
   height: calc(100vh - 100px);
+  @media (min-width: map_get($grid-breakpoints, lg)) {
+    align-content: center;
+  }
   &--title {
     font-size: 40px;
     @include head_font;
     flex-basis: 100%;
     color: $app-color--white;
     line-height: 1.1;
+    @media (min-width: map_get($grid-breakpoints, lg)) {
+      font-size: 72px;
+      max-width: 380px;
+    }
   }
   &--delimiter {
     flex-basis: 100%;
@@ -34,6 +41,10 @@
     flex-basis: 100%;
     color: $app-color--white;
     max-width: 135px;
+    @media (min-width: map_get($grid-breakpoints, lg)) {
+      font-size: $app-fontsize--h1;
+      max-width: 260px;
+    }
   }
   &--scroller {
     margin-top: $app-padding--largest;
