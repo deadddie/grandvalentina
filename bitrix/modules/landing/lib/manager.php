@@ -224,6 +224,17 @@ class Manager
 	}
 
 	/**
+	 * Returns current dir.
+	 * @return false|string|null
+	 */
+	public static function getCurDir()
+	{
+		return Application::getInstance()->getContext()
+										 ->getRequest()
+										 ->getRequestedPageDirectory();
+	}
+
+	/**
 	 * Set page title.
 	 * @param string $title Page title.
 	 * @param bool $single If true, then set title only once.
@@ -394,10 +405,16 @@ class Manager
 	 */
 	public static function getPublicationPath($siteCode = null, $siteId = null, $createPubPath = false)
 	{
-		$basePath = self::getOption(
-			'pub_path_' . (!isset($siteId) ? (self::getMainSiteId()) : $siteId),
-			self::getPublicationPathConst()
-		);
+		$tyePublicationPath = Site\Type::getPublicationPath();
+
+		$basePath = $tyePublicationPath;
+		if ($basePath === null)
+		{
+			$basePath = self::getOption(
+				'pub_path_' . (!isset($siteId) ? (self::getMainSiteId()) : $siteId),
+				self::getPublicationPathConst()
+			);
+		}
 		$subDir = self::getSmnSiteDir($siteId);
 		if ($siteCode === null)
 		{
@@ -594,12 +611,12 @@ class Manager
 	 * Add assets to page from hooks and themes
 	 * @return void
 	 */
-	public static function initAssets()
+	public static function initAssets($lid = 0)
 	{
 		self::setThemeAssets();
 
 		$assets = Assets\Manager::getInstance();
-		$assets->setOutput();
+		$assets->setOutput($lid);
 	}
 
 	/**
@@ -879,6 +896,13 @@ class Manager
 			return true;
 		}
 
+		$bitrix24 = Loader::includeModule('bitrix24');
+
+		if (!isset($params['type']))
+		{
+			$params['type'] = 'PAGE';
+		}
+
 		if (
 			$feature == self::FEATURE_CREATE_SITE ||
 			$feature == self::FEATURE_PUBLICATION_SITE
@@ -887,16 +911,24 @@ class Manager
 			$optSuff = ($feature == self::FEATURE_PUBLICATION_SITE)
 						? '_publication'
 						: '';
-			if (
-				isset($params['type']) &&
-				$params['type'] == 'STORE'
-			)
+			// old variant, compatibility
+			if ($params['type'] == 'STORE')
 			{
 				$limit = self::getOption('shops_limit_count' . $optSuff);
 			}
-			else
+			else if ($params['type'] == 'PAGE')
 			{
 				$limit = self::getOption('site_limit_count' . $optSuff);
+			}
+			else if ($bitrix24)
+			{
+				$limit = (int) Feature::getVariable(
+					'landing_site_' . strtolower($params['type']) . $optSuff
+				);
+			}
+			else
+			{
+				$limit = 0;
 			}
 			if ($limit)
 			{
@@ -907,7 +939,7 @@ class Manager
 				{
 					$filter['=ACTIVE'] = 'Y';
 				}
-				if (isset($params['type']))
+				if ($params['type'])
 				{
 					$filter['=TYPE'] = $params['type'];
 				}
@@ -983,7 +1015,7 @@ class Manager
 		}
 		elseif ($feature == self::FEATURE_ENABLE_ALL_HOOKS)
 		{
-			if (!Loader::includeModule('bitrix24'))
+			if (!$bitrix24)
 			{
 				return true;
 			}
@@ -998,7 +1030,7 @@ class Manager
 		}
 		elseif ($feature == self::FEATURE_PERMISSIONS_AVAILABLE)
 		{
-			if (Loader::includeModule('bitrix24'))
+			if ($bitrix24)
 			{
 				return (self::getOption('permissions_available', 'N') == 'Y') ||
 					   Feature::isFeatureEnabled('landing_permissions_available');
@@ -1007,7 +1039,13 @@ class Manager
 		}
 		elseif ($feature == self::FEATURE_DYNAMIC_BLOCK)
 		{
-			if (!Loader::includeModule('bitrix24'))
+			if (!$bitrix24)
+			{
+				return true;
+			}
+			// @todo: make more useful in future
+			$scope = Site\Type::getCurrentScopeId();
+			if ($scope == 'KNOWLEDGE' || $scope == 'GROUP')
 			{
 				return true;
 			}
@@ -1028,6 +1066,7 @@ class Manager
 			if ($dynamicBlocks === null)
 			{
 				$dynamicBlocks = [];
+				// plain sql, reason for this described in task 186683
 				$sql = '
 					SELECT
 						B.ID as ID,
@@ -1052,7 +1091,8 @@ class Manager
 					WHERE
 						B.DELETED = "N" AND 
 						L.DELETED = "N" AND
-						S.DELETED = "N"
+						S.DELETED = "N" AND
+						S.DELETED NOT IN ("KNOWLEDGE", "GROUP")
 					GROUP BY FB.BLOCK_ID
 					ORDER BY B.DATE_MODIFY ASC;';
 				$res = Application::getConnection()->query($sql);
@@ -1294,9 +1334,7 @@ class Manager
 		}
 		
 		if (
-			ModuleManager::isModuleInstalled('bitrix24') &&
-			method_exists('CBitrix24', 'isStage') &&
-			method_exists('CBitrix24', 'isEtalon') &&
+			Loader::includeModule('bitrix24') &&
 			(\CBitrix24::isStage() || \CBitrix24::isEtalon())
 		)
 		{

@@ -18,7 +18,7 @@
 							</p>
 						</div>
 						<div class="col-md-3 col-lg-3">
-							<a href="/"
+							<a href="#"
 							   class="landing-block-node-card-button text-uppercase btn u-btn-outline-white btn-md rounded-0">
 								Read more
 							</a>
@@ -51,7 +51,7 @@
 							</p>
 						</div>
 						<div class="col-md-3 col-lg-3">
-							<a href="/"
+							<a href="#"
 							   class="landing-block-node-card-button text-uppercase btn u-btn-outline-white btn-md rounded-0">
 								Read more
 							</a>

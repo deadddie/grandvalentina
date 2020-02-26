@@ -167,7 +167,7 @@
 						<h4 class="landing-block-node-member-name text-uppercase g-font-size-16 g-mb-5">Monica
 							Notrom</h4>
 						<div class="landing-block-node-member-text g-font-style-normal g-font-size-default g-color-white-opacity-0_75">
-							Cardio, Pilates, Zymba
+							Cardio, Pilates, Zymba, Crossfit
 						</div>
 					</div>
 					<!-- End Figure Info-->

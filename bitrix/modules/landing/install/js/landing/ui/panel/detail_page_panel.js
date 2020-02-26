@@ -55,7 +55,8 @@
 		getSources: function()
 		{
 			return this.cache.remember('sources', function() {
-				return top.BX.Landing.Main.getInstance().options.sources;
+				var rootWindow = BX.Landing.PageObject.getRootWindow();
+				return rootWindow.BX.Landing.Main.getInstance().options.sources;
 			});
 		},
 
@@ -119,7 +120,8 @@
 				.then(function(response) {
 					if (!response || response === 'false')
 					{
-						top.BX.Landing.PaymentAlertShow({
+						var rootWindow = BX.Landing.PageObject.getRootWindow();
+						rootWindow.BX.Landing.PaymentAlertShow({
 							message: BX.Landing.Loc.getMessage('LANDING_PUBLIC_PAGE_REACHED')
 						});
 

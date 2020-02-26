@@ -15,9 +15,11 @@ class Stepper
 			'Bitrix\Landing\Update\Block\NodeAttributes',
 			'Bitrix\Landing\Update\Block\NodeImg',
 			'Bitrix\Landing\Update\Block\FixSrcImg',
+			'Bitrix\Landing\Update\Block\SearchContent',
 			'Bitrix\Landing\Update\Block',
 			'Bitrix\Landing\Update\Landing\InitApp',
-			'Bitrix\Landing\Update\Domain\Check'
+			'Bitrix\Landing\Update\Domain\Check',
+			'Bitrix\Landing\Update\Assets\WebpackClear',
 		);
 	}
 	

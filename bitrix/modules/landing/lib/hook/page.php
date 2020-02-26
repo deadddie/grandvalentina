@@ -209,6 +209,15 @@ abstract class Page
 	}
 
 	/**
+	 * Exec or not hook in intranet mode.
+	 * @return boolean
+	 */
+	public function enabledInIntranetMode()
+	{
+		return true;
+	}
+
+	/**
 	 * Get unique hash from hook fields.
 	 * @return string
 	 */

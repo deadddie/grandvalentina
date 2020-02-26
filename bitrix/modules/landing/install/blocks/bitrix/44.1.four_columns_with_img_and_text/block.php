@@ -5,7 +5,7 @@
 			<div class="landing-block-node-card col-md-6 col-lg-3">
 				<!-- Article -->
 				<article
-						class="landing-block-node-card-inner h-100 text-center info-v3-3 g-parent g-bg-gray-light-v5 g-bg-cover g-bg-primary-opacity-0_6--after g-color-gray-dark-v3 g-color-white--hover g-pointer-events-before-after-none">
+						class="landing-block-node-card-inner h-100 d-flex align-items-center justify-content-center text-center info-v3-3 g-parent g-bg-gray-light-v5 g-bg-cover g-bg-primary-opacity-0_6--after g-color-gray-dark-v3 g-color-white--hover g-pointer-events-before-after-none">
 					<!-- Article Image -->
 					<img class="landing-block-node-card-img info-v3-3__img g-py-30"
 						 src="https://cdn.bitrix24.site/bitrix/images/landing/business/166x319/img1.png" alt="">
@@ -38,7 +38,7 @@
 			<div class="landing-block-node-card col-md-6 col-lg-3">
 				<!-- Article -->
 				<article
-						class="landing-block-node-card-inner h-100 text-center info-v3-3 g-parent g-bg-gray-light-v5 g-bg-cover g-bg-primary-opacity-0_6--after g-color-gray-dark-v3 g-color-white--hover g-pointer-events-before-after-none">
+						class="landing-block-node-card-inner h-100 d-flex align-items-center justify-content-center text-center info-v3-3 g-parent g-bg-gray-light-v5 g-bg-cover g-bg-primary-opacity-0_6--after g-color-gray-dark-v3 g-color-white--hover g-pointer-events-before-after-none">
 					<!-- Article Image -->
 					<img class="landing-block-node-card-img info-v3-3__img g-py-30"
 						 src="https://cdn.bitrix24.site/bitrix/images/landing/business/166x319/img2.png" alt="">
@@ -71,7 +71,7 @@
 			<div class="landing-block-node-card col-md-6 col-lg-3">
 				<!-- Article -->
 				<article
-						class="landing-block-node-card-inner h-100 text-center info-v3-3 g-parent g-bg-gray-light-v5 g-bg-cover g-bg-primary-opacity-0_6--after g-color-gray-dark-v3 g-color-white--hover g-pointer-events-before-after-none">
+						class="landing-block-node-card-inner h-100 d-flex align-items-center justify-content-center text-center info-v3-3 g-parent g-bg-gray-light-v5 g-bg-cover g-bg-primary-opacity-0_6--after g-color-gray-dark-v3 g-color-white--hover g-pointer-events-before-after-none">
 					<!-- Article Image -->
 					<img class="landing-block-node-card-img info-v3-3__img g-py-30"
 						 src="https://cdn.bitrix24.site/bitrix/images/landing/business/166x319/img3.png" alt="">
@@ -104,7 +104,7 @@
 			<div class="landing-block-node-card col-md-6 col-lg-3">
 				<!-- Article -->
 				<article
-						class="landing-block-node-card-inner h-100 text-center info-v3-3 g-parent g-bg-gray-light-v5 g-bg-cover g-bg-primary-opacity-0_6--after g-color-gray-dark-v3 g-color-white--hover g-pointer-events-before-after-none">
+						class="landing-block-node-card-inner h-100 d-flex align-items-center justify-content-center text-center info-v3-3 g-parent g-bg-gray-light-v5 g-bg-cover g-bg-primary-opacity-0_6--after g-color-gray-dark-v3 g-color-white--hover g-pointer-events-before-after-none">
 					<!-- Article Image -->
 					<img class="landing-block-node-card-img info-v3-3__img g-py-30"
 						 src="https://cdn.bitrix24.site/bitrix/images/landing/business/166x319/img4.png" alt="">

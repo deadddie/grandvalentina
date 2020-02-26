@@ -13,8 +13,15 @@ Loc::loadMessages(__FILE__);
 $context = \Bitrix\Main\Application::getInstance()->getContext();
 $request = $context->getRequest();
 $navigation = $arResult['NAVIGATION'];
-$lastPage = $navigation->getPageCount() == 0 ||
-			$navigation->getPageCount() == $navigation->getCurrentPage();
+if ($navigation)
+{
+	$lastPage = $navigation->getPageCount() == 0 ||
+				$navigation->getPageCount() == $navigation->getCurrentPage();
+}
+else
+{
+	$lastPage = true;
+}
 
 // errors title
 Manager::setPageTitle(
@@ -70,6 +77,10 @@ Manager::setPageView(
 			$urlEdit = str_replace('#site_edit#', $item['ID'], $arParams['~PAGE_URL_SITE_EDIT']);
 			$urlCreatePage = str_replace(array('#site_show#', '#landing_edit#'), array($item['ID'], 0), $arParams['~PAGE_URL_LANDING_EDIT']);
 			$urlView = str_replace('#site_show#', $item['ID'], $arParams['~PAGE_URL_SITE']);
+			if ($arParams['DRAFT_MODE'] == 'Y' && $item['DELETED'] != 'Y')
+			{
+				$item['ACTIVE'] = 'Y';
+			}
 			?>
 			<div class="landing-item <?
 					?><?= $item['ACTIVE'] != 'Y' || $item['DELETED'] != 'N' ? ' landing-item-unactive' : '';?><?
@@ -109,9 +120,12 @@ Manager::setPageView(
 				</div>
 				<?if ($item['DELETED'] == 'Y'):?>
 					<span class="landing-item-link"></span>
+				<?elseif ($arParams['TILE_MODE'] == 'view'):?>
+					<a href="<?= \htmlspecialcharsbx($item['PUBLIC_URL']);?>" class="landing-item-link" target="_top"></a>
 				<?else:?>
 					<a href="<?= $urlView;?>" class="landing-item-link" target="_top"></a>
 				<?endif;?>
+				<?if ($arParams['DRAFT_MODE'] != 'Y' || $item['DELETED'] == 'Y'):?>
 				<div class="landing-item-status-block">
 					<div class="landing-item-status-inner">
 						<?if ($item['DELETED'] == 'Y'):?>
@@ -130,6 +144,7 @@ Manager::setPageView(
 						<?endif;?>
 					</div>
 				</div>
+				<?endif;?>
 			</div>
 		<?endforeach;?>
 
@@ -194,6 +209,7 @@ Manager::setPageView(
 		if (
 			$lastPage &&
 			!$arResult['IS_DELETED'] &&
+			($arParams['TYPE'] == 'PAGE' || $arParams['TYPE'] == 'STORE') &&
 			!ModuleManager::isModuleInstalled('bitrix24') &&
 			ModuleManager::isModuleInstalled('sale')
 		)
@@ -208,7 +224,7 @@ Manager::setPageView(
 	</div>
 </div>
 
-<?if ($request->get('IS_AJAX') != 'Y' && Manager::isB24()):?>
+<?if (false && $request->get('IS_AJAX') != 'Y' && Manager::isB24()):?>
 <div id="landing_domain_popup" style="display: none; width: 400px;">
 	<p><?= Loc::getMessage('LANDING_TPL_TRANSFER_NOTE');?></p>
 	<p id="landing_domain_address_allow" style="display: none;">
@@ -264,6 +280,7 @@ Manager::setPageView(
 						],
 						stopParameters: [
 							'action',
+							'slider',
 							'fields%5Bdelete%5D'
 						],
 						options: {
@@ -366,7 +383,7 @@ Manager::setPageView(
 				}
 			},
 			{
-				text: '<?= \CUtil::jsEscape(Loc::getMessage('LANDING_TPL_ACTION_GOTO'));?>',
+				text: '<?= \CUtil::jsEscape($component->getMessageType('LANDING_TPL_ACTION_GOTO'));?>',
 				className: 'landing-popup-menu-item-icon',
 				href: params.publicUrl,
 				target: '_blank',
@@ -382,7 +399,7 @@ Manager::setPageView(
 				}
 			},
 			{
-				text: '<?= \CUtil::jsEscape(Loc::getMessage('LANDING_TPL_ACTION_EDIT'));?>',
+				text: '<?= \CUtil::jsEscape($this->__component->getMessageType('LANDING_TPL_ACTION_EDIT'));?>',
 				href: params.editSite,
 				target: '_blank',
 				disabled: params.isDeleted || params.isSettingsDisabled,
@@ -391,6 +408,7 @@ Manager::setPageView(
 					this.popupWindow.close();
 				}
 			},
+			<?if ($arParams['DRAFT_MODE'] != 'Y'):?>
 			{
 				text: params.isActive
 					? '<?= \CUtil::jsEscape(Loc::getMessage('LANDING_TPL_ACTION_UNPUBLIC'));?>'
@@ -430,10 +448,11 @@ Manager::setPageView(
 					menu.destroy();
 				}
 			},
+			<?endif;?>
 			{
 				text: params.isDeleted
-						? '<?= \CUtil::jsEscape(Loc::getMessage('LANDING_TPL_ACTION_UNDELETE'));?>'
-						: '<?= \CUtil::jsEscape(Loc::getMessage('LANDING_TPL_ACTION_DELETE'));?>',
+						? '<?= \CUtil::jsEscape($this->__component->getMessageType('LANDING_TPL_ACTION_UNDELETE'));?>'
+						: '<?= \CUtil::jsEscape($this->__component->getMessageType('LANDING_TPL_ACTION_DELETE'));?>',
 				disabled: params.isDeleteDisabled,
 				href: params.deleteSite,
 				onclick: function(event)
@@ -531,7 +550,7 @@ Manager::setPageView(
 					offsetLeft: -55,
 					className: 'landing-popup-menu',
 					events: {
-						onPopupClose() {
+						onPopupClose: function onPopupClose() {
 							menu.destroy();
 							isMenuShown = false;
 						},

@@ -128,7 +128,7 @@ $arJSCoreConfig = array(
 	),
 	'fc' => array(
 		'js' => $pathJS . '/core_frame_cache.js',
-		'rel' => array('db','ajax', 'ls', 'fx')
+		'rel' => array('ui.dexie','ajax', 'ls', 'fx')
 	),
 	'avatar_editor' => array(
 		'js' => $pathJS.'/core_avatar_editor.js',
@@ -453,7 +453,6 @@ $arJSCoreConfig = array(
 	'main',
 	array(
 		'/bitrix/js/main/core/css/core.css',
-		'/bitrix/js/main/core/css/core_popup.css',
 		'/bitrix/js/main/core/css/core_tooltip.css',
 		'/bitrix/js/main/core/css/core_date.css',
 		'/bitrix/js/main/core/css/core_uf.css'

@@ -14,6 +14,12 @@ class Hook
 	protected static $editMode = false;
 
 	/**
+	 * If true, hook work in intranet mode.
+	 * @var boolean
+	 */
+	protected static $intranetMode = false;
+
+	/**
 	 * Entity type site.
 	 */
 	const ENTITY_TYPE_SITE = 'S';
@@ -119,6 +125,13 @@ class Hook
 				{
 					unset($hooks[$class]);
 				}
+				else if (
+					self::$intranetMode &&
+					!$hooks[$class]->enabledInIntranetMode()
+				)
+				{
+					unset($hooks[$class]);
+				}
 			}
 		}
 
@@ -185,6 +198,15 @@ class Hook
 	}
 
 	/**
+	 * Set intranet mode to true.
+	 * @return void
+	 */
+	public static function setIntranetMode()
+	{
+		self::$intranetMode = true;
+	}
+
+	/**
 	 * Get hooks for site.
 	 * @param int $id Site id.
 	 * @return \Bitrix\Landing\Hook\Page[]
@@ -230,6 +252,17 @@ class Hook
 		}
 
 		return $hooks;
+	}
+
+	/**
+	 * Get row hooks for landing.
+	 * @param int $id Landing id.
+	 * @return array
+	 */
+	public static function getForLandingRow($id)
+	{
+		$data = self::getData($id, self::ENTITY_TYPE_LANDING);
+		return $data;
 	}
 
 	/**
@@ -486,5 +519,15 @@ class Hook
 	public static function deleteForLanding($id)
 	{
 		self::deleteData($id, self::ENTITY_TYPE_LANDING);
+	}
+
+	/**
+	 * Returns searchable hook's codes.
+	 * @return array
+	 */
+	public static function getSearchableCodes()
+	{
+		//@todo: make extendable
+		return ['METAMAIN', 'METAOG'];
 	}
 }

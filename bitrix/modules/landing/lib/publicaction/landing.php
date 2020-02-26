@@ -23,7 +23,7 @@ class Landing
 	 */
 	protected static function clearDisallowFields(array $fields)
 	{
-		$disallow = ['RULE', 'TPL_CODE', 'ACTIVE', 'INITIATOR_APP_CODE'];
+		$disallow = ['RULE', 'TPL_CODE', 'ACTIVE', 'INITIATOR_APP_CODE', 'VIEWS'];
 
 		if (is_array($fields))
 		{
@@ -220,7 +220,7 @@ class Landing
 		$result->setError($landing->getError());
 		return $result;
 	}
-
+	
 	/**
 	 * Delete the block from the landing.
 	 * @param int $lid Id of landing.
@@ -521,6 +521,11 @@ class Landing
 			unset($params['check_area']);
 		}
 
+		if (isset($params['filter']['CHECK_PERMISSIONS']))
+		{
+			unset($params['filter']['CHECK_PERMISSIONS']);
+		}
+
 		$data = array();
 		$res = LandingCore::getList($params);
 		while ($row = $res->fetch())
@@ -536,7 +541,10 @@ class Landing
 			if ($preview && isset($row['ID']))
 			{
 				$landing = LandingCore::createInstance($row['ID']);
-				$row['PREVIEW'] = $landing->getPreview();
+				$row['PREVIEW'] = $landing->getPreview(
+					null,
+					$landing->getDomainId() == 0
+				);
 			}
 			if ($checkArea && isset($row['ID']))
 			{
@@ -567,6 +575,66 @@ class Landing
 	}
 
 	/**
+	 * Checks that page also adding in some menu.
+	 * @param array $fields Landing data array.
+	 * @return array
+	 */
+	protected static function checkAddingInMenu(array $fields)
+	{
+		$blockId = null;
+		$menuCode = null;
+
+		if (isset($fields['BLOCK_ID']))
+		{
+			$blockId = $fields['BLOCK_ID'];
+			unset($fields['BLOCK_ID']);
+		}
+		if (isset($fields['MENU_CODE']))
+		{
+			$menuCode = $fields['MENU_CODE'];
+			unset($fields['MENU_CODE']);
+		}
+
+		if (!$blockId || !$menuCode)
+		{
+			return $fields;
+		}
+
+		LandingCore::callback('OnAfterAdd',
+			function(\Bitrix\Main\Event $event) use ($blockId, $menuCode)
+			{
+				$primary = $event->getParameter('primary');
+				$fields = $event->getParameter('fields');
+
+				if ($primary)
+				{
+					$landingId = BlockCore::getLandingIdByBlockId($blockId);
+					if ($landingId)
+					{
+						$updateData = [
+							$menuCode => [
+								[
+									'text' => $fields['TITLE'],
+									'href' => '#landing' . $primary['ID']
+								]
+							]
+						];
+						Block::updateNodes(
+							$landingId,
+							$blockId,
+							$updateData,
+							['appendMenu' => true]
+						);
+					}
+				}
+			}
+		);
+
+
+		return $fields;
+	}
+
+	/**
 	 * Create new landing.
 	 * @param array $fields Landing data.
 	 * @return \Bitrix\Landing\PublicActionResult
@@ -580,6 +648,8 @@ class Landing
 		$fields = self::clearDisallowFields($fields);
 		$fields['INITIATOR_APP_CODE'] = $restApp['CODE'];
 		$fields['ACTIVE'] = 'N';
+
+		$fields = self::checkAddingInMenu($fields);
 
 		$res = LandingCore::add($fields);
 
@@ -640,19 +710,9 @@ class Landing
 			'DISABLE_REDIRECT' => 'Y'
 		];
 
-		// for catching new landing id
-		LandingCore::callback('OnAfterAdd',
-			function(\Bitrix\Main\Event $event) use($result)
-			{
-				$primary = $event->getParameter('primary');
-				$result->setResult(
-					$primary['ID']
-				);
-			}
-		);
-
 		// ... and create the page by component's method
-		$demoCmp->actionSelect($code);
+		$landingId = $demoCmp->createPage($siteId, $code);
+		$result->setResult($landingId);
 
 		// if error occurred
 		foreach ($demoCmp->getErrors() as $code => $title)
@@ -755,11 +815,30 @@ class Landing
 			{
 				$folderId = $landingRow['FOLDER_ID'];
 			}
+			// check if folder in the same site
+			if ($folderId)
+			{
+				$check = LandingCore::getList([
+					'select' => [
+						'ID'
+					],
+					'filter' => [
+						'SITE_ID' => $toSiteId,
+						'ID' => $folderId
+					]
+				]);
+				if (!$check->fetch())
+				{
+					$folderId = null;
+				}
+			}
+			// create new page
 			$res = LandingCore::add(array(
 				'CODE' => $landingRow['CODE'],
 				'ACTIVE' => 'N',
 				'PUBLIC' => 'N',
 				'TITLE' => $landingRow['TITLE'],
+				'SYSTEM' => $landingRow['SYSTEM'],
 				'XML_ID' => $landingRow['XML_ID'],
 				'TPL_CODE' => $landingRow['TPL_CODE'],
 				'INITIATOR_APP_CODE' => $landingRow['INITIATOR_APP_CODE'],
@@ -898,7 +977,7 @@ class Landing
 	/**
 	 * Set some content to the Head section.
 	 * @param int $lid Landing id.
-	 * @param $content Some content.
+	 * @param string $content Some content.
 	 * @return \Bitrix\Landing\PublicActionResult
 	 */
 	public static function updateHead($lid, $content)

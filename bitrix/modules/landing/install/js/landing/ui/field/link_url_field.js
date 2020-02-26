@@ -106,6 +106,7 @@
 		this.iblocks = isArray(data.iblocks) ? data.iblocks : null;
 		this.allowedCatalogEntityTypes = isArray(data.allowedCatalogEntityTypes) ? data.allowedCatalogEntityTypes : null;
 		this.onInitHandler = BX.type.isFunction(data.onInit) ? data.onInit : (function() {});
+		this.onNewPageHandler = BX.type.isFunction(data.onNewPage) ? data.onNewPage : (function() {});
 		this.enableAreas = data.enableAreas;
 		this.customPlaceholder = data.customPlaceholder;
 		this.detailPageMode = data.detailPageMode === true;
@@ -556,13 +557,25 @@
 				return BX.Landing.Backend.getInstance()
 					.getLanding({landingId: pageId})
 					.then(function(landing) {
+						if (!landing)
+						{
+							this.onNewPageHandler();
+
+							return {
+								type: "landing",
+								id: 0,
+								name: BX.Landing.Loc.getMessage('LANDING_LINK_PLACEHOLDER_NEW_PAGE'),
+								siteId: BX.Landing.Main.getInstance().options.site_id
+							};
+						}
+
 						return {
 							type: "landing",
 							id: landing.ID,
 							name: landing.TITLE,
 							siteId: landing.SITE_ID
 						};
-					});
+					}.bind(this));
 			}.bind(this));
 		},
 
@@ -869,6 +882,35 @@
 			}.bind(this));
 		},
 
+		getNewLabel: function()
+		{
+			if (!this.newLabel)
+			{
+				this.newLabel = BX.create({
+					tag: 'div',
+					props: {className: 'landing-ui-field-link-new-label'},
+					text: BX.Landing.Loc.getMessage('LANDING_LINK_NEW_PAGE_LABEL')
+				});
+			}
+
+			return this.newLabel;
+		},
+
+		showNewLabel: function()
+		{
+			BX.Dom.style(this.gridCenterCell, {
+				position: 'relative',
+				overflow: 'visible',
+			});
+			BX.Dom.append(this.getNewLabel(), this.gridCenterCell);
+		},
+
+		hideNewLabel: function()
+		{
+			BX.Dom.style(this.gridCenterCell, 'overflow', null);
+			BX.Dom.remove(this.getNewLabel());
+		},
+
 		/**
 		 * Sets value
 		 * @param {object|string} value
@@ -885,6 +927,15 @@
 				this.value = value.dataset.placeholder;
 				this.dynamic = value.dataset.dynamic;
 
+				if (this.value === '#landing0')
+				{
+					this.showNewLabel();
+				}
+				else
+				{
+					this.hideNewLabel();
+				}
+
 				if (!preventEvent)
 				{
 					this.onInputHandler(this.input.innerText);
@@ -897,6 +948,7 @@
 				this.value = null;
 				this.dynamic = null;
 				this.enableHrefTypeSwitcher();
+				this.hideNewLabel();
 			}
 
 			if (!preventEvent)

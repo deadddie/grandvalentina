@@ -31,9 +31,4 @@ return array(
 			'type' => array('block-default')
 		),
 	),
-	'assets' => array(
-		'css' => array(
-			'/bitrix/components/bitrix/landing.blocks.message/templates/locked/style.css'
-		)
-	)
 );

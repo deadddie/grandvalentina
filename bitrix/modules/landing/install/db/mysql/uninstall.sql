@@ -17,3 +17,5 @@ drop table if exists b_landing_entity_rights;
 drop table if exists b_landing_role;
 drop table if exists b_landing_filter_entity;
 drop table if exists b_landing_filter_block;
+drop table if exists b_landing_view;
+drop table if exists b_landing_binding;

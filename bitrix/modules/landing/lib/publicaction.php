@@ -123,6 +123,11 @@ class PublicAction
 			$data = array();
 		}
 
+		if (isset($data['scope']))
+		{
+			\Bitrix\Landing\Site\Type::setScope($data['scope']);
+		}
+
 		if (!$isRest && (!defined('BX_UTF') || BX_UTF !== true))
 		{
 			$data = Manager::getApplication()->convertCharsetArray(
@@ -267,6 +272,8 @@ class PublicAction
 		$request = $context->getRequest();
 		$files = $request->getFileList();
 		$postlist = $context->getRequest()->getPostList();
+
+		\Bitrix\Landing\Site\Type::setScope($request->get('type'));
 
 		// multiple commands
 		if (
@@ -480,7 +487,7 @@ class PublicAction
 
 		if ($app = AppTable::getByClientId($parameters['ID']))
 		{
-			$stat = self::getRestStat(true, false);
+			$stat = self::getRestStat(true);
 			if (isset($stat['blocks'][$app['CODE']]))
 			{
 				$eventResult = new \Bitrix\Main\EventResult(

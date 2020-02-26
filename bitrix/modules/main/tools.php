@@ -3162,16 +3162,18 @@ function __IncludeLang($path, $bReturnArray=false, $bFileChecked=false)
 			$encodingCache[$language] = array($convertEncoding, $targetEncoding, $sourceEncoding);
 		}
 
-		$path = \Bitrix\Main\Localization\Translation::convertLangPath($path, LANGUAGE_ID);
-
 		$MESS = array();
 		if ($bFileChecked)
 		{
 			include($path);
 		}
-		elseif (file_exists($path))
+		else
 		{
-			include($path);
+			$path = \Bitrix\Main\Localization\Translation::convertLangPath($path, LANGUAGE_ID);
+			if (file_exists($path))
+			{
+				include($path);
+			}
 		}
 
 		if (!empty($MESS))

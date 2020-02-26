@@ -37,7 +37,7 @@ BX.ready(function()
 	);
 
 	// apply filter
-	BX.addCustomEvent('BX.Main.Filter:apply', function()
+	var landingFilterCallback = function()
 	{
 		if (landingAjaxSend)
 		{
@@ -52,7 +52,7 @@ BX.ready(function()
 		});
 		document.body.appendChild(loaderContainer);
 
-		var loader = new BX.Loader({size: 130, color: "#bfc3c8"});
+		var loader = new BX.Loader({size: 130, color: '#bfc3c8'});
 		loader.show(loaderContainer);
 
 		BX.ajax({
@@ -67,9 +67,12 @@ BX.ready(function()
 				workArea.innerHTML = data;
 			}
 		});
-	});
+	};
 
-	// create folder
+	BX.addCustomEvent('BX.Main.Filter:apply', BX.delegate(landingFilterCallback));
+	BX.addCustomEvent('BX.Landing.Filter:apply', BX.delegate(landingFilterCallback));
+
+		// create folder
 	BX.bind(
 		createFolderEl,
 		'click',
@@ -95,7 +98,9 @@ BX.ready(function()
 				.then(
 					function() {
 						BX.ajax({
-							url: '/bitrix/tools/landing/ajax.php?action=Landing::add&folder=Y',
+							url: '/bitrix/tools/landing/ajax.php?' + '' +
+									'action=Landing::add&folder=Y&' +
+									'type=' + BX.data(createFolderEl, 'type'),
 							method: 'POST',
 							data: {
 								data: {

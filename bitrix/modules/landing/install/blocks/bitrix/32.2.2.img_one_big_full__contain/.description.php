@@ -22,7 +22,7 @@ return array(
 	),
 	'style' => array(
 		'block' => array(
-			'type' => array('display', 'bg'),
+			'type' => array('display', 'bg', 'animation'),
 		),
 		'nodes' => array(
 			'.landing-block-node-img' => array(

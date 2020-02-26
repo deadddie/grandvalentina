@@ -1,8 +1,8 @@
 <?php
 /**
  * @author dev2fun <darkfriend>
- * @copyright (c) 2017, darkfriend <hi@darkfriend.ru>
- * @version 1.2.11
+ * @copyright (c) 2019, darkfriend <hi@darkfriend.ru>
+ * @version 1.3.9
  */
 IncludeModuleLangFile(__FILE__);
 
@@ -15,17 +15,21 @@ IncludeModuleLangFile(__FILE__);
     )
 );
 
-if(class_exists('dev2funModuleOpenGraphClass')) return;
+if (class_exists('dev2funModuleOpenGraphClass')) return;
 
-class dev2funModuleOpenGraphClass {
+use \Bitrix\Main\Localization\Loc;
 
+class dev2funModuleOpenGraphClass
+{
     private static $instance;
     public static $module_id = 'dev2fun.opengraph';
     public static $filedsName = 'dev2fun_og_fields';
+    public static $fieldsAdditionalName = 'dev2fun_og_fields_additional';
     public static $settingsFieldName = 'dev2fun_og_fields_setting';
     const SETTINGS_EXCLUDED_NAME = 'dev2fun_og_excluded_page';
     const SETTINGS_RESIZE_IMAGE_NAME = 'RESIZE_IMAGE';
     const SETTINGS_SORTABLE_NAME = 'SORTABLE';
+    public $httpHost;
 
     /**
      * Open Graph require params
@@ -44,14 +48,15 @@ class dev2funModuleOpenGraphClass {
      * @var array
      */
     public static $arReqSettings = array(
-        'CACHE_TIME' => 3600
+        'CACHE_TIME' => 360000
     );
 
     /**
      * Singleton instance.
      * @return dev2funModuleOpenGraphClass
      */
-    public static function getInstance() {
+    public static function getInstance()
+    {
         if (is_null(self::$instance)) {
             self::$instance = new dev2funModuleOpenGraphClass();
         }
@@ -63,33 +68,69 @@ class dev2funModuleOpenGraphClass {
      * @param bool $incDefault include require fields (false)
      * @return array
      */
-    public static function getFields($incDefault=false){
-        $ogFields = COption::GetOptionString( dev2funModuleOpenGraphClass::$module_id, self::$filedsName);
-        if($ogFields){
+    public static function getFields($incDefault = false)
+    {
+        $ogFields = COption::GetOptionString(dev2funModuleOpenGraphClass::$module_id, self::$filedsName);
+        if ($ogFields) {
             $ogFields = unserialize($ogFields);
         } else {
             $ogFields = array();
         }
-        if($incDefault){
-            $ogFields = array_merge(self::$arReqOG,$ogFields);
+        if ($incDefault) {
+            $ogFields = array_merge(self::$arReqOG, $ogFields);
             $ogFields = array_unique($ogFields);
         }
         return $ogFields;
     }
 
     /**
+     * Get additional fields for open graph
+     * @return array
+     */
+    public static function getFieldsAdditional()
+    {
+        $ogFields = COption::GetOptionString(dev2funModuleOpenGraphClass::$module_id, self::$fieldsAdditionalName);
+        if ($ogFields) {
+            $ogFields = unserialize($ogFields);
+        } else {
+            $ogFields = array();
+        }
+        return $ogFields;
+    }
+
+
+    /**
      * Set fields open graph
      * @param array $ogFields - fields
      * @return bool
      */
-    public static function setFields($ogFields){
-        if(!$ogFields) return false;
-        foreach ($ogFields as $key=>$field) {
-            if(empty($field)){
+    public static function setFields($ogFields)
+    {
+        if (!$ogFields) return false;
+        foreach ($ogFields as $key => $field) {
+            if (empty($field)) {
                 unset($ogFields[$key]);
             }
         }
-        return COption::SetOptionString( dev2funModuleOpenGraphClass::$module_id, self::$filedsName, serialize($ogFields));
+        return COption::SetOptionString(dev2funModuleOpenGraphClass::$module_id, self::$filedsName, serialize($ogFields));
+    }
+
+    /**
+     * Set additional fields open graph
+     * @param array $ogFields - fields
+     * @return bool
+     */
+    public static function setFieldsAdditional($ogFields)
+    {
+        if (!$ogFields) return false;
+        foreach ($ogFields as $key => $field) {
+            if (empty($field)) unset($ogFields[$key]);
+        }
+        return COption::SetOptionString(
+            dev2funModuleOpenGraphClass::$module_id,
+            self::$fieldsAdditionalName,
+            serialize($ogFields)
+        );
     }
 
     /**
@@ -97,17 +138,39 @@ class dev2funModuleOpenGraphClass {
      * @param bool $incDefault
      * @return array
      */
-    public static function getSettingFields($incDefault=true) {
-        $sFields = COption::GetOptionString( self::$module_id, self::$settingsFieldName);
-        if($sFields){
+    public static function getSettingFields($incDefault = true)
+    {
+        $sFields = COption::GetOptionString(self::$module_id, self::$settingsFieldName);
+        if ($sFields) {
             $sFields = unserialize($sFields);
         } else {
             $sFields = array();
         }
-        if($incDefault){
-            $sFields = array_merge(self::$arReqSettings,$sFields);
+        if ($incDefault) {
+            $sFields = array_merge(self::$arReqSettings, $sFields);
         }
         return $sFields;
+    }
+
+    /**
+     * Get all settings for module
+     * @return array
+     */
+    public static function getAllSettings()
+    {
+        $otherSettings = array(
+            'REMOVE_INDEX',
+            'AUTO_ADD_TITLE',
+            'AUTO_ADD_DESCRIPTION',
+            'AUTO_ADD_IMAGE',
+            'SHOW_IN_ELEMENTS',
+            'SHOW_IN_SECTIONS',
+        );
+        $resSettings = array();
+        foreach ($otherSettings as $otherSetting) {
+            $resSettings[$otherSetting] = COption::GetOptionString(self::$module_id, $otherSetting);
+        }
+        return $resSettings;
     }
 
     /**
@@ -115,23 +178,25 @@ class dev2funModuleOpenGraphClass {
      * @param array $sFields - fields
      * @return bool
      */
-    public static function setSettingFields($sFields) {
-        if(!$sFields) return false;
-        foreach ($sFields as $key=>$field) {
-            if(empty($field)){
+    public static function setSettingFields($sFields)
+    {
+        if (!$sFields) return false;
+        foreach ($sFields as $key => $field) {
+            if (empty($field)) {
                 unset($sFields[$key]);
             }
         }
-        return COption::SetOptionString( self::$module_id, self::$settingsFieldName, serialize($sFields));
+        return COption::SetOptionString(self::$module_id, self::$settingsFieldName, serialize($sFields));
     }
 
     /**
      * Get excluded pages
      * @return array
      */
-    public function getSettingsExcludePage() {
-        $pages = COption::GetOptionString( self::$module_id, self::SETTINGS_EXCLUDED_NAME);
-        if($pages){
+    public function getSettingsExcludePage()
+    {
+        $pages = COption::GetOptionString(self::$module_id, self::SETTINGS_EXCLUDED_NAME);
+        if ($pages) {
             $pages = unserialize($pages);
         } else {
             $pages = array();
@@ -144,23 +209,25 @@ class dev2funModuleOpenGraphClass {
      * @param array $sFields
      * @return bool
      */
-    public function setSettingsExcludePage($sFields) {
-        if(!$sFields) return false;
-        foreach ($sFields as $key=>$field) {
-            if(empty($field)){
+    public function setSettingsExcludePage($sFields)
+    {
+        if (!$sFields) return false;
+        foreach ($sFields as $key => $field) {
+            if (empty($field)) {
                 unset($sFields[$key]);
             }
         }
-        return COption::SetOptionString( self::$module_id, self::SETTINGS_EXCLUDED_NAME, serialize($sFields));
+        return COption::SetOptionString(self::$module_id, self::SETTINGS_EXCLUDED_NAME, serialize($sFields));
     }
 
     /**
      * Get settings resize image
      * @return array
      */
-    public function getSettingsResize() {
-        $data = COption::GetOptionString( self::$module_id, self::SETTINGS_RESIZE_IMAGE_NAME);
-        if($data){
+    public function getSettingsResize()
+    {
+        $data = COption::GetOptionString(self::$module_id, self::SETTINGS_RESIZE_IMAGE_NAME);
+        if ($data) {
             $data = unserialize($data);
         } else {
             $data = array();
@@ -172,9 +239,10 @@ class dev2funModuleOpenGraphClass {
      * Get settings sortable logic
      * @return array
      */
-    public function getSettingsSortable() {
-        $data = COption::GetOptionString( self::$module_id, self::SETTINGS_SORTABLE_NAME);
-        if($data){
+    public function getSettingsSortable()
+    {
+        $data = COption::GetOptionString(self::$module_id, self::SETTINGS_SORTABLE_NAME);
+        if ($data) {
             $data = unserialize($data);
         } else {
             $data = array();
@@ -182,58 +250,102 @@ class dev2funModuleOpenGraphClass {
         return $data;
     }
 
-    function AddOpenGraph() {
-        global $APPLICATION;
+    public static function AddOpenGraph()
+    {
+        global $APPLICATION, $USER;
+
+        if (defined("ERROR_404") && ERROR_404 == "Y") return;
+        if (preg_match('#(^4|3)#', http_response_code())) return;
         $curPage = $APPLICATION->GetCurPage();
-        if(preg_match('#\/bitrix\/#',$curPage)) return;
+        if (preg_match('#\/bitrix\/#', $curPage)) return;
+
         $obCache = new CPHPCache;
         $arSettings = self::getSettingFields();
         $domain = $_SERVER['HTTP_HOST'];
-        if(!$domain) $domain = SITE_ID;
-        $cachePath = '/dev2fun.opengraph/'.$domain.'/';
-        $cache_id = md5($APPLICATION->GetCurPage());
+        if (!$domain) $domain = SITE_ID;
+        $cachePath = '/dev2fun.opengraph/' . $domain . '/';
+        $cache_id = md5($domain . $curPage);
         foreach (GetModuleEvents(self::$module_id, "OnBeforeAddOpenGraph", true) as $arEvent)
-            ExecuteModuleEventEx($arEvent, array(&$arSettings,&$cache_id,&$cachePath));
-        if($arSettings) {
-            $life_time = $arSettings['CACHE_TIME'];
+            ExecuteModuleEventEx($arEvent, array(&$arSettings, &$cache_id, &$cachePath));
+
+        if ($USER->IsAdmin() && !empty($_REQUEST['clear_cache'])) {
+            $obCache->Clean($cache_id, $cachePath);
         }
+
         $og = \Dev2fun\Module\OpenGraph::getInstance();
-        if($obCache->InitCache($life_time, $cache_id, $cachePath)){
+        $life_time = $og->getOptionByParams('CACHE_TIME', 0);
+        if(!$life_time) {
+            $life_time = !empty($arSettings['CACHE_TIME']) ? $arSettings['CACHE_TIME'] : 3600;
+        }
+
+        if ($obCache->InitCache($life_time, $cache_id, $cachePath)) {
             $arData = $obCache->GetVars();
-        } elseif($obCache->StartDataCache()) {
+        } elseif ($obCache->StartDataCache()) {
             $oModule = self::getInstance();
 
             $arExcluded = $oModule->getSettingsExcludePage();
-            if($curPage=='/') $curPage = 'index';
-            if($arExcluded && in_array(ltrim($curPage,'/'),$arExcluded)) {
+            if ($curPage == '/') $curPage = 'index';
+            if ($arExcluded && in_array(ltrim($curPage, '/'), $arExcluded)) {
                 $obCache->EndDataCache(0);
                 return;
             }
-            if($arExcluded) {
-              foreach($arExcluded as $exc){
-                if(preg_match($exc,$curPage)){
-                  $obCache->EndDataCache(0);
-                  return;
+            if ($arExcluded) {
+                foreach ($arExcluded as $exc) {
+                    if (preg_match($exc, $curPage)) {
+                        $obCache->EndDataCache(0);
+                        return;
+                    }
                 }
-              }
+            }
+
+            $og->settings = self::getAllSettings();
+            $keyShowType = '';
+            if ($og->refType == 'element') {
+                $keyShowType = 'SHOW_IN_ELEMENTS';
+            } elseif ($og->refType == 'section') {
+                $keyShowType = 'SHOW_IN_SECTIONS';
+            }
+            if (isset($og->settings[$keyShowType]) && $og->settings[$keyShowType] != 'Y') {
+                $obCache->EndDataCache(0);
+                return;
             }
 
             $og->ogFields = self::getFields(true);
+            $og->baseOpenGraphFields = $og->ogFields;
+            foreach ($og->ogFields as $key => $ogField) {
+                $og->ogFields[$key] = 'og:' . $ogField;
+            }
+
+            $additionalFields = self::getFieldsAdditional();
+            if ($additionalFields) {
+                foreach ($additionalFields as $additionalField) {
+                    $og->ogFields[] = $additionalField;
+                }
+                //				$og->ogFields = array_merge($og->ogFields,$additionalFields);
+                //				foreach ($additionalFields as $additionalField) {
+                //					if(empty($additionalField['key'])||empty($additionalField['value']))
+                //						continue;
+                //					$og->ogFields[$additionalField['key']] = $additionalField['value'];
+                //				}
+            }
+
+            $og->ogFields = $og->prepareOpenGraphFields($og->ogFields);
+
             foreach ($og->ogFields as $reqItem) {
-                $og->ogValues[$reqItem] = '';
+                $og->ogValues[$reqItem] = $og->getDefaultByField($reqItem, '');
             }
             $arSort = $oModule->getSettingsSortable();
             foreach ($arSort as $sort) {
                 switch ($sort) {
                     case 'og_fields' :
-                        if($og->refId && $og->refType)
-                            $og->ogValues = $og->setPropertyOpenGraphFields($og->ogValues,$og->refId,$og->refType);
+                        if ($og->refId && $og->refType)
+                            $og->ogValues = $og->setPropertyOpenGraphFields($og->ogValues, $og->refId, $og->refType);
                         foreach (GetModuleEvents(self::$module_id, "OnAfterAddOgFields", true) as $arEvent)
                             ExecuteModuleEventEx($arEvent, array(&$og->ogValues));
                         break;
                     case 'iblock_fields' :
-                        if($og->refId && $og->refType)
-                            $og->ogValues = $og->setPropertyIBlockFields($og->ogValues,$og->refId,$og->refType);
+                        if ($og->refId && $og->refType)
+                            $og->ogValues = $og->setPropertyIBlockFields($og->ogValues, $og->refId, $og->refType);
                         foreach (GetModuleEvents(self::$module_id, "OnAfterAddIBlockFields", true) as $arEvent)
                             ExecuteModuleEventEx($arEvent, array(&$og->ogValues));
                         break;
@@ -249,40 +361,61 @@ class dev2funModuleOpenGraphClass {
                         break;
                 }
             }
+
+            $og->ogValues = $og->prepareFieldsValues($og->ogValues);
+
             foreach (GetModuleEvents(self::$module_id, "OnAfterAdd", true) as $arEvent)
                 ExecuteModuleEventEx($arEvent, array(&$og->ogValues));
             $arData = $og->ogValues;
             $obCache->EndDataCache($og->ogValues);
         }
+
         foreach (GetModuleEvents(self::$module_id, "OnBeforeOutput", true) as $arEvent)
             ExecuteModuleEventEx($arEvent, array(&$arData));
         $arStr = $og->getMeta($arData);
-        if(empty($arStr)) return;
+        if (empty($arStr)) return;
         $og->addHeader($arStr);
+    }
+
+    /**
+     * Clear cache fot opengraph
+     * @param boolean $all
+     * @return mixed
+     */
+    public static function clearCache($all = false)
+    {
+        $cachePath = '/dev2fun.opengraph/';
+        if (!$all) {
+            $domain = $_SERVER['HTTP_HOST'];
+            if (!$domain) $domain = SITE_ID;
+            $cachePath .= $domain . '/';
+        }
+        $obCache = Bitrix\Main\Data\Cache::createInstance();
+        return $obCache->cleanDir($cachePath);
     }
 
     /**
      * Get protocol
      * @return string
      */
-    public function getProtocol() {
+    public function getProtocol()
+    {
         $protocol = 'http';
-        if(CMain::IsHTTPS()) {
+        if (CMain::IsHTTPS()) {
             $protocol .= 's';
         }
-        return ($protocol.'://');
+        return ($protocol . '://');
     }
 
     /**
      * Get domain
      * @return mixed
      */
-    public function getHost() {
-        $host = SITE_SERVER_NAME;
-        if(!$host) {
-            $host = $_SERVER['HTTP_HOST'];
-        }
-        return $host;
+    public function getHost()
+    {
+        if (!$this->httpHost)
+            $this->httpHost = preg_replace('#(\:\d+)#', '', $_SERVER['HTTP_HOST']);
+        return $this->httpHost;
     }
 
     /**
@@ -290,32 +423,36 @@ class dev2funModuleOpenGraphClass {
      * @param string $path
      * @return bool|string
      */
-    public function getUrl($path='') {
-        if(!$path) return false;
-        $beforeUrl = $this->getProtocol().$this->getHost();
-        if(!preg_match('#('.addslashes($beforeUrl).')#',$path)) {
-            $path = $this->getProtocol().$this->getHost().$path;
+    public function getUrl($path = '')
+    {
+        if (!$path) return false;
+        $beforeUrl = $this->getProtocol() . $this->getHost();
+        if (!preg_match('#(' . addslashes($beforeUrl) . ')#', $path)) {
+            $path = $this->getProtocol() . $this->getHost() . $path;
         }
         return $path;
     }
 
-	public static function ShowThanksNotice() {
-    	global $APPLICATION;
-		\CAdminNotify::Add([
-			'MESSAGE' => \Bitrix\Main\Localization\Loc::getMessage('D2F_OPENGRAPH_DONATE_MESSAGE',['#URL#'=>$APPLICATION->GetCurUri('tabControl_active_tab=donate')]),
-			'TAG' => 'dev2fun_opengraph_update',
-			'MODULE_ID' => 'dev2fun.opengraph',
-		]);
-	}
+    public static function ShowThanksNotice()
+    {
+        global $APPLICATION;
+        \CAdminNotify::Add([
+            //			'MESSAGE' => \Bitrix\Main\Localization\Loc::getMessage('D2F_OPENGRAPH_DONATE_MESSAGE',['#URL#'=>$APPLICATION->GetCurUri('tabControl_active_tab=donate')]),
+            'MESSAGE' => Loc::getMessage('D2F_OPENGRAPH_DONATE_MESSAGE', ['#URL#' => '/bitrix/admin/dev2fun_opengraph_manager.php?action=settings&tabControl_active_tab=donate']),
+            'TAG' => 'dev2fun_opengraph_update',
+            'MODULE_ID' => 'dev2fun.opengraph',
+        ]);
+    }
 
-    public function DoBuildGlobalMenu(&$aGlobalMenu, &$aModuleMenu) {
+    public function DoBuildGlobalMenu(&$aGlobalMenu, &$aModuleMenu)
+    {
         $aModuleMenu[] = array(
             "parent_menu" => "global_menu_settings",
             "icon" => "dev2fun_admin_icon",
             "page_icon" => "dev2fun_admin_icon",
             "sort" => "900",
-            "text" => GetMessage("MENU_TEXT"),
-            "title" => GetMessage("MENU_TITLE"),
+            "text" => Loc::getMessage("MENU_TEXT"),
+            "title" => Loc::getMessage("MENU_TITLE"),
             "url" => "/bitrix/admin/dev2fun_opengraph_manager.php?action=settings",
             "items_id" => "menu_dev2fun_opengraph",
             "section" => "dev2fun_opengraph",

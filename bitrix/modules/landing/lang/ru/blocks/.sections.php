@@ -2,6 +2,7 @@
 
 $MESS['LD_BLOCK_SECTION_OTHER'] = 'Другое';
 $MESS['LD_BLOCK_SECTION_MENU_NEW'] = 'Меню и шапка сайта';
+$MESS['LD_BLOCK_SECTION_SIDEBAR'] = 'Сайдбар';
 $MESS['LD_BLOCK_SECTION_FOOTER'] = 'Подвал сайта';
 $MESS['LD_BLOCK_SECTION_COVER'] = 'Обложка';
 $MESS['LD_BLOCK_SECTION_ABOUT'] = 'О проекте';

@@ -71,6 +71,40 @@ if ($folderId)
 	));
 	$arParams['PAGE_URL_LANDING_ADD'] = $arParams['PAGE_URL_LANDING_ADD']->getUri();
 }
+
+$sliderConditions = [
+	str_replace(
+		array(
+			'#landing_edit#', '?'
+		),
+		array(
+			'(\d+)', '\?'
+		),
+		\CUtil::jsEscape($arParams['PAGE_URL_LANDING_EDIT'])
+	),
+	str_replace(
+		array(
+			'#landing_edit#', '?'
+		),
+		array(
+			'(\d+)', '\?'
+		),
+		\CUtil::jsEscape($arParams['PAGE_URL_LANDING_ADD'])
+	)
+];
+
+if ($arParams['TILE_MODE'] == 'view')
+{
+	$sliderConditions[] = str_replace(
+		array(
+			'#landing_edit#', '?'
+		),
+		array(
+			'(\d+)', '\?'
+		),
+		\CUtil::jsEscape($arParams['PAGE_URL_LANDING_VIEW'])
+	);
+}
 ?>
 
 <div class="grid-tile-wrap landing-pages-wrap" id="grid-tile-wrap">
@@ -127,6 +161,10 @@ if ($folderId)
 		$uriFolder->addParams(array(
 			$arParams['ACTION_FOLDER'] => $item['ID']
 		));
+	}
+	if ($arParams['DRAFT_MODE'] == 'Y' && $item['DELETED'] != 'Y')
+	{
+		$item['ACTIVE'] = 'Y';
 	}
 	?>
 	<?if ($uriFolder):?>
@@ -196,7 +234,7 @@ if ($folderId)
 									isEditDisabled: <?= ($arResult['ACCESS_SITE']['EDIT'] != 'Y') ? 'true' : 'false';?>,
 									isSettingsDisabled: <?= ($arResult['ACCESS_SITE']['SETTINGS'] != 'Y') ? 'true' : 'false';?>,
 									isPublicationDisabled: <?= ($arResult['ACCESS_SITE']['PUBLICATION'] != 'Y') ? 'true' : 'false';?>,
-									isDeleteDisabled: <?= ($arResult['ACCESS_SITE']['DELETE'] != 'Y') ? 'true' : 'false';?>
+									isDeleteDisabled: <?= ($arResult['ACCESS_SITE']['DELETE'] != 'Y' || $item['IS_HOMEPAGE']) ? 'true' : 'false';?>
 								})">
 						<span class="landing-title-btn-inner"><?= Loc::getMessage('LANDING_TPL_ACTIONS');?></span>
 					</div>
@@ -212,10 +250,13 @@ if ($folderId)
 					\htmlspecialcharsbx($item['PREVIEW'])?>);"<?}?>></span>
 			</div>
 			<?if ($item['DELETED'] == 'Y'):?>
-			<span class="landing-item-link"></span>
+				<span class="landing-item-link"></span>
+			<?elseif ($arParams['TILE_MODE'] == 'edit'):?>
+				<a href="<?= \htmlspecialcharsbx($urlView);?>" class="landing-item-link" target="_top"></a>
 			<?else:?>
-			<a href="<?= \htmlspecialcharsbx($urlView);?>" class="landing-item-link" target="_top"></a>
+				<a href="<?= \htmlspecialcharsbx($item['PUBLIC_URL']);?>" class="landing-item-link" target="_top"></a>
 			<?endif;?>
+			<?if ($arParams['DRAFT_MODE'] != 'Y' || $item['DELETED'] == 'Y'):?>
 			<div class="landing-item-status-block">
 				<div class="landing-item-status-inner">
 					<?if ($item['DELETED'] == 'Y'):?>
@@ -232,11 +273,14 @@ if ($folderId)
 							<?= Loc::getMessage('LANDING_TPL_TTL_DELETE_D');?>
 						</span>
 					<?elseif ($item['DATE_MODIFY_UNIX'] > $item['DATE_PUBLIC_UNIX']):?>
-						<span class="landing-item-status landing-item-status-changed"><?= Loc::getMessage('LANDING_TPL_MODIF');?></span>
+						<span class="landing-item-status landing-item-status-changed">
+							<?= Loc::getMessage('LANDING_TPL_MODIF');?>
+						</span>
 					<?endif;?>
 
 				</div>
 			</div>
+			<?endif;?>
 		</div>
 	<?endif;?>
 <?endforeach;?>
@@ -265,26 +309,7 @@ if ($folderId)
 		top.BX.clone({
 			rules: [
 				{
-					condition: [
-						'<?= str_replace(
-							array(
-								'#landing_edit#', '?'
-							),
-							array(
-								'(\\\d+)', '\\\?'
-							),
-							\CUtil::jsEscape($arParams['PAGE_URL_LANDING_EDIT'])
-						);?>',
-						'<?= str_replace(
-							array(
-								'#landing_edit#', '?'
-							),
-							array(
-								'(\\\d+)', '\\\?'
-							),
-							\CUtil::jsEscape($arParams['PAGE_URL_LANDING_ADD'])
-						);?>'
-					],
+					condition: <?= \CUtil::phpToJSObject($sliderConditions);?>,
 					stopParameters: [
 						'action',
 						'fields%5Bdelete%5D',
@@ -363,11 +388,15 @@ if ($folderId)
 		var menuItems = [
 			{
 				text: '<?= \CUtil::jsEscape(Loc::getMessage('LANDING_TPL_ACTION_VIEW'));?>',
-				disabled: params.isDeleted,
+				disabled: params.isDeleted || params.isEditDisabled,
+				<?if ($arParams['TILE_MODE'] == 'view'):?>
+				href: params.viewSite,
+				<?else:?>
 				onclick: function(e, item)
 				{
 					window.top.location.href = params.viewSite;
 				}
+				<?endif;?>
 			},
 			{
 				text: '<?= \CUtil::jsEscape(Loc::getMessage('LANDING_TPL_ACTION_COPYLINK'));?>',
@@ -400,7 +429,15 @@ if ($folderId)
 				className: 'landing-popup-menu-item-icon',
 				href: params.publicUrl,
 				target: '_blank',
-				disabled: params.isArea || params.isDeleted || !params.isActive
+				disabled: params.isArea || params.isDeleted || !params.isActive,
+				onclick: function(event)
+				{
+					if (top.window !== window)
+					{
+						event.preventDefault();
+						top.window.location.href = params.publicUrl;
+					}
+				}
 			},
 			{
 				text: '<?= \CUtil::jsEscape(Loc::getMessage('LANDING_TPL_ACTION_EDIT'));?>',
@@ -431,7 +468,21 @@ if ($folderId)
 								params.copyPage += '&additional[folderId]=';
 								params.copyPage += <?= (int)$folderId;?>;
 								<?endif;?>
-								top.window.location.href = params.copyPage;
+								var loaderContainer = BX.create('div',{
+									attrs:{className:'landing-filter-loading-container'}
+								});
+								document.body.appendChild(loaderContainer);
+								var loader = new BX.Loader({size: 130, color: '#bfc3c8'});
+								loader.show(loaderContainer);
+								if (top.window !== window)
+								{
+									// we are in slider
+									window.location.href = params.copyPage;
+								}
+								else
+								{
+									top.window.location.href = params.copyPage;
+								}
 							},
 							function() {
 								//
@@ -440,6 +491,7 @@ if ($folderId)
 					this.popupWindow.close();
 				}
 			},
+			<?if ($arParams['DRAFT_MODE'] != 'Y'):?>
 			{
 				text: params.isActive
 					? '<?= \CUtil::jsEscape(Loc::getMessage('LANDING_TPL_ACTION_UNPUBLIC'));?>'
@@ -479,6 +531,7 @@ if ($folderId)
 					menu.destroy();
 				}
 			},
+			<?endif;?>
 			{
 				text: params.isDeleted
 					? (
@@ -545,7 +598,7 @@ if ($folderId)
 					offsetLeft: -55,
 					className: 'landing-popup-menu',
 					events: {
-						onPopupClose() {
+						onPopupClose: function onPopupClose() {
 							menu.destroy();
 							isMenuShown = false;
 						},

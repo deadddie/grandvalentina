@@ -9,7 +9,7 @@
 		 data-responsive='[{
                "breakpoint": 1200,
                "settings": {
-                 "slidesToShow": 5
+                 "slidesToShow": 4
                }
              }, {
                "breakpoint": 992,
@@ -41,7 +41,7 @@
 				<img class="landing-block-node-card-img img-fluid w-100"
 					 src="https://cdn.bitrix24.site/bitrix/images/landing/business/570x436/img5.jpg" alt="">
 
-				<div class="landing-block-node-card-text-container js-animation fadeInUp text-center g-pa-45">
+				<div class="landing-block-node-card-text-container js-animation fadeInUp text-center g-px-20 g-py-40 g-pa-45--sm">
 					<h3 class="landing-block-node-card-title text-uppercase g-font-weight-700 g-font-roboto-slab g-font-size-default g-color-white g-mb-15">
 						Nullam lobortis bibendum eros nec ultricies</h3>
 					<div class="landing-block-node-card-text g-color-white-opacity-0_8 g-mb-35">
@@ -63,7 +63,7 @@
 				<img class="landing-block-node-card-img img-fluid w-100"
 					 src="https://cdn.bitrix24.site/bitrix/images/landing/business/570x436/img6.jpg" alt="">
 
-				<div class="landing-block-node-card-text-container js-animation fadeInUp text-center g-pa-45">
+				<div class="landing-block-node-card-text-container js-animation fadeInUp text-center g-px-20 g-py-40 g-pa-45--sm">
 					<h3 class="landing-block-node-card-title text-uppercase g-font-weight-700 g-font-roboto-slab g-font-size-default g-color-white g-mb-15">
 						Aliquam dapibus quis sapien id pharetra</h3>
 					<div class="landing-block-node-card-text g-color-white-opacity-0_8 g-mb-35">
@@ -85,7 +85,7 @@
 				<img class="landing-block-node-card-img img-fluid w-100"
 					 src="https://cdn.bitrix24.site/bitrix/images/landing/business/570x436/img7.jpg" alt="">
 
-				<div class="landing-block-node-card-text-container js-animation fadeInUp text-center g-pa-45">
+				<div class="landing-block-node-card-text-container js-animation fadeInUp text-center g-px-20 g-py-40 g-pa-45--sm">
 					<h3 class="landing-block-node-card-title text-uppercase g-font-weight-700 g-font-roboto-slab g-font-size-default g-color-white g-mb-15">
 						Duis sagittis purus a pretium tincidunt</h3>
 					<div class="landing-block-node-card-text g-color-white-opacity-0_8 g-mb-35">
@@ -107,7 +107,7 @@
 				<img class="landing-block-node-card-img img-fluid w-100"
 					 src="https://cdn.bitrix24.site/bitrix/images/landing/business/570x436/img8.jpg" alt="">
 
-				<div class="landing-block-node-card-text-container js-animation fadeInUp text-center g-pa-45">
+				<div class="landing-block-node-card-text-container js-animation fadeInUp text-center g-px-20 g-py-40 g-pa-45--sm">
 					<h3 class="landing-block-node-card-title text-uppercase g-font-weight-700 g-font-roboto-slab g-font-size-default g-color-white g-mb-15">
 						Nullam lobortis bibendum eros nec ultricies</h3>
 					<div class="landing-block-node-card-text g-color-white-opacity-0_8 g-mb-35">
@@ -129,7 +129,7 @@
 				<img class="landing-block-node-card-img img-fluid w-100"
 					 src="https://cdn.bitrix24.site/bitrix/images/landing/business/570x436/img5.jpg" alt="">
 
-				<div class="landing-block-node-card-text-container js-animation fadeInUp text-center g-pa-45">
+				<div class="landing-block-node-card-text-container js-animation fadeInUp text-center g-px-20 g-py-40 g-pa-45--sm">
 					<h3 class="landing-block-node-card-title text-uppercase g-font-weight-700 g-font-roboto-slab g-font-size-default g-color-white g-mb-15">
 						Aliquam dapibus quis sapien id pharetra</h3>
 					<div class="landing-block-node-card-text g-color-white-opacity-0_8 g-mb-35">
@@ -151,7 +151,7 @@
 				<img class="landing-block-node-card-img img-fluid w-100"
 					 src="https://cdn.bitrix24.site/bitrix/images/landing/business/570x436/img6.jpg" alt="">
 
-				<div class="landing-block-node-card-text-container js-animation fadeInUp text-center g-pa-45">
+				<div class="landing-block-node-card-text-container js-animation fadeInUp text-center g-px-20 g-py-40 g-pa-45--sm">
 					<h3 class="landing-block-node-card-title text-uppercase g-font-weight-700 g-font-roboto-slab g-font-size-default g-color-white g-mb-15">
 						Aliquam dapibus quis sapien id pharetra</h3>
 					<div class="landing-block-node-card-text g-color-white-opacity-0_8 g-mb-35">

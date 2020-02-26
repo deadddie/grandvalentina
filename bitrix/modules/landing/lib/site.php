@@ -28,7 +28,7 @@ class Site extends \Bitrix\Landing\Internals\BaseTable
 		];
 		if ($deleted)
 		{
-			$filter['DELETED'] = ['Y', 'N'];
+			$filter['=DELETED'] = ['Y', 'N'];
 		}
 		$check = Site::getList([
 			'select' => [
@@ -50,10 +50,16 @@ class Site extends \Bitrix\Landing\Internals\BaseTable
 		$paths = [];
 		$isB24 = Manager::isB24();
 
+		$siteKeyCode = Site\Type::getKeyCode();
+		$defaultPubPath = rtrim(Manager::getPublicationPath(), '/');
+		$hostUrl = Domain::getHostUrl();
+		$disableCloud = defined('LANDING_DISABLE_CLOUD') &&
+						LANDING_DISABLE_CLOUD === true;
 		$res = self::getList(array(
 			'select' => array(
 				'DOMAIN_PROTOCOL' => 'DOMAIN.PROTOCOL',
 				'DOMAIN_NAME' => 'DOMAIN.DOMAIN',
+				'DOMAIN_ID',
 				'SMN_SITE_ID',
 				'CODE',
 				'TYPE',
@@ -70,18 +76,12 @@ class Site extends \Bitrix\Landing\Internals\BaseTable
 			$pubPath = '';
 			$isB24localVar = $isB24;
 
-			if (!$row['DOMAIN_NAME'])
-			{
-				$paths[$row['ID']] = Manager::getPublicationPath($row['ID']);
-				continue;
-			}
-
 			if ($row['TYPE'] == 'SMN')
 			{
 				$isB24localVar = false;
 			}
 
-			if (!$isB24localVar)
+			if (!$isB24localVar || $disableCloud)
 			{
 				$pubPath = Manager::getPublicationPath(
 					null,
@@ -90,14 +90,36 @@ class Site extends \Bitrix\Landing\Internals\BaseTable
 				$pubPath = rtrim($pubPath, '/');
 			}
 
+			if ($siteKeyCode == 'ID')
+			{
+				$row['CODE'] = '/' . $row['ID'] . '/';
+			}
+
 			// force https
 			if (Manager::isHttps())
 			{
 				$row['DOMAIN_PROTOCOL'] = \Bitrix\Landing\Internals\DomainTable::PROTOCOL_HTTPS;
 			}
 
-			$paths[$row['ID']] = $row['DOMAIN_PROTOCOL'] . '://' . $row['DOMAIN_NAME'] .
-							 	$pubPath . (!$isB24localVar && $full ? $row['CODE'] : '');
+			if ($row['DOMAIN_ID'])
+			{
+				$paths[$row['ID']] = ($disableCloud ? $hostUrl : $row['DOMAIN_PROTOCOL'] . '://' . $row['DOMAIN_NAME']) . $pubPath;
+				if ($full)
+				{
+					if ($disableCloud && $isB24localVar)
+					{
+						$paths[$row['ID']] .= $row['CODE'];
+					}
+					else if (!$isB24localVar)
+					{
+						$paths[$row['ID']] .= '/';
+					}
+				}
+			}
+			else
+			{
+				$paths[$row['ID']] = $hostUrl . $defaultPubPath . ($full ? $row['CODE'] : '');
+			}
 
 			unset($pubPath);
 		}
@@ -176,7 +198,9 @@ class Site extends \Bitrix\Landing\Internals\BaseTable
 			'PAGE' => Loc::getMessage('LANDING_TYPE_PAGE'),
 			'STORE' => Loc::getMessage('LANDING_TYPE_STORE'),
 			'SMN' => Loc::getMessage('LANDING_TYPE_SMN'),
-			'PREVIEW' => Loc::getMessage('LANDING_TYPE_PREVIEW')
+			'PREVIEW' => Loc::getMessage('LANDING_TYPE_PREVIEW'),
+			'KNOWLEDGE' => Loc::getMessage('LANDING_TYPE_KNOWLEDGE'),
+			'GROUP' => Loc::getMessage('LANDING_TYPE_GROUP')
 		);
 
 		return $types;
@@ -194,10 +218,49 @@ class Site extends \Bitrix\Landing\Internals\BaseTable
 	/**
 	 * Delete site by id.
 	 * @param int $id Site id.
+	 * @param bool $pagesDelete Delete all pages before.
 	 * @return \Bitrix\Main\Result
 	 */
-	public static function delete($id)
+	public static function delete($id, $pagesDelete = false)
 	{
+		// @tmp, task#188952
+		if (Manager::getOption('tmp_allow_delete') != 'Y')
+		{
+			Debug::log('DISABLE_DELETE_SITE_' . $id, [
+				'id' => $id,
+				'trace' => \Bitrix\Main\Diag\Helper::getBackTrace(10)
+			]);
+			$result = new \Bitrix\Main\Entity\DeleteResult();
+			$result->addError(
+				new \Bitrix\Main\Error(
+					'Deleting is not allowed',
+					'NOT_ALLOWED'
+				)
+			);
+			return $result;
+		}
+
+		// first delete all pages if you want
+		if ($pagesDelete)
+		{
+			$res = Landing::getList([
+				'select' => [
+					'ID'
+				],
+				'filter' => [
+					'=DELETED' => ['Y', 'N']
+				]
+			]);
+			while ($row = $res->fetch())
+			{
+				$resDel = Landing::delete($row['ID'], true);
+				if (!$resDel->isSuccess())
+				{
+					return $resDel;
+				}
+			}
+		}
+		// delete site
 		$result = parent::delete($id);
 		return $result;
 	}
@@ -228,6 +291,11 @@ class Site extends \Bitrix\Landing\Internals\BaseTable
 				}
 				return $return;
 			}
+		}
+
+		if (($currentScope = Site\Type::getCurrentScopeId()))
+		{
+			Agent::addUniqueAgent('clearRecycleScope', [$currentScope]);
 		}
 
 		return parent::update($id, array(
@@ -291,6 +359,11 @@ class Site extends \Bitrix\Landing\Internals\BaseTable
 			'METAOG_IMAGE',
 			'BACKGROUND_PICTURE'
 		);
+
+		if (isset($params['scope']))
+		{
+			Site\Type::setScope($params['scope']);
+		}
 
 		// check params
 		if (
@@ -620,6 +693,7 @@ class Site extends \Bitrix\Landing\Internals\BaseTable
 						'repo_block' => $repoBlock,
 						'cards' => $exportBlock['cards'],
 						'nodes' => $exportBlock['nodes'],
+						'menu' => $exportBlock['menu'],
 						'style' => $exportBlock['style'],
 						'attrs' => $exportBlock['attrs'],
 						'dynamic' => $exportBlock['dynamic']

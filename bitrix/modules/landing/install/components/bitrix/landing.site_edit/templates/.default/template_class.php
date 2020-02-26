@@ -172,7 +172,9 @@ class Template
 							imageField.layout.addEventListener('input', function()
 							{
 								var img = imageField.getValue();
-								imageFieldInput.value = parseInt(img.id) > 0 ? img.id : '';
+								imageFieldInput.value = parseInt(img.id) > 0
+													? img.id
+													: img.src;
 							});
 						}
 						<?if (isset($params['imgEditId'])):?>

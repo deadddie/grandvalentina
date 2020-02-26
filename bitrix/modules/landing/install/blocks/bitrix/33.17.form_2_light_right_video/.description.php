@@ -13,6 +13,7 @@ return array(
 		'dynamic' => false,
 		'subtype' => 'form',
 		'version' => '18.5.0',
+		'type' => ['page', 'store'],
 	),
 	'cards' => array(),
 	'nodes' => array(

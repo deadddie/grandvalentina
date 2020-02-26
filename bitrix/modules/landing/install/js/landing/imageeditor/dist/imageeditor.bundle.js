@@ -167,12 +167,9 @@ this.BX = this.BX || {};
 
 	var ImageEditor =
 	/*#__PURE__*/
-	function (_Event$EventEmitter) {
-	  babelHelpers.inherits(ImageEditor, _Event$EventEmitter);
-
+	function () {
 	  function ImageEditor() {
 	    babelHelpers.classCallCheck(this, ImageEditor);
-	    return babelHelpers.possibleConstructorReturn(this, babelHelpers.getPrototypeOf(ImageEditor).apply(this, arguments));
 	  }
 
 	  babelHelpers.createClass(ImageEditor, null, [{
@@ -187,9 +184,9 @@ this.BX = this.BX || {};
 	    }
 	  }]);
 	  return ImageEditor;
-	}(main_core.Event.EventEmitter);
+	}();
 
 	exports.ImageEditor = ImageEditor;
 
-}((this.BX.Landing = this.BX.Landing || {}),BX,BX));
+}((this.BX.Landing = this.BX.Landing || {}),BX.Main,BX));
 //# sourceMappingURL=imageeditor.bundle.js.map

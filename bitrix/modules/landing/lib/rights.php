@@ -36,7 +36,11 @@ class Rights
 	 */
 	const ADDITIONAL_RIGHTS = [
 		'menu24' => 'menu24',//show in main menu of Bitrix24
-		'create' => 'create'//can create new sites
+		'create' => 'create',//can create new sites
+		'knowledge_menu24' => 'knowledge_menu24',// show Knowledge in main menu of Bitrix24
+		'knowledge_create' => 'knowledge_create',//can create new Knowledge base
+		'group_create' => 'group_create',//can create new social network group base
+		'group_menu24' => 'group_menu24',// show group in main menu of Bitrix24
 	];
 
 	/**
@@ -334,7 +338,7 @@ class Rights
 			}
 			else
 			{
-				$filter['>ROLE_ID'] = 0;
+				$filter['ROLE_ID'] = Role::getExpectedRoleIds();
 			}
 			$res = RightsTable::getList(
 				[
@@ -421,7 +425,7 @@ class Rights
 
 		if (!isset($operations[$siteId]))
 		{
-			if ($siteId === 0 || Site::ping($siteId, $deleted))
+			if ($siteId === 0 || !self::isOn() || Site::ping($siteId, $deleted))
 			{
 				$operations[$siteId] = self::getOperations(
 					$siteId,
@@ -454,7 +458,9 @@ class Rights
 					'SITE_ID'
 				],
 				'filter' => [
-					'ID' => $landingId
+					'ID' => $landingId,
+					'=SITE.DELETED' => ['Y', 'N'],
+					'=DELETED' => ['Y', 'N']
 				]
 			])->fetch();
 
@@ -484,6 +490,12 @@ class Rights
 	protected static function setOperations($entityId, $entityType, array $rights = [])
 	{
 		if (!self::isFeatureOn())
+		{
+			return false;
+		}
+
+		// fix me
+		if (Site\Type::getCurrentScopeId() == 'GROUP')
 		{
 			return false;
 		}
@@ -557,10 +569,14 @@ class Rights
 
 		if ($exist === null)
 		{
+			$type = Site\Type::getCurrentScopeId();
 			$res = RightsTable::getList([
 				'select' => [
 					'ID'
 				],
+				'filter' => $type
+						? ['=ROLE.TYPE' => $type]
+						: [],
 				'limit' => 1
 			]);
 			$exist = (bool) $res->fetch();
@@ -712,7 +728,7 @@ class Rights
 			}
 
 			// set new rights in option
-			Manager::setOption('access_codes_' . $code, serialize($right));
+			Manager::setOption('access_codes_' . $code, $right ? serialize($right) : '');
 
 			// clear menu cache
 			if (Manager::isB24())
@@ -797,8 +813,23 @@ class Rights
 	{
 		$rights = [];
 
+		$type = Site\Type::getCurrentScopeId();
+
 		foreach (self::ADDITIONAL_RIGHTS as $right)
 		{
+			if (strpos($right, '_') > 0)
+			{
+				list($prefix, ) = explode('_', $right);
+				$prefix = strtoupper($prefix);
+				if ($prefix != $type)
+				{
+					continue;
+				}
+			}
+			else if ($type !== null)
+			{
+				continue;
+			}
 			$rights[$right] = Loc::getMessage('LANDING_RIGHTS_R_' . strtoupper($right));
 		}
 
@@ -808,11 +839,28 @@ class Rights
 	/**
 	 * Has current user additional right or not.
 	 * @param string $code Code from ADDITIONAL_RIGHTS.
+	 * @param string $type Scope type.
 	 * @return bool
 	 */
-	public static function hasAdditionalRight($code)
+	public static function hasAdditionalRight($code, $type = null)
 	{
 		static $options = [];
+
+		if ($type === null)
+		{
+			$type = Site\Type::getCurrentScopeId();
+		}
+
+		if ($type !== null)
+		{
+			$type = strtolower($type);
+			//@todo: hotfix for group right
+			if ($type == 'group')
+			{
+				return true;
+			}
+			$code = $type . '_' . $code;
+		}
 
 		if (array_key_exists($code, self::ADDITIONAL_RIGHTS))
 		{

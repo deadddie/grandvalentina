@@ -78,6 +78,15 @@ class Speed extends \Bitrix\Landing\Hook\Page
 		
 		return serialize($mergedData);
 	}
+
+	/**
+	 * Exec or not hook in intranet mode.
+	 * @return boolean
+	 */
+	public function enabledInIntranetMode()
+	{
+		return false;
+	}
 	
 	/**
 	 * Enable or not the hook.

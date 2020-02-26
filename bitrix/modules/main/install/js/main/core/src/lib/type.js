@@ -15,6 +15,16 @@ export default class Type
 	}
 
 	/**
+	 * Returns true if a value is not empty string
+	 * @param value
+	 * @returns {boolean}
+	 */
+	static isStringFilled(value: any): boolean
+	{
+		return this.isString(value) && value !== '';
+	}
+
+	/**
 	 * Checks that value is function
 	 * @param value
 	 * @return {boolean}
@@ -128,6 +138,16 @@ export default class Type
 	static isArray(value: any): boolean
 	{
 		return !Type.isNil(value) && Array.isArray(value);
+	}
+
+	/**
+	 * Returns true if a value is an array and it has at least one element
+	 * @param value
+	 * @returns {boolean}
+	 */
+	static isArrayFilled(value: any): boolean
+	{
+		return this.isArray(value) && value.length > 0;
 	}
 
 	/**

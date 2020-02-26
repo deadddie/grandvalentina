@@ -87,6 +87,17 @@ class LandingBaseComponent extends \CBitrixComponent
 	}
 
 	/**
+	 * Get preview picture from cloud or not
+	 * @return bool
+	 */
+	protected function previewFromCloud()
+	{
+		$disableCloud = defined('LANDING_DISABLE_CLOUD') &&
+						LANDING_DISABLE_CLOUD === true;
+		return Manager::isB24() && !$disableCloud;
+	}
+
+	/**
 	 * Http request initialization.
 	 *
 	 * @return void
@@ -422,7 +433,8 @@ class LandingBaseComponent extends \CBitrixComponent
 		{
 			if (
 				Manager::isExtendedSMN() &&
-				$this->arParams['TYPE'] == 'STORE')
+				$this->arParams['TYPE'] == 'STORE'
+			)
 			{
 				$params['filter']['=TYPE'] = [
 					$this->arParams['TYPE'],
@@ -513,16 +525,24 @@ class LandingBaseComponent extends \CBitrixComponent
 	/**
 	 * Get loc::getMessage by type of site.
 	 * @param string $code Mess code.
+	 * @param array $replace Array for replace, e.g. array('#NUM#' => 5).
 	 * @return string
 	 */
-	public function getMessageType($code)
+	public function getMessageType($code, $replace = null)
 	{
-		$mess = Loc::getMessage($code . '_' . $this->arParams['TYPE']);
-		if (!$mess)
+		static $codes = [];
+
+		if (!array_key_exists($code, $codes))
 		{
-			$mess = Loc::getMessage($code);
+			$mess = Loc::getMessage($code . '_' . $this->arParams['TYPE'], $replace);
+			if (!$mess)
+			{
+				$mess = Loc::getMessage($code, $replace);
+			}
+			$codes[$code] = $mess;
 		}
-		return $mess;
+
+		return $codes[$code];
 	}
 
 	/**
@@ -541,7 +561,8 @@ class LandingBaseComponent extends \CBitrixComponent
 	 */
 	protected function getTimestampUrl($url)
 	{
-		if (Manager::isB24())
+		// temporary disable this function
+		if (false && Manager::isB24())
 		{
 			return rtrim($url, '/') . '/?ts=' . time();
 		}
@@ -552,24 +573,73 @@ class LandingBaseComponent extends \CBitrixComponent
 	}
 
 	/**
-	 * Get URI without some external params.
-	 * @return string
+	 * Gets instance of URI without some external params.
+	 * @return \Bitrix\Main\Web\Uri
 	 */
-	protected function getUri()
+	protected function getUriInstance()
 	{
-		static $uri = null;
+		static $curUri = null;
 
-		if ($uri === null)
+		if ($curUri === null)
 		{
-			$curUri = new \Bitrix\Main\Web\Uri($this->currentRequest->getRequestUri());
-			$curUri->deleteParams(array(
+			$curUri = new \Bitrix\Main\Web\Uri(
+				$this->currentRequest->getRequestUri()
+			);
+			$curUri->deleteParams([
 				'sessid', 'action', 'param', 'additional', 'code', 'tpl',
 				'stepper', 'start', 'IS_AJAX', $this::NAVIGATION_ID
-			));
-			$uri = $curUri->getUri();
+			]);
 		}
 
-		return $uri;
+		return $curUri;
+	}
+
+	/**
+	 * Get URI without some external params.
+	 * @param array $add Additional params.
+	 * @return string
+	 */
+	protected function getUri(array $add = [])
+	{
+		$curUri = $this->getUriInstance();
+
+		if ($add)
+		{
+			$curUri->addParams($add);
+		}
+
+		return $curUri->getUri();
+	}
+
+	/**
+	 * Get URI path.
+	 * @return string
+	 */
+	protected function getUriPath()
+	{
+		return $this->getUriInstance()->getPath();
+	}
+
+	/**
+	 * Gets current file real name.
+	 * @return string
+	 */
+	protected function getRealFile()
+	{
+		static $scriptName = null;
+
+		if ($scriptName === null)
+		{
+			$context = \Bitrix\Main\Application::getInstance()->getContext();
+			$server = $context->getServer();
+			$scriptName = $server->get('REAL_FILE_PATH');
+			if (!$scriptName)
+			{
+				$scriptName = $server->getScriptName();
+			}
+		}
+
+		return $scriptName;
 	}
 
 	/**
@@ -654,6 +724,7 @@ class LandingBaseComponent extends \CBitrixComponent
 		static $tariffsCodes = [
 			'PUBLIC_PAGE_REACHED',
 			'PUBLIC_SITE_REACHED',
+			'TOTAL_SITE_REACHED',
 			'PUBLIC_HTML_DISALLOWED'
 		];
 
@@ -733,6 +804,21 @@ class LandingBaseComponent extends \CBitrixComponent
 			{
 				$this->restProxy();
 			}
+		}
+		else if (
+			$action &&
+			check_bitrix_sessid() &&
+			$this->request('actionType') == 'json' &&
+			is_callable(array($this, 'action' . $action))
+		)
+		{
+			Manager::getApplication()->restartBuffer();
+			header('Content-Type: application/json');
+			echo \Bitrix\Main\Web\Json::encode(
+				$this->{'action' . $action}($param, $additional)
+			);
+			\CMain::finalActions();
+			die();
 		}
 		else if ($action && is_callable(array($this, 'action' . $action)))
 		{

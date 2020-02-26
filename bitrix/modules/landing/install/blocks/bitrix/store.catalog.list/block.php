@@ -157,6 +157,7 @@ if ($detailUrl)
 						'BROWSER_TITLE' => '-',
 						'ADD_SECTIONS_CHAIN' => 'Y',
 						'SET_TITLE' => $classBlock->get('SET_TITLE'),
+						'ALLOW_SEO_DATA' => 'Y',
 						'SET_STATUS_404' => 'N',
 						'CACHE_FILTER' => 'N',
 						'CONVERT_CURRENCY' => 'Y',

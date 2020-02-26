@@ -280,6 +280,10 @@ class Demos
 			{
 				$fields['LANG']['lang_original'] = $params['lang_original'];
 			}
+			if (isset($item['items']) && !is_array($item['items']))
+			{
+				$item['items'] = [];
+			}
 			foreach ($fieldCode as $code)
 			{
 				$codel = strtolower($code);
@@ -295,6 +299,10 @@ class Demos
 			if ($fields['LANG'])
 			{
 				$fields['LANG'] = serialize($fields['LANG']);
+			}
+			else
+			{
+				unset($fields['LANG']);
 			}
 			if (isset($item['fields']['ADDITIONAL_FIELDS']))
 			{
@@ -352,7 +360,7 @@ class Demos
 			}
 			if ($res->isSuccess())
 			{
-				$return[] = $res->getId();
+				$return[] = (int)$res->getId();
 			}
 			else
 			{

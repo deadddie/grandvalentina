@@ -14,6 +14,8 @@ Loc::loadMessages(dirname(__FILE__) . '/template.php');
 	'landing_master'
 ]);
 
+$disableFrame = $this->getPageName() == 'landing_view';
+
 ob_start();
 ?>
 <script type="text/javascript">
@@ -47,7 +49,7 @@ if ($arParams['SEF_MODE'] != 'Y')
 }
 
 // iframe header
-if ($request->get('IFRAME') == 'Y')
+if ($request->get('IFRAME') == 'Y' && !$disableFrame)
 {
 	\Bitrix\Landing\Manager::getApplication()->restartBuffer();
 	include 'slider_header.php';
@@ -158,6 +160,7 @@ elseif (in_array($this->getPageName(), array('template', 'site_show')))
 							)
 							: array(),
 			'TYPE' => $arParams['TYPE'],
+			'DRAFT_MODE' => $arParams['DRAFT_MODE'],
 			'FOLDER_SITE_ID' => !$folderId ? $arResult['VARS']['site_show'] : 0
 		),
 		$this->__component

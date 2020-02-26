@@ -724,7 +724,7 @@ class Block
 						)
 						{
 							ob_start();
-							$block->view();
+							$block->view(false, $landing);
 							$data[$i]['content'] = ob_get_contents();
 							$data[$i]['css'] = $block->getCSS();
 							$data[$i]['js'] = $block->getJS();
