@@ -1,3 +1,9 @@
+// Bitrix crack
+
+font.tablebodytext {
+  display: none;
+}
+
 // Scroll to top
 
 #scroll-to-top {
@@ -120,7 +126,7 @@
   justify-content: center;
   align-items: center;
   &.show {
-    background-color: rgba(var(--color-border-dark), 0.5);
+    background-color: rgba(#333, 0.5);
     .modal-dialog {
       margin: var(--navigation-height) auto 0;
       opacity: 1;
