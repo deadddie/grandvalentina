@@ -86,4 +86,22 @@ class Helper
         return number_format((float) $price, 0, ',', ' ');
     }
 
+    /**
+     * Обрезка строки (мультибайтовая).
+     *
+     * @param $str
+     * @param $length
+     * @param string $postfix
+     * @param string $encoding
+     *
+     * @return string
+     */
+    public static function mbCutString(string $str, int $length = 100, $postfix = '...', $encoding = 'UTF-8') {
+        if (mb_strlen($str, $encoding) <= $length) {
+            return $str;
+        }
+        $tmp = mb_substr($str, 0, $length, $encoding);
+        return mb_substr($tmp, 0, mb_strripos($tmp, ' ', 0, $encoding), $encoding) . $postfix;
+    }
+
 }

@@ -47,7 +47,7 @@ use LapkinLab\{Helper, Content\Rooms};
                             <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>"><?= $arFields['NAME'] ?></a>
                         </h2>
                     </div>
-                    <div class="room-item--description"><?= $arFields['PREVIEW_TEXT'] ?></div>
+                    <div class="room-item--description"><?= Helper::mbCutString($arFields['PREVIEW_TEXT']) ?></div>
                     <div class="room-item--info">
                         <div class="room-item--info--customers">
                             <?php if ($arProperties['CAPACITY']['VALUE'] > 0): ?>
