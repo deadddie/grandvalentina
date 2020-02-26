@@ -170,22 +170,24 @@
       position: absolute;
       top: 0;
       left: 35px;
-      &--hit {
-        background-image: url("images/sticker.svg");
-        background-position: bottom center;
-        background-size: 30px 70px;
-        background-repeat: no-repeat;
-        width: 30px;
-        height: 70px;
-        span {
-          color: var(--color-white);
-          @include text_font_b;
-          display: block;
-          top: var(--padding-medium);
-          position: relative;
-          transform: rotate(-90deg);
-        }
+      z-index: 1;
+    }
+    &--sticker {
+      background-image: url("images/sticker.svg");
+      background-position: bottom center;
+      background-size: 30px 70px;
+      background-repeat: no-repeat;
+      width: 30px;
+      height: 70px;
+      span {
+        color: var(--color-white);
+        @include text_font_b;
+        display: block;
+        top: var(--padding-medium);
+        position: relative;
+        transform: rotate(-90deg);
       }
+      &--hit {}
     }
   }
 
@@ -223,6 +225,7 @@
 
     &--images {
       @include container-xl;
+      position: relative;
       ul {
         margin: 0;
         padding: 0;

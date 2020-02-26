@@ -68,7 +68,7 @@ use LapkinLab\{Helper, Content\Rooms};
                     </div>
                     <div class="room-item--stickers">
                         <?php if (!empty($arProperties['HIT']) && $arProperties['HIT']['VALUE'] === 'Y'): ?>
-                        <div class="room-item--stickers--hit"><span><?= $arProperties['HIT']['NAME'] ?></span></div>
+                        <div class="room-item--sticker room-item--sticker--hit"><span><?= $arProperties['HIT']['NAME'] ?></span></div>
                         <?php endif; ?>
                     </div>
                 </div>

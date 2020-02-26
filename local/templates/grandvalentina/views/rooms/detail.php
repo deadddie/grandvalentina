@@ -32,6 +32,11 @@ if ($room):
                 <div class="room-detail--images--nav">
                     <?= view('common.slider_navigation', ['type' => 'room'], false) ?>
                 </div>
+                <div class="room-detail--stickers">
+                    <?php if (!empty($arProperties['HIT']) && $arProperties['HIT']['VALUE'] === 'Y'): ?>
+                        <div class="room-item--sticker room-item--sticker--hit"><span><?= $arProperties['HIT']['NAME'] ?></span></div>
+                    <?php endif; ?>
+                </div>
             </div>
         <?php endif; ?>
 
@@ -97,13 +102,6 @@ if ($room):
             <div class="room-detail--3d">
                 <button class="btn btn-link">3D-тур</button>
                 <div class="delimiter"><?= renderIcon('delimiter') ?></div>
-            </div>
-
-            <div class="room-detail--stickers">
-                <?php if (!empty($arProperties['HIT']) && $arProperties['HIT']['VALUE'] === 'Y'): ?>
-                    <div class="room-item--stickers--hit"><span><?= $arProperties['HIT']['NAME'] ?></span>
-                    </div>
-                <?php endif; ?>
             </div>
 
             <div class="room-detail--image-main">
