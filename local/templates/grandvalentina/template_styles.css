@@ -6028,13 +6028,6 @@ body.index .index-content .index-subscribe--wrapper .form-privacy label .icon {
     margin: var(--padding-large) auto var(--padding-base);
 }
 
-.page-contacts--section--map {
-    padding: 0;
-    width: 100%;
-    margin-top: var(--padding-large);
-    margin-bottom: var(--padding-large);
-}
-
 .page-contacts--content {
     max-width: 440px;
 }
@@ -6043,6 +6036,11 @@ body.index .index-content .index-subscribe--wrapper .form-privacy label .icon {
     width: 100%;
     margin-top: var(--padding-largest);
     margin-bottom: var(--padding-large);
+}
+
+.page-contacts .page-contacts--map--wrapper {
+    padding-right: var(--padding-base);
+    padding-left: var(--padding-base);
 }
 
 /**
@@ -7201,6 +7199,12 @@ body.compensate-for-scrollbar {
     }
 
     .page-contacts--wrapper {
+        margin-left: var(--padding-base);
+        margin-right: var(--padding-base);
+        max-width: 540px;
+    }
+
+    .page-contacts--section--order {
         margin-left: var(--padding-base);
         margin-right: var(--padding-base);
         max-width: 540px;
@@ -8387,7 +8391,13 @@ body.compensate-for-scrollbar {
         margin: 0 var(--padding-small) var(--padding-medium);
     }
 
-    .page-contacts .page-contacts--map {
+    .page-contacts--section--order {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 720px;
+    }
+
+    .page-contacts .page-contacts--map--wrapper {
         margin-left: auto;
         margin-right: auto;
         max-width: 720px;
@@ -9502,6 +9512,12 @@ body.compensate-for-scrollbar {
         max-width: 980px;
     }
 
+    .page-contacts--wrapper {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 980px;
+    }
+
     .page-contacts .container--contact-map {
         max-width: 100%;
         padding: 0;
@@ -9513,14 +9529,6 @@ body.compensate-for-scrollbar {
 
     .page-contacts--section .container--contact-map {
         padding: 0;
-    }
-
-    .page-contacts--section--order {
-        max-width: 350px;
-    }
-
-    .page-contacts--section--map {
-        margin: var(--padding-large) 0 0;
     }
 }
 
@@ -10529,15 +10537,43 @@ body.compensate-for-scrollbar {
         margin-bottom: var(--padding-large);
     }
 
+    .page-contacts--wrapper {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1224px;
+    }
+
     .page-contacts--section--order {
         margin-top: 0;
         margin-bottom: var(--padding-largest);
+    }
+
+    .page-contacts--section--order .form--fields .form-field {
+        flex-basis: calc(50% - 30px);
+    }
+
+    .page-contacts--section--order .form--fields .form-field.form-privacy {
+        flex-basis: 100%;
     }
 
     .page-contacts--section--full {
         width: calc(50% - 20px);
         margin-top: 100px;
         margin-bottom: 100px;
+    }
+
+    .page-contacts .page-contacts--map {
+        margin-bottom: 0;
+    }
+
+    .page-contacts .page-contacts--map--wrapper {
+        padding-left: 0;
+        padding-right: 0;
+        margin-left: 0;
+        margin-right: 0;
+        max-width: 100%;
+        width: 100%;
+        flex-basis: 100%;
     }
 }
 

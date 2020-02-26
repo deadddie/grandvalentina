@@ -17,7 +17,7 @@ $points = array(
 <div class="page-contacts">
     <div class="page-contacts--wrapper">
 
-        <h1 class="page-title col-12 text-center"><?= $APPLICATION->GetTitle() ?></h1>
+        <h1 class="page-title text-center"><?= $APPLICATION->GetTitle() ?></h1>
         <div class="col-12">
             <div class="page-contacts--sections">
                 <div class="page-contacts--section">
@@ -83,7 +83,9 @@ $points = array(
     </div>
 
     <div class="page-contacts--map">
-        <?php $APPLICATION->IncludeFile(SITE_TEMPLATE_PATH . '/include_areas/map.php', array('points' => $points)) ?>
+        <div class="page-contacts--map--wrapper">
+            <?php $APPLICATION->IncludeFile(SITE_TEMPLATE_PATH . '/include_areas/map.php', array('points' => $points)) ?>
+        </div>
     </div>
 
 </div>

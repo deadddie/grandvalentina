@@ -4,6 +4,8 @@
   &--wrapper {
     @include container-sm;
     @include container-md;
+    @include container-lg;
+    @include container-xl;
   }
   &--sections {
     @media (min-width: map_get($grid-breakpoints, sm)) {
@@ -17,7 +19,6 @@
     .container--contact-map {
       max-width: 100%;
       padding: 0;
-
       .page-contacts--section--map {
         margin: 30px 0 0;
       }
@@ -89,21 +90,19 @@
     &--order {
       width: 100%;
       margin: var(--padding-large) auto var(--padding-base);
-      @media (min-width: map_get($grid-breakpoints, md)) {
-        max-width: 350px;
-      }
+      @include container-sm;
+      @include container-md;
       @media (min-width: map_get($grid-breakpoints, lg)) {
         margin-top: 0;
         margin-bottom: var(--padding-largest);
-      }
-    }
-    &--map {
-      padding: 0;
-      width: 100%;
-      margin-top: var(--padding-large);
-      margin-bottom: var(--padding-large);
-      @media (min-width: map_get($grid-breakpoints, md)) {
-        margin: var(--padding-large) 0 0;
+        .form--fields {
+          .form-field {
+            flex-basis: calc(50% - 30px);
+            &.form-privacy {
+              flex-basis: 100%;
+            }
+          }
+        }
       }
     }
 
@@ -124,6 +123,18 @@
     width: 100%;
     margin-top: var(--padding-largest);
     margin-bottom: var(--padding-large);
-    @include container-md;
+    @media (min-width: map_get($grid-breakpoints, lg)) {
+      margin-bottom: 0;
+    }
+    &--wrapper {
+      padding-right: var(--padding-base);
+      padding-left: var(--padding-base);
+      @include container-md;
+      @media (min-width: map_get($grid-breakpoints, lg)) {
+        padding-left: 0;
+        padding-right: 0;
+        @include container-wide;
+      }
+    }
   }
 }
