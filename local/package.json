@@ -1,6 +1,6 @@
 {
     "name": "grandvalentina",
-    "version": "0.0.1",
+    "version": "0.1.0",
     "description": "Hotel Grand Valentina",
     "main": "gulpfile.js",
     "scripts": {
