@@ -15,7 +15,7 @@ $APPLICATION->SetTitle("404 Not Found");
         <div class="row">
             <div class="error-404--wrapper col-12">
                 <h1>404</h1>
-                <p><em>Этой страницы<br>не существует</em></p>
+                <p><em>Этой страницы<br> не существует</em></p>
                 <p>
                     <a href="/" class="btn btn-white">Вернуться на главную</a>
                 </p>
