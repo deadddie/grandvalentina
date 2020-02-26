@@ -8,52 +8,56 @@
 'use strict';
 
 // config
-var min = true;                // css/js minification ON/OFF
-var sourcemap = false;         // sourcemaps ON/OFF
+const min = true;                // css/js minification ON/OFF
+const sourcemap = false;         // sourcemaps ON/OFF
 
 // nodejs modules
-var gulp = require('gulp'), // основной плагин gulp
+const gulp = require('gulp'), // основной плагин gulp
     gulpif = require('gulp-if'), // conditionally control the flow of vinyl objects
     imagemin = require('gulp-imagemin'), //минимизация изображений
     pug = require('gulp-pug'), // pug
     sass = require('gulp-sass'), // sass
     sourcemaps = require('gulp-sourcemaps'), // sourcemaps
     rename = require('gulp-rename'), // переименование файлов
-    postcss = require('gulp-postcss'), // постпроцессор css
     beautify = require('gulp-cssbeautify'), // бьютифайр
     minify = require('gulp-clean-css'), // минификатор
     gcmq = require('gulp-group-css-media-queries'), // группировка media queries
-    cssnext = require('postcss-cssnext'), // postcss autoprefixer и пр.
     terser = require('gulp-terser'), // минификация js
     babel = require('gulp-babel'), // babel,
     spritesmith = require('gulp.spritesmith'), // генератор спрайтов
     webpack = require("webpack"), // webpack
     webpackStream = require("webpack-stream"), // webpack stream
     merge = require('merge-stream'); // объединение потоков
-var browserSync = require('browser-sync').create();
 
-var svgSprite = require('gulp-svg-sprite'),
+// postcss
+const postcss = require('gulp-postcss'), // постпроцессор css
+    autoprefixer = require('autoprefixer'); // autoprefixer
+
+// reload
+const browserSync = require('browser-sync').create();
+
+const svgSprite = require('gulp-svg-sprite'),
     svgmin = require('gulp-svgmin'),
     cheerio = require('gulp-cheerio'),
     replace = require('gulp-replace');
 
 // webpack configs
-var webpackConfig = require('./webpack.config');
+const webpackConfig = require('./webpack.config');
 
 // postcss
-var processors = [
-    cssnext
+const processors = [
+    autoprefixer
 ];
 
-var appName = 'Grand Hotel Valentina';
-var appNameShort = 'ghv';
-var templateName = 'grandvalentina';
-var appPath = 'templates/' + templateName + '/';
-var sourcesPath = 'templates/' + templateName + '/_src/';
-var appUrl = 'grandvalentina.ru';
-var appDevUrl = 'dev.' + appUrl;
+const appName = 'Grand Hotel Valentina';
+const appNameShort = 'ghv';
+const templateName = 'grandvalentina';
+const appPath = 'templates/' + templateName + '/';
+const sourcesPath = 'templates/' + templateName + '/_src/';
+const appUrl = 'grandvalentina.ru';
+const appDevUrl = 'dev.' + appUrl;
 
-var path = {
+const path = {
 
     // build paths
     build: {
@@ -226,7 +230,7 @@ function moveSpriteCss () {
 
 // sprites (PNG)
 function spriteBuild() {
-    var spriteData =
+    let spriteData =
         gulp.src(path.src.sprite).
             pipe(spritesmith({
                 imgName: 'sprite.png',
@@ -239,9 +243,9 @@ function spriteBuild() {
                     sprite.name = appNameShort + '-icon-' + sprite.name;
                 }
             }));
-    var imgStream = spriteData.img.
+    let imgStream = spriteData.img.
         pipe(gulp.dest(path.build.sprite)); // путь, куда сохраняем картинку
-    var cssStream = spriteData.css.
+    let cssStream = spriteData.css.
         pipe(gulp.dest(path.src.cssSprites));
     return merge(imgStream, cssStream);
 }
