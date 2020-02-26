@@ -81,6 +81,9 @@ body.index {
       // About
 
       &-about {
+        background-image: url('images/block-bg.png');
+        background-size: cover;
+        background-position: center;
         background-color: var(--color-secondary);
         display: flex;
         flex-wrap: wrap;
