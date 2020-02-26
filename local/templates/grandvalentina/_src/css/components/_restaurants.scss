@@ -31,6 +31,7 @@
     &--actions {
       display: flex;
       justify-content: flex-end;
+      margin-top: var(--padding-small);
       a {
         text-decoration: underline;
         @include head_font_i;

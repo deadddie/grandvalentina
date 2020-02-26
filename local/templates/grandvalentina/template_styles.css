@@ -4880,6 +4880,17 @@ font.tablebodytext {
     background-color: var(--color-secondary);
 }
 
+.room-block .room-item,
+.room-block .room-detail,
+.room-block .service-item,
+.room-block .blog-item,
+.room-block .event-item,
+.room-block .restaurant-item,
+.room-block .entertainment-item,
+.room-block .offer-item {
+    box-shadow: none;
+}
+
 .room-title,
 .offer-title {
     width: 100%;
@@ -4933,6 +4944,13 @@ font.tablebodytext {
 .room-nav .slider--navigation.room-slider--navigation .owl-next,
 .offer-nav .slider--navigation.room-slider--navigation .owl-next {
     background-color: var(--color-white);
+}
+
+.room-nav .slider--navigation.room-slider--navigation .owl-prev:hover,
+.offer-nav .slider--navigation.room-slider--navigation .owl-prev:hover,
+.room-nav .slider--navigation.room-slider--navigation .owl-next:hover,
+.offer-nav .slider--navigation.room-slider--navigation .owl-next:hover {
+    background-color: var(--color-primary);
 }
 
 .room-nav .slider--navigation.room-slider--navigation .owl-prev.disabled,
@@ -5031,6 +5049,8 @@ font.tablebodytext {
 .room-detail--info {
     display: flex;
     justify-content: space-between;
+    align-items: center;
+    min-height: 26px;
     margin-top: var(--padding-medium);
 }
 
@@ -5153,7 +5173,7 @@ font.tablebodytext {
 .offer-detail--images ul li {
     margin: 0;
     padding: 0;
-    max-height: 520px;
+    max-height: 540px;
 }
 
 .room-detail--images ul li:before,
@@ -5255,6 +5275,19 @@ font.tablebodytext {
 .room-detail--room-services--content,
 .room-detail--accomodations--content {
     margin-top: var(--padding-medium);
+}
+
+.room-detail--description--content ul,
+.room-detail--room-services--content ul,
+.room-detail--accomodations--content ul {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.room-detail--description--content ul li,
+.room-detail--room-services--content ul li,
+.room-detail--accomodations--content ul li {
+    flex-basis: 100%;
 }
 
 .room-detail--3d {
@@ -5404,6 +5437,9 @@ font.tablebodytext {
 }
 
 .event-detail--seats {
+    background-image: url("images/block-bg.png");
+    background-size: cover;
+    background-position: center;
     background-color: var(--color-secondary);
     display: flex;
     flex-wrap: wrap;
@@ -5463,6 +5499,7 @@ font.tablebodytext {
 .restaurant-item--actions {
     display: flex;
     justify-content: flex-end;
+    margin-top: var(--padding-small);
 }
 
 .restaurant-item--actions a {
@@ -5710,6 +5747,9 @@ body.index .index-content .index-image {
 }
 
 body.index .index-content .index-about {
+    background-image: url("images/block-bg.png");
+    background-size: cover;
+    background-position: center;
     background-color: var(--color-secondary);
     display: flex;
     flex-wrap: wrap;
@@ -8138,6 +8178,7 @@ body.compensate-for-scrollbar {
   .room-block .entertainment-item,
   .room-block .offer-item {
         width: calc(100% - 20px) !important;
+        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
     }
 
     .room-items,
@@ -8190,18 +8231,18 @@ body.compensate-for-scrollbar {
     }
 
     .room-detail--actions:not(.room-detail--actions--bottom) {
-        margin: 30px 0;
+        margin: var(--padding-large) 0;
     }
 
     .room-detail--actions .btn {
         width: auto;
         margin: 0 auto;
-        padding-left: 70px;
-        padding-right: 70px;
+        padding-left: var(--padding-extra);
+        padding-right: var(--padding-extra);
     }
 
     .room-detail--3d {
-        padding: 30px 0 10px;
+        padding: var(--padding-large) 0 var(--padding-small);
     }
 
     .room-detail--3d .btn {
@@ -9349,7 +9390,7 @@ body.compensate-for-scrollbar {
   .entertainment-item:not(.room-detail),
   .offer-item:not(.room-detail) {
         width: calc(50% - 20px);
-        margin: 0 10px 20px;
+        margin: 0 var(--padding-small) var(--padding-medium);
         padding: 0;
     }
 
@@ -10450,6 +10491,13 @@ body.compensate-for-scrollbar {
         display: none;
     }
 
+    .room-detail--description--content ul li,
+  .room-detail--room-services--content ul li,
+  .room-detail--accomodations--content ul li {
+        flex-basis: 50%;
+        padding-right: var(--padding-large);
+    }
+
     .event-detail--order,
   .restaurant-detail--order {
         padding-top: var(--padding-large);
@@ -11480,8 +11528,14 @@ body.compensate-for-scrollbar {
         top: 80%;
     }
 
+    .room-detail--description--content ul li,
+  .room-detail--room-services--content ul li,
+  .room-detail--accomodations--content ul li {
+        flex-basis: 33.333%;
+    }
+
     .room-detail--3d {
-        padding-top: 80px;
+        padding-top: var(--padding-extra);
     }
 
     .room-detail--backlink,

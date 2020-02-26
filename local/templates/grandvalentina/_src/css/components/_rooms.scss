@@ -12,8 +12,10 @@
       @include container-xl;
     }
     .room-item {
+      box-shadow: none;
       @media (min-width: map_get($grid-breakpoints, sm)) {
         width: calc(100% - 20px) !important;
+        @include shadow;
       }
     }
   }
@@ -53,6 +55,9 @@
       .owl-prev,
       .owl-next {
         background-color: var(--color-white);
+        &:hover {
+          background-color: var(--color-primary);
+        }
         &.disabled {
           background-color: transparent;
         }
@@ -89,7 +94,7 @@
     &:not(.room-detail) {
       @media (min-width: map_get($grid-breakpoints, md)) {
         width: calc(50% - 20px);
-        margin: 0 10px 20px;
+        margin: 0 var(--padding-small) var(--padding-medium);
         padding: 0;
       }
       @media (min-width: map_get($grid-breakpoints, lg)) {
@@ -133,6 +138,8 @@
     &--info {
       display: flex;
       justify-content: space-between;
+      align-items: center;
+      min-height: 26px;
       margin-top: var(--padding-medium);
       &--customers {
         .icon {
@@ -233,7 +240,7 @@
         li {
           margin: 0;
           padding: 0;
-          max-height: 520px;
+          max-height: map_get($container-max-widths, sm);
           &:before {
             display: none;
           }
@@ -332,13 +339,13 @@
 
       @media (min-width: map_get($grid-breakpoints, sm)) {
         &:not(.room-detail--actions--bottom) {
-          margin: 30px 0;
+          margin: var(--padding-large) 0;
         }
         .btn {
           width: auto;
           margin: 0 auto;
-          padding-left: 70px;
-          padding-right: 70px;
+          padding-left: var(--padding-extra);
+          padding-right: var(--padding-extra);
         }
       }
 
@@ -372,6 +379,21 @@
       }
       &--content {
         margin-top: var(--padding-medium);
+        ul {
+          display: flex;
+          flex-wrap: wrap;
+          li {
+            flex-basis: 100%;
+            @media (min-width: map_get($grid-breakpoints, lg)) {
+              flex-basis: 50%;
+              padding-right: var(--padding-large);
+            }
+            @media (min-width: map_get($grid-breakpoints, xl)) {
+              flex-basis: 33.333%;
+            }
+          }
+        }
+
       }
     }
 
@@ -383,7 +405,7 @@
       margin-bottom: var(--padding-base);
 
       @media (min-width: map_get($grid-breakpoints, sm)) {
-        padding: 30px 0 10px;
+        padding: var(--padding-large) 0 var(--padding-small);
 
         .btn {
           font-size: 30px;
@@ -391,7 +413,7 @@
       }
 
       @media (min-width: map_get($grid-breakpoints, xl)) {
-        padding-top: 80px;
+        padding-top: var(--padding-extra);
       }
 
       button {
