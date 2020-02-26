@@ -38,7 +38,7 @@ trait CommonTrait
     }
 
     /**
-     * Вывод изображения.
+     * Вывод превью изображения.
      *
      * @param integer $id
      * @param string $alt
@@ -46,10 +46,29 @@ trait CommonTrait
      *
      * @return false|string|null
      */
-    public static function getImage($id, $alt = '', $class = '')
+    public static function getPreviewImage($id, $alt = '', $class = '')
     {
         $image = \CFile::GetByID($id)->GetNext();
         $resized = Core::resizeImage($image, false, 720, 480);
+        $resized['alt'] = $alt;
+        $resized['class'] = $class;
+        $params['image'] = $resized;
+        return view('common.image', $params, false);
+    }
+
+    /**
+     * Вывод детального изображения.
+     *
+     * @param integer $id
+     * @param string $alt
+     * @param string $class
+     *
+     * @return false|string|null
+     */
+    public static function getDetailImage($id, $alt = '', $class = '')
+    {
+        $image = \CFile::GetByID($id)->GetNext();
+        $resized = Core::resizeImage($image, false, 1600, 400);
         $resized['alt'] = $alt;
         $resized['class'] = $class;
         $params['image'] = $resized;
