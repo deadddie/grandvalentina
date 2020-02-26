@@ -25,7 +25,7 @@ use LapkinLab\{Core, Helper, Content\Entertainment};
             <div id="entertainment-item-<?= $arFields['ID'] ?>" class="entertainment-item" data-id="<?= $arFields['ID'] ?>">
                 <div class="entertainment-item--image">
                     <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>">
-                        <?= Entertainment::getImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
+                        <?= Entertainment::getPreviewImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
                     </a>
                 </div>
                 <div class="entertainment-item--content">

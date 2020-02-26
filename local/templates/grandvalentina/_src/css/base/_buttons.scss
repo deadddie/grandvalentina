@@ -2,28 +2,28 @@
 
 .btn,
 button {
-  height: $app-button-height;
+  height: var(--button-height);
   padding-left: 10px;
   padding-right: 10px;
   user-select: none;
-  border: 1px solid $app-color--active;
+  border: 1px solid var(--color-active);
   display: inline-flex;
   text-decoration: none !important;
-  background-color: $app-color--active;
-  color: $app-color--white;
+  background-color: var(--color-active);
+  color: var(--color-white);
   align-items: center;
   justify-content: center;
   @include head_font;
-  font-size: $app-fontsize--base;
+  font-size: var(--fontsize-base);
   text-transform: uppercase;
   letter-spacing: 0.1em;
   //transition: background-color 0.2s ease-in-out;
   //@include border-radius;
   &:hover,
   &:focus {
-    color: $app-color--white;
-    background-color: $app-color--active-hover;
-    border-color: $app-color--active-hover;
+    color: var(--color-white);
+    background-color: var(--color-active-hover);
+    border-color: var(--color-active-hover);
   }
   &[disabled],
   &.disabled {
@@ -34,13 +34,13 @@ button {
 .btn {
 
   &-default {
-    border: 1px solid $app-color--active;
-    background-color: $app-color--active;
-    color: $app-color--white !important;
+    border: 1px solid var(--color-active);
+    background-color: var(--color-active);
+    color: var(--color-white) !important;
     &:hover,
     &:focus {
-      background-color: $app-color--active-hover;
-      border-color: $app-color--active-hover;
+      background-color: var(--color-active-hover);
+      border-color: var(--color-active-hover);
     }
   }
 
@@ -49,44 +49,44 @@ button {
     border-radius: 0 !important;
   }
   &-wide {
-    height: $app-button-height-wide;
+    height: var(--button-height-wide);
     width: 100%;
   }
   &-block {
     min-width: 300px;
   }
   &-sm {
-    height: $app-button-height-sm;
-    font-size: $app-fontsize--base;
+    height: var(--button-height-sm);
+    font-size: var(--fontsize-base);
   }
 
   // Button Colors
 
   &-white {
-    background-color: $app-color--white;
-    color: $app-color--black !important;
-    border-color: $app-color--black;
+    background-color: var(--color-white);
+    color: var(--color-black) !important;
+    border-color: var(--color-black);
     &:hover {
-      background-color: $app-color--active;
-      color: $app-color--white !important;
-      border-color: $app-color--active;
+      background-color: var(--color-active);
+      color: var(--color-white) !important;
+      border-color: var(--color-active);
     }
   }
 
   &-gold {
-    background-color: $app-color--primary;
-    color: $app-color--white !important;
-    border-color: $app-color--primary;
+    background-color: var(--color-primary);
+    color: var(--color-white) !important;
+    border-color: var(--color-primary);
     &:hover {
-      background-color: $app-color--black;
-      color: $app-color--white !important;
-      border-color: $app-color--black;
+      background-color: var(--color-black);
+      color: var(--color-white) !important;
+      border-color: var(--color-black);
     }
   }
 
   // Link Button
   &-link {
-    color: $app-color--black !important;
+    color: var(--color-black) !important;
     background: transparent;
     margin: 0;
     display: inline-flex;
@@ -97,7 +97,7 @@ button {
     text-transform: none;
     letter-spacing: initial;
     &:hover {
-      color: $app-color--active-hover;
+      color: var(--color-active-hover);
       text-decoration: underline !important;
       border-color: transparent;
       background-color: transparent;

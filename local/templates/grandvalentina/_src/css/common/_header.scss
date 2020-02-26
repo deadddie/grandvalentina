@@ -2,16 +2,16 @@
 
 .mobile-menu--header,
 .header {
-  height: $app-navigation-height;
-  background-color: $app-color--white;
-  border-bottom: 1px solid $app-color--border;
+  height: var(--navigation-height);
+  background-color: var(--color-white);
+  border-bottom: 1px solid var(--color-border);
   width: 100%;
   @media (min-width: map_get($grid-breakpoints, xl)) {
     height: 150px;
   }
 
   &--wrapper {
-    height: $app-navigation-height;
+    height: var(--navigation-height);
     display: flex;
     flex-wrap: wrap;
     justify-content: space-between;
@@ -29,7 +29,7 @@
     top: 35px;
     left: 100px;
     a {
-      color: $app-color--black;
+      color: var(--color-black);
       @include text_font_b;
     }
     @media (min-width: map_get($grid-breakpoints, xl)) {
@@ -43,7 +43,7 @@
     display: none;
     align-items: center;
     button {
-      font-size: $app-fontsize--small;
+      font-size: var(--fontsize-small);
     }
     @media (min-width: map_get($grid-breakpoints, xl)) {
       display: flex;
@@ -58,7 +58,7 @@
       display: flex;
       width: 100%;
       flex-basis: 100%;
-      height: $app-navigation-height;
+      height: var(--navigation-height);
     }
     .menu-top {
       display: flex;
@@ -74,7 +74,7 @@
         align-items: center;
         justify-content: space-between;
         li {
-          margin: 0 $app-padding--base;
+          margin: 0 var(--padding-base);
           display: flex;
           align-items: center;
           &:first-child {
@@ -92,11 +92,14 @@
             }
           }
           a {
-            color: $app-color--black;
+            color: var(--color-black);
             @include head_font;
-            font-size: $app-fontsize--large;
+            font-size: var(--fontsize-large);
+            &:hover {
+              color: var(--color-active-hover);
+            }
             &.active {
-              color: $app-color--primary;
+              color: var(--color-primary);
             }
             + ul {
               display: none;
@@ -117,7 +120,7 @@
 
   &--close,
   &--hamburger {
-    width: $app-navigation-height;
+    width: var(--navigation-height);
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -138,7 +141,7 @@
       }
     }
     a {
-      color: $app-color--active;
+      color: var(--color-active);
       text-decoration: none;
     }
   }
@@ -146,13 +149,13 @@
   // Language switcher
 
   &--lang {
-    width: $app-navigation-height;
+    width: var(--navigation-height);
     display: flex;
     align-items: center;
     position: relative;
     &-current {
       @include head_font;
-      font-size: $app-fontsize--medium;
+      font-size: var(--fontsize-medium);
     }
   }
 

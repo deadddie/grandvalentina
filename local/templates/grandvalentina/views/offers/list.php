@@ -33,7 +33,7 @@ use LapkinLab\{Core, Helper, Content\Offers};
             <div id="offer-item-<?= $arFields['ID'] ?>" class="offer-item" data-id="<?= $arFields['ID'] ?>">
                 <div class="offer-item--image">
                     <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>">
-                        <?= Offers::getImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
+                        <?= Offers::getPreviewImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
                     </a>
                 </div>
                 <div class="offer-item--content">

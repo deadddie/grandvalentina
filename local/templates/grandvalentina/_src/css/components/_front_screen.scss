@@ -5,14 +5,14 @@
   background-position: center;
   background-size: cover;
   background-repeat: no-repeat;
-  color: $app-color--white;
-  background-color: $app-color--black;
+  color: var(--color-white);
+  background-color: var(--color-black);
   display: flex;
   justify-content: center;
   align-items: center;
   align-content: flex-end;
   flex-wrap: wrap;
-  padding: $app-padding--medium;
+  padding: var(--padding-medium);
   text-align: center;
   height: calc(100vh - 100px);
   @media (min-width: map_get($grid-breakpoints, lg)) {
@@ -22,7 +22,7 @@
     font-size: 40px;
     @include head_font;
     flex-basis: 100%;
-    color: $app-color--white;
+    color: var(--color-white);
     line-height: 1.1;
     @media (min-width: map_get($grid-breakpoints, lg)) {
       font-size: 72px;
@@ -32,26 +32,26 @@
   &--delimiter {
     flex-basis: 100%;
     .icon {
-      color: $app-color--white;
+      color: var(--color-white);
     }
   }
   &--slogan {
     @include head_font;
-    font-size: $app-fontsize--small;
+    font-size: var(--fontsize-small);
     flex-basis: 100%;
-    color: $app-color--white;
+    color: var(--color-white);
     max-width: 135px;
     @media (min-width: map_get($grid-breakpoints, lg)) {
-      font-size: $app-fontsize--h1;
+      font-size: var(--fontsize-h1);
       max-width: 260px;
     }
   }
   &--scroller {
-    margin-top: $app-padding--largest;
+    margin-top: var(--padding-largest);
     align-self: flex-end;
     flex-basis: 100%;
     .icon {
-      color: $app-color--white;
+      color: var(--color-white);
     }
   }
 }

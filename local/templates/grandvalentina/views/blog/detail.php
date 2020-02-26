@@ -20,9 +20,11 @@ if ($blog):
 
     <div class="blog-detail">
 
+        <?php if (!empty($arFields['DETAIL_PICTURE'])): ?>
         <div class="blog-detail--image-main">
-            <?= Blog::getImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
+            <?= Blog::getDetailImage($arFields['DETAIL_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
         </div>
+        <?php endif; ?>
 
         <div class="blog-detail--content">
 

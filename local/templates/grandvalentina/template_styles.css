@@ -3904,7 +3904,7 @@ button.disabled {
 
 .main-index {
     padding-top: 30px;
-    padding-bottom: 15px;
+    padding-bottom: 30px-var(--padding-base);
 }
 
 .main--title {
@@ -4041,6 +4041,11 @@ button.disabled {
     font-weight: 400;
     font-style: normal;
     font-size: 18px;
+}
+
+.mobile-menu--header--menu .menu-top ul li a:hover,
+.header--menu .menu-top ul li a:hover {
+    color: #ae1829;
 }
 
 .mobile-menu--header--menu .menu-top ul li a.active,
@@ -4731,7 +4736,7 @@ body.mobile-menu-open {
 }
 
 .modal.show {
-    background-color: rgba(51, 51, 51, .5);
+    background-color: rgba(#333, 0.5);
 }
 
 .modal.show .modal-dialog {
@@ -5139,7 +5144,7 @@ body.mobile-menu-open {
   /*
   display: flex;
   justify-content: center;
-  margin: $app-padding--base 0;
+  margin: var(--padding-base) 0;
   .nav-links {
     display: flex;
     justify-content: center;
@@ -5150,12 +5155,12 @@ body.mobile-menu-open {
       padding: 3px 10px;
       margin: 0 5px;
       @include border-radius;
-      background-color: $app-color--active;
-      border: 1px solid $app-color--active;
+      background-color: var(--color-active);
+      border: 1px solid var(--color-active);
       user-select: none;
       &.current {
         background-color: transparent;
-        border-color: $app-color--border;
+        border-color: var(--color-border);
         &:hover {
           background-color: transparent;
         }
@@ -5163,11 +5168,11 @@ body.mobile-menu-open {
       &.dots {
         background-color: transparent;
         &:hover {
-          color: $app-color--white;
+          color: var(--color-white);
         }
       }
       &:hover {
-        background-color: $app-color--active-hover;
+        background-color: var(--color-active-hover);
       }
     }
     a {}
@@ -5246,18 +5251,18 @@ body.mobile-menu-open {
 
 .custom-form {
   /*
-  border-top: 1px solid $app-color--border;
-  padding-top: $app-padding--large;
-  padding-bottom: $app-padding--large;
-  //background-color: $app-color--background;
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--padding-large);
+  padding-bottom: var(--padding-large);
+  //background-color: var(--color-background);
   @media (max-width: map_get($grid-breakpoints, md)) {
-    padding-top: $app-padding--medium;
-    padding-bottom: $app-padding--medium;
+    padding-top: var(--padding-medium);
+    padding-bottom: var(--padding-medium);
   }
 
   &--title {
-    font-size: $app-fontsize--h1;
-    margin-bottom: $app-padding--medium;
+    font-size: var(--fontsize-h1);
+    margin-bottom: var(--padding-medium);
   }
 
   &--fields {
@@ -5278,7 +5283,7 @@ body.mobile-menu-open {
         textarea {
           width: 100%;
           max-height: 250px;
-          min-height: $app-navigation-height;
+          min-height: var(--navigation-height);
           resize: vertical;
         }
       }
@@ -5460,8 +5465,10 @@ body.mobile-menu-open {
     box-shadow: 0 4px 20px rgba(0, 0, 0, .1);
 }
 
-.room-item--image img {
+.room-item--image img,
+.service-item--image img {
     width: 100%;
+    max-height: 240px;
 }
 
 .room-item--content,
@@ -5980,7 +5987,8 @@ body.mobile-menu-open {
 .service-detail--image-main img,
 .blog-detail--image-main img,
 .restaurant-detail--image-main img,
-.entertainment-detail--image-main img {
+.entertainment-detail--image-main img,
+.offer-detail--image-main img {
     width: 100%;
     -o-object-fit: cover;
     object-fit: cover;
@@ -6354,6 +6362,14 @@ body.index .index-content .index-about--add p {
 
 body.index .index-content .index-about--add p:last-child {
     margin-bottom: 0;
+}
+
+body.index .index-content .index-about--add ul {
+    text-align: left;
+}
+
+body.index .index-content .index-about--add ul li {
+    display: block;
 }
 
 body.index .index-content .index-about--resume {
@@ -10195,8 +10211,8 @@ body.compensate-for-scrollbar {
     }
 
     .mobile-menu--choose-room {
-        padding-left: 80px;
-        padding-right: 80px;
+        padding-left: 70px10px;
+        padding-right: 70px10px;
     }
 
     .mobile-menu--choose-room button {
@@ -10226,6 +10242,11 @@ body.compensate-for-scrollbar {
     .mobile-menu--footer--contacts-email,
   .mobile-menu--footer--contacts-address {
         margin-bottom: 15px;
+    }
+
+    .modal-content {
+        min-height: 0;
+        min-height: initial;
     }
 
     .room-block--wrapper {
@@ -10312,7 +10333,8 @@ body.compensate-for-scrollbar {
     .room-detail--backlink,
   .offer-detail--backlink,
   .offer-detail--phone {
-        margin: 60px auto;
+        margin-top: 50px;
+        margin-bottom: 50px;
     }
 
     .offer-block--wrapper {
@@ -11395,10 +11417,6 @@ body.compensate-for-scrollbar {
     .mobile-menu--footer--rooms,
   .footer--rooms {
         max-width: 730px;
-    }
-
-    .mobile-menu {
-        display: none;
     }
 
     .breadcrumb {
@@ -12644,13 +12662,12 @@ body.compensate-for-scrollbar {
         padding-left: 0;
     }
 
-    .modal.show .modal-dialog {
-        margin-top: 150px;
+    .mobile-menu {
+        display: none;
     }
 
-    .modal-content {
-        min-height: 0;
-        min-height: initial;
+    .modal.show .modal-dialog {
+        margin-top: 150px;
     }
 
     .error-404--wrapper {
@@ -12682,14 +12699,16 @@ body.compensate-for-scrollbar {
     .room-detail--backlink,
   .offer-detail--backlink,
   .offer-detail--phone {
-        margin: 100px auto;
+        margin-top: 70px;
+        margin-bottom: 70px;
     }
 
     .event-detail--image-main,
   .service-detail--image-main,
   .blog-detail--image-main,
   .restaurant-detail--image-main,
-  .entertainment-detail--image-main {
+  .entertainment-detail--image-main,
+  .offer-detail--image-main {
         max-height: 400px;
         display: -webkit-box;
         display: -ms-flexbox;
@@ -12699,6 +12718,10 @@ body.compensate-for-scrollbar {
     body.index .index-content .index-about {
         padding-top: 50px;
         padding-bottom: 50px;
+    }
+
+    body.index .index-content .index-about p {
+        font-size: 18px;
     }
 
     body.index .index-content .index-about--add--top {

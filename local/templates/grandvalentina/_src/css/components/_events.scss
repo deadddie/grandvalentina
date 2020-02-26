@@ -20,7 +20,7 @@
     &--name {
       @extend .room-item--name;
       h2 {
-        margin-bottom: $app-padding--medium;
+        margin-bottom: var(--padding-medium);
       }
     }
 
@@ -31,16 +31,16 @@
         line-height: 0.9;
         text-decoration: underline;
         @include head_font_i;
-        color: $app-color--primary;
+        color: var(--color-primary);
         &:hover {
-          color: $app-color--black;
+          color: var(--color-black);
         }
       }
     }
 
     &--seats {
-      margin-right: $app-padding--base;
-      font-size: $app-fontsize--small;
+      margin-right: var(--padding-base);
+      font-size: var(--fontsize-small);
     }
 
   }
@@ -51,26 +51,26 @@
 
     &--content {
       @extend .room-detail--content;
-      background-color: $app-color--white;
+      background-color: var(--color-white);
       box-shadow: none;
     }
 
     &--description {
       &--content {
         p {
-          font-size: $app-fontsize--small;
+          font-size: var(--fontsize-small);
           line-height: 1.6;
         }
       }
     }
 
     &--order {
-      padding-top: $app-padding--base;
-      padding-bottom: $app-padding--large;
+      padding-top: var(--padding-base);
+      padding-bottom: var(--padding-large);
       @include container-md;
       @media (min-width: map_get($grid-breakpoints, lg)) {
-        padding-top: $app-padding--large;
-        padding-bottom: $app-padding--largest;
+        padding-top: var(--padding-large);
+        padding-bottom: var(--padding-largest);
       }
       .form--fields {
         .form-field {
@@ -82,7 +82,7 @@
     }
 
     &--seats {
-      background-color: $app-color--secondary;
+      background-color: var(--color-secondary);
       display: flex;
       flex-wrap: wrap;
       justify-content: center;
@@ -92,19 +92,19 @@
       text-align: center;
       &--value {
         flex-basis: 100%;
-        font-size: $app-fontsize--h2;
+        font-size: var(--fontsize-h2);
         padding-left: 80px;
         padding-right: 80px;
         line-height: 0.9;
         span {
           font-size: 60px;
-          color: $app-color--primary;
+          color: var(--color-primary);
         }
       }
       .delimiter {
         flex-basis: 100%;
         .icon {
-          color: $app-color--primary;
+          color: var(--color-primary);
         }
       }
       &--description {

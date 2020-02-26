@@ -6,9 +6,9 @@
     left: 0;
     right: 0;
     width: 100%;
-    padding: $app-padding--base;
-    background-color: $app-color--secondary;
-    color: $app-color--black;
+    padding: var(--padding-base);
+    background-color: var(--color-secondary);
+    color: var(--color-black);
     @include shadow;
     display: block;
     z-index: -9999;
@@ -23,12 +23,12 @@
       bottom: 0;
     }
     &--title {
-      font-size: $app-fontsize--h3;
+      font-size: var(--fontsize-h3);
       text-transform: uppercase;
-      padding-right: $app-padding--largest;
+      padding-right: var(--padding-largest);
     }
     &--content {
-      font-size: $app-fontsize--smaller;
+      font-size: var(--fontsize-smaller);
       display: flex;
       justify-content: space-between;
       align-items: flex-end;
@@ -38,8 +38,8 @@
     }
     &--close {
       position: absolute;
-      right: $app-padding--base;
-      top: $app-padding--base;
+      right: var(--padding-base);
+      top: var(--padding-base);
       user-select: none;
       cursor: pointer;
       .icon {
@@ -47,8 +47,8 @@
       }
     }
     &--apply {
-      margin-left: $app-padding--largest;
-      font-size: $app-fontsize--smaller;
+      margin-left: var(--padding-largest);
+      font-size: var(--fontsize-smaller);
     }
   }
 }

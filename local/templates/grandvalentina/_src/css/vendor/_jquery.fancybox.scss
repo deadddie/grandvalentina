@@ -171,8 +171,8 @@ body.compensate-for-scrollbar {
 }
 
 .fancybox-content {
-  background: #fff;
-  background-color: $app-color--white;
+  background: var(--color-white);
+  background-color: var(--color-white);
   display: inline-block;
   margin: 0;
   max-width: 100%;
@@ -187,7 +187,7 @@ body.compensate-for-scrollbar {
 .fancybox-slide--image .fancybox-content {
   animation-timing-function: cubic-bezier(0.5, 0, 0.14, 1);
   -webkit-backface-visibility: hidden;
-  background: $app-color--white; //transparent;
+  background: var(--color-white); //transparent;
   background-repeat: no-repeat;
   background-size: 100% 100%;
   left: 0;
@@ -454,7 +454,7 @@ body.compensate-for-scrollbar {
 /* Caption */
 .fancybox-caption {
   bottom: 0;
-  color: $app-color--white;
+  color: var(--color-white);
   font-size: 14px;
   font-weight: 400;
   left: 0;

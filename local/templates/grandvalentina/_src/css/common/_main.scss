@@ -2,21 +2,21 @@
 
 .main {
   &-index {
-    padding-top: $app-padding--large;
-    padding-bottom: $app-padding--large - $app-padding--base;
+    padding-top: var(--padding-large);
+    padding-bottom: var(--padding-large) - var(--padding-base);
     @media (max-width: map_get($grid-breakpoints, lg)) {
-      padding-top: $app-padding--medium;
-      padding-bottom: $app-padding--medium;
+      padding-top: var(--padding-medium);
+      padding-bottom: var(--padding-medium);
     }
   }
   &--title {
-    font-size: $app-fontsize--h1;
-    margin-bottom: $app-padding--medium;
+    font-size: var(--fontsize-h1);
+    margin-bottom: var(--padding-medium);
   }
   &--content {
     h2 {
-      margin-top: $app-padding--medium;
-      margin-bottom: $app-padding--base;
+      margin-top: var(--padding-medium);
+      margin-bottom: var(--padding-base);
     }
   }
 }

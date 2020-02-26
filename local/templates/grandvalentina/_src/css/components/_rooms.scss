@@ -5,7 +5,7 @@
   // Block
 
   &-block {
-    background-color: $app-color--secondary;
+    background-color: var(--color-secondary);
     &--wrapper {
       @include container-sm;
       @include container-lg;
@@ -20,27 +20,27 @@
   &-title {
     width: 100%;
     text-align: center;
-    padding-top: $app-padding--largest;
-    padding-bottom: $app-padding--medium;
+    padding-top: var(--padding-largest);
+    padding-bottom: var(--padding-medium);
     h2 {
-      font-size: $app-fontsize--h1;
+      font-size: var(--fontsize-h1);
     }
     .delimiter {
-      color: $app-color--primary;
+      color: var(--color-primary);
     }
   }
   &-all {
     width: 100%;
-    padding-top: $app-padding--large;
-    padding-bottom: $app-padding--largest;
+    padding-top: var(--padding-large);
+    padding-bottom: var(--padding-largest);
     text-align: center;
     a {
-      color: $app-color--black;
+      color: var(--color-black);
       text-transform: uppercase;
       @include head_font;
       letter-spacing: 2px;
       &:hover {
-        color: $app-color--active-hover;
+        color: var(--color-active-hover);
       }
     }
   }
@@ -52,7 +52,7 @@
     .slider--navigation.room-slider--navigation {
       .owl-prev,
       .owl-next {
-        background-color: $app-color--white;
+        background-color: var(--color-white);
         &.disabled {
           background-color: transparent;
         }
@@ -60,9 +60,9 @@
     }
     .slider--dots.room-slider--dots {
       .owl-dot {
-        background-color: $app-color--white;
+        background-color: var(--color-white);
         &.active {
-          background-color: $app-color--primary;
+          background-color: var(--color-primary);
         }
       }
     }
@@ -77,12 +77,12 @@
     @include container-xl;
     @media (min-width: map_get($grid-breakpoints, sm)) {
       @include justify;
-      margin-bottom: $app-padding--large;
+      margin-bottom: var(--padding-large);
     }
   }
 
   &-item {
-    padding-bottom: $app-padding--medium;
+    padding-bottom: var(--padding-medium);
     position: relative;
     @include shadow;
 
@@ -100,12 +100,13 @@
     &--image {
       img {
         width: 100%;
+        max-height: 240px;
       }
     }
 
     &--content {
-      padding: $app-padding--medium $app-padding--medium $app-padding--large;
-      background-color: $app-color--white;
+      padding: var(--padding-medium) var(--padding-medium) var(--padding-large);
+      background-color: var(--color-white);
     }
 
     &--name {
@@ -113,10 +114,10 @@
         min-height: 60px;
       }
       h2 {
-        margin-bottom: $app-padding--base;
+        margin-bottom: var(--padding-base);
         a {
           text-decoration: none;
-          color: $app-color--black;
+          color: var(--color-black);
           &:hover {
             text-decoration: underline;
           }
@@ -125,27 +126,27 @@
     }
 
     &--description {
-      font-size: $app-fontsize--smaller;
+      font-size: var(--fontsize-smaller);
       line-height: 1.5;
     }
 
     &--info {
       display: flex;
       justify-content: space-between;
-      margin-top: $app-padding--medium;
+      margin-top: var(--padding-medium);
       &--customers {
         .icon {
-          color: $app-color--primary;
+          color: var(--color-primary);
           width: 12px;
           margin-right: 5px;
         }
       }
       &--room {
         @include head_font_i;
-        font-size: $app-fontsize--small;
-        color: $app-color--primary;
+        font-size: var(--fontsize-small);
+        color: var(--color-primary);
         .icon {
-          color: $app-color--primary;
+          color: var(--color-primary);
           width: 16px;
           margin-right: 5px;
         }
@@ -155,13 +156,13 @@
     &--actions {
       display: flex;
       justify-content: space-between;
-      margin-top: $app-padding--medium;
+      margin-top: var(--padding-medium);
       a.btn-white {
-        font-size: $app-fontsize--smaller;
+        font-size: var(--fontsize-smaller);
       }
       a.btn-link {
-        padding-left: $app-padding--large;
-        padding-right: $app-padding--large;
+        padding-left: var(--padding-large);
+        padding-right: var(--padding-large);
       }
     }
 
@@ -177,10 +178,10 @@
         width: 30px;
         height: 70px;
         span {
-          color: $app-color--white;
+          color: var(--color-white);
           @include text_font_b;
           display: block;
-          top: $app-padding--medium;
+          top: var(--padding-medium);
           position: relative;
           transform: rotate(-90deg);
         }
@@ -199,8 +200,8 @@
     &--content {
       @extend .room-item--content;
       @media (min-width: map_get($grid-breakpoints, lg)) {
-        padding-top: $app-padding--largest;
-        padding-bottom: $app-padding--largest;
+        padding-top: var(--padding-largest);
+        padding-bottom: var(--padding-largest);
       }
       box-shadow: none;
       @include container-lg;
@@ -216,7 +217,7 @@
     }
 
     &--promo {
-      padding: $app-padding--medium;
+      padding: var(--padding-medium);
       @include head_font;
     }
 
@@ -240,9 +241,9 @@
         }
       }
       &--nav {
-        padding-top: $app-padding--medium;
+        padding-top: var(--padding-medium);
         padding-bottom: 0;
-        background-color: $app-color--white;
+        background-color: var(--color-white);
         position: relative;
         @include container-sm;
         @include container-xl;
@@ -265,12 +266,12 @@
     }
 
     &--price {
-      margin-bottom: $app-padding--small;
-      color: $app-color--black;
-      font-size: $app-fontsize--h2;
+      margin-bottom: var(--padding-small);
+      color: var(--color-black);
+      font-size: var(--fontsize-h2);
       @include head_font_bi;
       .icon.icon-rouble {
-        font-size: $app-fontsize--medium;
+        font-size: var(--fontsize-medium);
         margin-top: -3px;
       }
 
@@ -289,8 +290,8 @@
           display: flex;
           align-items: center;
           justify-content: space-between;
-          margin-top: $app-padding--base;
-          margin-bottom: $app-padding--medium;
+          margin-top: var(--padding-base);
+          margin-bottom: var(--padding-medium);
         }
       }
 
@@ -352,22 +353,22 @@
     &--description,
     &--room-services,
     &--accomodations {
-      padding-top: $app-padding--medium;
+      padding-top: var(--padding-medium);
       &--title {
-        background-color: $app-color--primary;
-        padding: $app-padding--base $app-padding--medium;
-        color: $app-color--white;
+        background-color: var(--color-primary);
+        padding: var(--padding-base) var(--padding-medium);
+        color: var(--color-white);
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-size: $app-fontsize--h3;
+        font-size: var(--fontsize-h3);
         @include head_font;
         .icon.icon-shevron {
           width: 12px;
         }
       }
       &--content {
-        margin-top: $app-padding--medium;
+        margin-top: var(--padding-medium);
       }
     }
 
@@ -375,8 +376,8 @@
       display: flex;
       justify-content: center;
       flex-wrap: wrap;
-      margin-top: $app-padding--base;
-      margin-bottom: $app-padding--base;
+      margin-top: var(--padding-base);
+      margin-bottom: var(--padding-base);
 
       @media (min-width: map_get($grid-breakpoints, sm)) {
         padding: 30px 0 10px;
@@ -392,35 +393,34 @@
 
       button {
         flex-basis: 100%;
-        font-size: $app-fontsize--h2;
+        font-size: var(--fontsize-h2);
       }
       .delimiter {
         text-align: center;
         .icon {
-          color: $app-color--primary;
+          color: var(--color-primary);
         }
       }
     }
 
     &--backlink {
-      margin: $app-padding--medium 0;
+      margin: var(--padding-medium) 0;
       text-align: center;
-
       @media (min-width: map_get($grid-breakpoints, md)) {
-        margin: 60px auto;
+        margin-top: var(--padding-largest);
+        margin-bottom: var(--padding-largest);
       }
-
       @media (min-width: map_get($grid-breakpoints, xl)) {
-        margin: 100px auto;
+        margin-top: var(--padding-extra);
+        margin-bottom: var(--padding-extra);
       }
-
       a {
         @include head_font_i;
-        font-size: $app-fontsize--large;
-        color: $app-color--primary;
+        font-size: var(--fontsize-large);
+        color: var(--color-primary);
         text-decoration: underline;
         &:hover {
-          color: $app-color--black;
+          color: var(--color-black);
         }
       }
     }

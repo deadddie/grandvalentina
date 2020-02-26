@@ -20,7 +20,7 @@
     &--name {
       @extend .room-item--name;
       h2 {
-        margin-bottom: $app-padding--medium;
+        margin-bottom: var(--padding-medium);
       }
     }
 
@@ -29,9 +29,9 @@
       justify-content: flex-end;
       a {
         @include head_font_i;
-        color: $app-color--primary;
+        color: var(--color-primary);
         &:hover {
-          color: $app-color--black;
+          color: var(--color-black);
         }
       }
     }
@@ -48,14 +48,14 @@
 
     &--content {
       @extend .room-detail--content;
-      background-color: $app-color--white;
+      background-color: var(--color-white);
       box-shadow: none;
     }
 
     &--description {
       &--content {
         p {
-          font-size: $app-fontsize--small;
+          font-size: var(--fontsize-small);
           line-height: 1.6;
         }
       }

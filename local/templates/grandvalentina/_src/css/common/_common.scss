@@ -1,8 +1,8 @@
 // Scroll to top
 
 #scroll-to-top {
-  background-color: $app-color--primary;
-  color: $app-color--black;
+  background-color: var(--color-primary);
+  color: var(--color-black);
   width: 32px;
   height: 32px;
   display: block;
@@ -19,14 +19,14 @@
     visibility: visible;
   }
   &:hover {
-    background-color: $app-color--active-hover;
+    background-color: var(--color-active-hover);
     opacity: 1;
     a {
-      color: $app-color--white;
+      color: var(--color-white);
     }
   }
   a {
-    color: $app-color--black;
+    color: var(--color-black);
     text-decoration: none;
     display: flex;
     justify-content: center;
@@ -44,7 +44,7 @@
 .breadcrumb {
   background: transparent;
   margin-bottom: 0;
-  font-size: $app-fontsize--smaller;
+  font-size: var(--fontsize-smaller);
   display: flex;
   flex-wrap: nowrap;
   overflow: hidden;
@@ -60,16 +60,16 @@
     width: 40px;
     background: linear-gradient(
       to left,
-      $app-color--white 50%,
+      var(--color-white) 50%,
       transparent 100%
     );
   }
   &-item {
     display: flex;
     white-space: nowrap;
-    color: $app-color--primary;
+    color: var(--color-primary);
     &:before {
-      color: $app-color--primary !important;
+      color: var(--color-primary) !important;
       background-image: none;
       width: initial;
       min-width: initial;
@@ -77,10 +77,10 @@
       margin: 0;
     }
     a {
-      color: $app-color--primary;
+      color: var(--color-primary);
       text-decoration: none;
       &:hover {
-        color: $app-color--black;
+        color: var(--color-black);
       }
     }
   }
@@ -120,9 +120,9 @@
   justify-content: center;
   align-items: center;
   &.show {
-    background-color: rgba($app-color--border-dark, 0.5);
+    background-color: rgba(var(--color-border-dark), 0.5);
     .modal-dialog {
-      margin: $app-navigation-height auto 0;
+      margin: var(--navigation-height) auto 0;
       opacity: 1;
       width: 100%;
       @media (min-width: map-get($grid-breakpoints, sm)) {
@@ -161,7 +161,7 @@
     z-index: 1;
     padding: 0;
     cursor: pointer;
-    color: $app-color--primary;
+    color: var(--color-primary);
     background-color: transparent;
   }
 
@@ -170,10 +170,10 @@
     border-radius: 0;
     border: 0;
     @include shadow;
-    background-color: $app-color--white;
-    padding: $app-padding--large $app-padding--medium;
+    background-color: var(--color-white);
+    padding: var(--padding-large) var(--padding-medium);
     min-height: calc(100vh - 50px);
-    @media (min-width: map_get($grid-breakpoints, xl)) {
+    @media (min-width: map_get($grid-breakpoints, md)) {
       min-height: initial;
     }
     .form {
@@ -181,8 +181,8 @@
       }
 
       &--title {
-        margin-top: $app-padding--base;
-        margin-bottom: $app-padding--base;
+        margin-top: var(--padding-base);
+        margin-bottom: var(--padding-base);
       }
       &--description {
       }
@@ -192,17 +192,17 @@
         flex-wrap: wrap;
         .form-field {
           flex-basis: 100%;
-          margin: 0 0 $app-padding--small;
+          margin: 0 0 var(--padding-small);
           input,
           textarea {
-            border-color: $app-color--secondary;
-            background-color: $app-color--secondary;
+            border-color: var(--color-secondary);
+            background-color: var(--color-secondary);
           }
         }
       }
       &--privacy {
         a {
-          color: $app-color--black;
+          color: var(--color-black);
         }
       }
       &--actions {
@@ -229,8 +229,8 @@
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
-  color: $app-color--white;
-  background-color: $app-color--black;
+  color: var(--color-white);
+  background-color: var(--color-black);
   &--wrapper {
     text-align: center;
     padding-top: 100px;
@@ -243,7 +243,7 @@
 
     h1 {
       font-size: 100px;
-      color: $app-color--white;
+      color: var(--color-white);
       line-height: 1;
       margin-bottom: 0;
 
@@ -252,9 +252,9 @@
       }
     }
     p {
-      color: $app-color--white;
+      color: var(--color-white);
       @include head_font_i;
-      font-size: $app-fontsize--large;
+      font-size: var(--fontsize-large);
 
       @media (min-width: map_get($grid-breakpoints, sm)) {
         font-size: 30px;
@@ -291,9 +291,9 @@
     text-align: center;
     flex-basis: 100%;
     @include head_font;
-    font-size: $app-fontsize--smaller;
+    font-size: var(--fontsize-smaller);
     @media (min-width: map_get($grid-breakpoints, xl)) {
-      font-size: $app-fontsize--medium;
+      font-size: var(--fontsize-medium);
     }
   }
 }
@@ -311,8 +311,8 @@
   right: 0;
   top: 0;
   bottom: 0;
-  background-color: $app-color--active;
-  color: $app-color--white;
+  background-color: var(--color-active);
+  color: var(--color-white);
   z-index: 99999;
   overflow: hidden;
   &.active {
@@ -325,7 +325,7 @@
 }
 
 .delimiter {
-  margin: $app-padding--small 0;
+  margin: var(--padding-small) 0;
   .icon {
     width: 74px;
   }
@@ -347,8 +347,8 @@
   justify-content: space-between;
   align-items: center;
   @media (min-width: map_get($grid-breakpoints, sm)) {
-    padding-left: $app-padding--base;
-    padding-right: $app-padding--base;
+    padding-left: var(--padding-base);
+    padding-right: var(--padding-base);
   }
   .owl-prev,
   .owl-next {
@@ -356,7 +356,7 @@
     background-repeat: no-repeat;
     background-size: 10px;
     background-position: center;
-    background-color: $app-color--secondary;
+    background-color: var(--color-secondary);
     width: 48px;
     height: 48px;
     border-radius: 50%;
@@ -368,8 +368,8 @@
       background-color: transparent;
     }
     &:hover {
-      background-color: $app-color--primary;
-      color: $app-color--white;
+      background-color: var(--color-primary);
+      color: var(--color-white);
       background-image: url("images/arrow-white.svg");
     }
   }
@@ -382,15 +382,15 @@
 
 .slider--counter {
   @include head_font;
-  font-size: $app-fontsize--large;
-  color: $app-color--primary;
+  font-size: var(--fontsize-large);
+  color: var(--color-primary);
   span.current,
   span.total {
     margin-right: 10px;
     margin-left: 10px;
   }
   span.current {
-    color: $app-color--active;
+    color: var(--color-active);
   }
   span.total {
   }
@@ -409,17 +409,17 @@
     display: inline-flex;
     width: 5px;
     height: 5px;
-    background-color: $app-color--secondary;
+    background-color: var(--color-secondary);
     border-radius: 50%;
     margin-right: 3px;
     margin-left: 3px;
     padding: 0;
     border: 0;
     &.active {
-      background-color: $app-color--primary;
+      background-color: var(--color-primary);
     }
     &:hover {
-      background-color: $app-color--active;
+      background-color: var(--color-active);
     }
   }
 }
@@ -458,8 +458,8 @@
     position: absolute;
     top: 100%;
     width: 130px;
-    padding: $app-padding--base $app-padding--medium;
-    background-color: $app-color--white;
+    padding: var(--padding-base) var(--padding-medium);
+    background-color: var(--color-white);
     @include shadow-lg;
     @media (min-width: map_get($grid-breakpoints, xl)) {
       top: 80%;
@@ -477,7 +477,7 @@
       top: -12px;
       left: 15px;
       border: 6px solid transparent;
-      border-bottom: 6px solid $app-color--white;
+      border-bottom: 6px solid var(--color-white);
     }
   }
   &-list {

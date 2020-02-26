@@ -20,9 +20,9 @@ if ($restaurant):
 
     <div class="restaurant-detail">
 
-        <?php if (!empty($arFields['PREVIEW_PICTURE'])): ?>
+        <?php if (!empty($arFields['DETAIL_PICTURE'])): ?>
             <div class="restaurant-detail--image-main">
-                <?= Restaurants::getImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
+                <?= Restaurants::getDetailImage($arFields['DETAIL_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
             </div>
         <?php endif; ?>
 
@@ -50,16 +50,18 @@ if ($restaurant):
         <?php endif; ?>
 
         <div class="restaurant-detail--content">
-            <?php if (!empty($arProperties['MENU'])): ?>
+            <?php if (!empty($arProperties['MENU_ABOUT']['VALUE'])): ?>
                 <div class="restaurant-detail--menu">
                     <h3 class="restaurant-detail--menu--title">Меню ресторана</h3>
                     <div class="restaurant-detail--menu--delimiter delimiter"><?= renderIcon('delimiter') ?></div>
                     <div class="restaurant-detail--menu--about">
                         <?= $arProperties['MENU_ABOUT']['VALUE'] ?>
                     </div>
-                    <div class="restaurant-detail--menu--download">
-                        <?= Restaurants::getMenuLink($arProperties['MENU']['VALUE'], 'Меню ' . $arFields['NAME']) ?>
-                    </div>
+                    <?php if (!empty($arProperties['MENU']['VALUE'])): ?>
+                        <div class="restaurant-detail--menu--download">
+                            <?= Restaurants::getMenuLink($arProperties['MENU']['VALUE'], 'Меню ' . $arFields['NAME']) ?>
+                        </div>
+                    <?php endif; ?>
                 </div>
             <?php endif; ?>
 
@@ -74,12 +76,14 @@ if ($restaurant):
 
         </div>
 
-        <div class="restaurant-detail--order">
-            <?= view('forms.order', [
-                'APPLICATION' => $APPLICATION,
-                'id' => 'restaurant-order'
-            ], false) ?>
-        </div>
+        <?php if ($arProperties['FORM']['VALUE'] === 'Y'): ?>
+            <div class="restaurant-detail--order">
+                <?= view('forms.order', [
+                    'APPLICATION' => $APPLICATION,
+                    'id' => 'restaurant-order'
+                ], false) ?>
+            </div>
+        <?php endif; ?>
 
     </div>
 

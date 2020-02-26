@@ -25,7 +25,7 @@ use LapkinLab\{Core, Helper, Content\Blog};
             <div id="blog-item-<?= $arFields['ID'] ?>" class="blog-item" data-id="<?= $arFields['ID'] ?>">
                 <div class="blog-item--image">
                     <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>">
-                        <?= Blog::getImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
+                        <?= Blog::getPreviewImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
                     </a>
                 </div>
                 <div class="blog-item--content">

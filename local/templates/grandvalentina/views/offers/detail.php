@@ -20,9 +20,11 @@ if ($offer):
 
     <div class="offer-detail">
 
+        <?php /*
         <div class="offer-detail--content">
             <button type="button" class="btn btn-wide js-open-modal" data-action="openModal" data-modal="callback">Уточнить информацию</button>
         </div>
+        */ ?>
 
         <?php if (!empty($arProperties['MORE_PHOTOS']['VALUE'])): ?>
             <div class="offer-detail--images">
@@ -33,9 +35,9 @@ if ($offer):
                     </div>
                 <?php endif; ?>
             </div>
-        <?php elseif (!empty($arFields['PREVIEW_PICTURE'])): ?>
+        <?php elseif (!empty($arFields['DETAIL_PICTURE'])): ?>
             <div class="offer-detail--image-main">
-                <?= Offers::getImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
+                <?= Offers::getDetailImage($arFields['DETAIL_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
             </div>
         <?php endif; ?>
 

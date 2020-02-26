@@ -107,7 +107,7 @@ if ($room):
             </div>
 
             <div class="room-detail--image-main">
-                <?= Rooms::getImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
+                <?= Rooms::getPreviewImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
             </div>
         </div>
 

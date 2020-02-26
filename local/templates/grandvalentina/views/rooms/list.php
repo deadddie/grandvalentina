@@ -34,7 +34,7 @@ use LapkinLab\{Helper, Content\Rooms};
             <div id="room-item-<?= $arFields['ID'] ?>" class="room-item" data-id="<?= $arFields['ID'] ?>">
                 <div class="room-item--image">
                     <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>">
-                        <?= Rooms::getImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
+                        <?= Rooms::getPreviewImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
                     </a>
                 </div>
                 <div class="room-item--content">

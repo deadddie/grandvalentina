@@ -7,44 +7,44 @@ h2,
 h3,
 h4,
 h5 {
-  color: $app-color--black;
+  color: var(--color-black);
   @include head_font;
   line-height: 1;
 }
 
 h1 {
-  font-size: $app-fontsize--h1;
+  font-size: var(--fontsize-h1);
 }
 
 h2 {
-  font-size: $app-fontsize--h2;
+  font-size: var(--fontsize-h2);
 }
 
 h3 {
-  font-size: $app-fontsize--h3;
+  font-size: var(--fontsize-h3);
 }
 
 h4 {
 }
 
 .big {
-  font-size: $app-fontsize--big;
+  font-size: var(--fontsize-big);
 }
 .h1 {
-  font-size: $app-fontsize--h1;
+  font-size: var(--fontsize-h1);
 }
 .h2 {
-  font-size: $app-fontsize--h2;
+  font-size: var(--fontsize-h2);
 }
 .h3 {
-  font-size: $app-fontsize--h3;
+  font-size: var(--fontsize-h3);
 }
 .h4 {
-  font-size: $app-fontsize--h4;
+  font-size: var(--fontsize-h4);
 }
 
 .page-title {
-  margin-bottom: $app-padding--large;
+  margin-bottom: var(--padding-large);
 }
 
 strong,
@@ -57,14 +57,14 @@ b {
 a,
 a:link,
 a:visited {
-  color: $app-color--active;
+  color: var(--color-active);
   text-decoration: underline;
 }
 
 a {
   &:hover {
     text-decoration: underline;
-    color: $app-color--black;
+    color: var(--color-black);
   }
   &:active {
     text-decoration: none;
@@ -102,8 +102,8 @@ ul {
 
 .page-title {
   text-align: center;
-  padding-left: $app-padding--medium;
-  padding-right: $app-padding--medium;
+  padding-left: var(--padding-medium);
+  padding-right: var(--padding-medium);
 
   @media (min-width: map_get($grid-breakpoints, sm)) {
     margin-bottom: 40px;

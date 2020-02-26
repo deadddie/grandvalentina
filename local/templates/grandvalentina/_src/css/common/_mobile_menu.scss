@@ -10,7 +10,7 @@
   max-width: 100%;
   height: 100vh;
   min-height: 100%;
-  background-color: $app-color--white;
+  background-color: var(--color-white);
   @include shadow;
   z-index: 1000;
   display: flex;
@@ -20,7 +20,7 @@
   &.active {
     right: 0;
   }
-  @media (min-width: map_get($grid-breakpoints, lg)) {
+  @media (min-width: map_get($grid-breakpoints, xl)) {
     display: none;
   }
 
@@ -42,8 +42,8 @@
   }
 
   &--callback {
-    padding-top: $app-padding--large;
-    padding-bottom: $app-padding--large;
+    padding-top: var(--padding-large);
+    padding-bottom: var(--padding-large);
     display: flex;
     width: 100%;
     justify-content: center;
@@ -54,16 +54,16 @@
       text-align: center;
     }
     button {
-      padding-left: $app-padding--large;
-      padding-right: $app-padding--large;
+      padding-left: var(--padding-large);
+      padding-right: var(--padding-large);
     }
   }
 
   &--menu {
     @media (min-width: map_get($grid-breakpoints, md)) {
-      margin-top: $app-padding--extra;
-      padding-left: $app-padding--largest;
-      padding-right: $app-padding--largest;
+      margin-top: var(--padding-extra);
+      padding-left: var(--padding-largest);
+      padding-right: var(--padding-largest);
     }
     &--wrapper {
 
@@ -96,8 +96,8 @@
             a {
               flex-basis: calc(100% - 20px);
               @include head_font;
-              font-size: $app-fontsize--h3;
-              color: $app-color--black;
+              font-size: var(--fontsize-h3);
+              color: var(--color-black);
               text-decoration: none;
               display: block;
               width: 100%;
@@ -106,11 +106,11 @@
                 padding: 8px 0;
               }
               &:hover {
-                color: $app-color--primary;
+                color: var(--color-primary);
                 text-decoration: underline;
               }
               &.active {
-                color: $app-color--primary;
+                color: var(--color-primary);
               }
             }
 
@@ -121,9 +121,9 @@
               > li {
                 padding-left: 30px;
                 a {
-                  font-size: $app-fontsize--large;
+                  font-size: var(--fontsize-large);
                   &:hover {
-                    color: $app-color--active-hover;
+                    color: var(--color-active-hover);
                   }
                 }
               }
@@ -138,7 +138,7 @@
   }
 
   &--phone {
-    padding-top: $app-padding--medium;
+    padding-top: var(--padding-medium);
     width: 100%;
     @media (min-width: map_get($grid-breakpoints, md)) {
       display: none;
@@ -155,24 +155,24 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background-color: $app-color--active;
+      background-color: var(--color-active);
       border-radius: 50%;
       &:hover {
-        background-color: $app-color--active-hover;
+        background-color: var(--color-active-hover);
       }
       .icon {
-        color: $app-color--white;
+        color: var(--color-white);
       }
     }
   }
 
   &--choose-room {
     @media (min-width: map_get($grid-breakpoints, md)) {
-      padding-left: $app-padding--extra + 10px;
-      padding-right: $app-padding--extra + 10px;
+      padding-left: var(--padding-extra) + 10px;
+      padding-right: var(--padding-extra) + 10px;
     }
     button {
-      font-size: $app-fontsize--medium;
+      font-size: var(--fontsize-medium);
       @media (min-width: map_get($grid-breakpoints, md)) {
         max-width: 320px;
       }
@@ -188,41 +188,41 @@
   }
 
   &--footer {
-    padding-top: $app-padding--small;
+    padding-top: var(--padding-small);
     padding-bottom: 0;
-    background-color: $app-color--white;
+    background-color: var(--color-white);
     @media (min-width: map_get($grid-breakpoints, md)) {
-      padding-left: $app-padding--extra;
-      padding-right: $app-padding--extra;
-      margin-bottom: $app-padding--largest;
+      padding-left: var(--padding-extra);
+      padding-right: var(--padding-extra);
+      margin-bottom: var(--padding-largest);
     }
-    color: $app-color--black;
+    color: var(--color-black);
     .icon {
-      color: $app-color--black;
+      color: var(--color-black);
     }
     a {
-      color: $app-color--black;
+      color: var(--color-black);
       &:hover {
-        color: $app-color--active;
+        color: var(--color-active);
       }
     }
     &--contacts {
-      color: $app-color--black;
+      color: var(--color-black);
       border-top: 0;
       @media (min-width: map_get($grid-breakpoints, md)) {
         text-align: left;
       }
       &-phone {
         @media (min-width: map_get($grid-breakpoints, md)) {
-          margin-bottom: $app-padding--base;
+          margin-bottom: var(--padding-base);
         }
         a {
-          border-bottom-color: $app-color--black;
+          border-bottom-color: var(--color-black);
           &:before {
             filter: brightness(0) grayscale(1);
           }
           &:hover {
-            border-bottom-color: $app-color--active;
+            border-bottom-color: var(--color-active);
           }
         }
       }
@@ -230,13 +230,13 @@
       &-address {
         @include text_font_b;
         @media (min-width: map_get($grid-breakpoints, md)) {
-          margin-bottom: $app-padding--base;
+          margin-bottom: var(--padding-base);
         }
       }
     }
     &--socials {
-      margin-top: $app-padding--base ;
-      margin-bottom: $app-padding--base;
+      margin-top: var(--padding-base) ;
+      margin-bottom: var(--padding-base);
       padding-bottom: 0;
       a {
         display: inline-flex;
@@ -247,14 +247,14 @@
         background-color: transparent;
         border-radius: 50%;
         &:hover {
-          background-color: $app-color--primary;
+          background-color: var(--color-primary);
           .icon {
-            color: $app-color--white;
+            color: var(--color-white);
           }
         }
       }
       .icon {
-        color: $app-color--black;
+        color: var(--color-black);
         width: 20px;
         max-height: 20px;
       }

@@ -5,7 +5,7 @@
   // Block
 
   &-block {
-    background-color: $app-color--white;
+    background-color: var(--color-white);
     &--wrapper {
       @include container-md;
       @include container-lg;
@@ -45,7 +45,7 @@
     &--name {
       @extend .room-item--name;
       h2 {
-        margin-bottom: $app-padding--medium;
+        margin-bottom: var(--padding-medium);
       }
     }
 
@@ -53,7 +53,7 @@
       display: flex;
       justify-content: flex-end;
       a {
-        font-size: $app-fontsize--small;
+        font-size: var(--fontsize-small);
       }
     }
 
@@ -65,22 +65,22 @@
 
     &--content {
       @extend .room-detail--content;
-      background-color: $app-color--white;
+      background-color: var(--color-white);
       box-shadow: none;
     }
 
     &--description {
       &--content {
         p {
-          font-size: $app-fontsize--small;
+          font-size: var(--fontsize-small);
           line-height: 1.6;
         }
       }
     }
 
     &--order {
-      padding-top: $app-padding--base;
-      padding-bottom: $app-padding--large;
+      padding-top: var(--padding-base);
+      padding-bottom: var(--padding-large);
     }
 
     &--images {
@@ -90,20 +90,24 @@
       }
     }
 
+    &--image-main {
+      @extend .event-detail--image-main;
+    }
+
     &--backlink {
       @extend .room-detail--backlink;
     }
     &--phone {
       @extend .room-detail--backlink;
       @include head_font;
-      font-size: $app-fontsize--large;
-      color: $app-color--active;
-      margin-bottom: $app-padding--large;
+      font-size: var(--fontsize-large);
+      color: var(--color-active);
+      margin-bottom: var(--padding-large);
       a {
         @include head_font;
-        color: $app-color--active;
+        color: var(--color-active);
         &:hover {
-          color: $app-color--active-hover;
+          color: var(--color-active-hover);
         }
       }
     }

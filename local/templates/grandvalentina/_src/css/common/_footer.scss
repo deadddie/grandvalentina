@@ -2,17 +2,17 @@
 
 .mobile-menu--footer,
 .footer {
-  background-color: $app-color--black;
-  color: $app-color--white;
+  background-color: var(--color-black);
+  color: var(--color-white);
   text-align: center;
   width: 100%;
 
   a {
-    color: $app-color--primary;
+    color: var(--color-primary);
     text-decoration: none;
     &:hover {
       text-decoration: underline;
-      color: $app-color--secondary;
+      color: var(--color-secondary);
     }
   }
 
@@ -27,8 +27,8 @@
   }
 
   &--logo {
-    padding-top: $app-padding--medium;
-    padding-bottom: $app-padding--medium;
+    padding-top: var(--padding-medium);
+    padding-bottom: var(--padding-medium);
     @media (min-width: map_get($grid-breakpoints, xl)) {
       flex-basis: 207px;
       padding: 0;
@@ -37,14 +37,14 @@
 
   &--menu,
   &--rooms {
-    padding-top: $app-padding--medium;
-    padding-bottom: $app-padding--medium;
+    padding-top: var(--padding-medium);
+    padding-bottom: var(--padding-medium);
 
     @media (min-width: map_get($grid-breakpoints, sm)) {
       max-width: 440px;
       margin-left: auto;
       margin-right: auto;
-      padding-bottom: $app-padding--large;
+      padding-bottom: var(--padding-large);
     }
 
     @media (min-width: map_get($grid-breakpoints, lg)) {
@@ -58,10 +58,10 @@
     &--title {
       opacity: 0.5;
       text-transform: uppercase;
-      font-size: $app-fontsize--smaller;
+      font-size: var(--fontsize-smaller);
 
       @media (min-width: map_get($grid-breakpoints, sm)) {
-        font-size: $app-fontsize--medium;
+        font-size: var(--fontsize-medium);
       }
 
       @media (min-width: map_get($grid-breakpoints, xl)) {
@@ -70,7 +70,7 @@
     }
     &--items {
       ul {
-        margin: $app-padding--medium 0 0;
+        margin: var(--padding-medium) 0 0;
         padding: 0;
         list-style: none;
         text-align: center;
@@ -114,11 +114,11 @@
             @include head_font;
 
             @media (min-width: map_get($grid-breakpoints, sm)) {
-              font-size: $app-fontsize--large;
+              font-size: var(--fontsize-large);
             }
 
             &.active {
-              color: $app-color--secondary;
+              color: var(--color-secondary);
               text-decoration: underline;
             }
 
@@ -132,7 +132,7 @@
               li {
                 a {
                   @include text_font;
-                  font-size: $app-fontsize--smaller;
+                  font-size: var(--fontsize-smaller);
                 }
               }
             }
@@ -149,7 +149,7 @@
   }
 
   &--menu {
-    border-top: 1px solid $app-color--border-dark;
+    border-top: 1px solid var(--color-border-dark);
 
     @media (min-width: map_get($grid-breakpoints, sm)) {
       border-top: none;
@@ -157,12 +157,12 @@
   }
 
   &--contacts {
-    padding-top: $app-padding--medium;
-    color: $app-color--primary;
-    border-top: 1px solid $app-color--border-dark;
+    padding-top: var(--padding-medium);
+    color: var(--color-primary);
+    border-top: 1px solid var(--color-border-dark);
 
     @media (min-width: map_get($grid-breakpoints, md)) {
-      padding: $app-padding--medium 0;
+      padding: var(--padding-medium) 0;
     }
 
     @media (min-width: map_get($grid-breakpoints, xl)) {
@@ -188,11 +188,11 @@
 
     &-phone {
       margin-bottom: 10px;
-      font-size: $app-fontsize--medium;
+      font-size: var(--fontsize-medium);
       @include text_font_b;
       a {
         text-decoration: none;
-        border-bottom: 1px solid $app-color--primary;
+        border-bottom: 1px solid var(--color-primary);
         display: inline-flex;
         align-items: center;
         line-height: 1.6;
@@ -227,8 +227,8 @@
   }
 
   &--socials {
-    padding-top: $app-padding--small;
-    padding-bottom: $app-padding--small;
+    padding-top: var(--padding-small);
+    padding-bottom: var(--padding-small);
 
     @media (min-width: map_get($grid-breakpoints, md)) {
       padding: 0;
@@ -259,10 +259,10 @@
   }
 
   &--copyrights {
-    border-top: 1px solid $app-color--border-dark;
-    padding: $app-padding--base;
-    font-size: $app-fontsize--smaller;
-    color: $app-color--primary;
+    border-top: 1px solid var(--color-border-dark);
+    padding: var(--padding-base);
+    font-size: var(--fontsize-smaller);
+    color: var(--color-primary);
 
     @media (min-width: map_get($grid-breakpoints, xl)) {
       text-align: left;

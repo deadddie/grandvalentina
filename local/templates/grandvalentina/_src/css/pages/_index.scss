@@ -5,8 +5,8 @@ body.index {
   // Services
 
   .index-services {
-    margin-top: $app-padding--large;
-    margin-bottom: $app-padding--large;
+    margin-top: var(--padding-large);
+    margin-bottom: var(--padding-large);
     &--wrapper {
       @include container-md;
       @include container-lg;
@@ -19,31 +19,31 @@ body.index {
 
     &--title {
       text-align: center;
-      font-size: $app-fontsize--h1;
-      margin-bottom: $app-padding--base;
+      font-size: var(--fontsize-h1);
+      margin-bottom: var(--padding-base);
       flex-basis: 100%;
     }
     &--delimiter {
       text-align: center;
-      color: $app-color--primary;
+      color: var(--color-primary);
       flex-basis: 100%;
       @media (min-width: map_get($grid-breakpoints, sm)) {
-        margin-bottom: $app-padding--medium;
+        margin-bottom: var(--padding-medium);
       }
     }
     &--item {
-      margin-bottom: $app-padding--base;
+      margin-bottom: var(--padding-base);
       @media (min-width: map_get($grid-breakpoints, sm)) {
         flex-basis: calc(50% - 10px);
       }
       &--title {
-        padding: $app-padding--medium $app-padding--largest;
-        color: $app-color--white;
-        background-color: $app-color--primary;
+        padding: var(--padding-medium) var(--padding-largest);
+        color: var(--color-white);
+        background-color: var(--color-primary);
         display: flex;
         justify-content: space-between;
         align-items: center;
-        font-size: $app-fontsize--h3;
+        font-size: var(--fontsize-h3);
         @include head_font;
         .icon {
           width: 12px;
@@ -51,14 +51,14 @@ body.index {
       }
       &--content {}
       &--image {
-        margin-top: $app-padding--small;
+        margin-top: var(--padding-small);
       }
       &--description {
-        padding: $app-padding--base;
-        font-size: $app-fontsize--smaller;
+        padding: var(--padding-base);
+        font-size: var(--fontsize-smaller);
       }
       &--link {
-        padding: 0 $app-padding--base $app-padding--base;
+        padding: 0 var(--padding-base) var(--padding-base);
         display: flex;
         justify-content: flex-end;
       }
@@ -69,9 +69,9 @@ body.index {
 
     .index {
       &-title {
-        margin-top: $app-padding--large;
-        margin-bottom: $app-padding--large;
-        font-size: $app-fontsize--big;
+        margin-top: var(--padding-large);
+        margin-bottom: var(--padding-large);
+        font-size: var(--fontsize-big);
       }
 
       &-image {
@@ -81,43 +81,46 @@ body.index {
       // About
 
       &-about {
-        background-color: $app-color--secondary;
+        background-color: var(--color-secondary);
         display: flex;
         flex-wrap: wrap;
         @media (min-width: map_get($grid-breakpoints, lg)) {
-          padding-top: $app-padding--large;
-          padding-bottom: $app-padding--large;
+          padding-top: var(--padding-large);
+          padding-bottom: var(--padding-large);
         }
         @media (min-width: map_get($grid-breakpoints, xl)) {
-          padding-top: $app-padding--largest;
-          padding-bottom: $app-padding--largest;
+          padding-top: var(--padding-largest);
+          padding-bottom: var(--padding-largest);
         }
         &--title {
           flex-basis: 100%;
-          font-size: $app-fontsize--h2;
+          font-size: var(--fontsize-h2);
           text-align: center;
           margin: 0;
-          padding: $app-padding--large 0 0;
+          padding: var(--padding-large) 0 0;
           @include container-sm;
           @include container-md;
           @include container-lg;
         }
         .delimiter {
           flex-basis: 100%;
-          color: $app-color--primary;
+          color: var(--color-primary);
           text-align: center;
           @include container-sm;
           @include container-md;
           @include container-lg;
         }
         p {
-          padding: 0 0 $app-padding--large;
+          padding: 0 0 var(--padding-large);
           flex-basis: 100%;
           @include head_font;
           text-align: center;
           @include container-sm;
           @include container-md;
           @include container-lg;
+          @media (min-width: map_get($grid-breakpoints, xl)) {
+            font-size: var(--fontsize-large);
+          }
           &:last-child {
             margin-bottom: 0;
           }
@@ -139,8 +142,8 @@ body.index {
         }
       }
       &-about--add {
-        padding-top: $app-padding--medium;
-        padding-bottom: $app-padding--medium;
+        padding-top: var(--padding-medium);
+        padding-bottom: var(--padding-medium);
         @include container-sm;
         @include container-md;
         @include container-lg;
@@ -152,10 +155,10 @@ body.index {
           @include container-md;
           text-align: center;
           @media (min-width: map_get($grid-breakpoints, xl)) {
-            margin-top: $app-padding--largest;
+            margin-top: var(--padding-largest);
           }
           p {
-            font-size: $app-fontsize--small !important;
+            font-size: var(--fontsize-small) !important;
           }
         }
         &--wrapper {
@@ -166,7 +169,7 @@ body.index {
         &--item {
           @media (min-width: map_get($grid-breakpoints, sm)) {
             flex-basis: calc(50% - 20px);
-            margin-bottom: $app-padding--medium;
+            margin-bottom: var(--padding-medium);
             margin-left: 10px;
             margin-right: 10px;
           }
@@ -174,13 +177,19 @@ body.index {
         h3,
         .delimiter {
           text-align: center;
-          color: $app-color--primary
+          color: var(--color-primary)
         }
         p {
-          font-size: $app-fontsize--smaller;
+          font-size: var(--fontsize-smaller);
           line-height: 1.6;
           &:last-child {
             margin-bottom: 0;
+          }
+        }
+        ul {
+          text-align: left;
+          li {
+            display: block;
           }
         }
       }
@@ -188,66 +197,66 @@ body.index {
       // About resume
 
       &-about--resume {
-        margin-bottom: $app-padding--medium;
+        margin-bottom: var(--padding-medium);
         @include container-sm;
         @include container-md;
         &--wrapper {
-          background-color: $app-color--primary;
+          background-color: var(--color-primary);
           text-align: center;
-          padding: $app-padding--base;
+          padding: var(--padding-base);
         }
         &--wrap {
-          padding: $app-padding--base;
-          border: 1px solid $app-color--secondary;
+          padding: var(--padding-base);
+          border: 1px solid var(--color-secondary);
         }
         .delimiter {
-          color: $app-color--white;
+          color: var(--color-white);
         }
         p {
-          color: $app-color--white;
+          color: var(--color-white);
           @include head_font;
-          font-size: $app-fontsize--large;
+          font-size: var(--fontsize-large);
         }
       }
 
       // Contacts
 
       &-contacts {
-        margin-top: $app-padding--medium;
-        margin-bottom: $app-padding--medium;
+        margin-top: var(--padding-medium);
+        margin-bottom: var(--padding-medium);
         @include container-sm;
         @include container-md;
         @include container-lg;
         @media (min-width: map_get($grid-breakpoints, lg)) {
-          margin-top: $app-padding--large;
-          margin-bottom: $app-padding--large;
+          margin-top: var(--padding-large);
+          margin-bottom: var(--padding-large);
         }
         @media (min-width: map_get($grid-breakpoints, xl)) {
           @include container-wide;
-          margin-top: $app-padding--largest;
-          margin-bottom: $app-padding--largest;
+          margin-top: var(--padding-largest);
+          margin-bottom: var(--padding-largest);
         }
         &--title {
-          font-size: $app-fontsize--h1;
+          font-size: var(--fontsize-h1);
           text-align: center;
         }
         &--delimiter {
           text-align: center;
           .icon {
-            color: $app-color--primary;
+            color: var(--color-primary);
           }
         }
         &--items {
           text-align: center;
-          background-color: $app-color--secondary;
-          padding: $app-padding--large $app-padding--medium;
+          background-color: var(--color-secondary);
+          padding: var(--padding-large) var(--padding-medium);
         }
         &--phone {
           @extend .footer--contacts-phone;
           margin-bottom: 10px;
           a {
             @include text_font_b;
-            color: $app-color--black;
+            color: var(--color-black);
           }
         }
         &--email {
@@ -255,7 +264,7 @@ body.index {
           margin-bottom: 10px;
           a {
             @include text_font_b;
-            color: $app-color--black;
+            color: var(--color-black);
           }
         }
         &--address {
@@ -266,45 +275,45 @@ body.index {
       // Subscribe
 
       &-subscribe {
-        background-color: $app-color--primary;
-        padding: $app-padding--medium;
+        background-color: var(--color-primary);
+        padding: var(--padding-medium);
         @include container-md;
         @include container-lg;
         @media (min-width: map_get($grid-breakpoints, sm)) {
-          margin-bottom: $app-padding--medium;
+          margin-bottom: var(--padding-medium);
         }
         @media (min-width: map_get($grid-breakpoints, xl)) {
-          margin-top: $app-padding--large;
-          margin-bottom: $app-padding--large;
+          margin-top: var(--padding-large);
+          margin-bottom: var(--padding-large);
         }
         &--wrapper {
-          border: 1px solid $app-color--secondary;
-          padding: $app-padding--large $app-padding--medium;
-          color: $app-color--white;
+          border: 1px solid var(--color-secondary);
+          padding: var(--padding-large) var(--padding-medium);
+          color: var(--color-white);
           .form--title {
-            color: $app-color--white;
+            color: var(--color-white);
             margin-bottom: 0;
           }
           .form--description {
-            font-size: $app-fontsize--medium;
+            font-size: var(--fontsize-medium);
           }
           .form-field {
             input,
             textarea {
-              background-color: $app-color--white;
+              background-color: var(--color-white);
             }
           }
           .form-privacy {
             label {
-              color: $app-color--white;
+              color: var(--color-white);
               a {
-                color: $app-color--white;
+                color: var(--color-white);
               }
               &:before {
-                background-color: $app-color--white;
+                background-color: var(--color-white);
               }
               .icon {
-                color: $app-color--black;
+                color: var(--color-black);
               }
             }
           }

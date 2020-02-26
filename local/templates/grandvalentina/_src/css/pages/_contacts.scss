@@ -25,15 +25,15 @@
   }
 
   &--section {
-    background-color: $app-color--secondary;
-    padding: $app-padding--large $app-padding--base;
-    margin-bottom: $app-padding--small;
+    background-color: var(--color-secondary);
+    padding: var(--padding-large) var(--padding-base);
+    margin-bottom: var(--padding-small);
     width: 100%;
     @media (min-width: map_get($grid-breakpoints, sm)) {
-      margin: 0 $app-padding--small $app-padding--medium;
+      margin: 0 var(--padding-small) var(--padding-medium);
       &:nth-child(-n + 4) {
         width: calc(50% - 20px);
-        margin: 0 $app-padding--small $app-padding--medium;
+        margin: 0 var(--padding-small) var(--padding-medium);
       }
     }
     @media (min-width: map_get($grid-breakpoints, md)) {
@@ -62,10 +62,10 @@
     }
     > p {
       text-align: center;
-      font-size: $app-fontsize--medium;
+      font-size: var(--fontsize-medium);
       &.h4 {
         @include head_font;
-        font-size: $app-fontsize--large;
+        font-size: var(--fontsize-large);
         margin-bottom: 40px;
         max-width: 440px;
       }
@@ -75,35 +75,35 @@
     }
     a {
       @include text_font_b;
-      color: $app-color--black;
+      color: var(--color-black);
     }
     .delimiter {
-      margin-top: $app-padding--small;
-      margin-bottom: $app-padding--base;
+      margin-top: var(--padding-small);
+      margin-bottom: var(--padding-base);
       display: flex;
       justify-content: center;
       .icon {
-        color: $app-color--primary;
+        color: var(--color-primary);
       }
     }
     &--order {
       width: 100%;
-      margin: $app-padding--large auto $app-padding--base;
+      margin: var(--padding-large) auto var(--padding-base);
       @media (min-width: map_get($grid-breakpoints, md)) {
         max-width: 350px;
       }
       @media (min-width: map_get($grid-breakpoints, lg)) {
         margin-top: 0;
-        margin-bottom: $app-padding--largest;
+        margin-bottom: var(--padding-largest);
       }
     }
     &--map {
       padding: 0;
       width: 100%;
-      margin-top: $app-padding--large;
-      margin-bottom: $app-padding--large;
+      margin-top: var(--padding-large);
+      margin-bottom: var(--padding-large);
       @media (min-width: map_get($grid-breakpoints, md)) {
-        margin: $app-padding--large 0 0;
+        margin: var(--padding-large) 0 0;
       }
     }
 
@@ -122,8 +122,8 @@
 
   .page-contacts--map {
     width: 100%;
-    margin-top: $app-padding--largest;
-    margin-bottom: $app-padding--large;
+    margin-top: var(--padding-largest);
+    margin-bottom: var(--padding-large);
     @include container-md;
   }
 }

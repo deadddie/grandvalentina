@@ -10,8 +10,8 @@ body img:hover,
   outline: none;
 }
 ::selection {
-  color: $app-color--white;
-  background-color: $app-color--active;
+  color: var(--color-white);
+  background-color: var(--color-active);
 }
 img,
 a {
@@ -41,15 +41,15 @@ input[type="button"]::-moz-focus-inner {
   outline: 0;
 }
 
-::-webkit-input-placeholder { color: $app-color--black; }
-::-moz-placeholder          { color: $app-color--black; } // Firefox 19+
-:-moz-placeholder           { color: $app-color--black; } // Firefox 18-
-:-ms-input-placeholder      { color: $app-color--black; }
+::-webkit-input-placeholder { color: var(--color-black); }
+::-moz-placeholder          { color: var(--color-black); } // Firefox 19+
+:-moz-placeholder           { color: var(--color-black); } // Firefox 18-
+:-ms-input-placeholder      { color: var(--color-black); }
 
-.search::-webkit-input-placeholder { color: $app-color--black; }
-.search::-moz-placeholder          { color: $app-color--black; } // Firefox 19+
-.search:-moz-placeholder           { color: $app-color--black; } // Firefox 18-
-.search:-ms-input-placeholder      { color: $app-color--black; }
+.search::-webkit-input-placeholder { color: var(--color-black); }
+.search::-moz-placeholder          { color: var(--color-black); } // Firefox 19+
+.search:-moz-placeholder           { color: var(--color-black); } // Firefox 18-
+.search:-ms-input-placeholder      { color: var(--color-black); }
 
 // fix for number fields
 

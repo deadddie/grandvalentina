@@ -9,8 +9,8 @@ body {
   padding: 0;
   position: relative;
   @include text_font;
-  color: $app-color--black;
-  background: $app-color--white;
+  color: var(--color-black);
+  background: var(--color-white);
   font-size: 15px;
   line-height: normal;
   min-height: 100%;

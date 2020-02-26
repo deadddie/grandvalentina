@@ -11,7 +11,9 @@
   &-item {
     @extend .room-item;
 
-    &--image {}
+    &--image {
+      @extend .room-item--image;
+    }
 
     &--content {
       @extend .room-item--content;
@@ -20,7 +22,7 @@
     &--name {
       @extend .room-item--name;
       h2 {
-        margin-bottom: $app-padding--medium;
+        margin-bottom: var(--padding-medium);
       }
     }
 
@@ -28,7 +30,7 @@
       display: flex;
       justify-content: flex-end;
       a {
-        font-size: $app-fontsize--small;
+        font-size: var(--fontsize-small);
       }
     }
 
@@ -44,22 +46,22 @@
 
     &--content {
       @extend .room-detail--content;
-      background-color: $app-color--white;
+      background-color: var(--color-white);
       box-shadow: none;
     }
 
     &--description {
       &--content {
         p {
-          font-size: $app-fontsize--small;
+          font-size: var(--fontsize-small);
           line-height: 1.6;
         }
       }
     }
 
     &--actions {
-      margin-top: $app-padding--medium;
-      margin-bottom: $app-padding--medium;
+      margin-top: var(--padding-medium);
+      margin-bottom: var(--padding-medium);
     }
 
   }

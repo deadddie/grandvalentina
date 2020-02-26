@@ -29,9 +29,9 @@ if ($event):
                     </div>
                 <?php endif; ?>
             </div>
-        <?php elseif (!empty($arFields['PREVIEW_PICTURE'])): ?>
+        <?php elseif (!empty($arFields['DETAIL_PICTURE'])): ?>
             <div class="event-detail--image-main">
-                <?= Events::getImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
+                <?= Events::getDetailImage($arFields['DETAIL_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
             </div>
         <?php endif; ?>
 

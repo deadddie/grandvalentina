@@ -25,7 +25,7 @@ use LapkinLab\{Core, Helper, Content\Events};
             <div id="event-item-<?= $arFields['ID'] ?>" class="event-item" data-id="<?= $arFields['ID'] ?>">
                 <div class="event-item--image">
                     <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>">
-                        <?= Events::getImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
+                        <?= Events::getPreviewImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
                     </a>
                 </div>
                 <div class="event-item--content">

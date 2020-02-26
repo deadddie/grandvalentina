@@ -18,7 +18,7 @@
     &--name {
       @extend .room-item--name;
       h2 {
-        margin-bottom: $app-padding--medium;
+        margin-bottom: var(--padding-medium);
       }
     }
 
@@ -26,7 +26,7 @@
       display: flex;
       justify-content: flex-end;
       a {
-        font-size: $app-fontsize--small;
+        font-size: var(--fontsize-small);
       }
     }
 
@@ -38,7 +38,7 @@
 
     &--content {
       @extend .room-detail--content;
-      background-color: $app-color--white;
+      background-color: var(--color-white);
       box-shadow: none;
     }
 
@@ -54,19 +54,19 @@
     }
 
     &--promo {
-      margin-top: $app-padding--large;
-      background-color: $app-color--secondary;
-      padding: $app-padding--base;
-      font-size: $app-fontsize--large;
+      margin-top: var(--padding-large);
+      background-color: var(--color-secondary);
+      padding: var(--padding-base);
+      font-size: var(--fontsize-large);
       line-height: 1.4;
       text-align: center;
       @include head_font;
       .delimiter {
         text-align: center;
-        color: $app-color--primary;
+        color: var(--color-primary);
       }
       &--content {
-        margin-bottom: $app-padding--base;
+        margin-bottom: var(--padding-base);
       }
     }
 

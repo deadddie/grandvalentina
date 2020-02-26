@@ -20,9 +20,9 @@ if ($entertainment):
 
     <div class="entertainment-detail">
 
-        <?php if (!empty($arFields['PREVIEW_PICTURE'])): ?>
+        <?php if (!empty($arFields['DETAIL_PICTURE'])): ?>
             <div class="entertainment-detail--image-main">
-                <?= Entertainment::getImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
+                <?= Entertainment::getDetailImage($arFields['DETAIL_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
             </div>
         <?php endif; ?>
 

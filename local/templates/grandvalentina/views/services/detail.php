@@ -21,7 +21,7 @@ if ($service):
     <div class="service-detail">
 
         <div class="service-detail--image-main">
-            <?= Services::getImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
+            <?= Services::getPreviewImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
         </div>
 
         <div class="service-detail--content">

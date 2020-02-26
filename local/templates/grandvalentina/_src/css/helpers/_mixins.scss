@@ -86,8 +86,8 @@
 
 @mixin container-sm {
   @media (min-width: map_get($grid-breakpoints, xs)) {
-    margin-left: $app-padding--base;
-    margin-right: $app-padding--base;
+    margin-left: var(--padding-base);
+    margin-right: var(--padding-base);
     max-width: map_get($container-max-widths, sm);
   }
 }

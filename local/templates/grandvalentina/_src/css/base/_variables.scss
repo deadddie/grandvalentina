@@ -1,62 +1,69 @@
 // Colors
 
-$app-color--white: #fff;
-$app-color--black: #1e1e1e;
+:root {
 
-$app-color--primary: #cabcaa;
-$app-color--secondary: #f4efe4;
-$app-color--border: #e9e6e2;
-$app-color--border-dark: #333;
+  // Colors
 
-$app-color--active: #c12032;
-$app-color--active-hover: #ae1829;
+  --color-white: #fff;
+  --color-black: #1e1e1e;
 
-$app-color--error: #ff7070;
-$app-color--success: #3afad6;
-$app-color--warning: #d9cb9e;
+  --color-primary: #cabcaa;
+  --color-secondary: #f4efe4;
+  --color-border: #e9e6e2;
+  --color-border-dark: #333;
 
-$app-color--background: #f8f8f8;
+  --color-active: #c12032;
+  --color-active-hover: #ae1829;
 
-// Font Sizes
+  --color-error: #ff7070;
+  --color-success: #3afad6;
+  --color-warning: #d9cb9e;
 
-$app-fontsize--big: 36px;
+  --color-background: #f8f8f8;
 
-$app-fontsize--h1: 30px;
-$app-fontsize--h2: 25px;
-$app-fontsize--h3: 20px;
-$app-fontsize--h4: 18px;
+  // Fonts
 
-$app-fontsize--large: 18px;
-$app-fontsize--medium: 16px;
-$app-fontsize--base: 15px;
-$app-fontsize--small: 14px;
-$app-fontsize--smaller: 12px;
+  --fontsize-big: 36px;
 
-// Paddings
+  --fontsize-h1: 30px;
+  --fontsize-h2: 25px;
+  --fontsize-h3: 20px;
+  --fontsize-h4: 18px;
 
-$app-padding--small: 10px;
-$app-padding--base: 15px;
-$app-padding--medium: 20px;
-$app-padding--large: 30px;
-$app-padding--largest: 50px;
-$app-padding--extra: 70px;
+  --fontsize-large: 18px;
+  --fontsize-medium: 16px;
+  --fontsize-base: 15px;
+  --fontsize-small: 14px;
+  --fontsize-smaller: 12px;
 
-// Other
+  // Paddings
 
-$app-border-radius: 0;
+  --padding-small: 10px;
+  --padding-base: 15px;
+  --padding-medium: 20px;
+  --padding-large: 30px;
+  --padding-largest: 50px;
+  --padding-extra: 70px;
 
-$app-button-height: 40px;
-$app-button-height-sm: 30px;
-$app-button-height-wide: 50px;
-$app-search-height: 40px;
+  // Other
 
-$app-navigation-height: 50px;
+  --border-radius: 0;
 
-// Tooltips
-$tooltip-bg: #c4c4c4;
-$tooltip-color: $app-color--primary;
+  --button-height: 40px;
+  --button-height-sm: 30px;
+  --button-height-wide: 50px;
+  --search-height: 40px;
 
-$screen-xl: 1266px;
-$screen-lg: 1024px;
-$screen-md: 768px;
-$screen-sm: 576px;
+  --navigation-height: 50px;
+
+  --color-tooltip-bg: #c4c4c4;
+  --color-tooltip-color: var(--color-primary);
+
+  // Screen sizes
+
+  --screen-xl: 1266px;
+  --screen-lg: 1024px;
+  --screen-md: 768px;
+  --screen-sm: 576px;
+
+}

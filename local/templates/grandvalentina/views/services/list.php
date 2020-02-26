@@ -25,7 +25,7 @@ use LapkinLab\{Core, Helper, Content\Services};
             <div id="service-item-<?= $arFields['ID'] ?>" class="service-item" data-id="<?= $arFields['ID'] ?>">
                 <div class="service-item--image">
                     <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>">
-                        <?= Services::getImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
+                        <?= Services::getPreviewImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
                     </a>
                 </div>
                 <div class="service-item--content">

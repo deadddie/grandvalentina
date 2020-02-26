@@ -9,14 +9,14 @@ label {
 textarea,
 select,
 input {
-  height: $app-navigation-height;
+  height: var(--navigation-height);
   //@include border-radius;
-  border: 1px solid $app-color--border;
-  padding-left: $app-padding--base;
-  padding-right: $app-padding--base;
-  font-size: $app-fontsize--small;
+  border: 1px solid var(--color-border);
+  padding-left: var(--padding-base);
+  padding-right: var(--padding-base);
+  font-size: var(--fontsize-small);
   &:focus {
-    border-color: $app-color--primary;
+    border-color: var(--color-primary);
   }
   &:invalid {
     //border-color: $app-color--active-dark;
@@ -66,7 +66,7 @@ output {
   display: block;
   padding-top: 7px;
   line-height: 1.42857143;
-  color: $app-color--secondary;
+  color: var(--color-secondary);
 }
 
 legend {}
@@ -81,18 +81,18 @@ fieldset {
 // Default form
 
 .form {
-  border-top: 1px solid $app-color--border;
-  padding-top: $app-padding--large;
-  padding-bottom: $app-padding--large;
+  border-top: 1px solid var(--color-border);
+  padding-top: var(--padding-large);
+  padding-bottom: var(--padding-large);
   background-color: transparent;
   @media (max-width: map_get($grid-breakpoints, md)) {
-    padding-top: $app-padding--medium;
-    padding-bottom: $app-padding--medium;
+    padding-top: var(--padding-medium);
+    padding-bottom: var(--padding-medium);
   }
 
   &--title {
-    font-size: $app-fontsize--h1;
-    margin-bottom: $app-padding--large;
+    font-size: var(--fontsize-h1);
+    margin-bottom: var(--padding-large);
   }
 
   &--title--delimiter {
@@ -100,10 +100,10 @@ fieldset {
   }
 
   &--description {
-    font-size: $app-fontsize--base;
-    margin-bottom: $app-padding--large;
-    padding-left: $app-padding--small;
-    padding-right: $app-padding--small;
+    font-size: var(--fontsize-base);
+    margin-bottom: var(--padding-large);
+    padding-left: var(--padding-small);
+    padding-right: var(--padding-small);
   }
 
   &--fields {
@@ -120,8 +120,8 @@ fieldset {
       }
       input,
       textarea {
-        border-color: $app-color--secondary;
-        background-color: $app-color--secondary;
+        border-color: var(--color-secondary);
+        background-color: var(--color-secondary);
       }
       &-textarea {
         flex-basis: 100%;
@@ -129,12 +129,12 @@ fieldset {
         textarea {
           width: 100%;
           max-height: 250px;
-          min-height: $app-navigation-height;
+          min-height: var(--navigation-height);
           resize: vertical;
         }
       }
       .has-error {
-        border-color: $app-color--active !important;
+        border-color: var(--color-active) !important;
       }
     }
   }
@@ -156,7 +156,7 @@ fieldset {
     text-align: left;
     label {
       display: inline-flex !important;
-      font-size: $app-fontsize--small;
+      font-size: var(--fontsize-small);
       position: relative;
       overflow: hidden;
       &:before {
@@ -168,8 +168,8 @@ fieldset {
         justify-content: center;
         align-items: center;
         margin-right: 10px;
-        background-color: $app-color--primary;
-        color: $app-color--white;
+        background-color: var(--color-primary);
+        color: var(--color-white);
       }
       .icon-check {
         position: absolute;
@@ -177,11 +177,11 @@ fieldset {
         left: 4px;
         width: 10px;
         height: 8px;
-        color: $app-color--white;
+        color: var(--color-white);
         transition: top 0.2s ease-in-out;
       }
       a {
-        color: $app-color--black;
+        color: var(--color-black);
       }
     }
     input {
@@ -197,12 +197,12 @@ fieldset {
   }
 
   &-field {
-    margin-bottom: $app-padding--small;
+    margin-bottom: var(--padding-small);
     position: relative;
     &-error {
       display: inline-flex;
-      color: $app-color--active;
-      font-size: $app-fontsize--smaller;
+      color: var(--color-active);
+      font-size: var(--fontsize-smaller);
       margin: 0;
       padding: 0;
       position: relative;
@@ -225,8 +225,8 @@ fieldset {
     flex-basis: 100%;
     width: 100%;
     display: inline-flex;
-    color: $app-color--white;
-    font-size: $app-fontsize--smaller;
+    color: var(--color-white);
+    font-size: var(--fontsize-smaller);
     margin: 15px 0 0;
     padding: 3px 5px;
     //background-color: $app-color--active-dark;

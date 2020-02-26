@@ -20,7 +20,7 @@
     &--name {
       @extend .room-item--name;
       h2 {
-        margin-bottom: $app-padding--medium;
+        margin-bottom: var(--padding-medium);
       }
     }
 
@@ -34,9 +34,9 @@
       a {
         text-decoration: underline;
         @include head_font_i;
-        color: $app-color--primary;
+        color: var(--color-primary);
         &:hover {
-          color: $app-color--black;
+          color: var(--color-black);
         }
       }
     }
@@ -48,13 +48,13 @@
 
     &--content {
       @extend .room-detail--content;
-      background-color: $app-color--white;
+      background-color: var(--color-white);
       box-shadow: none;
     }
     &--description {
       &--content {
         p {
-          font-size: $app-fontsize--small;
+          font-size: var(--fontsize-small);
           line-height: 1.6;
           &:last-child {
             margin-bottom: 0;
@@ -84,18 +84,18 @@
       &--title {
         flex-basis: 100%;
         text-align: center;
-        font-size: $app-fontsize--h2;
+        font-size: var(--fontsize-h2);
       }
       &--delimiter {
         text-align: center;
         flex-basis: 100%;
-        color: $app-color--primary;
+        color: var(--color-primary);
       }
       &--about {
-        font-size: $app-fontsize--small;
+        font-size: var(--fontsize-small);
         line-height: 1.6;
         text-align: left;
-        margin-bottom: $app-padding--base;
+        margin-bottom: var(--padding-base);
       }
       &--download {
         flex-basis: 100%;
@@ -103,19 +103,19 @@
     }
 
     &--detail-text {
-      margin-top: $app-padding--large;
-      background-color: $app-color--secondary;
-      padding: $app-padding--base;
-      font-size: $app-fontsize--large;
+      margin-top: var(--padding-large);
+      background-color: var(--color-secondary);
+      padding: var(--padding-base);
+      font-size: var(--fontsize-large);
       line-height: 1.4;
       text-align: center;
       @include head_font;
       .delimiter {
         text-align: center;
-        color: $app-color--primary;
+        color: var(--color-primary);
       }
       &--content {
-        margin-bottom: $app-padding--base;
+        margin-bottom: var(--padding-base);
       }
     }
 
