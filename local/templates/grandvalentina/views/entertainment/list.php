@@ -9,6 +9,10 @@ use LapkinLab\{Core, Helper, Content\Entertainment};
 
 ?>
 
+<?php if ($entertainments->result->num_rows === 0): ?>
+    <div class="empty-content">Пусто...</div>
+<?php endif; ?>
+
 <?php if ($mode === 'list'): ?>
     <ul>
         <?php while ($entertainment = $entertainments->GetNextElement()): ?>

@@ -9,6 +9,10 @@ use LapkinLab\{Helper, Content\Rooms};
 
 ?>
 
+<?php if ($events->result->num_rows === 0): ?>
+    <div class="empty-content">Пусто...</div>
+<?php endif; ?>
+
 <?php if ($mode === 'list'): ?>
     <ul>
         <?php while ($room = $rooms->GetNextElement()): ?>

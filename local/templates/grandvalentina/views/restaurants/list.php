@@ -9,6 +9,10 @@ use LapkinLab\{Core, Helper, Content\Restaurants};
 
 ?>
 
+<?php if ($restaurants->result->num_rows === 0): ?>
+    <div class="empty-content">Пусто...</div>
+<?php endif; ?>
+
 <?php if ($mode === 'list'): ?>
     <ul>
         <?php while ($restaurant = $restaurants->GetNextElement()): ?>
