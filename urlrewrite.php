@@ -1,6 +1,14 @@
 <?php
 $arUrlRewrite=array (
-  1 =>
+  5 =>
+        array (
+            'CONDITION' => '#^/offers/archive/#',
+            'RULE' => '',
+            'ID' => '',
+            'PATH' => '/offers/archive.php',
+            'SORT' => 100,
+        ),
+  7 =>
       array (
           'CONDITION' => '#^/(rooms|services|blog|events|restaurants|entertainment|offers)/\\??(.*)/#',
           'RULE' => 'ELEMENT_CODE=$2',
@@ -8,7 +16,7 @@ $arUrlRewrite=array (
           'PATH' => '/$1/detail.php',
           'SORT' => 100,
       ),
-  2 =>
+  10 =>
       array (
           'CONDITION' => '#^/(rooms|services|blog|events|restaurants|entertainment|offers)/#',
           'RULE' => '',

@@ -5140,6 +5140,15 @@ body.mobile-menu-open {
     display: none;
 }
 
+.empty-content {
+    font-family: "Minion Pro", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: #cabcaa;
+    text-align: center;
+    font-size: 18px;
+}
+
 .pagination {
   /*
   display: flex;
@@ -5588,9 +5597,10 @@ body.mobile-menu-open {
     position: absolute;
     top: 0;
     left: 35px;
+    z-index: 1;
 }
 
-.room-item--stickers--hit {
+.room-item--sticker {
     background-image: url("images/sticker.svg");
     background-position: bottom center;
     background-size: 30px 70px;
@@ -5599,7 +5609,7 @@ body.mobile-menu-open {
     height: 70px;
 }
 
-.room-item--stickers--hit span {
+.room-item--sticker span {
     color: #fff;
     font-family: "Roboto", sans-serif;
     font-weight: 500;
@@ -5637,6 +5647,14 @@ body.mobile-menu-open {
     font-family: "Minion Pro", serif;
     font-weight: 400;
     font-style: normal;
+}
+
+.room-detail--images,
+.event-detail--images,
+.restaurant-detail--images,
+.entertainment-detail--images,
+.offer-detail--images {
+    position: relative;
 }
 
 .room-detail--images ul,
@@ -6157,6 +6175,19 @@ body.mobile-menu-open {
 
 .offer-item--actions a {
     font-size: 14px;
+}
+
+.offer-archive {
+    margin-top: 30px;
+    margin-bottom: 70px;
+    text-align: center;
+}
+
+.offer-archive a {
+    font-size: 18px;
+    font-family: "Minion Pro Italic", serif;
+    font-weight: 400;
+    font-style: normal;
 }
 
 .offer-detail--content {
@@ -8898,6 +8929,12 @@ body.compensate-for-scrollbar {
         padding-right: 15px;
     }
 
+    .empty-content {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 720px;
+    }
+
     .room-block .room-item,
   .room-block .room-detail,
   .room-block .service-item,
@@ -9003,6 +9040,12 @@ body.compensate-for-scrollbar {
 
     .offer-block .offer-item {
         width: calc(100% - 20px) !important;
+    }
+
+    .offer-archive {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 720px;
     }
 
     body.index .index-services--wrapper {

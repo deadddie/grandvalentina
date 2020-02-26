@@ -59,6 +59,17 @@
 
   }
 
+  &-archive {
+    margin-top: var(--padding-large);
+    margin-bottom: var(--padding-extra);
+    @include container-md;
+    text-align: center;
+    a {
+      font-size: var(--fontsize-large);
+      @include head_font_i;
+    }
+  }
+
   // Detail page
 
   &-detail {

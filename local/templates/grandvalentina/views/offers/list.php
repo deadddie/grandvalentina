@@ -21,7 +21,7 @@ use LapkinLab\{Core, Helper, Content\Offers};
         <?php endwhile; ?>
     </ul>
 
-<?php elseif ($mode === 'card' || $mode === 'block'): ?>
+<?php elseif ($mode === 'card' || $mode === 'archive' || $mode === 'block'): ?>
     <?php if ($mode === 'block'): ?>
         <section class="offer-block">
         <div class="offer-block--wrapper">
@@ -62,6 +62,15 @@ use LapkinLab\{Core, Helper, Content\Offers};
             </div>
         </div>
         </section>
+    <?php endif; ?>
+    <?php if ($mode === 'archive' || $mode === 'card'): ?>
+        <div class="offer-archive">
+            <?php if ($mode === 'archive'): ?>
+                <a href="/offers/">Смотреть активные акции</a>
+            <?php else: ?>
+                <a href="/offers/archive/">Смотреть архивные акции</a>
+            <?php endif; ?>
+        </div>
     <?php endif; ?>
 
 <?php endif; ?>
