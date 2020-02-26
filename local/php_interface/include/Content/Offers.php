@@ -27,12 +27,14 @@ class Offers
      */
     public static function getDetail($id)
     {
+        global $DB;
         $params = [];
         if (\CModule::IncludeModule('iblock')) {
             $arOrder = array();
             $arFilter = array(
                 'IBLOCK_ID' => self::OFFERS_IBLOCK_ID,
                 'ACTIVE' => 'Y',
+                'DATE_ACTIVE_TO' => date($DB->DateFormatToPHP(\CLang::GetDateFormat('SHORT'))),
             );
             if ((int) $id === 0) {
                 $arFilter['CODE'] = $id;
@@ -69,14 +71,17 @@ class Offers
      */
     public static function getList(string $mode = 'list')
     {
+        global $DB;
         $params = [];
         if (\CModule::IncludeModule('iblock')) {
             $arOrder = array(
                 'SORT' => 'asc',
+                'DATE_ACTIVE_TO' => 'desc',
             );
             $arFilter = array(
                 'IBLOCK_ID' => self::OFFERS_IBLOCK_ID,
                 'ACTIVE' => 'Y',
+                '>DATE_ACTIVE_TO' => ConvertTimeStamp(time(),'FULL'),
             );
             $arGroupBy = false;
             $arNavStartParams = ($mode === 'block') ? ['nTopCount' => 3] : false;
