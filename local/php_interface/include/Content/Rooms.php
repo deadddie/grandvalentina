@@ -81,7 +81,7 @@ class Rooms
                 'PROPERTY_CHECKED_MENU' => 'Y',
             );
             $arGroupBy = false;
-            $arNavStartParams = ($mode === 'block') ? ['nTopCount' => 3] : false;
+            $arNavStartParams = ($mode === 'block') ? ['nTopCount' => 5] : false;
             $arSelect = array(
                 'ID',
                 'NAME',

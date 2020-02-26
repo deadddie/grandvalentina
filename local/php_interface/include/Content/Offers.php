@@ -82,7 +82,7 @@ class Offers
                 $dateActiveWay => ConvertTimeStamp(time(),'FULL'),
             );
             $arGroupBy = false;
-            $arNavStartParams = ($mode === 'block') ? ['nTopCount' => 3] : false;
+            $arNavStartParams = ($mode === 'block') ? ['nTopCount' => 5] : false;
             $arSelect = array(
                 'ID',
                 'NAME',
