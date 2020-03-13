@@ -34,10 +34,6 @@ if ($service):
                 </div>
             <?php endif; ?>
 
-            <div class="service-detail--actions service-detail--actions--bottom">
-                <button type="button" class="btn btn-wide btn-gold">Заполнить заявку</button>
-            </div>
-
         </div>
 
     </div>

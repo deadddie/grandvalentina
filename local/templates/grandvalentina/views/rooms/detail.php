@@ -47,14 +47,23 @@ if ($room):
                     от <?= Helper::priceFormat($arProperties['PRICE']['VALUE']) ?> <?= renderIcon('rouble') ?>
                 </div>
 
+
                 <div class="room-detail--info">
-                    <div class="room-detail--info--customers">
-                        <?php if ($arProperties['CAPACITY']['VALUE'] > 0): ?>
-                            <?php for ($i = (int)$arProperties['CAPACITY']['VALUE']; $i > 0; $i--): ?>
-                                <?= renderIcon('user') ?>
-                            <?php endfor; ?>
-                        <?php endif; ?>
-                    </div>
+                    <?php if (!empty($arProperties['CAPACITY']['VALUE'])): ?>
+                        <div class="room-detail--info--customers">
+                            <?php switch ($arProperties['CAPACITY']['VALUE']):
+                                case '1+1':
+                                    print renderIcon('user') . ' + ' . renderIcon('user');
+                                    break;
+                                case '2+1':
+                                    print renderIcon('user') . renderIcon('user') . ' + ' . renderIcon('user');
+                                    break;
+                                case '3+1':
+                                    print renderIcon('user') . renderIcon('user') . renderIcon('user') . ' + ' . renderIcon('user');
+                                default:
+                            endswitch; ?>
+                        </div>
+                    <?php endif; ?>
 
                     <div class="room-detail--info--room">
                         <?= renderIcon('info', 'js-room-detail-info') ?>

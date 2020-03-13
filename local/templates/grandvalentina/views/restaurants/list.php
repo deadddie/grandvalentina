@@ -40,11 +40,11 @@ use LapkinLab\{Core, Helper, Content\Restaurants};
                     </div>
                     <?php if (!empty($arFields['PREVIEW_TEXT'])): ?>
                         <div class="restaurant-item--description">
-                            <?= $arFields['PREVIEW_TEXT'] ?>
+                            <?= Core::mbCutString($arFields['PREVIEW_TEXT']) ?>
                         </div>
                     <?php endif; ?>
                     <div class="restaurant-item--actions">
-                        <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>">Подробнее</a>
+                        <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>" class="btn btn-white">Подробнее</a>
                     </div>
                 </div>
             </div>

@@ -42,7 +42,7 @@ use LapkinLab\{Core, Helper, Content\Events};
                         <?php if (!empty($arProperties['NUMBER_SEATS'])): ?>
                             <div class="event-item--seats">Количество мест: до <?= $arProperties['NUMBER_SEATS']['VALUE'] ?> человек</div>
                         <?php endif; ?>
-                        <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>">Подробнее</a>
+                        <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>" class="btn btn-white">Подробнее</a>
                     </div>
                 </div>
             </div>

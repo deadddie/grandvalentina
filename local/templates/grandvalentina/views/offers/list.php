@@ -63,6 +63,7 @@ use LapkinLab\{Core, Helper, Content\Offers};
         </div>
         </section>
     <?php endif; ?>
+    <?php /*
     <?php if ($mode === 'archive' || $mode === 'card'): ?>
         <div class="offer-archive">
             <?php if ($mode === 'archive'): ?>
@@ -72,5 +73,6 @@ use LapkinLab\{Core, Helper, Content\Offers};
             <?php endif; ?>
         </div>
     <?php endif; ?>
+    */ ?>
 
 <?php endif; ?>
