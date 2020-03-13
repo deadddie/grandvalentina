@@ -9,7 +9,7 @@ use LapkinLab\Core;
 
 ?>
 <div class="form-field form-privacy">
-    <input id="<?= $id ?>-form-privacy" type="checkbox" name="privacy" checked
+    <input id="<?= $id ?>-form-privacy" type="checkbox" name="privacy"
         <?= $required ? 'required' : '' ?>
         <?= $hidden ? 'hidden' : '' ?>
     >
