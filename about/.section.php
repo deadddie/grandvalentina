@@ -1,0 +1,2 @@
+<?php
+$sSectionName = 'Об отеле';
