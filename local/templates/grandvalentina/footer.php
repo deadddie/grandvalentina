@@ -60,11 +60,11 @@ Loc::loadLanguageFile(__FILE__);
                                     <?= Core::parsePhone(SITE_CONFIG['phone'], 'link') ?>
                                 </div>
                             <?php endif; ?>
-                            <?php if (!empty(SITE_CONFIG['email'])): ?>
+                            <?php /* if (!empty(SITE_CONFIG['email'])): ?>
                                 <div class="footer--contacts-email">
                                     <?= Core::renderEmail(SITE_CONFIG['email']) ?>
                                 </div>
-                            <?php endif; ?>
+                            <?php endif; */ ?>
                         </div>
                         <?php if (!empty(SITE_CONFIG['address'])): ?>
                             <div class="footer--contacts-address"><?= SITE_CONFIG['address'] ?></div>

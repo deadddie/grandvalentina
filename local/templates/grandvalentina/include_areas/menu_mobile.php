@@ -72,11 +72,11 @@ use LapkinLab\Core;
         <div class="mobile-menu--footer">
             <div class="mobile-menu--footer--wrapper col-12">
                 <div class="mobile-menu--footer--contacts">
-                    <?php if (!empty(SITE_CONFIG['email'])): ?>
+                    <?php /* if (!empty(SITE_CONFIG['email'])): ?>
                         <div class="mobile-menu--footer--contacts-email">
                             <?= Core::renderEmail(SITE_CONFIG['email']) ?>
                         </div>
-                    <?php endif; ?>
+                    <?php endif; */ ?>
                     <?php if (!empty(SITE_CONFIG['phone'])): ?>
                         <div class="mobile-menu--footer--contacts-phone">
                             <?= Core::parsePhone(SITE_CONFIG['phone'], 'link') ?>
