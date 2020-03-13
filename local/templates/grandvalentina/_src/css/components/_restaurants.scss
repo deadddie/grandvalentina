@@ -34,7 +34,7 @@
       margin-top: var(--padding-small);
       a {
         text-decoration: underline;
-        @include head_font_i;
+        @include head_font;
         color: var(--color-primary);
         &:hover {
           color: var(--color-black);

@@ -31,6 +31,9 @@
     a {
       color: var(--color-black);
       @include text_font_b;
+      &:hover {
+        color: var(--color-active);
+      }
     }
     @media (min-width: map_get($grid-breakpoints, xl)) {
       display: flex;
@@ -153,6 +156,9 @@
     display: flex;
     align-items: center;
     position: relative;
+    &:hover {
+      color: var(--color-active);
+    }
     &-current {
       @include head_font;
       font-size: var(--fontsize-medium);

@@ -125,6 +125,7 @@
           color: var(--color-black);
           &:hover {
             text-decoration: underline;
+            color: var(--color-active);
           }
         }
       }
@@ -133,6 +134,7 @@
     &--description {
       font-size: var(--fontsize-smaller);
       line-height: 1.5;
+      margin-bottom: 15px;
     }
 
     &--info {
@@ -145,7 +147,8 @@
         .icon {
           color: var(--color-primary);
           width: 12px;
-          margin-right: 5px;
+          margin-right: 3px;
+          margin-left: 3px;
         }
       }
       &--room {
@@ -445,7 +448,7 @@
         color: var(--color-primary);
         text-decoration: underline;
         &:hover {
-          color: var(--color-black);
+          color: var(--color-active);
         }
       }
     }

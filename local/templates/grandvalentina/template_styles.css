@@ -3542,7 +3542,7 @@ button.disabled {
 }
 
 .btn-link:hover {
-    color: var(--color-active-hover);
+    color: var(--color-active) !important;
     text-decoration: underline !important;
     border-color: transparent;
     background-color: transparent;
@@ -3626,6 +3626,11 @@ button.disabled {
     color: var(--color-black);
     font-family: "Roboto", sans-serif;
     font-weight: 500;
+}
+
+.mobile-menu--header--phone a:hover,
+.header--phone a:hover {
+    color: var(--color-active);
 }
 
 .mobile-menu--header--callback,
@@ -3755,6 +3760,11 @@ button.disabled {
     display: flex;
     align-items: center;
     position: relative;
+}
+
+.mobile-menu--header--lang:hover,
+.header--lang:hover {
+    color: var(--color-active);
 }
 
 .mobile-menu--header--lang-current,
@@ -4033,7 +4043,7 @@ body.index .index-content .index-contacts--email {
 
 .mobile-menu--menu--wrapper .menu-top ul > li:before {
     opacity: 0;
-    margin-top: 14px;
+    margin-top: 17px;
 }
 
 .mobile-menu--menu--wrapper .menu-top ul > li a {
@@ -4046,7 +4056,7 @@ body.index .index-content .index-contacts--email {
     text-decoration: none;
     display: block;
     width: 100%;
-    padding: 3px 0;
+    padding: 6px 0;
 }
 
 .mobile-menu--menu--wrapper .menu-top ul > li a:hover {
@@ -5037,12 +5047,14 @@ font.tablebodytext {
 .entertainment-item--name h2 a:hover,
 .offer-item--name h2 a:hover {
     text-decoration: underline;
+    color: var(--color-active);
 }
 
 .room-item--description,
 .restaurant-item--description {
     font-size: var(--fontsize-smaller);
     line-height: 1.5;
+    margin-bottom: 15px;
 }
 
 .room-item--info,
@@ -5058,7 +5070,8 @@ font.tablebodytext {
 .room-detail--info--customers .icon {
     color: var(--color-primary);
     width: 12px;
-    margin-right: 5px;
+    margin-right: 3px;
+    margin-left: 3px;
 }
 
 .room-item--info--room,
@@ -5332,7 +5345,7 @@ font.tablebodytext {
 .room-detail--backlink a:hover,
 .offer-detail--backlink a:hover,
 .offer-detail--phone a:hover {
-    color: var(--color-black);
+    color: var(--color-active);
 }
 
 .service-item--name h2 {
@@ -5405,7 +5418,7 @@ font.tablebodytext {
 .event-item--actions a {
     line-height: 0.9;
     text-decoration: underline;
-    font-family: "Minion Pro Italic", serif;
+    font-family: "Minion Pro", serif;
     font-weight: 400;
     font-style: normal;
     color: var(--color-primary);
@@ -5504,7 +5517,7 @@ font.tablebodytext {
 
 .restaurant-item--actions a {
     text-decoration: underline;
-    font-family: "Minion Pro Italic", serif;
+    font-family: "Minion Pro", serif;
     font-weight: 400;
     font-style: normal;
     color: var(--color-primary);
@@ -5994,12 +6007,10 @@ body.index .index-content .index-subscribe--wrapper .form-privacy label .icon {
 }
 
 .page-contacts--section > p.h4 {
-    font-family: "Minion Pro", serif;
-    font-weight: 400;
-    font-style: normal;
-    font-size: var(--fontsize-large);
+    font-size: var(--fontsize-medium);
     margin-bottom: 40px;
     max-width: 440px;
+    line-height: 1.4;
 }
 
 .page-contacts--section > p:last-child {
@@ -9306,7 +9317,7 @@ body.compensate-for-scrollbar {
 
     .mobile-menu--footer--socials a:last-child,
   .footer--socials a:last-child {
-        margin-left: 0;
+        margin-right: 0;
     }
 
     .mobile-menu--callback {

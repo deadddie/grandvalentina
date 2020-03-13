@@ -65,10 +65,10 @@
       text-align: center;
       font-size: var(--fontsize-medium);
       &.h4 {
-        @include head_font;
-        font-size: var(--fontsize-large);
+        font-size: var(--fontsize-medium);
         margin-bottom: 40px;
         max-width: 440px;
+        line-height: 1.4;
       }
       &:last-child {
         margin-bottom: 0;

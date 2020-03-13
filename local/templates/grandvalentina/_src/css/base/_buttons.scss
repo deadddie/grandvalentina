@@ -97,7 +97,7 @@ button {
     text-transform: none;
     letter-spacing: initial;
     &:hover {
-      color: var(--color-active-hover);
+      color: var(--color-active) !important;
       text-decoration: underline !important;
       border-color: transparent;
       background-color: transparent;
