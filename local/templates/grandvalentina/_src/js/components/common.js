@@ -129,7 +129,7 @@ let Common = {
         }
         $(document).on('click', '.cookie-apply--close, .cookie-apply--apply', function () {
             cookie_div.removeClass('active');
-            $.cookie(COOKIE_APPLY, true);
+            $.cookie(COOKIE_APPLY, true, {expires: 30, path: '/'});
         })
     }
 
