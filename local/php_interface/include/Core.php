@@ -78,7 +78,7 @@ class Core
      *
      * @return string
      */
-    public static function mbCutString(string $str, int $length, $postfix = '...', $encoding = 'UTF-8') {
+    public static function mbCutString(string $str, int $length = 100, $postfix = '...', $encoding = 'UTF-8') {
         if (mb_strlen($str, $encoding) <= $length) {
             return $str;
         }
