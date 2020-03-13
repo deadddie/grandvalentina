@@ -16,7 +16,7 @@ class Form
 {
     use ResponseTrait;
 
-    private const IBLOCK = 2;
+    private const IBLOCK = ORDERS_IBLOCK_ID;
 
     protected $request;
 
@@ -96,13 +96,13 @@ class Form
             'IBLOCK_ID' => self::IBLOCK,
             'NAME' => $elementName,
             'PROPERTY_VALUES' => array(
-                4  => $this->name,
-                5  => $this->phone,
-                6  => $this->email,
-                8  => $this->message,
-                9  => $this->ip,
-                10 => $this->url,
-                12 => $this->form_id,
+                23 => $this->name,
+                25 => $this->phone,
+                26 => $this->email,
+                27 => $this->message,
+                28 => $this->ip,
+                29 => $this->url,
+                22 => $this->form_id,
             ),
         );
         return $element->Add($elementFields);
@@ -120,22 +120,22 @@ class Form
         if (count($to) === 0) return;
 
         $to = implode(', ', $to);
-        $subject = 'SITE: MSK : NEW ORDER «msk.lapkinlab.ru»';
+        $subject = 'Заявка с сайта «Отель Гранд Валентина»';
 
         $headers = <<<HEADERS
 MIME-Version: 1.0
 Content-type: text/html; charset=utf-8
-From: msk.lapkinlab.ru <mail@lapkinlab.ru>
+From: grandvalentina.ru <mail@grandvalentina.ru>
 HEADERS;
 
         $message = <<<BODY
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
-        <title>Заявка с сайта «msk.lapkinlab.ru»</title>
+        <title>Заявка с сайта «Отель Гранд Валентина»</title>
     </head>
     <body>
-        <p>Заявка с сайта «msk.lapkinlab.ru»</p>
+        <p>Заявка с сайта «Отель Гранд Валентина»</p>
         <p>Форма: {$this->form_id}</p>
         <p>Имя: {$this->name}<br>
             Почта: {$this->email}<br>
@@ -150,6 +150,7 @@ HEADERS;
             IP отправки: {$this->ip}<br>
             Заявка от {$this->datetime} ({$this->name})
         </p>
+        <p>---<br>Это автоматическое сообщение.</p>
     </body>
 </html>
 BODY;

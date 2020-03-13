@@ -18,6 +18,7 @@ define('BLOG_IBLOCK_ID', 5);
 define('RESTAURANTS_IBLOCK_ID', 6);
 define('ENTERTAINMENT_IBLOCK_ID', 7);
 define('OFFERS_IBLOCK_ID', 8);
+define('ORDERS_IBLOCK_ID', 9);
 
 require_once $_SERVER['DOCUMENT_ROOT'] . '/local/vendor/autoload.php';
 
