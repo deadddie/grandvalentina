@@ -5449,6 +5449,11 @@ font.tablebodytext {
     padding-bottom: var(--padding-large);
 }
 
+.event-detail--order .form--fields .form-privacy,
+.restaurant-detail--order .form--fields .form-privacy {
+    flex-basis: 100%;
+}
+
 .event-detail--seats {
     background-image: url("images/block-bg.png");
     background-size: cover;
@@ -10523,8 +10528,8 @@ body.compensate-for-scrollbar {
         padding-bottom: var(--padding-largest);
     }
 
-    .event-detail--order .form--fields .form-field,
-  .restaurant-detail--order .form--fields .form-field {
+    .event-detail--order .form--fields .form-field:not(.form-privacy),
+  .restaurant-detail--order .form--fields .form-field:not(.form-privacy) {
         flex-basis: calc(50% - 30px);
     }
 

@@ -73,10 +73,13 @@
         padding-bottom: var(--padding-largest);
       }
       .form--fields {
-        .form-field {
+        .form-field:not(.form-privacy) {
           @media (min-width: map_get($grid-breakpoints, lg)) {
             flex-basis: calc(50% - 30px);
           }
+        }
+        .form-privacy {
+          flex-basis: 100%;
         }
       }
     }
