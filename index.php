@@ -155,11 +155,11 @@ $points = array(
                     <?= Core::parsePhone(SITE_CONFIG['phone'], 'link') ?>
                 </div>
             <?php endif; ?>
-            <?php if (!empty(SITE_CONFIG['email'])): ?>
+            <?php /* if (!empty(SITE_CONFIG['email'])): ?>
                 <div class="index-contacts--email">
                     <?= Core::renderEmail(SITE_CONFIG['email']) ?>
                 </div>
-            <?php endif; ?>
+            <?php endif; */ ?>
             <?php if (!empty(SITE_CONFIG['address'])): ?>
                 <div class="index-contacts--address"><?= SITE_CONFIG['address'] ?></div>
             <?php endif; ?>
