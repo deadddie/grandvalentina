@@ -3155,6 +3155,7 @@ h3 {
 
 .page-title {
     margin-bottom: var(--padding-large);
+    line-height: 1.2;
 }
 
 strong,
@@ -4886,6 +4887,16 @@ font.tablebodytext {
     color: var(--color-white);
 }
 
+.front-screen--booking {
+    flex-basis: 100%;
+    width: 100%;
+}
+
+.front-screen--booking a {
+    height: var(--button-height-wide);
+    color: var(--color-white);
+}
+
 .room-block {
     background-color: var(--color-secondary);
 }
@@ -6057,6 +6068,12 @@ body.index .index-content .index-subscribe--wrapper .form-privacy label .icon {
 .page-contacts .page-contacts--map--wrapper {
     padding-right: var(--padding-base);
     padding-left: var(--padding-base);
+}
+
+.page-booking--content {
+    margin-bottom: var(--padding-largest);
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
 }
 
 /**
@@ -9387,6 +9404,10 @@ body.compensate-for-scrollbar {
 
     .modal-content {
         min-height: initial;
+    }
+
+    .front-screen--booking {
+        display: none;
     }
 
     .room-block--wrapper {

@@ -54,4 +54,16 @@
       color: var(--color-white);
     }
   }
+
+  &--booking {
+    flex-basis: 100%;
+    width: 100%;
+    @media (min-width: map_get($grid-breakpoints, md)) {
+      display: none;
+    }
+    a {
+      height: var(--button-height-wide);
+      color: var(--color-white);
+    }
+  }
 }
