@@ -29,6 +29,19 @@ class Rooms
     public static function getDetail($id)
     {
         $params = [];
+        $params['room'] = self::getById($id);
+        return view('rooms.detail', $params, false);
+    }
+
+    /**
+     * Выборка элемента инфоблока.
+     *
+     * @param $id
+     *
+     * @return \_CIBElement|array|bool
+     */
+    public static function getById($id)
+    {
         if (\CModule::IncludeModule('iblock')) {
             $arOrder = array();
             $arFilter = array(
@@ -56,9 +69,9 @@ class Rooms
                 'DETAIL_PAGE_URL',
                 'PROPERTY_*',
             );
-            $params['room'] = \CIBlockElement::GetList($arOrder, $arFilter, $arGroupBy, $arNavStartParams, $arSelect)->GetNextElement();
+            return \CIBlockElement::GetList($arOrder, $arFilter, $arGroupBy, $arNavStartParams, $arSelect)->GetNextElement();
         }
-        return view('rooms.detail', $params, false);
+        return false;
     }
 
     /**
