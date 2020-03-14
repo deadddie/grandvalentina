@@ -1,7 +1,9 @@
 <?php
 
-
 namespace LapkinLab;
+
+
+use Bitrix\Main\Web\Uri;
 
 /**
  * Class Helper
@@ -102,6 +104,21 @@ class Helper
         }
         $tmp = mb_substr($str, 0, $length, $encoding);
         return mb_substr($tmp, 0, mb_strripos($tmp, ' ', 0, $encoding), $encoding) . $postfix;
+    }
+
+    /**
+     * Add get parameters to url
+     *
+     * @param string $url
+     * @param array $params
+     *
+     * @return mixed
+     */
+    public static function addGetParameters(string $url, array $params)
+    {
+        $uri = new Uri($url);
+        $uri->addParams($params);
+        return $uri->getUri();
     }
 
 }

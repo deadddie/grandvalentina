@@ -14,7 +14,7 @@ if ($room):
 
     $APPLICATION->SetTitle($arFields['NAME']);
     $APPLICATION->AddChainItem('Номера', '/rooms/');
-
+    $booking_link = Helper::addGetParameters($arProperties['BOOKING_LINK']['VALUE'], ['id' => $arFields['ID']]);
     ?>
     <h1 class="room-detail--title page-title"><?= $arFields['NAME'] ?></h1>
 
@@ -47,7 +47,6 @@ if ($room):
                     от <?= Helper::priceFormat($arProperties['PRICE']['VALUE']) ?> <?= renderIcon('rouble') ?>
                 </div>
 
-
                 <div class="room-detail--info">
                     <?php if (!empty($arProperties['CAPACITY']['VALUE'])): ?>
                         <div class="room-detail--info--customers">
@@ -73,12 +72,12 @@ if ($room):
                     </div>
                 </div>
 
-                <a href="<?= $arProperties['BOOKING_LINK']['VALUE'] ?>"
+                <a href="<?= $booking_link ?>"
                    class="room-detail--price-book btn btn-wide btn-default">Забронировать номер</a>
             </div>
 
             <div class="room-detail--actions">
-                <a href="<?= $arProperties['BOOKING_LINK']['VALUE'] ?>" class="btn btn-wide btn-default">Забронировать номер</a>
+                <a href="<?= $booking_link ?>" class="btn btn-wide btn-default">Забронировать номер</a>
             </div>
 
             <?php if (!empty($arFields['DESCRIPTION'])): ?>
@@ -121,7 +120,7 @@ if ($room):
         <div class="room-detail--content room-detail--content-bottom">
 
             <div class="room-detail--actions room-detail--actions--bottom">
-                <a href="<?= $arProperties['BOOKING_LINK']['VALUE'] ?>" class="btn btn-wide btn-default">Забронировать номер</a>
+                <a href="<?= $booking_link ?>" class="btn btn-wide btn-default">Забронировать номер</a>
             </div>
 
             <div class="room-detail--backlink">

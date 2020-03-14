@@ -35,6 +35,7 @@ use LapkinLab\{Helper, Content\Rooms};
         <?php while ($room = $rooms->GetNextElement()): ?>
             <?php $arFields = $room->GetFields(); ?>
             <?php $arProperties = $room->GetProperties(); ?>
+            <?php $booking_link = Helper::addGetParameters($arProperties['BOOKING_LINK']['VALUE'], ['id' => $arFields['ID']]); ?>
             <div id="room-item-<?= $arFields['ID'] ?>" class="room-item" data-id="<?= $arFields['ID'] ?>">
                 <div class="room-item--image">
                     <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>">
@@ -71,7 +72,7 @@ use LapkinLab\{Helper, Content\Rooms};
                         </div>
                     </div>
                     <div class="room-item--actions">
-                        <a href="<?= $arProperties['BOOKING_LINK']['VALUE'] ?>" class="btn btn-white">Забронировать</a>
+                        <a href="<?= $booking_link ?>" class="btn btn-white">Забронировать</a>
                         <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>" class="btn btn-link">Подробнее</a>
                     </div>
                     <div class="room-item--stickers">
