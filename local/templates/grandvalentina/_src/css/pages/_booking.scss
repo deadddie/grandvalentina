@@ -1,0 +1,12 @@
+// Booking
+
+.page-booking {
+  &--content {
+    margin-bottom: var(--padding-largest);
+    background-color: var(--color-background);
+    border: 1px solid var(--color-border);
+
+    iframe {}
+
+  }
+}
