@@ -15,6 +15,7 @@ if ($room):
     $APPLICATION->SetTitle($arFields['NAME']);
     $APPLICATION->AddChainItem('Номера', '/rooms/');
     $booking_link = Helper::addGetParameters($arProperties['BOOKING_LINK']['VALUE'], ['id' => $arFields['ID']]);
+
     ?>
     <h1 class="room-detail--title page-title"><?= $arFields['NAME'] ?></h1>
 
@@ -132,5 +133,3 @@ if ($room):
     </div>
 
 <?php endif; ?>
-
-<?php require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/include/epilog_after.php'); ?>
