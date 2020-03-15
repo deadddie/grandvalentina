@@ -127,7 +127,6 @@
       text-align: center;
       @include head_font;
       .delimiter {
-        text-align: center;
         color: var(--color-primary);
       }
       &--content {

@@ -55,9 +55,9 @@ body.index {
         max-height: 300px;
         overflow: hidden;
         img {
+          width: 100%;
           object-fit: cover;
           object-position: center;
-          max-width: 100%;
         }
       }
       &--description {
@@ -116,7 +116,6 @@ body.index {
         .delimiter {
           flex-basis: 100%;
           color: var(--color-primary);
-          text-align: center;
           @include container-sm;
           @include container-md;
           @include container-lg;
@@ -148,6 +147,7 @@ body.index {
           max-height: 180px;
         }
         img {
+          width: 100%;
           object-fit: cover;
           object-position: center;
         }
@@ -187,7 +187,6 @@ body.index {
         }
         h3,
         .delimiter {
-          text-align: center;
           color: var(--color-primary)
         }
         p {
