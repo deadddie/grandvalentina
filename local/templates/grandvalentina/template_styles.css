@@ -3764,17 +3764,22 @@ button.disabled {
     position: relative;
 }
 
-.mobile-menu--header--lang:hover,
-.header--lang:hover {
-    color: var(--color-active);
-}
-
 .mobile-menu--header--lang-current,
 .header--lang-current {
     font-family: "Minion Pro", serif;
     font-weight: 400;
     font-style: normal;
     font-size: var(--fontsize-medium);
+}
+
+.mobile-menu--header--lang-current:hover,
+.header--lang-current:hover {
+    color: var(--color-active);
+}
+
+.mobile-menu--header--lang .languages-item:hover,
+.header--lang .languages-item:hover {
+    color: var(--color-active);
 }
 
 .mobile-menu--footer,
@@ -4483,6 +4488,8 @@ font.tablebodytext {
 
 .delimiter {
     margin: var(--padding-small) 0;
+    display: flex;
+    justify-content: center;
 }
 
 .delimiter .icon {
@@ -5177,7 +5184,8 @@ font.tablebodytext {
 .event-detail--images,
 .restaurant-detail--images,
 .entertainment-detail--images,
-.offer-detail--images {
+.offer-detail--images,
+.page-about--gallery .about-detail--images {
     position: relative;
 }
 
@@ -5185,7 +5193,8 @@ font.tablebodytext {
 .event-detail--images ul,
 .restaurant-detail--images ul,
 .entertainment-detail--images ul,
-.offer-detail--images ul {
+.offer-detail--images ul,
+.page-about--gallery .about-detail--images ul {
     margin: 0;
     padding: 0;
     list-style: none;
@@ -5195,7 +5204,8 @@ font.tablebodytext {
 .event-detail--images ul li,
 .restaurant-detail--images ul li,
 .entertainment-detail--images ul li,
-.offer-detail--images ul li {
+.offer-detail--images ul li,
+.page-about--gallery .about-detail--images ul li {
     margin: 0;
     padding: 0;
     max-height: 540px;
@@ -5205,7 +5215,8 @@ font.tablebodytext {
 .event-detail--images ul li:before,
 .restaurant-detail--images ul li:before,
 .entertainment-detail--images ul li:before,
-.offer-detail--images ul li:before {
+.offer-detail--images ul li:before,
+.page-about--gallery .about-detail--images ul li:before {
     display: none;
 }
 
@@ -5213,17 +5224,21 @@ font.tablebodytext {
 .event-detail--images ul li img,
 .restaurant-detail--images ul li img,
 .entertainment-detail--images ul li img,
-.offer-detail--images ul li img {
-    max-width: 100%;
+.offer-detail--images ul li img,
+.page-about--gallery .about-detail--images ul li img {
+    width: 100%;
     -o-object-fit: cover;
     object-fit: cover;
+    -o-object-position: center;
+    object-position: center;
 }
 
 .room-detail--images--nav,
 .event-detail--images--nav,
 .restaurant-detail--images--nav,
 .entertainment-detail--images--nav,
-.offer-detail--images--nav {
+.offer-detail--images--nav,
+.page-about--gallery .about-detail--images--nav {
     padding-top: var(--padding-medium);
     padding-bottom: 0;
     background-color: var(--color-white);
@@ -5237,6 +5252,7 @@ font.tablebodytext {
 }
 
 .room-detail--image-main img {
+    width: 100%;
     -o-object-fit: cover;
     object-fit: cover;
     -o-object-position: center;
@@ -5331,10 +5347,6 @@ font.tablebodytext {
 
 .room-detail--3d--link a.btn {
     font-size: var(--fontsize-h2);
-}
-
-.room-detail--3d .delimiter {
-    text-align: center;
 }
 
 .room-detail--3d .delimiter .icon {
@@ -5466,10 +5478,6 @@ font.tablebodytext {
 
 .event-detail--content--wide-wrapper .event-detail--detail-text {
     margin-top: 0;
-}
-
-.event-detail--content--wide-wrapper .event-detail--detail-text .delimiter {
-    text-align: center;
 }
 
 .event-detail--content--wide-wrapper .event-detail--detail-text .delimiter .icon {
@@ -5654,7 +5662,6 @@ font.tablebodytext {
 }
 
 .restaurant-detail--detail-text .delimiter {
-    text-align: center;
     color: var(--color-primary);
 }
 
@@ -5693,7 +5700,6 @@ font.tablebodytext {
 }
 
 .entertainment-detail--promo .delimiter {
-    text-align: center;
     color: var(--color-primary);
 }
 
@@ -5812,11 +5818,11 @@ body.index .index-services--item--image {
 }
 
 body.index .index-services--item--image img {
+    width: 100%;
     -o-object-fit: cover;
     object-fit: cover;
     -o-object-position: center;
     object-position: center;
-    max-width: 100%;
 }
 
 body.index .index-services--item--description {
@@ -5861,7 +5867,6 @@ body.index .index-content .index-about--title {
 body.index .index-content .index-about .delimiter {
     flex-basis: 100%;
     color: var(--color-primary);
-    text-align: center;
 }
 
 body.index .index-content .index-about p {
@@ -5884,6 +5889,7 @@ body.index .index-content .index-about--image {
 }
 
 body.index .index-content .index-about--image img {
+    width: 100%;
     -o-object-fit: cover;
     object-fit: cover;
     -o-object-position: center;
@@ -5911,7 +5917,6 @@ body.index .index-content .index-about--add--wrapper {
 
 body.index .index-content .index-about--add h3,
 body.index .index-content .index-about--add .delimiter {
-    text-align: center;
     color: var(--color-primary);
 }
 
@@ -6108,8 +6113,6 @@ body.index .index-content .index-subscribe--wrapper .form-privacy label .icon {
 .page-contacts--section .delimiter {
     margin-top: var(--padding-small);
     margin-bottom: var(--padding-base);
-    display: flex;
-    justify-content: center;
 }
 
 .page-contacts--section .delimiter .icon {
@@ -6140,6 +6143,136 @@ body.index .index-content .index-subscribe--wrapper .form-privacy label .icon {
     margin-bottom: var(--padding-largest);
     background-color: var(--color-background);
     border: 1px solid var(--color-border);
+}
+
+.page-about--wrapper {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.page-about .page-title {
+    flex-basis: 100%;
+}
+
+.page-about--text {
+    flex-basis: 100%;
+    text-align: center;
+    padding-top: var(--padding-large);
+    padding-bottom: var(--padding-large);
+    background-image: url("images/block-bg.png");
+    background-size: cover;
+    background-position: center;
+    background-color: var(--color-secondary);
+}
+
+.page-about--text--title {
+    font-size: var(--fontsize-h1);
+    font-family: "Minion Pro", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.page-about--text--content {
+    font-size: var(--fontsize-h3);
+    font-family: "Minion Pro Italic", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.page-about--text--summary {
+    margin-top: var(--padding-medium);
+    font-size: var(--fontsize-medium);
+}
+
+.page-about--text .delimiter .icon {
+    color: var(--color-primary);
+}
+
+.page-about--gallery {
+    padding-top: var(--padding-large);
+    padding-bottom: var(--padding-large);
+}
+
+.page-about--gallery--title {
+    font-size: var(--fontsize-h1);
+    text-align: center;
+    font-family: "Minion Pro", serif;
+    font-weight: 400;
+    font-style: normal;
+}
+
+.page-about--gallery .delimiter .icon {
+    color: var(--color-primary);
+}
+
+.page-about--gallery .about-detail--images {
+    margin-top: var(--padding-large);
+    flex-basis: 100%;
+}
+
+.page-about--gallery .about-detail--images ul li:before {
+    display: none;
+}
+
+.page-about--image {
+    flex-basis: 100%;
+    height: 160px;
+    display: flex;
+}
+
+.page-about--image img {
+    width: 100%;
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center;
+    object-position: center;
+}
+
+.page-about--resume {
+    flex-basis: 100%;
+    padding-top: var(--padding-large);
+    padding-bottom: var(--padding-large);
+}
+
+.page-about--resume-wrapper {
+    background-color: var(--color-primary);
+    color: var(--color-white);
+    padding: var(--padding-extra) var(--padding-medium);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
+}
+
+.page-about--resume-wrapper:after {
+    content: "";
+    position: absolute;
+    top: 25px;
+    left: 25px;
+    width: calc(100% - 50px);
+    height: calc(100% - 50px);
+    border: 1px solid var(--color-white);
+}
+
+.page-about--resume p {
+    flex-basis: 100%;
+    text-align: center;
+    font-size: var(--fontsize-h2);
+    margin-bottom: 0;
+    font-family: "Minion Pro Italic", serif;
+    font-weight: 400;
+    font-style: normal;
+    color: var(--color-white);
+}
+
+.page-about--resume .delimiter {
+    flex-basis: 100%;
+    margin-top: var(--padding-base);
+    margin-bottom: var(--padding-base);
+}
+
+.page-about--resume .delimiter .icon {
+    color: var(--color-white);
 }
 
 /**
@@ -7255,7 +7388,8 @@ body.compensate-for-scrollbar {
   .event-detail--images--nav,
   .restaurant-detail--images--nav,
   .entertainment-detail--images--nav,
-  .offer-detail--images--nav {
+  .offer-detail--images--nav,
+  .page-about--gallery .about-detail--images--nav {
         margin-left: var(--padding-base);
         margin-right: var(--padding-base);
         max-width: 540px;
@@ -7304,6 +7438,12 @@ body.compensate-for-scrollbar {
     }
 
     .page-contacts--section--order {
+        margin-left: var(--padding-base);
+        margin-right: var(--padding-base);
+        max-width: 540px;
+    }
+
+    .page-about--gallery .about-detail--images--nav {
         margin-left: var(--padding-base);
         margin-right: var(--padding-base);
         max-width: 540px;
@@ -8513,6 +8653,12 @@ body.compensate-for-scrollbar {
         margin-right: auto;
         max-width: 720px;
     }
+
+    .page-about--text-wrapper {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 720px;
+    }
 }
 
 @media (min-width: 576px) and (min-width: 1024px) {
@@ -9549,7 +9695,8 @@ body.compensate-for-scrollbar {
   .event-detail--images--nav,
   .restaurant-detail--images--nav,
   .entertainment-detail--images--nav,
-  .offer-detail--images--nav {
+  .offer-detail--images--nav,
+  .page-about--gallery .about-detail--images--nav {
         margin-left: auto;
         margin-right: auto;
     }
@@ -9644,6 +9791,10 @@ body.compensate-for-scrollbar {
 
     .page-contacts--section .container--contact-map {
         padding: 0;
+    }
+
+    .page-about--image {
+        height: 320px;
     }
 }
 
@@ -10594,7 +10745,8 @@ body.compensate-for-scrollbar {
   .event-detail--images,
   .restaurant-detail--images,
   .entertainment-detail--images,
-  .offer-detail--images {
+  .offer-detail--images,
+  .page-about--gallery .about-detail--images {
         margin-left: auto;
         margin-right: auto;
         max-width: 1224px;
@@ -10604,7 +10756,8 @@ body.compensate-for-scrollbar {
   .event-detail--images--nav,
   .restaurant-detail--images--nav,
   .entertainment-detail--images--nav,
-  .offer-detail--images--nav {
+  .offer-detail--images--nav,
+  .page-about--gallery .about-detail--images--nav {
         margin-left: auto;
         margin-right: auto;
         max-width: 1224px;
@@ -10689,6 +10842,24 @@ body.compensate-for-scrollbar {
         max-width: 100%;
         width: 100%;
         flex-basis: 100%;
+    }
+
+    .page-about--gallery {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1224px;
+    }
+
+    .page-about--gallery .about-detail--images--nav {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1224px;
+    }
+
+    .page-about--resume-wrapper {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 1224px;
     }
 }
 
@@ -11742,6 +11913,25 @@ body.compensate-for-scrollbar {
     body.index .index-content .index-subscribe {
         margin-top: var(--padding-large);
         margin-bottom: var(--padding-large);
+    }
+
+    .page-about--text {
+        padding-top: var(--padding-extra);
+        padding-bottom: var(--padding-extra);
+    }
+
+    .page-about--gallery {
+        padding-top: var(--padding-extra);
+        padding-bottom: var(--padding-extra);
+    }
+
+    .page-about--image {
+        height: 500px;
+    }
+
+    .page-about--resume {
+        padding-top: var(--padding-extra);
+        padding-bottom: var(--padding-extra);
     }
 }
 

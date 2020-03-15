@@ -16,6 +16,7 @@ function Init () {
     Slider.init('event_block');
     Slider.init('restaurant');
     Slider.init('entertainment');
+    Slider.init('about');
 
     SliderBlock.init('offer');
     SliderBlock.init('room');
