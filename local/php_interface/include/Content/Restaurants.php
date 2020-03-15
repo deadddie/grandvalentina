@@ -123,22 +123,4 @@ class Restaurants
         }
         return $menu;
     }
-
-    /**
-     * Ссылка на скачивание меню.
-     *
-     * @param $id
-     * @param string $name
-     *
-     * @return false|string|null
-     */
-    public static function getMenuLink($id, $name = '')
-    {
-        $file = \CFile::GetByID($id)->Fetch();
-        return view('common.download_file', [
-            'file' => $file,
-            'download' => $name . '.' . str_replace('application/', '', str_replace(' ', '_', $file['CONTENT_TYPE'])),
-            'button_name' => 'меню',
-        ], false);
-    }
 }

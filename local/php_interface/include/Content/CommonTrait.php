@@ -74,4 +74,23 @@ trait CommonTrait
         $params['image'] = $resized;
         return view('common.image', $params, false);
     }
+
+    /**
+     * Ссылка на скачивание меню.
+     *
+     * @param $id
+     * @param string $name
+     *
+     * @return false|string|null
+     */
+    public static function getMenuLink($id, $name = '')
+    {
+        $file = \CFile::GetByID($id)->Fetch();
+        $ext = pathinfo($file['FILE_NAME'], PATHINFO_EXTENSION);
+        return view('common.download_file', [
+            'file' => $file,
+            'download' => htmlspecialcharsEx(str_replace([' ', '"'], '_',(!empty($name)) ? $name . '.' . $ext : $file['ORIGINAL_NAME'])),
+            'button_name' => 'меню',
+        ], false);
+    }
 }
