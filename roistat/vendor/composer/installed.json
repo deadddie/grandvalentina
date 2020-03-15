@@ -1,0 +1,30 @@
+[
+    {
+        "name": "roistat/proxylead",
+        "version": "dev-master",
+        "version_normalized": "9999999-dev",
+        "source": {
+            "type": "git",
+            "url": "https://golovkovden@bitbucket.org/golovkovden/proxylead.git",
+            "reference": "fb1351858dad55604e34a43757011f414df95557"
+        },
+        "time": "2019-06-02T14:37:21+00:00",
+        "type": "library",
+        "installation-source": "source",
+        "autoload": {
+            "psr-4": {
+                "Roistat\\Proxylead\\": "src"
+            }
+        },
+        "license": [
+            "MIT"
+        ],
+        "authors": [
+            {
+                "name": "Golovkov Denis",
+                "email": "golovkov.den@roistat.com"
+            }
+        ],
+        "description": "-"
+    }
+]
