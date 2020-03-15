@@ -44,7 +44,6 @@ if ($event):
         <?php endif; ?>
 
         <div class="event-detail--content">
-
             <?php if (!empty($arFields['DETAIL_TEXT'])): ?>
                 <div class="event-detail--description">
                     <div class="event-detail--description--content">
@@ -52,8 +51,47 @@ if ($event):
                     </div>
                 </div>
             <?php endif; ?>
-
         </div>
+
+        <?php if (!empty($arProperties['TEXT_BLOCK1']['VALUE'])): ?>
+            <div class="event-detail--content event-detail--content--wide">
+                <div class="event-detail--content--wide-wrapper">
+                    <div class="event-detail--detail-text">
+                        <div class="event-detail--detail-text--content">
+                            <?= html_entity_decode($arProperties['TEXT_BLOCK1']['VALUE']['TEXT']) ?>
+                        </div>
+                    </div>
+                </div>
+                <?php if (!empty($arProperties['MENU']['VALUE'])): ?>
+                    <div class="event-detail--menu--download">
+                        <?= Events::getMenuLink($arProperties['MENU']['VALUE']) ?>
+                    </div>
+                <?php endif; ?>
+            </div>
+        <?php endif; ?>
+
+        <?php if (!empty($arProperties['ACTIONS']['VALUE'])): ?>
+        <div class="event-detail--content">
+            <div class="event-detail--description">
+                <div class="event-detail--description--content">
+                    <?= html_entity_decode($arProperties['ACTIONS']['VALUE']['TEXT']) ?>
+                </div>
+            </div>
+        </div>
+        <?php endif; ?>
+
+        <?php if (!empty($arProperties['TEXT_BLOCK2']['VALUE'])): ?>
+            <div class="event-detail--content event-detail--content--wide">
+                <div class="event-detail--content--wide-wrapper">
+                    <div class="event-detail--detail-text">
+                        <div class="delimiter"><?= renderIcon('delimiter') ?></div>
+                        <div class="event-detail--detail-text--content">
+                            <?= html_entity_decode($arProperties['TEXT_BLOCK2']['VALUE']['TEXT']) ?>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        <?php endif; ?>
 
         <div class="event-detail--order">
             <?= view('forms.order', [

@@ -108,10 +108,14 @@ if ($room):
                 </div>
             <?php endif; ?>
 
+            <?php if (!empty($arProperties['TOUR']['VALUE'])): ?>
             <div class="room-detail--3d">
-                <button class="btn btn-link">3D-тур</button>
+                <div class="room-detail--3d--link">
+                    <a class="btn btn-link" href="/3d-tour/<?= $arProperties['TOUR']['VALUE_XML_ID'] ?>.html" target="_blank" rel="nofollow">3D-тур</a>
+                </div>
                 <div class="delimiter"><?= renderIcon('delimiter') ?></div>
             </div>
+            <?php endif; ?>
 
             <div class="room-detail--image-main">
                 <?= Rooms::getPreviewImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>

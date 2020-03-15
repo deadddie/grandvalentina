@@ -52,10 +52,18 @@ body.index {
       &--content {}
       &--image {
         margin-top: var(--padding-small);
+        max-height: 300px;
+        overflow: hidden;
+        img {
+          object-fit: cover;
+          object-position: center;
+          max-width: 100%;
+        }
       }
       &--description {
         padding: var(--padding-base);
         font-size: var(--fontsize-smaller);
+        line-height: 1.6;
       }
       &--link {
         padding: 0 var(--padding-base) var(--padding-base);
@@ -252,7 +260,7 @@ body.index {
         &--items {
           text-align: center;
           background-color: var(--color-secondary);
-          padding: var(--padding-large) var(--padding-medium);
+          padding: var(--padding-largest) var(--padding-medium) var(--padding-large);
         }
         &--phone {
           @extend .footer--contacts-phone;

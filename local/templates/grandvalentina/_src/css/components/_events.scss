@@ -53,6 +53,41 @@
       @extend .room-detail--content;
       background-color: var(--color-white);
       box-shadow: none;
+      &--wide {
+        width: 100%;
+        flex-basis: 100%;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        background-color: var(--color-secondary);
+        @media (min-width: map_get($grid-breakpoints, xl)) {
+          padding-top: var(--padding-extra);
+          padding-bottom: var(--padding-extra);
+        }
+        &-wrapper {
+          @include container-md;
+          .event-detail--detail-text {
+            margin-top: 0;
+            .delimiter {
+              text-align: center;
+              .icon {
+                color: var(--color-primary);
+              }
+            }
+            &--content {
+              text-align: center;
+              @include head_font;
+              font-size: var(--fontsize-large);
+            }
+          }
+        }
+      }
+    }
+
+    &--menu--download {
+      margin-top: var(--padding-large);
+      flex-basis: 100%;
+      text-align: center;
     }
 
     &--description {
@@ -93,9 +128,13 @@
       flex-wrap: wrap;
       justify-content: center;
       @include head_font;
-      margin: 20px;
-      padding: 20px 20px 30px;
+      margin: var(--padding-medium);
+      padding: var(--padding-medium) var(--padding-medium) var(--padding-large);
       text-align: center;
+      @media (min-width: map_get($grid-breakpoints, xl)) {
+        padding-top: var(--padding-extra);
+        padding-bottom: var(--padding-extra);
+      }
       &--value {
         flex-basis: 100%;
         font-size: var(--fontsize-h2);
@@ -115,8 +154,8 @@
       }
       &--description {
         flex-basis: 100%;
-        padding-right: 30px;
-        padding-left: 30px;
+        padding-right: var(--padding-medium);
+        padding-left: var(--padding-medium);
       }
     }
 

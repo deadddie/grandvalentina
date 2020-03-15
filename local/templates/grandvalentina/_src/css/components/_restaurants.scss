@@ -51,6 +51,20 @@
       @extend .room-detail--content;
       background-color: var(--color-white);
       box-shadow: none;
+      &--wide {
+        width: 100%;
+        flex-basis: 100%;
+        max-width: 100% !important;
+        margin-left: 0 !important;
+        margin-right: 0 !important;
+        background-color: var(--color-secondary);
+        &-wrapper {
+          @include container-md;
+          .restaurant-detail--detail-text {
+            margin-top: 0;
+          }
+        }
+      }
     }
     &--description {
       &--content {
@@ -96,10 +110,11 @@
         font-size: var(--fontsize-small);
         line-height: 1.6;
         text-align: left;
-        margin-bottom: var(--padding-base);
+        margin-bottom: var(--padding-medium);
       }
       &--download {
         flex-basis: 100%;
+        text-align: center;
       }
     }
 

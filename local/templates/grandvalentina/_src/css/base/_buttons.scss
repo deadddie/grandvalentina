@@ -96,11 +96,12 @@ button {
     border-color: transparent;
     text-transform: none;
     letter-spacing: initial;
+    &:focus,
     &:hover {
       color: var(--color-active) !important;
       text-decoration: underline !important;
-      border-color: transparent;
-      background-color: transparent;
+      border-color: transparent !important;
+      background-color: transparent !important;
     }
     &-inverse {
       text-decoration: none;

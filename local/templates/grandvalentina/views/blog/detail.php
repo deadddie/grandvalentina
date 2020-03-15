@@ -13,7 +13,7 @@ if ($blog):
     $arProperties = $blog->GetProperties();
 
     $APPLICATION->SetTitle($arFields['NAME']);
-    $APPLICATION->AddChainItem('Блоги', '/blog/');
+    $APPLICATION->AddChainItem('Блог', '/blog/');
 
     ?>
     <h1 class="page-title"><?= $arFields['NAME'] ?></h1>

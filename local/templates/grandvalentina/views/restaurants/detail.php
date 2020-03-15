@@ -52,7 +52,7 @@ if ($restaurant):
         <div class="restaurant-detail--content">
             <?php if (!empty($arProperties['MENU_ABOUT']['VALUE'])): ?>
                 <div class="restaurant-detail--menu">
-                    <h3 class="restaurant-detail--menu--title">Меню ресторана</h3>
+                    <h3 class="restaurant-detail--menu--title">Меню <?= $arFields['NAME'] ?></h3>
                     <div class="restaurant-detail--menu--delimiter delimiter"><?= renderIcon('delimiter') ?></div>
                     <div class="restaurant-detail--menu--about">
                         <?= $arProperties['MENU_ABOUT']['VALUE'] ?>
@@ -64,17 +64,20 @@ if ($restaurant):
                     <?php endif; ?>
                 </div>
             <?php endif; ?>
+        </div>
 
-            <?php if (!empty($arProperties['ABOUT']['VALUE'])): ?>
-                <div class="restaurant-detail--detail-text">
-                    <div class="delimiter"><?= renderIcon('delimiter') ?></div>
-                    <div class="restaurant-detail--detail-text--content">
-                        <?= html_entity_decode($arProperties['ABOUT']['VALUE']['TEXT']) ?>
+        <?php if (!empty($arProperties['ABOUT']['VALUE'])): ?>
+            <div class="restaurant-detail--content restaurant-detail--content--wide">
+                <div class="restaurant-detail--content--wide-wrapper">
+                    <div class="restaurant-detail--detail-text">
+                        <div class="delimiter"><?= renderIcon('delimiter') ?></div>
+                        <div class="restaurant-detail--detail-text--content">
+                            <?= html_entity_decode($arProperties['ABOUT']['VALUE']['TEXT']) ?>
+                        </div>
                     </div>
                 </div>
-            <?php endif; ?>
-
-        </div>
+            </div>
+        <?php endif; ?>
 
         <?php if ($arProperties['FORM']['VALUE'] === 'Y'): ?>
             <div class="restaurant-detail--order">

@@ -3542,11 +3542,12 @@ button.disabled {
     letter-spacing: initial;
 }
 
+.btn-link:focus,
 .btn-link:hover {
     color: var(--color-active) !important;
     text-decoration: underline !important;
-    border-color: transparent;
-    background-color: transparent;
+    border-color: transparent !important;
+    background-color: transparent !important;
 }
 
 .btn-link-inverse {
@@ -5064,7 +5065,7 @@ font.tablebodytext {
 .room-item--description,
 .restaurant-item--description {
     font-size: var(--fontsize-smaller);
-    line-height: 1.5;
+    line-height: 1.6;
     margin-bottom: 15px;
 }
 
@@ -5322,8 +5323,13 @@ font.tablebodytext {
     margin-bottom: var(--padding-base);
 }
 
-.room-detail--3d button {
+.room-detail--3d--link {
     flex-basis: 100%;
+    display: flex;
+    justify-content: center;
+}
+
+.room-detail--3d--link a.btn {
     font-size: var(--fontsize-h2);
 }
 
@@ -5449,6 +5455,41 @@ font.tablebodytext {
     box-shadow: none;
 }
 
+.event-detail--content--wide {
+    width: 100%;
+    flex-basis: 100%;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    background-color: var(--color-secondary);
+}
+
+.event-detail--content--wide-wrapper .event-detail--detail-text {
+    margin-top: 0;
+}
+
+.event-detail--content--wide-wrapper .event-detail--detail-text .delimiter {
+    text-align: center;
+}
+
+.event-detail--content--wide-wrapper .event-detail--detail-text .delimiter .icon {
+    color: var(--color-primary);
+}
+
+.event-detail--content--wide-wrapper .event-detail--detail-text--content {
+    text-align: center;
+    font-family: "Minion Pro", serif;
+    font-weight: 400;
+    font-style: normal;
+    font-size: var(--fontsize-large);
+}
+
+.event-detail--menu--download {
+    margin-top: var(--padding-large);
+    flex-basis: 100%;
+    text-align: center;
+}
+
 .event-detail--description--content p {
     font-size: var(--fontsize-small);
     line-height: 1.6;
@@ -5476,8 +5517,8 @@ font.tablebodytext {
     font-family: "Minion Pro", serif;
     font-weight: 400;
     font-style: normal;
-    margin: 20px;
-    padding: 20px 20px 30px;
+    margin: var(--padding-medium);
+    padding: var(--padding-medium) var(--padding-medium) var(--padding-large);
     text-align: center;
 }
 
@@ -5504,8 +5545,8 @@ font.tablebodytext {
 
 .event-detail--seats--description {
     flex-basis: 100%;
-    padding-right: 30px;
-    padding-left: 30px;
+    padding-right: var(--padding-medium);
+    padding-left: var(--padding-medium);
 }
 
 .event-detail--image-main img,
@@ -5548,6 +5589,19 @@ font.tablebodytext {
     box-shadow: none;
 }
 
+.restaurant-detail--content--wide {
+    width: 100%;
+    flex-basis: 100%;
+    max-width: 100% !important;
+    margin-left: 0 !important;
+    margin-right: 0 !important;
+    background-color: var(--color-secondary);
+}
+
+.restaurant-detail--content--wide-wrapper .restaurant-detail--detail-text {
+    margin-top: 0;
+}
+
 .restaurant-detail--description--content p {
     font-size: var(--fontsize-small);
     line-height: 1.6;
@@ -5579,11 +5633,12 @@ font.tablebodytext {
     font-size: var(--fontsize-small);
     line-height: 1.6;
     text-align: left;
-    margin-bottom: var(--padding-base);
+    margin-bottom: var(--padding-medium);
 }
 
 .restaurant-detail--menu--download {
     flex-basis: 100%;
+    text-align: center;
 }
 
 .restaurant-detail--detail-text {
@@ -5752,11 +5807,22 @@ body.index .index-services--item--title .icon {
 
 body.index .index-services--item--image {
     margin-top: var(--padding-small);
+    max-height: 300px;
+    overflow: hidden;
+}
+
+body.index .index-services--item--image img {
+    -o-object-fit: cover;
+    object-fit: cover;
+    -o-object-position: center;
+    object-position: center;
+    max-width: 100%;
 }
 
 body.index .index-services--item--description {
     padding: var(--padding-base);
     font-size: var(--fontsize-smaller);
+    line-height: 1.6;
 }
 
 body.index .index-services--item--link {
@@ -5914,7 +5980,7 @@ body.index .index-content .index-contacts--delimiter .icon {
 body.index .index-content .index-contacts--items {
     text-align: center;
     background-color: var(--color-secondary);
-    padding: var(--padding-large) var(--padding-medium);
+    padding: var(--padding-largest) var(--padding-medium) var(--padding-large);
 }
 
 body.index .index-content .index-contacts--phone {
@@ -8240,7 +8306,7 @@ body.compensate-for-scrollbar {
         display: flex;
         flex-wrap: wrap;
         justify-content: space-between;
-        margin-bottom: var(--padding-large);
+        margin-bottom: var(--padding-largest);
     }
 
     .room-detail--image-main {
@@ -8286,8 +8352,20 @@ body.compensate-for-scrollbar {
         font-size: 30px;
     }
 
+    .event-detail--content--wide-wrapper {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 720px;
+    }
+
     .event-detail--order,
   .restaurant-detail--order {
+        margin-left: auto;
+        margin-right: auto;
+        max-width: 720px;
+    }
+
+    .restaurant-detail--content--wide-wrapper {
         margin-left: auto;
         margin-right: auto;
         max-width: 720px;
@@ -11616,6 +11694,16 @@ body.compensate-for-scrollbar {
   .offer-detail--phone {
         margin-top: var(--padding-extra);
         margin-bottom: var(--padding-extra);
+    }
+
+    .event-detail--content--wide {
+        padding-top: var(--padding-extra);
+        padding-bottom: var(--padding-extra);
+    }
+
+    .event-detail--seats {
+        padding-top: var(--padding-extra);
+        padding-bottom: var(--padding-extra);
     }
 
     .event-detail--image-main,

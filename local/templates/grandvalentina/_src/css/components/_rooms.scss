@@ -82,7 +82,7 @@
     @include container-xl;
     @media (min-width: map_get($grid-breakpoints, sm)) {
       @include justify;
-      margin-bottom: var(--padding-large);
+      margin-bottom: var(--padding-largest);
     }
   }
 
@@ -133,7 +133,7 @@
 
     &--description {
       font-size: var(--fontsize-smaller);
-      line-height: 1.5;
+      line-height: 1.6;
       margin-bottom: 15px;
     }
 
@@ -406,22 +406,22 @@
       flex-wrap: wrap;
       margin-top: var(--padding-base);
       margin-bottom: var(--padding-base);
-
       @media (min-width: map_get($grid-breakpoints, sm)) {
         padding: var(--padding-large) 0 var(--padding-small);
-
         .btn {
           font-size: 30px;
         }
       }
-
       @media (min-width: map_get($grid-breakpoints, xl)) {
         padding-top: var(--padding-extra);
       }
-
-      button {
+      &--link {
         flex-basis: 100%;
-        font-size: var(--fontsize-h2);
+        display: flex;
+        justify-content: center;
+        a.btn {
+          font-size: var(--fontsize-h2);
+        }
       }
       .delimiter {
         text-align: center;
