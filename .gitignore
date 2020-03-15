@@ -54,3 +54,4 @@ cmsmagazine*.*
 /local/vendor/
 /local/node_modules/
 /_markup/
+/3d-tour/
