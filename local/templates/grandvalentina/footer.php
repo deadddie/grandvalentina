@@ -93,7 +93,9 @@ Loc::loadLanguageFile(__FILE__);
 <!--modals container-->
 <div id="ajax-modals-container"></div>
 
-<?php $APPLICATION->IncludeFile(SITE_TEMPLATE_PATH . '/include_areas/seo.php') ?>
+<?php if (SITE_CONFIG['env'] === 'production'): ?>
+    <?php $APPLICATION->IncludeFile(SITE_TEMPLATE_PATH . '/include_areas/seo.php') ?>
+<?php endif; ?>
 
 </body>
 </html>
