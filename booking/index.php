@@ -32,6 +32,12 @@ $APPLICATION->SetPageProperty('title', $title);
                     <!-- start TL Booking form script -->
                     <div id="tl-booking-form">&nbsp;</div>
                     <script>
+                        // Roistat Begin
+                        function bookingSuccess(data) {
+                            $.get('//grandvalentina.ru/roistat/webhooks/armor.php', data);
+                        }
+                        // Roistat End
+
                         (function(w){
                             var q=[
                                 ['setContext', 'TL-INT-grandvalentina', 'ru'],
