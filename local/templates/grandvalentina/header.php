@@ -49,6 +49,8 @@ $asset = Asset::getInstance();
     $APPLICATION->ShowHeadScripts();
     ?>
     <?php $asset->addString('<link rel="canonical" href="https://' . $_SERVER['HTTP_HOST'] . $APPLICATION->GetCurPage(false) . '">'); ?>
+
+    <?php $APPLICATION->IncludeFile(SITE_TEMPLATE_PATH . '/include_areas/seo_head.php') ?>
 </head>
 <body class="<?= Core::setBodyClass($APPLICATION) ?>">
     <?php $APPLICATION->ShowPanel(); ?>
