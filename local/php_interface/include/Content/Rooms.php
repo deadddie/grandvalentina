@@ -117,6 +117,55 @@ class Rooms
     }
 
     /**
+     * Список номеров.
+     *
+     * @return array
+     */
+    public static function getMenu()
+    {
+        $rooms = $menu = [];
+        if (\CModule::IncludeModule('iblock')) {
+            $arOrder = array(
+                'SORT' => 'asc',
+            );
+            $arFilter = array(
+                'IBLOCK_ID' => self::ROOMS_IBLOCK_ID,
+                'ACTIVE' => 'Y',
+                'PROPERTY_CHECKED_MENU' => 'Y',
+            );
+            $arGroupBy = false;
+            $arNavStartParams = false;
+            $arSelect = array(
+                'ID',
+                'NAME',
+                'CODE',
+                'IBLOCK_ID',
+                'DETAIL_PICTURE',
+                'DETAIL_TEXT',
+                'PREVIEW_PICTURE',
+                'PREVIEW_TEXT',
+                'ACTIVE',
+                'SORT',
+                'DETAIL_PAGE_URL',
+                'PROPERTY_*',
+                //'SHOW_COUNTER',
+            );
+            $rooms = \CIBlockElement::GetList($arOrder, $arFilter, $arGroupBy, $arNavStartParams, $arSelect);
+        }
+        while ($room = $rooms->GetNextelement()) {
+            $arFields = $room->GetFields();
+            $menu[] = array(
+                $arFields['NAME'],
+                $arFields['DETAIL_PAGE_URL'],
+                array(),
+                array(),
+                ''
+            );
+        }
+        return $menu;
+    }
+
+    /**
      * Вывод списка услуг в номере.
      *
      * @param $room_services
