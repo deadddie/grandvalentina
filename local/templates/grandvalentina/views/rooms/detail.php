@@ -81,11 +81,11 @@ if ($room):
                 <a href="<?= $booking_link ?>" class="btn btn-wide btn-default">Забронировать номер</a>
             </div>
 
-            <?php if (!empty($arFields['DESCRIPTION'])): ?>
-                <div class="room-detail--description">
-                    <div class="room-detail--description--title">Описание <?= renderIcon('shevron') ?></div>
-                    <div class="room-detail--description--content">
-                        <?= Rooms::getRoomServices($arFields['DESCRIPTION']) ?>
+            <?php if (!empty($arFields['DETAIL_TEXT'])): ?>
+                <div class="room-detail--description js-wrap active">
+                    <div class="room-detail--description--title js-wrap-title">Описание <?= renderIcon('shevron') ?></div>
+                    <div class="room-detail--description--content js-wrap-content">
+                        <?= $arFields['DETAIL_TEXT'] ?>
                     </div>
                 </div>
             <?php endif; ?>
