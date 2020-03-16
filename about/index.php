@@ -14,6 +14,8 @@ $APPLICATION->SetTitle('Об отеле');
 
         <div class="page-about--image">
             <img src="images/about-1.jpg" alt="<?= SITE_CONFIG['name_short'] ?>">
+            <img src="images/about-1.jpg" alt="<?= SITE_CONFIG['name_short'] ?>">
+            <img src="images/about-1.jpg" alt="<?= SITE_CONFIG['name_short'] ?>">
         </div>
 
         <div class="page-about--text">
