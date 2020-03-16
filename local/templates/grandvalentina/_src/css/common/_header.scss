@@ -26,8 +26,9 @@
     display: none;
     align-items: center;
     position: absolute;
-    top: 35px;
+    top: 0;
     left: 100px;
+    height: 75px;
     a {
       color: var(--color-black);
       @include text_font_b;
@@ -45,6 +46,7 @@
   &--callback {
     display: none;
     align-items: center;
+    order: 5;
     button {
       font-size: var(--fontsize-small);
     }
@@ -57,11 +59,12 @@
 
   &--menu {
     display: none;
+    order: 10;
     @media (min-width: map_get($grid-breakpoints, xl)) {
       display: flex;
       width: 100%;
       flex-basis: 100%;
-      height: var(--navigation-height);
+      height: 75px; //var(--navigation-height);
     }
     .menu-top {
       display: flex;
@@ -80,6 +83,7 @@
           margin: 0 var(--padding-base);
           display: flex;
           align-items: center;
+          height: 100%;
           &:first-child {
             margin-left: 0;
           }
@@ -98,6 +102,9 @@
             color: var(--color-black);
             @include head_font;
             font-size: var(--fontsize-large);
+            height: 100%;
+            display: flex;
+            align-items: center;
             &:hover {
               color: var(--color-active-hover);
             }
@@ -116,9 +123,34 @@
   // Mobile menu
 
   &--hamburger {
+    order: 4;
     @media (min-width: map_get($grid-breakpoints, xl)) {
       display: none;
     }
+
+    &--float {
+      display: none;
+      align-items: center;
+      user-select: none;
+      &:hover {
+        cursor: pointer;
+        color: var(--color-active);
+        .icon {
+          color: var(--color-active);
+        }
+      }
+      .icon {
+        width: 20px;
+      }
+      @media (max-width: map_get($grid-breakpoints, lg)) {
+        display: none !important;
+      }
+      &-text {
+        margin-left: var(--padding-base);
+        text-transform: uppercase;
+      }
+    }
+
   }
 
   &--close,
@@ -138,7 +170,9 @@
     display: flex;
     align-items: center;
     justify-content: center;
+    order: 3;
     .logo-vertical {
+      margin-top: 0;
       img {
         margin-bottom: 2px;
       }
@@ -156,6 +190,7 @@
     display: flex;
     align-items: center;
     position: relative;
+    order: 1;
     &-current {
       @include head_font;
       font-size: var(--fontsize-medium);
@@ -173,4 +208,65 @@
 
   }
 
+}
+
+// Fixed header
+
+.header {
+  position: fixed;
+  z-index: 999;
+  transition: height 0.3s ease;
+  &.fixed {
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      height: 75px;
+      overflow: hidden;
+      .header--wrapper {
+        height: 100%;
+      }
+      .header--lang {
+        display: none;
+      }
+      .header--hamburger--float {
+        display: flex;
+        order: 2;
+      }
+      .header--phone {
+        order: 3;
+        position: relative;
+        top: initial;
+        left: initial;
+        margin-left: auto;
+        margin-right: 50px;
+      }
+      .header--logo {
+        order: 1;
+        margin-right: 50px;
+      }
+
+      .header--menu {
+        top: 0;
+        &.active {
+          position: fixed;
+          top: 75px;
+          left: 0;
+          right: 0;
+          width: 100%;
+          background-color: var(--color-white);
+          border-bottom: 1px solid var(--color-border);
+          @include shadow-sm;
+          .menu-top {
+            @include container-xl;
+          }
+        }
+      }
+
+    }
+  }
+
+  + #main-content {
+    margin-top: 50px;
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      margin-top: 150px;
+    }
+  }
 }

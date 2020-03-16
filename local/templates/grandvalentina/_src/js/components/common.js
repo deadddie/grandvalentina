@@ -75,14 +75,21 @@ let Common = {
     scrollToTop() {
         let self = this;
         let scrollingAtTop = $(document).scrollTop();
+        let header = $('.header');
         let scrollToTop = $('#scroll-to-top');
-        if (scrollingAtTop > 480 && !self.min) {
-            scrollToTop.addClass('active');
+        if (scrollingAtTop > 0 && !self.min) {
             self.min = true;
+            header.addClass('fixed');
         }
-        if (scrollingAtTop <= 480 && self.min) {
-            scrollToTop.removeClass('active');
+        if (scrollingAtTop === 0) {
             self.min = false;
+            header.removeClass('fixed');
+        }
+        if (scrollingAtTop > 480) {
+            scrollToTop.addClass('active');
+        }
+        if (scrollingAtTop <= 480) {
+            scrollToTop.removeClass('active');
         }
     },
 
