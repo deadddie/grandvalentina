@@ -92,7 +92,7 @@ if ($room):
 
             <?php if (!empty($arProperties['ROOM_SERVICES']['VALUE'])): ?>
                 <div class="room-detail--room-services js-wrap active">
-                    <div class="room-detail--room-services--title js-wrap-title">Услуги <?= renderIcon('shevron') ?></div>
+                    <div class="room-detail--room-services--title js-wrap-title">В номере <?= renderIcon('shevron') ?></div>
                     <div class="room-detail--room-services--content js-wrap-content">
                         <?= Rooms::getRoomServices($arProperties['ROOM_SERVICES']['VALUE']) ?>
                     </div>
@@ -101,7 +101,7 @@ if ($room):
 
             <?php if (!empty($arProperties['ACCOMODATIONS']['VALUE'])): ?>
                 <div class="room-detail--accomodations js-wrap">
-                    <div class="room-detail--accomodations--title js-wrap-title">Условия проживания <?= renderIcon('shevron') ?></div>
+                    <div class="room-detail--accomodations--title js-wrap-title">В стоимость входит <?= renderIcon('shevron') ?></div>
                     <div class="room-detail--accomodations--content js-wrap-content">
                         <?= htmlspecialcharsBack($arProperties['ACCOMODATIONS']['VALUE']['TEXT']) ?>
                     </div>

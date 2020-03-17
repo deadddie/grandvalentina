@@ -1,6 +1,7 @@
 <?php
 
 use LapkinLab\Core;
+use LapkinLab\Content\Menu;
 
 ?>
 <!--mobile menu-->
@@ -43,22 +44,7 @@ use LapkinLab\Core;
         <!--mobile menu menu-->
         <div class="mobile-menu--menu">
             <div class="mobile-menu--menu--wrapper col-12">
-                <?php $APPLICATION->IncludeComponent(
-                    'bitrix:menu',
-                    'top',
-                    array(
-                        'ALLOW_MULTI_SELECT'    => 'N',
-                        'CHILD_MENU_TYPE'       => 'top',
-                        'DELAY'                 => 'N',
-                        'MAX_LEVEL'             => 2,
-                        'MENU_CACHE_GET_VARS'   => array(''),
-                        'MENU_CACHE_TIME'       => 3600,
-                        'MENU_CACHE_TYPE'       => 'N',
-                        'MENU_CACHE_USE_GROUPS' => 'Y',
-                        'ROOT_MENU_TYPE'        => 'top',
-                        'USE_EXT'               => 'N',
-                    )
-                ); ?>
+                <?= Menu::getTopMenu() ?>
             </div>
         </div>
 
@@ -95,7 +81,7 @@ use LapkinLab\Core;
 
         <!--mobile menu footer-->
         <div class="mobile-menu--choose-room">
-            <button type="button" class="btn btn-wide">Подобрать номер</button>
+            <a href="/booking/" class="btn btn-wide">Подобрать номер</a>
             <button type="button" class="btn btn-wide btn-white js-open-modal" data-action="openModal" data-modal="callback">Обратный звонок</button>
         </div>
 

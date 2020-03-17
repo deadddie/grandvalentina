@@ -100,4 +100,52 @@ class Events
         }
         return view('events.list', $params, false);
     }
+
+    /**
+     * Меню мероприятий.
+     *
+     * @return array
+     */
+    public static function getMenu()
+    {
+        $events = $menu = [];
+        if (\CModule::IncludeModule('iblock')) {
+            $arOrder = array(
+                'SORT' => 'asc',
+            );
+            $arFilter = array(
+                'IBLOCK_ID' => self::EVENTS_IBLOCK_ID,
+                'ACTIVE' => 'Y',
+            );
+            $arGroupBy = false;
+            $arNavStartParams = false;
+            $arSelect = array(
+                'ID',
+                'NAME',
+                'CODE',
+                'IBLOCK_ID',
+                'DETAIL_PICTURE',
+                'DETAIL_TEXT',
+                'PREVIEW_PICTURE',
+                'PREVIEW_TEXT',
+                'ACTIVE',
+                'SORT',
+                'DETAIL_PAGE_URL',
+                'PROPERTY_*',
+                //'SHOW_COUNTER',
+            );
+            $events = \CIBlockElement::GetList($arOrder, $arFilter, $arGroupBy, $arNavStartParams, $arSelect);
+        }
+        while ($event = $events->GetNextelement()) {
+            $arFields = $event->GetFields();
+            $menu[] = array(
+                $arFields['NAME'],
+                $arFields['DETAIL_PAGE_URL'],
+                array(),
+                array(),
+                ''
+            );
+        }
+        return $menu;
+    }
 }

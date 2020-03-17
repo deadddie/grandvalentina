@@ -51,8 +51,4 @@ use LapkinLab\{Core, Helper, Content\Restaurants};
         <?php endwhile; ?>
     </div>
 
-<?php elseif ($mode === 'menu'): ?>
-
-
-
 <?php endif; ?>

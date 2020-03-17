@@ -475,7 +475,7 @@ font.tablebodytext {
     &.active {
       opacity: 1;
       visibility: visible;
-      z-index: 0;
+      z-index: 100;
     }
     &:after {
       content: "";
@@ -512,6 +512,9 @@ font.tablebodytext {
     }
     &:before {
       display: none;
+    }
+    &:hover {
+      color: var(--color-active);
     }
   }
 }

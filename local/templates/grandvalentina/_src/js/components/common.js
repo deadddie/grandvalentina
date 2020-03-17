@@ -44,6 +44,11 @@ let Common = {
                 }
             })
 
+            // Открытие/закрытие плавающего меню
+            .on('click', '.js-float-menu', () => {
+                $('.header--menu').toggleClass('active');
+            })
+
             // Показ переключателя языков
             .on('click', '.js-languages-switch', function () {
                 $(this).next('.languages-switcher').toggleClass('active');

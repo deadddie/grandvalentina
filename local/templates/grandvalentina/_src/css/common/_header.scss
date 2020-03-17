@@ -28,16 +28,17 @@
     position: absolute;
     top: 0;
     left: 100px;
-    height: 75px;
+    height: var(--navigation-height);
+    @media (min-width: map_get($grid-breakpoints, xl)) {
+      display: flex;
+      height: 75px;
+    }
     a {
       color: var(--color-black);
       @include text_font_b;
       &:hover {
         color: var(--color-active);
       }
-    }
-    @media (min-width: map_get($grid-breakpoints, xl)) {
-      display: flex;
     }
   }
 
@@ -47,76 +48,13 @@
     display: none;
     align-items: center;
     order: 5;
+    height: var(--navigation-height);
     button {
       font-size: var(--fontsize-small);
     }
     @media (min-width: map_get($grid-breakpoints, xl)) {
       display: flex;
-    }
-  }
-
-  // Menu for XL screens
-
-  &--menu {
-    display: none;
-    order: 10;
-    @media (min-width: map_get($grid-breakpoints, xl)) {
-      display: flex;
-      width: 100%;
-      flex-basis: 100%;
-      height: 75px; //var(--navigation-height);
-    }
-    .menu-top {
-      display: flex;
-      width: 100%;
-      flex-basis: 100%;
-      ul {
-        margin: 0;
-        width: 100%;
-        height: 100%;
-        padding: 0;
-        display: flex;
-        flex-basis: 100%;
-        align-items: center;
-        justify-content: space-between;
-        li {
-          margin: 0 var(--padding-base);
-          display: flex;
-          align-items: center;
-          height: 100%;
-          &:first-child {
-            margin-left: 0;
-          }
-          &:last-child {
-            margin-right: 0;
-          }
-          &:before {
-            display: none;
-          }
-          &.active {
-            &:before {
-              display: inline-block;
-            }
-          }
-          a {
-            color: var(--color-black);
-            @include head_font;
-            font-size: var(--fontsize-large);
-            height: 100%;
-            display: flex;
-            align-items: center;
-            &:hover {
-              color: var(--color-active-hover);
-            }
-            &.active {
-              color: var(--color-primary);
-            }
-            + ul {
-              display: none;
-            }
-          }
-        }
-      }
+      height: 75px;
     }
   }
 
@@ -124,8 +62,10 @@
 
   &--hamburger {
     order: 4;
+    height: var(--navigation-height);
     @media (min-width: map_get($grid-breakpoints, xl)) {
       display: none;
+      height: 75px;
     }
 
     &--float {
@@ -141,6 +81,7 @@
       }
       .icon {
         width: 20px;
+        color: var(--color-black);
       }
       @media (max-width: map_get($grid-breakpoints, lg)) {
         display: none !important;
@@ -198,14 +139,6 @@
         color: var(--color-active);
       }
     }
-
-    .languages-switcher {}
-    .languages-item {
-      &:hover {
-        color: var(--color-active);
-      }
-    }
-
   }
 
 }

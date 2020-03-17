@@ -98,28 +98,53 @@ class Restaurants
             $params['restaurants'] = \CIBlockElement::GetList($arOrder, $arFilter, $arGroupBy, $arNavStartParams, $arSelect);
             $params['mode'] = $mode;
         }
-        if ($mode === 'menu') {
-            return self::getMenu($params['restaurants']);
-        }
         return view('restaurants.list', $params, false);
     }
 
     /**
-     * @param $items
+     * Меню ресторанов.
      *
      * @return array
      */
-    protected static function getMenu($items)
+    public static function getMenu()
     {
-        $menu = [];
-        foreach ($items as $item) {
-            $menu[] = [
-                $item['NAME'],
-                $item['DETAIL_PAGE_URL'],
-                [],
-                [],
+        $restaurants = $menu = [];
+        if (\CModule::IncludeModule('iblock')) {
+            $arOrder = array(
+                'SORT' => 'asc',
+            );
+            $arFilter = array(
+                'IBLOCK_ID' => self::RESTAURANTS_IBLOCK_ID,
+                'ACTIVE' => 'Y',
+            );
+            $arGroupBy = false;
+            $arNavStartParams = false;
+            $arSelect = array(
+                'ID',
+                'NAME',
+                'CODE',
+                'IBLOCK_ID',
+                'DETAIL_PICTURE',
+                'DETAIL_TEXT',
+                'PREVIEW_PICTURE',
+                'PREVIEW_TEXT',
+                'ACTIVE',
+                'SORT',
+                'DETAIL_PAGE_URL',
+                'PROPERTY_*',
+                //'SHOW_COUNTER',
+            );
+            $restaurants = \CIBlockElement::GetList($arOrder, $arFilter, $arGroupBy, $arNavStartParams, $arSelect);
+        }
+        while ($restaurant = $restaurants->GetNextelement()) {
+            $arFields = $restaurant->GetFields();
+            $menu[] = array(
+                $arFields['NAME'],
+                $arFields['DETAIL_PAGE_URL'],
+                array(),
+                array(),
                 ''
-            ];
+            );
         }
         return $menu;
     }

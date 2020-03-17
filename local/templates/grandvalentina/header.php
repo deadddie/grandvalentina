@@ -3,6 +3,7 @@
 use Bitrix\Main\Page\Asset;
 use Bitrix\Main\Localization\Loc;
 use LapkinLab\Core;
+use LapkinLab\Content\Menu;
 
 
 if (!defined('B_PROLOG_INCLUDED') || B_PROLOG_INCLUDED !== true) {
@@ -104,22 +105,7 @@ $asset = Asset::getInstance();
                         </div>
 
                         <div class="header--menu">
-                            <?php $APPLICATION->IncludeComponent(
-                                'bitrix:menu',
-                                'top',
-                                array(
-                                    'ALLOW_MULTI_SELECT'    => 'N',
-                                    'CHILD_MENU_TYPE'       => 'top',
-                                    'DELAY'                 => 'N',
-                                    'MAX_LEVEL'             => 1,
-                                    'MENU_CACHE_GET_VARS'   => array(''),
-                                    'MENU_CACHE_TIME'       => 3600,
-                                    'MENU_CACHE_TYPE'       => 'N',
-                                    'MENU_CACHE_USE_GROUPS' => 'Y',
-                                    'ROOT_MENU_TYPE'        => 'top',
-                                    'USE_EXT'               => 'N',
-                                )
-                            ); ?>
+                            <?= Menu::getTopMenu() ?>
                         </div>
 
                     </div>
