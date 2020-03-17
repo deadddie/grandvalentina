@@ -14,7 +14,7 @@ const sourcemap = false;         // sourcemaps ON/OFF
 // nodejs modules
 const gulp = require('gulp'), // основной плагин gulp
     gulpif = require('gulp-if'), // conditionally control the flow of vinyl objects
-    imagemin = require('gulp-imagemin'), //минимизация изображений
+    image = require('gulp-image'), //минимизация изображений
     pug = require('gulp-pug'), // pug
     sass = require('gulp-sass'), // sass
     sourcemaps = require('gulp-sourcemaps'), // sourcemaps
@@ -120,11 +120,17 @@ const path = {
 // images
 function imagesBuild () {
     return gulp.src(path.src.images).
-        pipe(imagemin({
-            progressive: true,
-            interlaced: true,
-            optimizationLevel: 9,
-            //verbose: true,
+        pipe(image({
+            pngquant: true,
+            optipng: false,
+            zopflipng: true,
+            jpegRecompress: false,
+            mozjpeg: true,
+            guetzli: false,
+            gifsicle: true,
+            svgo: true,
+            concurrent: 10,
+            quiet: false,
         })).
         pipe(gulp.dest(path.build.images));
 }
