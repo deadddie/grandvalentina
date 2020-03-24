@@ -465,7 +465,6 @@ font.tablebodytext {
     z-index: -1;
     position: absolute;
     top: 100%;
-    width: 130px;
     padding: var(--padding-base) var(--padding-medium);
     background-color: var(--color-white);
     @include shadow-lg;
@@ -499,7 +498,7 @@ font.tablebodytext {
     background-size: 25px 17px;
     background-repeat: no-repeat;
     background-position: left center;
-    line-height: 30px;
+    line-height: 36px;
     cursor: pointer;
     &-ru {
       background-image: url("images/flag-ru.svg");
