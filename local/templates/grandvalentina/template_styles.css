@@ -4115,6 +4115,18 @@ body.index .index-content .index-contacts--email {
     z-index: 1;
 }
 
+.mobile-menu--header--lang {
+    order: 1;
+}
+
+.mobile-menu--header--logo {
+    order: 2;
+}
+
+.mobile-menu--header--close {
+    order: 3;
+}
+
 .mobile-menu-wrapper {
     flex-basis: 100%;
     width: 100%;
@@ -4231,6 +4243,10 @@ body.index .index-content .index-contacts--email {
 }
 
 .mobile-menu--phone--button .icon {
+    color: var(--color-white);
+}
+
+.mobile-menu--choose-room a {
     color: var(--color-white);
 }
 
@@ -4737,7 +4753,6 @@ font.tablebodytext {
     z-index: -1;
     position: absolute;
     top: 100%;
-    width: 130px;
     padding: var(--padding-base) var(--padding-medium);
     background-color: var(--color-white);
     box-shadow: 0 6px 26px rgba(0, 0, 0, 0.2);
@@ -4772,7 +4787,7 @@ font.tablebodytext {
     background-size: 25px 17px;
     background-repeat: no-repeat;
     background-position: left center;
-    line-height: 30px;
+    line-height: 36px;
     cursor: pointer;
 }
 
@@ -9714,8 +9729,13 @@ body.compensate-for-scrollbar {
     }
 
     .mobile-menu--choose-room {
-        padding-left: var(--padding-extra)10px;
-        padding-right: var(--padding-extra)10px;
+        padding-left: var(--padding-extra);
+        padding-right: var(--padding-extra);
+    }
+
+    .mobile-menu--choose-room a {
+        display: inline-flex;
+        width: auto;
     }
 
     .mobile-menu--choose-room button {

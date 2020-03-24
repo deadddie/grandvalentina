@@ -72,8 +72,12 @@ $asset = Asset::getInstance();
                     <div class="header--wrapper col-12">
 
                         <div class="header--lang">
-                            <div class="header--lang-current js-languages-switch">RU <?= renderIcon('romb') ?></div>
-                            <?= view('common.languages', [], false) ?>
+                            <div class="header--lang-current js-languages-switch">
+                                <?= LANGUAGE_ID ?> <?= renderIcon('romb') ?>
+                            </div>
+                            <div class="languages-switcher" id="languages-switcher">
+                                <?= view('common.languages', [], false) ?>
+                            </div>
                         </div>
 
                         <?php if (!empty(SITE_CONFIG['phone'])): ?>
@@ -84,7 +88,7 @@ $asset = Asset::getInstance();
 
                         <div class="header--hamburger--float js-float-menu">
                             <?= renderIcon('hamburger') ?>
-                            <div class="header--hamburger--float-text">меню</div>
+                            <div class="header--hamburger--float-text"><?= Loc::getMessage('menu') ?></div>
                         </div>
 
                         <div class="header--logo">
@@ -101,7 +105,7 @@ $asset = Asset::getInstance();
                         </div>
 
                         <div class="header--callback">
-                            <button type="button" class="btn btn-white js-open-modal" data-action="openModal" data-modal="callback">Обратный звонок</button>
+                            <button type="button" class="btn btn-white js-open-modal" data-action="openModal" data-modal="callback"><?= Loc::getMessage('Callback') ?></button>
                         </div>
 
                         <div class="header--menu">

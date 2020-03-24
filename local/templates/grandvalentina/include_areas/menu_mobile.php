@@ -12,8 +12,12 @@ use LapkinLab\Content\Menu;
         <div class="mobile-menu--header--wrapper col-12">
 
             <div class="mobile-menu--header--lang">
-                <div class="mobile-menu--header--lang-current js-languages-switch">RU <?= renderIcon('romb') ?></div>
-                <?= view('common.languages', [], false) ?>
+                <div class="mobile-menu--header--lang-current js-languages-switch">
+                    <?= LANGUAGE_ID ?> <?= renderIcon('romb') ?>
+                </div>
+                <div class="languages-switcher" id="languages-switcher">
+                    <?= view('common.languages', [], false) ?>
+                </div>
             </div>
 
             <div class="mobile-menu--header--logo">

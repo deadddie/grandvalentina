@@ -25,6 +25,11 @@ $application->initializeExtendedKernel(array(
 //define global application object
 $GLOBALS["APPLICATION"] = new CMain;
 
+### set SITE_ID from cookies
+$site_id = (isset($_COOKIE['GHV_LANG']) && $_COOKIE['GHV_LANG'] === 'en') ? 's2' : 's1';
+define('SITE_ID', $site_id);
+###
+
 if(defined("SITE_ID"))
 	define("LANG", SITE_ID);
 

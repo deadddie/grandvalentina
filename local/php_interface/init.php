@@ -8,7 +8,8 @@ use LapkinLab\{Core, View};
 define('ROOT', $_SERVER['DOCUMENT_ROOT']);
 define('ERROR_500', '500 Internal Server Error');
 
-define('SITE_CONFIG', Configuration::getInstance()->get('site'));
+define('LANG_PREFIX', (LANGUAGE_ID === 'en') ? '_EN' : '');
+define('SITE_CONFIG', Configuration::getInstance()->get('site' . strtolower(LANG_PREFIX)));
 
 define('ROOMS_IBLOCK_ID', 1);
 define('SERVICES_IBLOCK_ID', 2);
@@ -54,5 +55,5 @@ EventManager::getInstance()->addEventHandlerCompatible('main', 'OnEpilog', array
 EventManager::getInstance()->addEventHandlerCompatible('main', 'OnEpilog', array(Core::class, 'сheck404Error'), 1);
 
 EventManager::getInstance()->addEventHandlerCompatible('main', 'OnEndBufferContent', array(Core::class, 'deleteKernelCss')); // Убрать css
-EventManager::getInstance()->addEventHandlerCompatible('main', 'OnEndBufferContent', array(Core::class, 'minifyHtml')); // Сжать html
+//EventManager::getInstance()->addEventHandlerCompatible('main', 'OnEndBufferContent', array(Core::class, 'minifyHtml')); // Сжать html
 //EventManager::getInstance()->addEventHandlerCompatible('main', 'onEndBufferContent', array(Core::class, 'deleteKernelJs')); // Убрать js

@@ -28,7 +28,6 @@ class Ajax
      * @param $params
      *
      * @return false|string|null
-     * @throws \Bitrix\Main\SystemException
      */
     public static function openModal($params)
     {
@@ -62,6 +61,24 @@ class Ajax
         $form->createIBlockElement();
         $mail = $form->sendEmail($to);
         return self::setCode($response, $mail ? 200 : 500);
+    }
+
+    ### ЛОКАЛИЗАЦИЯ
+
+    /**
+     * Переключение языка
+     *
+     * @param $params
+     *
+     * @return false|string
+     */
+    public static function switchLanguage($params)
+    {
+        $language = $params['lang'];
+        setcookie('GHV_LANG', $language, time()+60*60*24*30, '/');
+        return json_encode([
+            'errors' => false,
+        ]);
     }
 
 }
