@@ -17,8 +17,10 @@ let Modals = {
     init() {
         let self = this;
 
+        $(document)
+
         // Открытие модалки
-        $(document).on('click', '.js-open-modal', (e) => {
+        .on('click', '.js-open-modal', (e) => {
             e.preventDefault();
             //let metrikaTarget = $(e.currentTarget).data('metrika-target');
             let modalId = $(e.currentTarget).data('modal');
@@ -37,10 +39,10 @@ let Modals = {
                     }
                 })
                 .fail(error => console.error(error));
-        });
+        })
 
         // Отправка формы
-        $(document).on('click', '.js-send-form', (e) => {
+        .on('click', '.js-send-form', (e) => {
             e.preventDefault();
             Form.clearErrors();
             let form = $($(e.currentTarget)[0].form);
@@ -82,7 +84,26 @@ let Modals = {
                     }
                 })
                 .fail(error => console.error(error));
-        });
+        })
+
+        // Переключение языка
+        .on('click', '.js-language', (e) => {
+            e.preventDefault();
+            let lang = $(e.currentTarget).data('lang');
+            let options = this.prepareAjaxOptions();
+            options.data = {
+                action: 'switchLanguage',
+                lang: lang,
+            };
+            $.ajax(options)
+                .done((response) => {
+                    if (!response.errors) {
+                        location.reload();
+                    }
+                })
+                .fail(error => console.error(error));
+        })
+        ;
     },
 
     /**

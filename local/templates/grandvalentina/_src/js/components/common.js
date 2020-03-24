@@ -13,8 +13,9 @@ let Common = {
     init() {
         let self = this;
 
-        // Прокрутка страницы по хешу
         $(document)
+
+            // Прокрутка страницы по хешу
             .on('click', 'a[href^="#top"]', (e) => {
                 let id = $(e.target).attr('href');
                 let $id = $(id);
@@ -39,7 +40,8 @@ let Common = {
             .on('mouseup', (e) => {
                 let div = $('.mobile-menu');
                 if (!div.is(e.target) && div.has(e.target).length === 0) {
-                    $(div + ', .header--close-menu').removeClass('active');
+                    $(div).removeClass('active');
+                    $('.header--close-menu').removeClass('active');
                     $('body, #top').removeClass('mobile-menu-open');
                 }
             })
