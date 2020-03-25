@@ -26,13 +26,13 @@ Loc::loadLanguageFile(__FILE__);
                     </div>
                 </div>
                 <div class="footer--rooms">
-                    <div class="footer--rooms--title">Номера</div>
+                    <div class="footer--rooms--title"><?= Loc::getMessage('Rooms') ?></div>
                     <div class="footer--rooms--items">
                         <?= Rooms::getList('list') ?>
                     </div>
                 </div>
                 <div class="footer--menu">
-                    <div class="footer--menu--title">Меню</div>
+                    <div class="footer--menu--title"><?= Loc::getMessage('Menu') ?></div>
                     <div class="footer--menu--items">
                         <?= Menu::getTopMenu(false) ?>
                     </div>
@@ -62,7 +62,7 @@ Loc::loadLanguageFile(__FILE__);
             </div>
             <div class="col-12">
                 <div class="footer--copyrights">
-                    &copy; <?= Core::autoCopyright(SITE_CONFIG['since']) ?> Официальный сайт <?= SITE_CONFIG['name_short'] ?>
+                    &copy; <?= Core::autoCopyright(SITE_CONFIG['since']) ?> <?= Loc::getMessage('Official website') ?> <?= SITE_CONFIG['name_short'] ?>
                 </div>
             </div>
         </div>

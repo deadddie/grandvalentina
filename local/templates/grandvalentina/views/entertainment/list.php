@@ -6,11 +6,12 @@
  */
 
 use LapkinLab\{Core, Helper, Content\Entertainment};
+use Bitrix\Main\Localization\Loc;
 
 ?>
 
 <?php if ($entertainments->result->num_rows === 0): ?>
-    <div class="empty-content">Пусто...</div>
+    <div class="empty-content"><?= Loc::getMessage('Empty') ?></div>
 <?php endif; ?>
 
 <?php if ($mode === 'list'): ?>
@@ -39,7 +40,7 @@ use LapkinLab\{Core, Helper, Content\Entertainment};
                         </h2>
                     </div>
                     <div class="entertainment-item--actions">
-                        <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>" class="btn btn-white">Подробнее</a>
+                        <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>" class="btn btn-white"><?= Loc::getMessage('Read more') ?></a>
                     </div>
                 </div>
             </div>

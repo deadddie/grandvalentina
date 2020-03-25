@@ -5,6 +5,7 @@
  */
 
 use LapkinLab\{Core, Helper, Content\Entertainment};
+use Bitrix\Main\Localization\Loc;
 
 require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/include/prolog_before.php');
 
@@ -13,7 +14,7 @@ if ($entertainment):
     $arProperties = $entertainment->GetProperties();
 
     $APPLICATION->SetTitle($arFields['NAME']);
-    $APPLICATION->AddChainItem('Развлечения', '/entertainment/');
+    $APPLICATION->AddChainItem(Loc::getMessage('Entertainments'), '/entertainment/');
 
     ?>
     <h1 class="page-title"><?= $arFields['NAME'] ?></h1>

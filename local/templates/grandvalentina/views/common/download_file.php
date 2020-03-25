@@ -6,5 +6,7 @@
  * @var string $button_name
  */
 
+use Bitrix\Main\Localization\Loc;
+
 ?>
-<a href="/upload/<?= $file['SUBDIR'] . '/' . $file['FILE_NAME'] ?>"<?= !empty($download) ? ' download=' . $download : '' ?> class="btn btn-gold" target="_blank">Скачать<?= !empty($button_name) ? ' ' . $button_name : '' ?></a>
+<a href="/upload/<?= $file['SUBDIR'] . '/' . $file['FILE_NAME'] ?>"<?= !empty($download) ? ' download=' . $download : '' ?> class="btn btn-gold" target="_blank"><?= Loc::getMessage('Download') ?><?= !empty($button_name) ? ' ' . $button_name : '' ?></a>

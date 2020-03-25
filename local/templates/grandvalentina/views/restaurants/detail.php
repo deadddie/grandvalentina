@@ -5,6 +5,7 @@
  */
 
 use LapkinLab\{Core, Helper, Content\Restaurants};
+use Bitrix\Main\Localization\Loc;
 
 require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/include/prolog_before.php');
 

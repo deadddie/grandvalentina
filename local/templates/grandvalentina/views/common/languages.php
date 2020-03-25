@@ -4,22 +4,24 @@
  * @var array $languages
  */
 
+use Bitrix\Main\Localization\Loc;
+
 $languages = [
     'ru' => [
-        'name' => 'Русский',
-        'active' => true,
+        'name' => Loc::getMessage('Russian'),
+        'active' => LANGUAGE_ID === 'ru',
     ],
     'en' => [
         'name' => 'English',
-        'active' => false,
+        'active' => LANGUAGE_ID === 'en',
     ],
 ];
 
 ?>
-<div class="languages-switcher">
-    <ul class="languages-list">
-        <?php foreach ($languages as $l => $language): ?>
-            <li class="languages-item languages-item-<?= $l ?><?= $language['active'] ? ' active' : '' ?> js-languages-set" data-lang="<?= $l ?>"><?= $language['name'] ?></li>
-        <?php endforeach; ?>
-    </ul>
-</div>
+<ul class="languages-list">
+    <?php foreach ($languages as $l => $language): ?>
+        <li class="languages-item languages-item-<?= $l ?><?= $language['active'] ? ' active' : '' ?> js-language" data-lang="<?= $l ?>">
+            <?= $language['name'] ?>
+        </li>
+    <?php endforeach; ?>
+</ul>

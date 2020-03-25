@@ -5,6 +5,7 @@
  */
 
 use LapkinLab\{Core, Helper, Content\Blog};
+use Bitrix\Main\Localization\Loc;
 
 require($_SERVER['DOCUMENT_ROOT'] . '/bitrix/modules/main/include/prolog_before.php');
 
@@ -13,7 +14,7 @@ if ($blog):
     $arProperties = $blog->GetProperties();
 
     $APPLICATION->SetTitle($arFields['NAME']);
-    $APPLICATION->AddChainItem('Блог', '/blog/');
+    $APPLICATION->AddChainItem(Loc::getMessage('Blog'), '/blog/');
 
     ?>
     <h1 class="page-title"><?= $arFields['NAME'] ?></h1>

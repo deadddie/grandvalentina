@@ -6,11 +6,12 @@
  */
 
 use LapkinLab\{Core, Helper, Content\Blog};
+use Bitrix\Main\Localization\Loc;
 
 ?>
 
 <?php if ($blogs->result->num_rows === 0): ?>
-    <div class="empty-content">Пусто...</div>
+    <div class="empty-content"><?= Loc::getMessage('Empty') ?></div>
 <?php endif; ?>
 
 <?php if ($mode === 'list'): ?>
@@ -39,7 +40,7 @@ use LapkinLab\{Core, Helper, Content\Blog};
                         </h2>
                     </div>
                     <div class="blog-item--actions">
-                        <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>">Читать статью</a>
+                        <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>"><?= Loc::getMessage('Read article') ?></a>
                     </div>
                 </div>
             </div>

@@ -6,18 +6,24 @@
  */
 
 use LapkinLab\{Core, Helper, Content\Restaurants};
+use Bitrix\Main\Localization\Loc;
 
 ?>
 
 <?php if ($restaurants->result->num_rows === 0): ?>
-    <div class="empty-content">Пусто...</div>
+    <div class="empty-content"><?= Loc::getMessage('Empty') ?></div>
 <?php endif; ?>
 
 <?php if ($mode === 'list'): ?>
     <ul>
         <?php while ($restaurant = $restaurants->GetNextElement()): ?>
             <?php $arFields = $restaurant->GetFields(); ?>
-            <li><a href="<?= $arFields['DETAIL_PAGE_URL'] ?>" data-id="<?= $arFields['ID'] ?>"><?= $arFields['NAME'] ?></a></li>
+            <?php $arProperties = $restaurant->GetProperties(); ?>
+            <li>
+                <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>" data-id="<?= $arFields['ID'] ?>">
+                    <?= (LANGUAGE_ID === 'ru') ? $arFields['NAME'] : $arProperties['NAME' . LANG_PREFIX]['VALUE'] ?>
+                </a>
+            </li>
         <?php endwhile; ?>
     </ul>
 

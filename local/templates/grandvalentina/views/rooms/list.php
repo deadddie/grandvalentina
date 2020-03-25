@@ -6,19 +6,24 @@
  */
 
 use LapkinLab\{Helper, Content\Rooms};
+use Bitrix\Main\Localization\Loc;
 
 ?>
 
 <?php if ($events->result->num_rows === 0): ?>
-    <div class="empty-content">Пусто...</div>
+    <div class="empty-content"><?= Loc::getMessage('Empty') ?></div>
 <?php endif; ?>
 
 <?php if ($mode === 'list'): ?>
     <ul>
         <?php while ($room = $rooms->GetNextElement()): ?>
             <?php $arFields = $room->GetFields(); ?>
-            <li><a href="<?= $arFields['DETAIL_PAGE_URL'] ?>"
-                   data-id="<?= $arFields['ID'] ?>"><?= $arFields['NAME'] ?></a></li>
+            <?php $arProperties = $room->GetProperties(); ?>
+            <li>
+                <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>" data-id="<?= $arFields['ID'] ?>">
+                    <?= (LANGUAGE_ID === 'ru') ? $arFields['NAME'] : $arProperties['NAME' . LANG_PREFIX]['VALUE'] ?>
+                </a>
+            </li>
         <?php endwhile; ?>
     </ul>
 
@@ -27,7 +32,7 @@ use LapkinLab\{Helper, Content\Rooms};
         <section class="room-block">
         <div class="room-block--wrapper">
             <div class="room-title">
-                <h2>Номера</h2>
+                <h2><?= Loc::getMessage('Rooms') ?></h2>
                 <div class="delimiter"><?= renderIcon('delimiter') ?></div>
             </div>
     <?php endif; ?>
@@ -39,16 +44,20 @@ use LapkinLab\{Helper, Content\Rooms};
             <div id="room-item-<?= $arFields['ID'] ?>" class="room-item" data-id="<?= $arFields['ID'] ?>">
                 <div class="room-item--image">
                     <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>">
-                        <?= Rooms::getPreviewImage($arFields['PREVIEW_PICTURE'], $arFields['NAME'], 'img-fluid') ?>
+                        <?= Rooms::getPreviewImage($arFields['PREVIEW_PICTURE'], (LANGUAGE_ID === 'ru') ? $arFields['NAME'] : $arProperties['NAME' . LANG_PREFIX]['VALUE'], 'img-fluid') ?>
                     </a>
                 </div>
                 <div class="room-item--content">
                     <div class="room-item--name">
                         <h2>
-                            <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>"><?= $arFields['NAME'] ?></a>
+                            <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>">
+                                <?= (LANGUAGE_ID === 'ru') ? $arFields['NAME'] : $arProperties['NAME' . LANG_PREFIX]['VALUE'] ?>
+                            </a>
                         </h2>
                     </div>
-                    <div class="room-item--description"><?= Helper::mbCutString($arFields['PREVIEW_TEXT']) ?></div>
+                    <div class="room-item--description">
+                        <?= Helper::mbCutString((LANGUAGE_ID === 'ru') ? $arFields['PREVIEW_TEXT'] : $arProperties['PREVIEW_TEXT' . LANG_PREFIX]['VALUE']) ?>
+                    </div>
                     <div class="room-item--info">
                         <?php if (!empty($arProperties['CAPACITY']['VALUE'])): ?>
                             <div class="room-item--info--customers">
@@ -68,12 +77,12 @@ use LapkinLab\{Helper, Content\Rooms};
                         <div class="room-item--info--room">
                             <?php $number = ($arProperties['NUMBER']['VALUE'] > 0) ? $arProperties['NUMBER']['VALUE'] : 1; ?>
                             <?= $number . '&nbsp;' . Helper::getWordForms('number', $number) ?>,
-                            <?= $arProperties['SQUARE']['VALUE'] ?> кв.м.
+                            <?= $arProperties['SQUARE']['VALUE'] ?> <?= Loc::getMessage('square meters') ?>
                         </div>
                     </div>
                     <div class="room-item--actions">
-                        <a href="<?= $booking_link ?>" class="btn btn-white">Забронировать</a>
-                        <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>" class="btn btn-link">Подробнее</a>
+                        <a href="<?= $booking_link ?>" class="btn btn-white"><?= Loc::getMessage('Booking room') ?></a>
+                        <a href="<?= $arFields['DETAIL_PAGE_URL'] ?>" class="btn btn-link"><?= Loc::getMessage('More details') ?></a>
                     </div>
                     <div class="room-item--stickers">
                         <?php if (!empty($arProperties['HIT']) && $arProperties['HIT']['VALUE'] === 'Y'): ?>
@@ -89,7 +98,7 @@ use LapkinLab\{Helper, Content\Rooms};
                 <?= view('common.slider_navigation_block', ['type' => 'room'], false) ?>
             </div>
             <div class="room-all">
-                <a href="/rooms/">Cмотреть все номера</a>
+                <a href="/rooms/"><?= Loc::getMessage('Show all rooms') ?></a>
             </div>
         </div>
         </section>

@@ -31,7 +31,7 @@ class Helper
         switch ($word) {
 
             case 'number':
-                $forms = ['комната', 'комнаты', 'комнат'];
+                $forms = (LANGUAGE_ID === 'ru') ? ['комната', 'комнаты', 'комнат'] : ['apartment', 'apartments', 'apartments'];
                 break;
 
             default:
